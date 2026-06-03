@@ -56,7 +56,7 @@ function defualtSet() {
         turEnergyAuto:false,
         turEnergyOriginAuto:false,
     }
-    turEnergy = new Decimal("1.8e308");
+    turEnergy = new Decimal(0);
     turEnergyLevel = new Decimal(1);
     TotalClicks = new Decimal(0);
     EfficientClickLevel = new Decimal(0);
@@ -84,8 +84,8 @@ function defualtSet() {
     increamentalSimulationLevel = new Decimal(0);
     maxLevelup = new Decimal(20000000);
     maxturEnergy = new Decimal("1.80e308");
-    simulationData = new Decimal(20000);
-    simulatedTimes = new Decimal(200);
+    simulationData = new Decimal(0);
+    simulatedTimes = new Decimal(0);
     SimulationMachineFold = false;
     SimulationMachineBtye = new Decimal(0);
     SimulationMachineBtyeUsed = new Decimal(0);
