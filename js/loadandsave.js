@@ -371,18 +371,22 @@ function loadGame() {
 
 // 删除存档 输入:delete
 const deleteCode = ['d', 'e', 'l', 'e', 't', 'e'];
-let currentIndex = 0;
+const saveCode = ['s','a','v','e'];
+const loadCode = ['l','o','a','d'];
+let deletecurrentIndex = 0;
+let savecurrentIndex = 0;
+let loadcurrentIndex = 0;
 
 document.addEventListener('keydown', function(event) {
     // 获取按下的字符（这行代码会将所有大小写识别为小写）
     let pressedKey = event.key.toLowerCase();
     
     // 检查是否匹配序列中的下一个字符
-    if (pressedKey === deleteCode[currentIndex]) {
-        currentIndex++;
+    if (pressedKey === deleteCode[deletecurrentIndex]) {
+        deletecurrentIndex++;
         
         // 完全匹配成功
-        if (currentIndex === deleteCode.length) {
+        if (deletecurrentIndex === deleteCode.length) {
             if (confirm(`你输入了delete，确定要删除存档吗`)) {
                 defualtSet();
                 saveGame();
@@ -394,10 +398,49 @@ document.addEventListener('keydown', function(event) {
             }
             
             // 重置索引，允许再次触发
-            currentIndex = 0;
+            deletecurrentIndex = 0;
         }
     } else {
         // 输入错误，重置匹配进度
-        currentIndex = 0;
+        deletecurrentIndex = 0;
+    }
+
+    // 导出存档用save
+    if (pressedKey === saveCode[savecurrentIndex]) {
+        savecurrentIndex++;
+        
+        // 完全匹配成功
+        if (savecurrentIndex === saveCode.length) {
+            const saveData = localStorage.getItem("TurtleIncreamental");
+            navigator.clipboard.writeText(saveData);
+            alert(`存档已导出到剪贴板`);
+            
+            // 重置索引，允许再次触发
+            savecurrentIndex = 0;
+        }
+    } else {
+        // 输入错误，重置匹配进度
+        savecurrentIndex = 0;
+    }
+
+    // 输入存档用load
+    if (pressedKey === loadCode[loadcurrentIndex]) {
+        loadcurrentIndex++;
+        
+        // 完全匹配成功
+        if (loadcurrentIndex === loadCode.length) {
+            const saveText = prompt("你输入了load，请粘贴存档内容：");
+            if (saveText) {
+                localStorage.setItem("TurtleIncreamental", saveText);
+                alert("存档导入成功");
+                location.reload();
+            }
+            
+            // 重置索引，允许再次触发
+            loadcurrentIndex = 0;
+        }
+    } else {
+        // 输入错误，重置匹配进度
+        loadcurrentIndex = 0;
     }
 });
