@@ -1,0 +1,150 @@
+#turEnergy-LevelUp-btn {
+    font-size: 14px;
+    width: 240px;
+    padding: 12px 36px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    /*transition: all 0.3s;变化的时间，all代表所有变化，我认为不需要*/
+}
+
+#turEnergyOrigin-Amass-btn {
+    font-size: 14px;
+    width: 240px;
+    padding: 12px 36px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #76c75f; /* 绿色 - 可购买 */
+    border-color: #2e4510;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+/* 按钮悬停效果 */
+.btn:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing) {
+    background-color: #61a44e !important;
+    /*transform: scale(1.05);我认为不需要的部分*/
+}
+/* 禁用状态按钮样式 */
+.btn:disabled {
+    background-color: #315329 !important;
+    color: #ff4740 !important;
+    cursor: not-allowed !important;
+    /*opacity: 0.7;透明度，我认为不必*/
+}
+
+.btn-simulation {
+    background-color: #6ca5b3;
+    border-color: #124957;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-simulation:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing) {
+    background-color: #47899a !important;
+    /*transform: scale(1.05);我认为不需要的部分*/
+}
+.btn-simulation:disabled {
+    background-color: #30565f !important;
+    color: #ff4740 !important;
+    cursor: not-allowed !important;
+    /*opacity: 0.7;透明度，我认为不必*/
+}
+
+.btn-simulation-once {
+    background-color: #30565f;
+    border-color: #124957;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-simulation-once:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing) {
+    background-color: #1b6c80 !important;
+    /*transform: scale(1.05);我认为不需要的部分*/
+}
+.btn-simulation-once:disabled {
+    background-color: #6ca5b3 !important;
+    cursor: not-allowed !important;
+    /*opacity: 0.7;透明度，我认为不必*/
+}
+
+.btn-reset {
+    background-color: #a1c75f;
+    border-color: #ff4740;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-reset:hover:not(:disabled):not(.tap-be-chosen) {
+    background-color: #89a950 !important;
+}
+.btn-reset:disabled {
+    background-color: #50642f !important;
+    color: #ff4740 !important;
+    cursor: not-allowed !important;
+}
+
+.btn-challenge {
+    background-color: #76c75f;
+    border-color: #2e4510;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 140px;
+}
+.btn-challenge:hover:not(.btn-challenge-doing):not(:disabled) {
+    background-color: #61a44e !important;
+}
+.btn-challenge-doing {
+    background-color: #000 !important;
+}
+.btn-challenge-doing:hover {
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+.btn-experiment-doing {
+    background-color: #000 !important;
+}
+.btn-experiment-doing:hover {
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+.btn-challenge:disabled {
+    background-color: #315329 !important;
+    cursor: not-allowed !important;
+    font-weight: bold;
+}
+
+.btn-simulation-challenge {
+    background-color: #6ca5b3;
+    border-color: #30565f;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 140px;
+}
+.btn-simulation-challenge:hover:not(.btn-challenge-doing):not(:disabled) {
+    background-color: #1b6c80 !important;
+}
+.btn-simulation-challenge-doing {
+    background-color: #000 !important;
+}
+.btn-simulation-challenge-doing:hover {
+    background-color: #ffffff !important;
+    color: #000 !important;
+}
+.btn-simulation-challenge:disabled {
+    background-color: #457a86 !important;
+    cursor: not-allowed !important;
+    font-weight: bold;
+}

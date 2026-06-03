@@ -1,0 +1,94 @@
+* {
+-webkit-touch-callout: none; /* 禁止iOS长按菜单 */
+-webkit-user-select: none;   /* Safari, Chrome */
+-moz-user-select: none;      /* Firefox */
+-ms-user-select: none;       /* IE10+, Edge */
+user-select: none;           /* Standard */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #a3e590;
+}
+
+h1 {
+    font-size: 15px;
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333;
+    z-index: 1000;
+}
+
+.turEnergy {
+    color: #a3f136;
+    text-shadow: 
+        -1px -1px 0 #2e4510,
+        1px -1px 0 #2e4510,
+        -1px 1px 0 #2e4510,
+        1px 1px 0 #2e4510,
+        0 0 8px #2e4510;
+}
+
+.Origin {
+    color: #72d132;
+    text-shadow: 
+        -1px -1px 0 #2e4510,
+        1px -1px 0 #2e4510,
+        -1px 1px 0 #2e4510,
+        1px 1px 0 #2e4510,
+        0 0 8px #2e4510,0 0 8px #2e4510,0 0 12px #2e4510,0 0 15px #2e4510;
+}
+
+.BasicEnergy {
+    color: #f1c536;
+    text-shadow: 
+        -1px -1px 0 #5b4a14,
+        1px -1px 0 #5b4a14,
+        -1px 1px 0 #5b4a14,
+        1px 1px 0 #5b4a14,
+        0 0 8px #5b4a14;
+}
+
+.simulation {
+    color: #48c8e8;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 #215d6c,
+        1px -1px 0 #215d6c,
+        -1px 1px 0 #215d6c,
+        1px 1px 0 #215d6c,
+        0 0 20px #215d6c;
+}
+
+.important {
+    color: #ff3838;
+    text-shadow: 
+        -1px -1px 0 #771b1b,
+        1px -1px 0 #771b1b,
+        -1px 1px 0 #771b1b,
+        1px 1px 0 #771b1b,
+        0 0 8px #771b1b;
+}
+
+.level {
+    color: #363636;
+    font-weight: bold;
+}
+
+.intro {
+    font-size: 25px;
+    width: 800px;
+    color: #000;
+    position: absolute;
+    left: 2%;
+    text-align: left;
+}
+
+.secondary-title {
+    font-size: 14px;
+    color: #808080;
+}

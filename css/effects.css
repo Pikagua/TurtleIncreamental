@@ -1,0 +1,61 @@
+.upgrades-scroll-box {
+    position: absolute;
+    top: 33.5%; /* 刚好在 taps 下面一点 */
+    max-height: 55%; /* 刚好在 h1 上面一点 */
+    left: 50%;
+    transform: translateX(-50%); /* 水平居中 */
+
+    /* 核心滚动设置 */
+    width: 100%; /* 宽度自适应，留点边距 */
+    max-width: 8000px; /* 最大宽度，防止太宽 */
+    height: 60vh; /* 高度设为视窗高度的55%，这样下面还有空间 */
+    overflow-y: auto; /* 垂直方向超出就显示滚动条 */
+    overflow-x: hidden; 
+
+    /* 布局微调，让里面的东西排版更好看 */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    /* gap: 15px;  每个升级项之间的间距 */
+    /* padding-bottom: 20px; 底部留点空，不贴边 */
+}
+
+.upgrades-scroll-box::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* 黑屏特效 */
+#blackOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    pointer-events: none;  /* 让点击穿透 */
+    transition: opacity 1s ease;
+    z-index: 2000;
+}
+
+#blackOverlay.active {
+    opacity: 1;
+    pointer-events: auto;  /* 变黑后阻挡点击 */
+}
+
+#Tellingtext {
+    position: absolute;
+    color: #ffffff;
+    font-size: 35px;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%,-50%);
+    transition: opacity 1s ease;
+    pointer-events: none;  /* 让点击穿透 */
+}
+
+#Tellingtext.active {
+    opacity: 1;
+}

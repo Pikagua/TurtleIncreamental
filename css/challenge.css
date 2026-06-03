@@ -1,0 +1,153 @@
+.challengeTitle {
+    display: block;
+    text-align: left;
+}
+
+.challenge {
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 260px;
+    height: 240px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    font-size: 16px;
+}
+.turEnergyTierChallenge {
+    border: 8px solid #315329;  /* 简写属性，一次性设置 */
+}
+.turEnergyOriginChallenge {
+    border: 8px solid #72d132;
+}
+.SimulationExperiment {
+    border: 8px solid #1b6c80;
+}
+
+#finish-giveup-challenge {
+    font-size: 16px;
+    position: absolute;
+    left: 94%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}
+#finish-giveup-experiment {
+    font-size: 16px;
+    position: absolute;
+    left: 94%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}
+
+#turEnergyTierChallenge1 {
+    left: 40%;
+    top: 10px;
+}
+#turEnergyTierChallenge2 {
+    left: 60%;
+    top: 10px;
+}
+#turEnergyTierChallenge3 {
+    left: 80%;
+    top: 10px;
+}
+#turEnergyTierChallenge4 {
+    left: 40%;
+    top: 290px;
+}
+#turEnergyTierChallenge5 {
+    left: 60%;
+    top: 290px;
+}
+#turEnergyTierChallenge6 {
+    left: 80%;
+    top: 290px;
+}
+#turEnergyOriginChallenge1 {
+    left: 40%;
+    top: 570px;
+}
+#turEnergyOriginChallenge2 {
+    left: 60%;
+    top: 570px;
+}
+#turEnergyOriginChallenge3 {
+    left: 80%;
+    top: 570px;
+}
+#turEnergyOriginChallenge4 {
+    left: 40%;
+    top: 850px;
+}
+#turEnergyOriginChallenge5 {
+    left: 60%;
+    top: 850px;
+}
+#turEnergyOriginChallenge6 {
+    left: 80%;
+    top: 850px;
+}
+#SimulationExperiment1 {
+    left: 40%;
+    top: 50px;
+}
+#SimulationExperiment2 {
+    left: 60%;
+    top: 50px;
+}
+#SimulationExperiment3 {
+    left: 80%;
+    top: 50px;
+}
+#SimulationExperiment4 {
+    left: 40%;
+    top: 330px;
+}
+#SimulationExperiment5 {
+    left: 60%;
+    top: 330px;
+}
+
+/* 进度条容器 */
+.progress-container {
+    width: 1500px;
+    height: 16px;
+    background: #315329;  /* 背景色 */
+    border-radius: 10px;
+    overflow: hidden;  /* 重要：隐藏超出部分 */
+    border: 5px solid #315329;
+    margin: 10px 0;
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    transform: translateX(-50%);
+}
+#experiment-Progress-container {
+    background: #457a86;
+    border: 5px solid #457a86;
+}
+
+/* 进度条填充部分 */
+.progress-fill {
+    height: 100%;
+    background: #76c75f;
+    border-radius: 8px;
+    position: absolute;
+}
+#experiment-Progress-fill {
+    background: #6ca5b3;
+}
+
+/* 进度文本 */
+.progress-text {
+    font-size: 16px;
+    color: #ffffff;
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    left: 50%;
+    top: 0px;
+    transform: translate(-50%, -20%);
+}

@@ -1,0 +1,172 @@
+#turEnergyLevelup-BuyMaxbtn {
+    position: absolute;
+    top: 40px;
+    left: 35%;
+}
+
+.autoClicker {
+    position: absolute;
+    top: 130px;
+}
+
+.EfficientClick {
+    position: absolute;
+    top: 210px;
+}
+
+.HighspeedClicking {
+    position: absolute;
+    top: 290px;
+}
+
+.turEnergyTier {
+    position: absolute;
+    top: 370px;
+}
+
+.TierEnhance {
+    position: absolute;
+    top: 450px;
+}
+
+.OriginAmassFasten {
+    position: absolute;
+    top: 130px;
+}
+
+.OriginProduceEnergy {
+    position: absolute;
+    top: 210px;
+}
+
+.ClickOrigin {
+    position: absolute;
+    top: 290px;
+}
+
+.TierOrigin {
+    position: absolute;
+    top: 370px;
+}
+
+.OriginEnhance {
+    position: absolute;
+    top: 450px;
+}
+
+.increamentalSimulation {
+    position: absolute;
+    top: 760px;
+}
+
+.firstSimulationRoom {
+    position: absolute;
+    top: 120px;
+}
+
+.title-of-leveluper {
+    font-size: 25px;
+    width: 200px;
+    color: #000;
+    position: absolute;
+    left: 2%;
+    text-align: left;
+}
+
+.level-of-leveluper {
+    font-size: 18px;
+    width: 200px;
+    color: #000;
+    position: absolute;
+    left: 2%;
+    text-align: left;
+    transform: translateY(40px);
+}
+
+.Amount-of-leveluper {
+    font-size: 18px;
+    width: 200px;
+    color: #000;
+    position: absolute;
+    left: 12%;
+    text-align: left;
+    transform: translateY(40px);
+}
+
+.effectdisplay-of-leveluper {
+    font-size: 16px;
+    width: 2000px;
+    color: #000;
+    position: absolute;
+    left: 40%;
+    transform: translateY(10px);
+    text-align: left;
+}
+
+.button-of-leveluper {
+    font-size: 14px;
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    left: 80%;
+    padding: 12px 0px;
+    transform: translateY(10px);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-of-BuyMax-leveluper {
+    font-size: 14px;
+    width: 80px;
+    height: 60px;
+    position: absolute;
+    left: 94%;
+    padding: 0px 0px;
+    transform: translateY(10px);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.effectdisplay {
+    font-size: 14px;
+    color: #000;
+    text-align: left;
+}
+
+.SimulationUpgrades {
+    font-size: 16px;
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    transform: translateX(-50%);
+}
+
+.SimulationUpgrades-turEnergy {left: 35%;}
+.SimulationUpgrades-turEnergyOrigin {left: 50%;}
+.SimulationUpgrades-else {left: 65%;}
+#SimulationUpgrades-turEnergy1 {top:15%;}
+#SimulationUpgrades-turEnergyOrigin1 {top:15%;}
+#SimulationUpgrades-else1 {top:15%;}
+#SimulationUpgrades-turEnergy2 {top:60%;}
+#SimulationUpgrades-turEnergyOrigin2 {top:60%;}
+#SimulationUpgrades-else2 {top:60%;}
+#SimulationUpgrades-turEnergy3 {top:105%;}
+#SimulationUpgrades-turEnergyOrigin3 {top:105%;}
+#SimulationUpgrades-else3 {top:105%;}
+#SimulationUpgrades-turEnergy4 {top:150%;}
+#SimulationUpgrades-turEnergyOrigin4 {top:150%;}
+#SimulationUpgrades-else4 {top:150%;}
+
+.SimulationMachine {
+    font-size: 14px;
+    width: 180px;
+    height: 90px;
+}
+
+.buy-SimulationMachine-Byte-btn {
+    font-size: 14px;
+    width: 150px;
+    height: 60px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}

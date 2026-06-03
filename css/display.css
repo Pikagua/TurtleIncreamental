@@ -1,0 +1,90 @@
+#turEnergy-Levelup-display {
+    position: absolute;
+    top: 80px;
+    left: 60%;
+    transform: translate(0%, -50%);
+}
+
+#disaplay-turEnergy-persec {
+    position: absolute;
+    top: 80px;
+    left: 5%;
+    transform: translate(0%, -50%);
+}
+
+#turEnergyOrigin-display {
+    position: absolute;
+    top: 80px;
+    left: 60%;
+    transform: translate(0%, -50%);
+}
+
+#SimulationTimes-display-text {
+    font-size: 16px;
+    position: absolute;
+    top: 5%;
+    transform: translate(-50%,-50%);
+}
+
+.OriginMilestoneTitle {
+    display: block;
+    text-align: left;
+}
+
+.OriginMilestone {
+    box-sizing: border-box;
+    border: 8px solid #315329;  /* 简写属性，一次性设置 */
+    border-radius: 5px;
+    width: 260px;
+    height: 180px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    font-size: 16px;
+}
+.OriginMilestone:not(.done) {
+    background-color: #4f8643;
+}
+.OriginMilestone.done {
+    background-color: #a3f136;
+}
+
+#OriginMilestone1 {
+    left: 30%;
+    top: 10px;
+}
+#OriginMilestone2 {
+    left: 50%;
+    top: 10px;
+}
+#OriginMilestone3 {
+    left: 70%;
+    top: 10px;
+}
+#OriginMilestone4 {
+    left: 90%;
+    top: 10px;
+}
+#OriginMilestone5 {
+    left: 30%;
+    top: 210px;
+}
+#OriginMilestone6 {
+    left: 50%;
+    top: 210px;
+}
+#OriginMilestone7 {
+    left: 70%;
+    top: 210px;
+}
+#OriginMilestone8 {
+    left: 90%;
+    top: 210px;
+}
+#OriginMilestone9 {
+    left: 30%;
+    top: 410px;
+}
+#OriginMilestone10 {
+    left: 50%;
+    top: 410px;
+}

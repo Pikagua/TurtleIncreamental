@@ -1,0 +1,34 @@
+.tips-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-100%); /* 水平居中 */
+    width: 100%;
+    padding: 30px 0px;
+    background-color: #000; /* 黑色背景在这里 */
+    overflow: hidden; /* 重要：隐藏内部元素超出部分 */
+    z-index: 1000;
+}
+
+.tips {
+    font-size: 18px;
+    color: #ffffff;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* 防止文字换行 */
+    transition: all 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.slide-out {
+    transition: all 0.5s ease-in-out;
+    transform: translateX(-2000px) translateY(0);
+}
+
+/* 滑入状态 */
+.slide-in {
+    transition: all 0s;
+    transform: translateX(1000px) translateY(0);
+}

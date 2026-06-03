@@ -1,0 +1,48 @@
+#beginSimulation {
+    font-size: 16px;
+    position: absolute;
+    left: 6%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}
+
+#checkSimulation {
+    font-size: 16px;
+    position: absolute;
+    left: 6%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}
+
+#backSimulation {
+    font-size: 16px;
+    position: absolute;
+    left: 6%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}
+
+#complete-Simulation {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 40px;
+    width: 400px;
+    height: 200px;
+}
+
+#complete-Simulation2 {
+    font-size: 16px;
+    position: absolute;
+    left: 18%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+}

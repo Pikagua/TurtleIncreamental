@@ -1,0 +1,35 @@
+.intro {
+    font-size: 25px;
+    width: 800px;
+    color: #000;
+    position: absolute;
+    left: 2%;
+    text-align: left;
+}
+
+#intro-turEnergyTierChallenge {
+    top: 30px;
+}
+#intro-turEnergyOriginChallenge {
+    top: 600px;
+}
+#intro-OriginAmass {
+    top: 60px;
+    font-size: 18px;
+}
+#intro-OriginMilestone {
+    top: 60px;
+    font-size: 18px;
+}
+
+#intro-SimulationUpgrades {
+    font-size: 14px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#intro-SimulationExperiment {
+    top: 60px;
+}

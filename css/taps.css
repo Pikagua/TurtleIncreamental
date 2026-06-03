@@ -1,0 +1,24 @@
+.taps {
+    position: absolute;
+    top: 31%;
+    left: 50%;
+    font-size: 16px;
+    width: 140px;
+    transform: translate(-50%, -50%);
+}
+
+.uptaps {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    font-size: 16px;
+    width: 140px;
+    transform: translate(-50%, -50%);
+}
+
+.tap-be-chosen.btn {
+    background-color: #315329 !important;
+}
+.tap-be-chosen.btn-simulation {
+    background-color: #30565f !important;
+}
