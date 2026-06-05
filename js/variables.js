@@ -9,6 +9,7 @@ let tapState = [];
 let uptapState = [];
 let space = "inSimulation";
 let state = "inSimulation";
+let page = "turEnergy";
 let setAuto = {
     turEnergyAuto:false,
     turEnergyOriginAuto:false,
@@ -25,6 +26,7 @@ let autoClickers = new Decimal(0);
 let autoClickerInterval = null;
 let OriginProducingInterval = null;
 let SimulationRoomProduceInterval = null;
+let BasicEnergyProduceInterval = null;
 let AutoBuyInterval = null;
 let turEnergyOrigin = new Decimal(0);
 let effectturEnergyOrigin = new Decimal(0.5);
@@ -45,6 +47,26 @@ let OriginEnhanceLevel = new Decimal(0);
 let increamentalSimulationLevel = new Decimal(0);
 let maxLevelup = new Decimal(20000000);
 let maxturEnergy = new Decimal("1.80e308");
+let everBasicEnergyChange = false;
+let BasicEnergy = new Decimal(0);
+let EnergyMachineALevel = new Decimal(0);
+let EnergyMachineBLevel = new Decimal(0);
+let EnergyMachineCLevel = new Decimal(0);
+let EnergyMachineDLevel = new Decimal(0);
+let EnergyMachineELevel = new Decimal(0);
+let effectEnergyMachineA = new Decimal(0);
+let effectEnergyMachineB = new Decimal(0);
+let effectEnergyMachineC = new Decimal(0);
+let effectEnergyMachineD = new Decimal(0);
+let effectEnergyMachineE = new Decimal(0);
+let EnergyEffection = new Decimal(0);
+let turEnergyCatalysisLevel = new Decimal(0);
+let OriginCatalysisLevel = new Decimal(0);
+let ClickCatalysisLevel = new Decimal(0);
+let effectturEnergyCatalysis = new Decimal(1);
+let effectOriginCatalysis = new Decimal(1);
+let effectClickCatalysis = new Decimal(1);
+let SolarEnergy = new Decimal(0);
 let simulationData = new Decimal(0);
 let simulatedTimes = new Decimal(0);
 let SimulationMachineBtye = new Decimal(0);
@@ -115,6 +137,7 @@ let effectSimulationMachine = {
     αb3:new Decimal(1),
     αa4:new Decimal(1),
     αb4:new Decimal(1),
+    αa5:new Decimal(0),
     βa1:new Decimal(1),
     βa2:new Decimal(1),
     βb1:new Decimal(1),

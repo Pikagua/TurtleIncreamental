@@ -43,6 +43,37 @@ function turEnergyOriginReset() {
     restartOriginProduce();
 }
 
+function BasicEnergyReset() {
+    if (SimulationUpgrades.turEnergyOrigin3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment4 && experimentbuffs.SimulationExperiment5) turEnergyOrigin = new Decimal(200);
+    else turEnergyOrigin = new Decimal(0);
+    if (SimulationUpgrades.turEnergyOrigin4.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) AmassOriginTimes = new Decimal(2000);
+    else AmassOriginTimes = new Decimal(0);
+    OriginAmassFastenLevel = new Decimal(0);
+    OriginProduceEnergyLevel = new Decimal(0);
+    ClickOriginLevel = new Decimal(0);
+    TierOriginLevel = new Decimal(0);
+    OriginEnhanceLevel = new Decimal(0);
+    effectturEnergyOrigin = new Decimal(0.5);
+    TierEnhanceLevel = new Decimal(0);
+    if (SimulationUpgrades.else4.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) {
+        challengefinished.turEnergyOriginChallenge1 = 2;
+        challengefinished.turEnergyOriginChallenge2 = 2;
+        challengefinished.turEnergyOriginChallenge3 = 1;
+        challengefinished.turEnergyOriginChallenge4 = 1;
+        challengefinished.turEnergyOriginChallenge5 = 1;
+        challengefinished.turEnergyOriginChallenge6 = 1;
+        challengereward.ChallengeTimes = 5;
+    } else {
+        challengefinished.turEnergyOriginChallenge1 = 0;
+        challengefinished.turEnergyOriginChallenge2 = 0;
+        challengefinished.turEnergyOriginChallenge3 = 0;
+        challengefinished.turEnergyOriginChallenge4 = 0;
+        challengefinished.turEnergyOriginChallenge5 = 0;
+        challengefinished.turEnergyOriginChallenge6 = 0;
+    }
+    turEnergyOriginReset();
+}
+
 function SimulationReset() {
     if (SimulationUpgrades.turEnergyOrigin3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment4 && experimentbuffs.SimulationExperiment5) turEnergyOrigin = new Decimal(200);
     else turEnergyOrigin = new Decimal(0);

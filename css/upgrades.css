@@ -54,6 +54,26 @@
     top: 450px;
 }
 
+.EnergyMachineA {
+    position: absolute;
+    top: 210px;
+}
+
+.turEnergyCatalysis {
+    position: absolute;
+    top: 80px;
+}
+
+.OriginCatalysis {
+    position: absolute;
+    top: 160px;
+}
+
+.ClickCatalysis {
+    position: absolute;
+    top: 240px;
+}
+
 .increamentalSimulation {
     position: absolute;
     top: 760px;
@@ -62,6 +82,11 @@
 .firstSimulationRoom {
     position: absolute;
     top: 120px;
+}
+
+.secondSimulationRoom {
+    position: absolute;
+    top: 200px;
 }
 
 .title-of-leveluper {

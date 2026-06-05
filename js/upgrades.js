@@ -5,12 +5,12 @@ function turEnergyLevelup() {
     }
 }
 function PriceofturEnergyLevelup(num) {
-    if (num.lt((300 + challengereward.delayScalingturEnergyLevelup))) {
+    if (num.lt((new Decimal(300).plus(challengereward.delayScalingturEnergyLevelup).plus(effectSimulationMachine.αa5)))) {
         return (ten.pow(num.sqrt()).mul(challengebuffs.turEnergyTierChallenge3Price) ).floor();
-    } else if (num.lt(1000)) {
-        return ((ten.pow(new Decimal(300).sqrt()).mul(new Decimal(1.3).pow(num.sub(300).sub(challengereward.delayScalingturEnergyLevelup))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
+    } else if (num.lt(new Decimal(1000).plus(effectSimulationMachine.αa3))) {
+        return ((ten.pow((new Decimal(300).plus(challengereward.delayScalingturEnergyLevelup).plus(effectSimulationMachine.αa5)).sqrt()).mul(new Decimal(1.3).pow(num.sub(300).sub(challengereward.delayScalingturEnergyLevelup).sub(effectSimulationMachine.αa5))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
     } else {
-        return ((ten.pow(new Decimal(300).sqrt()).mul(new Decimal(1.3).pow(new Decimal(999).sub(300).sub(challengereward.delayScalingturEnergyLevelup))).mul(new Decimal(1.7).pow(num.sub(999))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
+        return ((ten.pow((new Decimal(300).plus(challengereward.delayScalingturEnergyLevelup).plus(effectSimulationMachine.αa5)).sqrt()).mul(new Decimal(1.3).pow(new Decimal(999).sub(300).sub(challengereward.delayScalingturEnergyLevelup).sub(effectSimulationMachine.αa5).plus(effectSimulationMachine.αa3))).mul(new Decimal(1.7).pow(num.sub(999).sub(effectSimulationMachine.αa3))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
     }
 }
 function BuyMaxturEnergyLevelup() {
@@ -62,6 +62,13 @@ function PriceofBuyEfficientClick(num) {
     return (((new Decimal(500).mul(new Decimal(3).pow(num.plus(num.ln()))).plus(500)).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
 }
 function BuyMaxEfficientClick() {
+    for (let i=EfficientClickLevel; PriceofBuyEfficientClick(i).mul(10000).lt(turEnergy); i = i.plus(10000)) {
+        if (i.plus(10000).gte(maxLevelup)) break;
+        if (PriceofBuyEfficientClick(i.plus(10000)).mul(10000).lt(turEnergy)) {
+            turEnergy = turEnergy.sub(PriceofBuyEfficientClick(i).mul(10000));
+            EfficientClickLevel = EfficientClickLevel.plus(10000);
+        } else break;
+    }
     for (let i=EfficientClickLevel; PriceofBuyEfficientClick(i).lte(turEnergy); i = i.plus(1)) {
         turEnergy = turEnergy.sub(PriceofBuyEfficientClick(i));
         EfficientClickLevel = EfficientClickLevel.plus(1);
@@ -81,11 +88,20 @@ function PriceofBuyHighspeedClicking(num) {
         return ((new Decimal(2000).mul(ten.pow(num)).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
     } else if (num.lt(150)) {
         return ((new Decimal(2000).mul(ten.pow(4)).mul(new Decimal(35).pow(num.sub(4))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
-    } else {
+    } else if (num.lt(500)) {
         return ((new Decimal(2000).mul(ten.pow(4)).mul(new Decimal(35).pow(new Decimal(149).sub(4))).mul(new Decimal(100).pow(num.sub(149))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
+    } else {
+        return ((new Decimal(2000).mul(ten.pow(4)).mul(new Decimal(35).pow(new Decimal(149).sub(4))).mul(new Decimal(500).pow(num.sub(149))).mul(challengebuffs.turEnergyTierChallenge3Price)).pow(effect2SimulationExperiment2)).floor();
     }
 }
 function BuyMaxHighspeedClicking() {
+    for (let i=HighspeedClickingLevel; PriceofBuyHighspeedClicking(i).mul(10000).lt(turEnergy); i = i.plus(10000)) {
+        if (i.plus(10000).gte(maxLevelup)) break;
+        if (PriceofBuyHighspeedClicking(i.plus(10000)).mul(10000).lt(turEnergy)) {
+            turEnergy = turEnergy.sub(PriceofBuyHighspeedClicking(i).mul(10000));
+            HighspeedClickingLevel = HighspeedClickingLevel.plus(10000);
+        } else break;
+    }
     for (let i=HighspeedClickingLevel; PriceofBuyHighspeedClicking(i).lte(turEnergy); i = i.plus(1)) {
         turEnergy = turEnergy.sub(PriceofBuyHighspeedClicking(i));
         HighspeedClickingLevel = HighspeedClickingLevel.plus(1);
@@ -102,10 +118,12 @@ function turEnergyTierup() {
 }
 function PriceofturEnergyTierup(num) {
     if (num.plus(TierEnhanceLevel).gte(42) && !experimentbuffs.SimulationExperiment4) return new Decimal("9e99999");
-    if (num < 40) {
+    if (num.lt(new Decimal(40).plus(effectSimulationMachine.αb3))) {
         return ((new Decimal(60).plus(new Decimal(40).mul(num))).pow(effect2SimulationExperiment2)).floor();
+    } else if (num.lt(200)) {
+        return ((new Decimal(60).plus(new Decimal(40).mul(new Decimal(39).plus(effectSimulationMachine.αb3))).plus(new Decimal(80).mul(num.sub(39).sub(effectSimulationMachine.αb3)))).pow(effect2SimulationExperiment2)).floor();
     } else {
-        return ((new Decimal(60).plus(new Decimal(40).mul(39)).plus(new Decimal(80).mul(num.sub(39)))).pow(effect2SimulationExperiment2)).floor();
+        return ((new Decimal(60).plus(new Decimal(40).mul(new Decimal(39).plus(effectSimulationMachine.αb3))).plus(new Decimal(80).mul(num.sub(39).sub(effectSimulationMachine.αb3))).plus(num.sub(200).mul(num.sub(201)).mul(2))).pow(effect2SimulationExperiment2)).floor();
     }
 }
 function BuyMaxturEnergyTier() {
@@ -126,8 +144,10 @@ function PriceofBuyTierEnhance(num) {
     if (num.plus(turEnergyTier).gte(42) && !experimentbuffs.SimulationExperiment4) return new Decimal("9e99999");
     if (num.lt(4)) {
         return ((new Decimal(100000000000).mul(new Decimal(10000).pow(num))).pow(effect2SimulationExperiment2)).floor();
-    } else {
+    } else if (num.lt(500)) {
         return ((new Decimal(100000000000).mul(new Decimal(10000).pow(3)).mul(new Decimal(100000).pow(num.sub(3)))).pow(effect2SimulationExperiment2)).floor();
+    } else {
+        return ((new Decimal(100000000000).mul(new Decimal(10000).pow(3)).mul(new Decimal(100000).pow(new Decimal(500).sub(3))).mul(new Decimal(1000000).pow(num.sub(500)))).pow(new Decimal(1).plus(num.sub(500).div(1000))).pow(effect2SimulationExperiment2)).floor();
     }
 }
 function BuyMaxTierEnhance() {
@@ -140,8 +160,8 @@ function BuyMaxTierEnhance() {
 
 function turEnergyOriginAmass() {
     if (confirm(`凝聚龟能本源会重置全部的龟能，龟能升级，龟能层级挑战进度，你确定吗？`)) {
-        if (challengebuffs.disabledOriginLevelup) turEnergyOrigin = turEnergyOrigin.plus(Decimal.max(0,((((turEnergy.log10().sub(40)).div(2).mul(new Decimal(2).pow(OriginAmassFastenLevel)).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effect2SimulationExperiment5)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).mul(effectSimulationExperiment4)).floor()));
-        else turEnergyOrigin = turEnergyOrigin.plus(Decimal.max(0,(((turEnergy.log10().sub(40).div(2).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effect2SimulationExperiment5)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3).mul(effectSimulationExperiment4)).floor())));
+        if (challengebuffs.disabledOriginLevelup) turEnergyOrigin = turEnergyOrigin.plus(Decimal.max(0,((((turEnergy.log10().sub(40)).div(2).mul(new Decimal(2).pow(OriginAmassFastenLevel)).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effect2SimulationExperiment5).mul(effectOriginCatalysis)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).mul(effectSimulationExperiment4)).floor()));
+        else turEnergyOrigin = turEnergyOrigin.plus(Decimal.max(0,(((turEnergy.log10().sub(40).div(2).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effect2SimulationExperiment5).mul(effectOriginCatalysis)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3).mul(effectSimulationExperiment4)).floor())));
         if (AmassOriginTimes.lt(100) && challengebuffs.disabledOriginMilestone) AmassOriginTimes = AmassOriginTimes.plus(1);
         else AmassOriginTimes = AmassOriginTimes.plus(10);
         turEnergyOriginReset();
@@ -204,6 +224,54 @@ function PriceofBuyOriginEnhance(num) {
     return (new Decimal(100).mul(new Decimal(2).pow(OriginEnhanceLevel))).floor();
 }
 
+function BasicEnergyChange() {
+    if (confirm(`转化基本能会重置你所有的龟能，龟能升级，龟能本源，龟能本源升级，龟能本源次数和龟能挑战的进度，你确定吗？`)) {
+        BasicEnergy = BasicEnergy.plus(new Decimal(2).pow((turEnergy.log10().div(1000)).sub(1)));
+        if (!everBasicEnergyChange) everBasicEnergyChange = true;
+        BasicEnergyReset();
+    }
+}
+
+function BuyEnergyMachineA() {
+    if (BasicEnergy.gte(PriceofBuyEnergyMachineA(EnergyMachineALevel))) {
+        BasicEnergy = BasicEnergy.sub(PriceofBuyEnergyMachineA(EnergyMachineALevel));
+        EnergyMachineALevel = EnergyMachineALevel.plus(1);
+    }
+}
+function PriceofBuyEnergyMachineA(num) {
+    return (new Decimal(5).mul(new Decimal(2).pow(EnergyMachineALevel)));
+}
+
+function BuyturEnergyCatalysis() {
+    if (SolarEnergy.gte(PriceofBuyturEnergyCatalysis(turEnergyCatalysisLevel))) {
+        SolarEnergy = SolarEnergy.sub(PriceofBuyturEnergyCatalysis(turEnergyCatalysisLevel));
+        turEnergyCatalysisLevel = turEnergyCatalysisLevel.plus(1);
+    }
+}
+function PriceofBuyturEnergyCatalysis(num) {
+    return new Decimal(2).pow(turEnergyCatalysisLevel);
+}
+
+function BuyOriginCatalysis() {
+    if (SolarEnergy.gte(PriceofBuyOriginCatalysis(OriginCatalysisLevel))) {
+        SolarEnergy = SolarEnergy.sub(PriceofBuyOriginCatalysis(OriginCatalysisLevel));
+        OriginCatalysisLevel = OriginCatalysisLevel.plus(1);
+    }
+}
+function PriceofBuyOriginCatalysis(num) {
+    return new Decimal(2).pow(OriginCatalysisLevel);
+}
+
+function BuyClickCatalysis() {
+    if (SolarEnergy.gte(PriceofBuyClickCatalysis(ClickCatalysisLevel))) {
+        SolarEnergy = SolarEnergy.sub(PriceofBuyClickCatalysis(ClickCatalysisLevel));
+        ClickCatalysisLevel = ClickCatalysisLevel.plus(1);
+    }
+}
+function PriceofBuyClickCatalysis(num) {
+    return ten.mul(ten.pow(ClickCatalysisLevel));
+}
+
 function BuyincreamentalSimulation() {
     if (simulationData.gte(PriceofBuyincreamentalSimulation(increamentalSimulationLevel))) {
         simulationData = simulationData.sub(PriceofBuyincreamentalSimulation(increamentalSimulationLevel));
@@ -233,7 +301,7 @@ function BuyturEnergyOriginSimulationMachineByte() {
     }
 }
 function PriceofBuyturEnergyOriginSimulationMachineByte(num) {
-    return (new Decimal("1e6").mul(new Decimal("1e6").pow(num))).floor();
+    return (new Decimal("1e6").mul(ten.pow(num))).floor();
 }
 
 function BuySimulationDataSimulationMachineByte() {
@@ -255,6 +323,18 @@ function BuyfirstSimulationRoom() {
     }
 }
 function PriceofBuyfirstSimulationRoom(num) {
+    if (num.eq(0)) return new Decimal(0);
+    return ((ten.pow(num))).floor();
+}
+
+function BuysecondSimulationRoom() {
+    if (simulationData.gte(PriceofBuysecondSimulationRoom(SimulationRoomLevel.Room1))) {
+        simulationData = simulationData.sub(PriceofBuysecondSimulationRoom(SimulationRoomLevel.Room2));
+        SimulationRoomLevel.Room2 = SimulationRoomLevel.Room2.plus(1);
+        SimulationRoomAmount.Room2 = SimulationRoomAmount.Room2.plus(1);
+    }
+}
+function PriceofBuysecondSimulationRoom(num) {
     if (num.eq(0)) return new Decimal(0);
     return ((ten.pow(num))).floor();
 }
@@ -341,13 +421,13 @@ function BuySimulationMachine(price, position, condition) {
 function BuySimulationMachineλa1() {BuySimulationMachine(1, "λa1", true)};
 function BuySimulationMachineλa2() {BuySimulationMachine(1, "λa2", SimulationMachine.λa1)};
 function BuySimulationMachineλb1() {BuySimulationMachine(1, "λb1", true)};
-function BuySimulationMachineλb2() {BuySimulationMachine(100000, "λb2", SimulationMachine.λb1)};
+function BuySimulationMachineλb2() {BuySimulationMachine(3, "λb2", SimulationMachine.λb1)};
 function BuySimulationMachineλc1() {BuySimulationMachine(0, "λc1", true)};
 function BuySimulationMachineλc2() {BuySimulationMachine(100000, "λc2", SimulationMachine.λc1)};
 function BuySimulationMachineαa1() {BuySimulationMachine(1, "αa1", true)};
 function BuySimulationMachineαa2() {BuySimulationMachine(2, "αa2", SimulationMachine.αa1)};
-function BuySimulationMachineαa3() {BuySimulationMachine(200000, "αa3", SimulationMachine.αa2 && !SimulationMachine.αb3)};
-function BuySimulationMachineαb3() {BuySimulationMachine(300000, "αb3", SimulationMachine.αa2 && !SimulationMachine.αa3)};
+function BuySimulationMachineαa3() {BuySimulationMachine(2, "αa3", SimulationMachine.αa2 && !SimulationMachine.αb3)};
+function BuySimulationMachineαb3() {BuySimulationMachine(3, "αb3", SimulationMachine.αa2 && !SimulationMachine.αa3)};
 function BuySimulationMachineαa4() {BuySimulationMachine(2, "αa4", SimulationMachine.αa3 && !SimulationMachine.αb4)};
 function BuySimulationMachineαb4() {BuySimulationMachine(4, "αb4", SimulationMachine.αb3 && !SimulationMachine.αa4)};
 function BuySimulationMachineαa5() {BuySimulationMachine(3, "αa5", SimulationMachine.αa4 || SimulationMachine.αb4)};

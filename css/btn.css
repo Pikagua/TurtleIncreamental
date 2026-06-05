@@ -21,6 +21,17 @@
     cursor: pointer;
 }
 
+#BasicEnergyChange-btn {
+    font-size: 14px;
+    width: 240px;
+    padding: 12px 36px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
 .btn {
     background-color: #76c75f; /* 绿色 - 可购买 */
     border-color: #2e4510;

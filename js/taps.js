@@ -5,6 +5,8 @@ function switchTap(activeElement, activeElements) {
         { element: turEnergychallengetap, elements: turEnergychallengetaps },
         { element: turEnergyOrigintap, elements: turEnergyOrigintaps },
         { element: turEnergyOriginMilestonetap, elements: turEnergyOriginMilestonetaps },
+        { element: EnergyMachinetap, elements: EnergyMachinetaps},
+        { element: SolarEnergytap, elements: SolarEnergytaps},
         { element: SimulationUpgradestap, elements: SimulationUpgradestaps },
         { element: SimulationExperimenttap, elements: SimulationExperimenttaps},
         { element: SimulationMachinetap, elements: SimulationMachinetaps},
@@ -30,6 +32,8 @@ function changetoturEnergyLeveluptap() {switchTap(turEnergyLeveluptap, turEnergy
 function changetoturEnergyChallengetap() {switchTap(turEnergychallengetap, turEnergychallengetaps); } // 代替 changetoturEnergyChallengetap
 function changetoturEnergyOrigintap() {switchTap(turEnergyOrigintap, turEnergyOrigintaps); }     // 代替 changetoturEnergyOrigintap
 function changetoturEnergyOriginMilestonetap() {switchTap(turEnergyOriginMilestonetap, turEnergyOriginMilestonetaps); }
+function changetoEnergyMachinetap() {switchTap(EnergyMachinetap, EnergyMachinetaps); }
+function changetoSolarEnergytap() {switchTap(SolarEnergytap, SolarEnergytaps); }
 function changetoSimulationUpgradestap() {switchTap(SimulationUpgradestap, SimulationUpgradestaps); }
 function changetoSimulationExperimenttap() {switchTap(SimulationExperimenttap, SimulationExperimenttaps); }
 function changetoSimulationMachinetap() {switchTap(SimulationMachinetap, SimulationMachinetaps); }
@@ -58,6 +62,6 @@ function switchupTap(activeElement, activeElements, activetaps) {
     activeElement.classList.add('tap-be-chosen');
 }
 
-function changetoturEnergyuptap() {switchupTap(turEnergyuptap, turEnergyuptaps, thePhase1taps); }
-function changetoBasicEnergyuptap() {switchupTap(BasicEnergyuptap, BasicEnergyuptaps, thePhase2taps); }
-function changetoSimulationuptap() {switchupTap(Simulationuptap, Simulationuptaps, theSimulationtaps);}
+function changetoturEnergyuptap() {switchupTap(turEnergyuptap, turEnergyuptaps, thePhase1taps); changetoturEnergyLeveluptap(); page="turEnergy"; }
+function changetoBasicEnergyuptap() {switchupTap(BasicEnergyuptap, BasicEnergyuptaps, thePhase2taps); changetoEnergyMachinetap(); page="BasicEnergy"; }
+function changetoSimulationuptap() {switchupTap(Simulationuptap, Simulationuptaps, theSimulationtaps); page="Simulation"; }

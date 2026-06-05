@@ -6,6 +6,7 @@ if (space === "inSimulation") {changetoturEnergyuptap(); changetoturEnergyLevelu
 else if (space === "Simulation") {changetoSimulationuptap(); changetoSimulationUpgradestap();}
 if (state === "inSimulation") restartSimulationRoomProduce();
 restartAutoBuy();
+restartBasicEnergyProduce();
 if (!experimentbuffs.SimulationExperiment5) {
     timerSimulationExperiment5Interval = setInterval(() => {
         timerSimulationExperiment5 = timerSimulationExperiment5.plus(1);

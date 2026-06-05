@@ -142,14 +142,26 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase16";
-        } else {
+        } else if (!everBasicEnergyChange) {
             const options = [
-                `乌龟？！`,
-                `完成<span class="simulation">模拟</span>时获得的模拟数据与你模拟内的进度正相关`,
                 `<span class="turEnergy">龟能</span>达到1e1000的时候会有新的选项卡解锁`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase17";
+        } else {
+            const options = [
+                `乌龟？！`,
+                `完成<span class="simulation">模拟</span>时获得的模拟数据与你模拟内的进度正相关`,
+                `<span class="turEnergy">龟能</span>层级达到200级后会有第二次折算，但这次不同以往，200以后的每一级的增长率都会再+2`,
+                `层级增强达到500级后会有第二次折算，但这次不同以往，500以后的每一级的价格指数都会+0.001`,
+                `高速点击在500级后会有第三次折算`,
+                `不要奇怪为什么只有一个<span class="BasicEnergy">能源机器</span>，以后会有更多的`,
+                `<span class="BasicEnergy">能源机器</span>提供的<span class="BasicEnergy">能源效率</span>决定了所有<span class="BasicEnergy">基本能</span>的生成效率`,
+                `<span class="BasicEnergy">光能</span>是你能接触到的第一种<span class="BasicEnergy">基本能</span>，但它的收益依然很可观`,
+                `在遥远的地球上，<span class="BasicEnergy">光能</span>是所有能量的最初形式，但在这里，<span class="turEnergy">龟能</span>则更基本`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase18";
         }
     } else if (space === "Simulation") {
         if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if)) {

@@ -171,6 +171,10 @@ const BasicEnergyuptap = document.getElementById('BasicEnergyuptap');
 const BasicEnergyuptaps = document.getElementById('BasicEnergy-uptap');
 const Simulationuptap = document.getElementById('Simulationuptap');
 const Simulationuptaps = document.getElementById('Simulation-uptap');
+const EnergyMachinetap = document.getElementById('EnergyMachinetap');
+const EnergyMachinetaps = document.getElementById('EnergyMachine-tap');
+const SolarEnergytap = document.getElementById('SolarEnergytap');
+const SolarEnergytaps = document.getElementById('SolarEnergy-tap');
 
 // 获取challenge
 const turEnergyOriginChallengeEl = document.querySelectorAll('.turEnergyOriginChallenge');
@@ -179,7 +183,6 @@ const introturEnergyOriginChallenge = document.getElementById('intro-turEnergyOr
 // 获取页面元素
 const disaplayturEnergyPersec = document.getElementById('disaplay-turEnergy-persec');
 const turEnergyCountBox = document.getElementById('turEnergy-count-box');
-const turEnergyCountEl = document.getElementById('turEnergy-count');
 const turEnergyLevelEl = document.getElementById('turEnergy-LevelUp-level');
 const turEnergyLevelUpCost = document.getElementById('turEnergy-LevelUp-cost');
 const turEnergyLevelUpBtn = document.getElementById('turEnergy-LevelUp-btn');
@@ -223,6 +226,7 @@ const levelofTierEnhance = document.getElementById('level-of-TierEnhance');
 const effectofTierEnhance = document.getElementById('effect-of-TierEnhance');
 const TierEnhanceCost = document.getElementById('TierEnhance-cost');
 const TierEnhanceBtn = document.getElementById('TierEnhance-btn');
+const baseofTierEnhance = document.getElementById('baseof-TierEnhance');
 const TierEnhanceBuyMaxBtn = document.getElementById('TierEnhance-BuyMaxbtn');
 
 const turEnergyOriginDisplay = document.getElementById('turEnergyOrigin');
@@ -265,6 +269,36 @@ const OriginEnhanceCost = document.getElementById('OriginEnhance-cost');
 const OriginEnhanceBtn = document.getElementById('OriginEnhance-btn');
 
 const completeSimulationBtn = document.getElementById('complete-Simulation');
+const BasicEnergyChangebtn = document.getElementById('BasicEnergyChange-btn');
+const BasicEnergyChangeAmount = document.getElementById('BasicEnergyChange-amount');
+
+const EnergyEffectiondisplay = document.getElementById('EnergyEffection-display');
+const SolarEnergydisplay = document.getElementById('SolarEnergy-display');
+const displaySolarEnergypersec = document.getElementById('display-SolarEnergy-persec');
+
+const EnergyMachineAEl = document.querySelectorAll('.EnergyMachineA');
+const levelofEnergyMachineA = document.getElementById('level-of-EnergyMachineA');
+const effectofEnergyMachineA = document.getElementById('effect-of-EnergyMachineA');
+const EnergyMachineACost = document.getElementById('EnergyMachineA-cost');
+const EnergyMachineABtn = document.getElementById('EnergyMachineA-btn');
+
+const turEnergyCatalysisEl = document.querySelectorAll('.turEnergyCatalysis');
+const levelofturEnergyCatalysis = document.getElementById('level-of-turEnergyCatalysis');
+const effectofturEnergyCatalysis = document.getElementById('effect-of-turEnergyCatalysis');
+const turEnergyCatalysisCost = document.getElementById('turEnergyCatalysis-cost');
+const turEnergyCatalysisBtn = document.getElementById('turEnergyCatalysis-btn');
+
+const OriginCatalysisEl = document.querySelectorAll('.OriginCatalysis');
+const levelofOriginCatalysis = document.getElementById('level-of-OriginCatalysis');
+const effectofOriginCatalysis = document.getElementById('effect-of-OriginCatalysis');
+const OriginCatalysisCost = document.getElementById('OriginCatalysis-cost');
+const OriginCatalysisBtn = document.getElementById('OriginCatalysis-btn');
+
+const ClickCatalysisEl = document.querySelectorAll('.ClickCatalysis');
+const levelofClickCatalysis = document.getElementById('level-of-ClickCatalysis');
+const effectofClickCatalysis = document.getElementById('effect-of-ClickCatalysis');
+const ClickCatalysisCost = document.getElementById('ClickCatalysis-cost');
+const ClickCatalysisBtn = document.getElementById('ClickCatalysis-btn');
 
 const increamentalSimulationEl = document.querySelectorAll('.increamentalSimulation');
 const levelofincreamentalSimulation = document.getElementById('level-of-increamentalSimulation');
@@ -272,8 +306,6 @@ const effectofincreamentalSimulation = document.getElementById('effect-of-increa
 const increamentalSimulationCost = document.getElementById('increamentalSimulation-cost');
 const increamentalSimulationBtn = document.getElementById('increamentalSimulation-btn');
 
-const SimulationDataCountBox = document.getElementById('SimulationData-count-box');
-const SimulationDataCount = document.getElementById('SimulationData-count');
 const SimulationTimesDisplay = document.getElementById('SimulationTimes-display');
 const effectofSimulationUpgradesturEnergy3 = document.getElementById('effect-of-SimulationUpgrades-turEnergy3');
 const effectofSimulationUpgradesturEnergy4 = document.getElementById('effect-of-SimulationUpgrades-turEnergy4');
@@ -323,6 +355,7 @@ const SimulationMachineβb1btn = document.getElementById('SimulationMachine-β-b
 const SimulationMachineβa2btn = document.getElementById('SimulationMachine-β-a2');
 const SimulationMachineβb2btn = document.getElementById('SimulationMachine-β-b2');
 const SimulationMachineβa3btn = document.getElementById('SimulationMachine-β-a3');
+const SimulationMachineβa4btn = document.getElementById('SimulationMachine-β-a4');
 const effectofSimulationMachineαa2 = document.getElementById('effect-of-SimulationMachine-α-a2');
 const effectofSimulationMachineαa3 = document.getElementById('effect-of-SimulationMachine-α-a3');
 const effectofSimulationMachineαb3 = document.getElementById('effect-of-SimulationMachine-α-b3');
@@ -341,6 +374,13 @@ const AmountoffirstSimulationRoom = document.getElementById('Amount-of-firstSimu
 const effectoffirstSimulationRoom = document.getElementById('effect-of-firstSimulationRoom');
 const firstSimulationRoomCost = document.getElementById('firstSimulationRoom-cost');
 const firstSimulationRoomBtn = document.getElementById('firstSimulationRoom-btn');
+
+const secondSimulationRoomEl = document.querySelectorAll('.secondSimulationRoom');
+const levelofsecondSimulationRoom = document.getElementById('level-of-secondSimulationRoom');
+const AmountofsecondSimulationRoom = document.getElementById('Amount-of-secondSimulationRoom');
+const effectofsecondSimulationRoom = document.getElementById('effect-of-secondSimulationRoom');
+const secondSimulationRoomCost = document.getElementById('secondSimulationRoom-cost');
+const secondSimulationRoomBtn = document.getElementById('secondSimulationRoom-btn');
 
 const turEnergyAuto = document.getElementById('turEnergyAuto');
 const stateturEnergyAuto = document.getElementById('state-turEnergyAuto');

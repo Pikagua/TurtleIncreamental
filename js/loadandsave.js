@@ -21,6 +21,17 @@ function saveGame() {
     gameData.increamentalSimulationLevel = increamentalSimulationLevel.toString();
     gameData.maxLevelup = maxLevelup.toString();
     gameData.maxturEnergy = maxturEnergy.toString();
+    gameData.BasicEnergy = BasicEnergy.toString();
+    gameData.everBasicEnergyChange = everBasicEnergyChange.toString();
+    gameData.EnergyMachineALevel = EnergyMachineALevel.toString();
+    gameData.EnergyMachineBLevel = EnergyMachineBLevel.toString();
+    gameData.EnergyMachineCLevel = EnergyMachineCLevel.toString();
+    gameData.EnergyMachineDLevel = EnergyMachineDLevel.toString();
+    gameData.EnergyMachineELevel = EnergyMachineELevel.toString();
+    gameData.SolarEnergy = SolarEnergy.toString();
+    gameData.turEnergyCatalysisLevel = turEnergyCatalysisLevel.toString();
+    gameData.OriginCatalysisLevel = OriginCatalysisLevel.toString();
+    gameData.ClickCatalysisLevel = ClickCatalysisLevel.toString();
     gameData.simulationData = simulationData.toString();
     gameData.simulatedTimes = simulatedTimes.toString();
     gameData.SimulationMachineFold = SimulationMachineFold.toString();
@@ -73,6 +84,8 @@ function defualtSet() {
     SimulationRoomProduceInterval = null;
     clearInterval(timerSimulationExperiment5Interval);
     timerSimulationExperiment5Interval = null;
+    clearInterval(BasicEnergyProduceInterval);
+    BasicEnergyProduceInterval = null;
     turEnergyOrigin = new Decimal(0);
     effectturEnergyOrigin = new Decimal(0.5);
     AmassOriginTimes = new Decimal(0),
@@ -84,6 +97,17 @@ function defualtSet() {
     increamentalSimulationLevel = new Decimal(0);
     maxLevelup = new Decimal(20000000);
     maxturEnergy = new Decimal("1.80e308");
+    everBasicEnergyChange = false;
+    EnergyMachineALevel = new Decimal(0);
+    EnergyMachineBLevel = new Decimal(0);
+    EnergyMachineCLevel = new Decimal(0);
+    EnergyMachineDLevel = new Decimal(0);
+    EnergyMachineELevel = new Decimal(0);
+    BasicEnergy = new Decimal(0);
+    SolarEnergy = new Decimal(0);
+    turEnergyCatalysisLevel = new Decimal(0);
+    OriginCatalysisLevel = new Decimal(0);
+    ClickCatalysisLevel = new Decimal(0);
     simulationData = new Decimal(0);
     simulatedTimes = new Decimal(0);
     SimulationMachineFold = false;
@@ -212,11 +236,11 @@ function defualtSet() {
         turEnergyOriginChallenge6:0
     };
     experimentfinished = {
-        SimulationExperiment1:1,
-        SimulationExperiment2:1,
-        SimulationExperiment3:1,
-        SimulationExperiment4:1,
-        SimulationExperiment5:1,
+        SimulationExperiment1:0,
+        SimulationExperiment2:0,
+        SimulationExperiment3:0,
+        SimulationExperiment4:0,
+        SimulationExperiment5:0,
     }
 }
 
@@ -248,6 +272,19 @@ function loadGame() {
         increamentalSimulationLevel = new Decimal(Data.increamentalSimulationLevel) ?? new Decimal(0);
         maxLevelup = new Decimal(Data.maxLevelup) ?? new Decimal(20000000);
         maxturEnergy = new Decimal(Data.maxturEnergy) ?? new Decimal("1.80e309");
+        BasicEnergy = new Decimal(Data.BasicEnergy) ?? new Decimal(0);
+        everBasicEnergyChange = Data.everBasicEnergyChange ?? false;
+        if (everBasicEnergyChange === "true") everBasicEnergyChange = true;
+        else everBasicEnergyChange = false;
+        EnergyMachineALevel = new Decimal(Data.EnergyMachineALevel) ?? new Decimal(0);
+        EnergyMachineBLevel = new Decimal(Data.EnergyMachineBLevel) ?? new Decimal(0);
+        EnergyMachineCLevel = new Decimal(Data.EnergyMachineCLevel) ?? new Decimal(0);
+        EnergyMachineDLevel = new Decimal(Data.EnergyMachineDLevel) ?? new Decimal(0);
+        EnergyMachineELevel = new Decimal(Data.EnergyMachineELevel) ?? new Decimal(0);
+        SolarEnergy = new Decimal(Data.SolarEnergy) ?? new Decimal(0);
+        turEnergyCatalysisLevel = new Decimal(Data.turEnergyCatalysisLevel) ?? new Decimal(0);
+        OriginCatalysisLevel = new Decimal(Data.OriginCatalysisLevel) ?? new Decimal(0);
+        ClickCatalysisLevel = new Decimal(Data.ClickCatalysisLevel) ?? new Decimal(0);
         simulationData = new Decimal(Data.simulationData) ?? new Decimal(0);
         simulatedTimes = new Decimal(Data.simulatedTimes) ?? new Decimal(0);
         SimulationMachineFold = Data.SimulationMachineFold ?? false;
@@ -432,6 +469,7 @@ document.addEventListener('keydown', function(event) {
             const saveText = prompt("你输入了load，请粘贴存档内容：");
             if (saveText) {
                 localStorage.setItem("TurtleIncreamental", saveText);
+                loadGame();
                 alert("存档导入成功");
                 location.reload();
             }

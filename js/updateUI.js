@@ -1,6 +1,17 @@
 function updateUI() {
     // 结束模拟室
-    if (state === "Simulation") {clearInterval(SimulationRoomProduceInterval); SimulationPower = new Decimal(0); }
+    if (state === "Simulation") {
+        clearInterval(SimulationRoomProduceInterval);
+        SimulationPower = new Decimal(0);
+        SimulationRoomAmount.Room1 = SimulationRoomLevel.Room1;
+        SimulationRoomAmount.Room2 = SimulationRoomLevel.Room2;
+        SimulationRoomAmount.Room3 = SimulationRoomLevel.Room3;
+        SimulationRoomAmount.Room4 = SimulationRoomLevel.Room4;
+        SimulationRoomAmount.Room5 = SimulationRoomLevel.Room5;
+        SimulationRoomAmount.Room6 = SimulationRoomLevel.Room6;
+        SimulationRoomAmount.Room7 = SimulationRoomLevel.Room7;
+        SimulationRoomAmount.Room8 = SimulationRoomLevel.Room8;
+    }
 
     // 保护性补丁
     if (challengedoing.Tier === "") challengeprogress.Tier = "";
@@ -23,12 +34,17 @@ function updateUI() {
     else effectOriginEnhance = new Decimal(0);
     if (challengereward.AmassTimesAffectturEnergy) effectturEnergyOriginChallenge6 = AmassOriginTimes.plus(1);
     else effectturEnergyOriginChallenge6 = new Decimal(1);
-    if (challengebuffs.disabledturEnergyLevelup || challengebuffs.turEnergyTier) effectturEnergyTier = (TierEnhanceLevel.plus(3)).pow(turEnergyTier).pow(effect1SimulationExperiment5);
+    if (challengebuffs.disabledturEnergyLevelup || challengebuffs.turEnergyTier) effectturEnergyTier = (TierEnhanceLevel.mul(effectSimulationMachine.αb4.plus(1)).plus(3)).pow(turEnergyTier).pow(effect1SimulationExperiment5);
     else effectturEnergyTier = new Decimal(1);
     if (!effect2SimulationExperiment3) effectOriginProduce = new Decimal(0);
     else if (challengereward.EfficientOriginProduce) effectOriginProduce = new Decimal(2000).pow(OriginProduceEnergyLevel);
     else effectOriginProduce = new Decimal(100).pow(OriginProduceEnergyLevel);
     effectturEnergyOrigin = new Decimal(0.5).mul(ten.pow(OriginEnhanceLevel));
+    effectEnergyMachineA = new Decimal(0.2).mul(EnergyMachineALevel);
+    EnergyEffection = effectEnergyMachineA.plus(effectEnergyMachineB).plus(effectEnergyMachineC).plus(effectEnergyMachineD).plus(effectEnergyMachineE);
+    effectturEnergyCatalysis = new Decimal(1e4).pow(turEnergyCatalysisLevel);
+    effectOriginCatalysis = new Decimal(2).pow(OriginCatalysisLevel);
+    effectClickCatalysis = new Decimal(1e70).pow(ClickCatalysisLevel);
     effectSimulationUpgradesturEnergy3 = ten.mul(AmassOriginTimes).plus(1);
     effectSimulationUpgradesturEnergy4 = new Decimal(10000).mul(simulatedTimes).plus(1);
     if (SimulationUpgrades.turEnergy1.if) SimulationUpgrades.turEnergy1.num = new Decimal(250); else SimulationUpgrades.turEnergy1.num = new Decimal(1);
@@ -46,35 +62,41 @@ function updateUI() {
     if (experimentbuffs.SimulationExperiment5) effect1SimulationExperiment5 = new Decimal(1); else effect1SimulationExperiment5 = new Decimal(0.5);
     if (experimentbuffs.SimulationExperiment5) effect2SimulationExperiment5 = new Decimal(1); else effect2SimulationExperiment5 = ((timerSimulationExperiment5.ln()).pow(0.45)).mul(20).plus(1);
     if (SimulationMachine.αa1 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa1 = new Decimal(1e15); else effectSimulationMachine.αa1 = new Decimal(1);
-    if (SimulationMachine.αa2 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa2 = new Decimal(1.2).pow(EfficientClickLevel); else effectSimulationMachine.αa2 = new Decimal(1);
+    if (SimulationMachine.αa2 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa2 = Decimal.min(new Decimal("1e400").mul(effectClickCatalysis),new Decimal(1.2).pow(EfficientClickLevel)); else effectSimulationMachine.αa2 = new Decimal(1);
+    if (SimulationMachine.αa3 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa3 = turEnergyTier.mul(15); else effectSimulationMachine.αa3 = new Decimal(0);
+    if (SimulationMachine.αb3 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αb3 = turEnergyLevel.div(120).floor(); else effectSimulationMachine.αb3 = new Decimal(0);
+    if (SimulationMachine.αa4 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa4 = Decimal.min("1e5000",SimulationPower.pow(30)); else effectSimulationMachine.αa4 = new Decimal(1);
+    if (SimulationMachine.αb4 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αb4 = Decimal.min(ten,SimulationPower.pow(0.1)); else effectSimulationMachine.αb4 = new Decimal(0);
+    if (SimulationMachine.αa5 && experimentbuffs.SimulationExperiment5) effectSimulationMachine.αa5 = new Decimal(600); else effectSimulationMachine.αa5 = new Decimal(0);
     if (SimulationMachine.βa1) effectSimulationMachine.βa1 = Decimal.min(new Decimal(4),(turEnergyOrigin.log10().pow(0.55)).mul(0.7).plus(1)); else effectSimulationMachine.βa1 = new Decimal(1);
-    if (SimulationMachine.βa2) effectSimulationMachine.βa2 = new Decimal(35).pow(OriginProduceEnergyLevel); else effectSimulationMachine.βa2 = new Decimal(1);
+    if (SimulationMachine.βa2) effectSimulationMachine.βa2 = new Decimal(50).pow(OriginProduceEnergyLevel); else effectSimulationMachine.βa2 = new Decimal(1);
     if (SimulationMachine.βb1) effectSimulationMachine.βb1 = effectClickOrigin; else effectSimulationMachine.βb1 = new Decimal(1);
     if (SimulationMachine.βb2) effectSimulationMachine.βb2 = new Decimal(0.02); else effectSimulationMachine.βb2 = new Decimal(0);
     if (SimulationMachine.βa3) effectSimulationMachine.βa3 = new Decimal(1.2); else effectSimulationMachine.βa3 = new Decimal(1);
     if (SimulationMachine.βa4) effectSimulationMachine.βa4 = effectturEnergyTier; else effectSimulationMachine.βa4 = new Decimal(1);
     effectSimulationPower = Decimal.max(new Decimal(1),SimulationPower.pow(degreeSimulationPower));
     effectSimulationRoom.Room1 = new Decimal(2).pow(SimulationRoomLevel.Room1);
-    effectSimulationRoom.Room2 = new Decimal(2).pow(SimulationRoomLevel.Room2);
-    effectSimulationRoom.Room3 = new Decimal(2).pow(SimulationRoomLevel.Room3);
-    effectSimulationRoom.Room4 = new Decimal(2).pow(SimulationRoomLevel.Room4);
-    effectSimulationRoom.Room5 = new Decimal(2).pow(SimulationRoomLevel.Room5);
-    effectSimulationRoom.Room6 = new Decimal(2).pow(SimulationRoomLevel.Room6);
-    effectSimulationRoom.Room7 = new Decimal(2).pow(SimulationRoomLevel.Room7);
-    effectSimulationRoom.Room8 = new Decimal(2).pow(SimulationRoomLevel.Room8);
+    effectSimulationRoom.Room2 = new Decimal(2).pow(SimulationRoomLevel.Room2.plus(1));
+    effectSimulationRoom.Room3 = new Decimal(2).pow(SimulationRoomLevel.Room3.plus(2));
+    effectSimulationRoom.Room4 = new Decimal(2).pow(SimulationRoomLevel.Room4.plus(3));
+    effectSimulationRoom.Room5 = new Decimal(2).pow(SimulationRoomLevel.Room5.plus(4));
+    effectSimulationRoom.Room6 = new Decimal(2).pow(SimulationRoomLevel.Room6.plus(5));
+    effectSimulationRoom.Room7 = new Decimal(2).pow(SimulationRoomLevel.Room7.plus(6));
+    effectSimulationRoom.Room8 = new Decimal(2).pow(SimulationRoomLevel.Room8.plus(7));
 
     // 1. 更新显示的数字
-    let autoClickerPersec = (autoClickers.mul(clickPower.mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1))).mul(Decimal.max(1,(((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel)))).mul(effectturEnergyTier).mul(challengebuffs.turEnergy).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βa2)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
+    let autoClickerPersec = (autoClickers.mul(clickPower.mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1))).mul(Decimal.max(1,(((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel)))).mul(effectturEnergyTier).mul(challengebuffs.turEnergy).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βa2).mul(effectSimulationMachine.αa4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
     let OriginProducePersec = new Decimal(0);
     if (OriginProduceEnergyLevel.gt(0) && challengebuffs.disabledOriginLevelup) {
-        if (challengereward.EfficientOriginProduce) OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1)).mul((((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking)))).pow(HighspeedClickingLevel)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
-        else OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).div(60).mul(challengereward.turEnergy).mul(new Decimal(1).plus(effectOriginEnhance.mul(turEnergyOrigin))).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
+        if (challengereward.EfficientOriginProduce) OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1)).mul((((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking)))).pow(HighspeedClickingLevel)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
+        else OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).div(60).mul(challengereward.turEnergy).mul(new Decimal(1).plus(effectOriginEnhance.mul(turEnergyOrigin))).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
     }
     if (OriginProducePersec.gt(0)) disaplayturEnergyPersec.innerHTML = `通过自动点击器每秒获得${formatNumber(autoClickerPersec)}<span class="turEnergy">龟能</span><br>通过<span class="Origin">本源</span>生能每秒获得${formatNumber(OriginProducePersec)}<span class="turEnergy">龟能</span>`;
     else if (autoClickerPersec.gt(0)) disaplayturEnergyPersec.innerHTML = `通过自动点击器每秒获得${formatNumber(autoClickerPersec)}<span class="turEnergy">龟能</span>`;
     else disaplayturEnergyPersec.innerHTML = ``;
-    if (space === "inSimulation") turEnergyCountEl.textContent = formatNumber(turEnergy);
-    else if (space === "Simulation") turEnergyCountEl.textContent = formatNumber(simulationData);
+    if (space === "inSimulation" && page === "turEnergy") turEnergyCountBox.innerHTML = `你拥有<span class="turEnergy">${formatNumber(turEnergy)}</span>点<span class="turEnergy">龟能</span>`;
+    else if (space === "inSimulation" && page === "BasicEnergy") turEnergyCountBox.innerHTML = `你拥有<span class="BasicEnergy">${formatNumber(BasicEnergy)}</span>点<span class="BasicEnergy">基本能</span>`;
+    else if (space === "Simulation" && page === "Simulation") turEnergyCountBox.innerHTML = `你拥有<span class="simulation">${formatNumber(simulationData)}</span>点<span class="simulation">模拟数据</span>`;
     turEnergyLevelEl.textContent = formatNumber(turEnergyLevel);
     clickpower.textContent = formatNumber(clickPower);
     levelofAutoClicker.textContent = formatNumber(autoClickers);
@@ -88,10 +110,11 @@ function updateUI() {
     levelofturEnergyTier.textContent = formatNumber(turEnergyTier);
     if (challengebuffs.turEnergyTier && challengebuffs.disabledturEnergyLevelup) effectofturEnergyTier.textContent = formatNumber(effectturEnergyTier);
     else effectofturEnergyTier.textContent = 1;
-    if (challengebuffs.disabledturEnergyLevelup) baseofturEnergyTier.textContent = formatNumber(TierEnhanceLevel.plus(3));
+    if (challengebuffs.disabledturEnergyLevelup) baseofturEnergyTier.textContent = formatNumber(TierEnhanceLevel.mul(effectSimulationMachine.αb4.plus(1)).plus(3));
     else baseofturEnergyTier.textContent = 3;
     levelofTierEnhance.textContent = formatNumber(TierEnhanceLevel);
-    if (challengebuffs.disabledturEnergyLevelup) effectofTierEnhance.textContent = formatNumber(TierEnhanceLevel.plus(3));
+    baseofTierEnhance.textContent = formatNumber(effectSimulationMachine.αb4.plus(1))
+    if (challengebuffs.disabledturEnergyLevelup) effectofTierEnhance.textContent = formatNumber(TierEnhanceLevel.mul(effectSimulationMachine.αb4.plus(1)).plus(3));
     else effectofTierEnhance.textContent = 3;
 
     levelofOriginAmassFasten.textContent = formatNumber(OriginAmassFastenLevel);
@@ -109,33 +132,49 @@ function updateUI() {
     baseTierOrigin.textContent = formatNumber(new Decimal(0.03).plus(effectSimulationMachine.βb2));
     levelofOriginEnhance.textContent = formatNumber(OriginEnhanceLevel);
     effectofOriginEnhance.textContent = formatNumber(effectOriginEnhance);
+    levelofEnergyMachineA.textContent = formatNumber(EnergyMachineALevel);
+    effectofEnergyMachineA.textContent = formatNumber(effectEnergyMachineA);
+    levelofturEnergyCatalysis.textContent = formatNumber(turEnergyCatalysisLevel);
+    effectofturEnergyCatalysis.textContent = formatNumber(effectturEnergyCatalysis);
+    levelofOriginCatalysis.textContent = formatNumber(OriginCatalysisLevel);
+    effectofOriginCatalysis.textContent = formatNumber(effectOriginCatalysis);
+    levelofClickCatalysis.textContent = formatNumber(ClickCatalysisLevel);
+    effectofClickCatalysis.textContent = formatNumber(effectClickCatalysis);
     levelofincreamentalSimulation.textContent = formatNumber(increamentalSimulationLevel);
     effectofincreamentalSimulation.textContent = formatNumber(effectincreamentalSimulation);
     leveloffirstSimulationRoom.textContent = formatNumber(SimulationRoomLevel.Room1);
     AmountoffirstSimulationRoom.textContent = formatNumber(SimulationRoomAmount.Room1);
     effectoffirstSimulationRoom.textContent = formatNumber(effectSimulationRoom.Room1);
+    levelofsecondSimulationRoom.textContent = formatNumber(SimulationRoomLevel.Room2);
+    AmountofsecondSimulationRoom.textContent = formatNumber(SimulationRoomAmount.Room2);
+    effectofsecondSimulationRoom.textContent = formatNumber(effectSimulationRoom.Room2);
     
     turEnergyOriginDisplay.textContent = formatNumber(turEnergyOrigin);
-    if (challengebuffs.disabledOriginLevelup) turEnergyOriginAmassAmount.textContent = formatNumber(Decimal.max(0,(((turEnergy.log10().sub(40)).div(2).mul(new Decimal(2).pow(OriginAmassFastenLevel)).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effectSimulationExperiment4).mul(effect2SimulationExperiment5)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).floor()));
-    else turEnergyOriginAmassAmount.textContent = formatNumber(Decimal.max(0,((turEnergy.log10().sub(40)).div(2).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effectSimulationExperiment4).mul(effect2SimulationExperiment5)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).floor());
+    if (challengebuffs.disabledOriginLevelup) turEnergyOriginAmassAmount.textContent = formatNumber(Decimal.max(0,(((turEnergy.log10().sub(40)).div(2).mul(new Decimal(2).pow(OriginAmassFastenLevel)).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effectSimulationExperiment4).mul(effect2SimulationExperiment5).mul(effectOriginCatalysis)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).floor()));
+    else turEnergyOriginAmassAmount.textContent = formatNumber(Decimal.max(0,((turEnergy.log10().sub(40)).div(2).mul(challengereward.turEnergyOriginAmount).mul(SimulationUpgrades.turEnergyOrigin1.num).mul(effectSimulationExperiment4).mul(effect2SimulationExperiment5).mul(effectOriginCatalysis)).pow(effect1SimulationExperiment3).pow(effectSimulationMachine.βa3)).floor());
     effectofturEnergyOrigin.textContent = formatNumber(effectturEnergyOrigin.mul(turEnergyOrigin).plus(1));
     effectofperturEnergyOrigin.textContent = formatNumber(effectturEnergyOrigin);
     AmassOrigintimes.textContent = formatNumber(AmassOriginTimes);
 
-    SimulationDataCount.textContent = formatNumber(simulationData);
+    if (new Decimal(2).pow((turEnergy.log10().div(1000)).sub(1)).gte(1)) BasicEnergyChangeAmount.textContent = formatNumber(Decimal.max(0,new Decimal(2).pow((turEnergy.log10().div(1000)).sub(1))));
+    else BasicEnergyChangeAmount.textContent = '0';
+    EnergyEffectiondisplay.textContent = formatNumber(EnergyEffection);
+    SolarEnergydisplay.textContent = formatNumber(SolarEnergy);
+    displaySolarEnergypersec.textContent = formatNumber(EnergyEffection);
+
     SimulationTimesDisplay.textContent = formatNumber(simulatedTimes);
     effectofSimulationUpgradesturEnergy3.textContent = formatNumber(effectSimulationUpgradesturEnergy3);
     effectofSimulationUpgradesturEnergy4.textContent = formatNumber(effectSimulationUpgradesturEnergy4);
     SimulationMachineBytecountmax.textContent = formatNumber(SimulationMachineBtye);
     SimulationMachineBytecount.textContent = formatNumber(SimulationMachineBtye.sub(SimulationMachineBtyeUsed));
 
-    effectofSimulationMachineαa2.textContent = formatNumber(new Decimal(1.2).pow(EfficientClickLevel));
-    effectofSimulationMachineαa3.textContent = formatNumber(effectSimulationMachine.αa3);
-    effectofSimulationMachineαb3.textContent = formatNumber(effectSimulationMachine.αb3);
-    effectofSimulationMachineαa4.textContent = formatNumber(effectSimulationMachine.αa4);
-    effectofSimulationMachineαb4.textContent = formatNumber(effectSimulationMachine.αb4);
+    effectofSimulationMachineαa2.textContent = formatNumber(Decimal.min(new Decimal("1e400").mul(effectClickCatalysis),new Decimal(1.2).pow(EfficientClickLevel)));
+    effectofSimulationMachineαa3.textContent = formatNumber(turEnergyTier.mul(15));
+    effectofSimulationMachineαb3.textContent = formatNumber(turEnergyLevel.div(120).floor());
+    effectofSimulationMachineαa4.textContent = formatNumber(Decimal.min("1e5000",SimulationPower.pow(30)));
+    effectofSimulationMachineαb4.textContent = formatNumber(Decimal.min(ten,SimulationPower.pow(0.1)));
     effectofSimulationMachineβa1.textContent = formatNumber(Decimal.min(new Decimal(4),(turEnergyOrigin.log10().pow(0.55)).mul(0.7).plus(1)));
-    effectofSimulationMachineβa2.textContent = formatNumber(new Decimal(35).pow(OriginProduceEnergyLevel));
+    effectofSimulationMachineβa2.textContent = formatNumber(new Decimal(50).pow(OriginProduceEnergyLevel));
 
     SimumlationPowerCount.textContent = formatNumber(SimulationPower.floor());
     degreeofSimumlationPower.textContent = formatNumber(degreeSimulationPower);
@@ -168,11 +207,16 @@ function updateUI() {
     ClickOriginCost.textContent = formatNumber(PriceofBuyClickOrigin(ClickOriginLevel));
     TierOriginCost.textContent = formatNumber(PriceofBuyTierOrigin(TierOriginLevel));
     OriginEnhanceCost.textContent = formatNumber(PriceofBuyOriginEnhance(OriginEnhanceLevel));
+    EnergyMachineACost.textContent = formatNumber(PriceofBuyEnergyMachineA(EnergyMachineALevel));
     increamentalSimulationCost.textContent = formatNumber(PriceofBuyincreamentalSimulation(increamentalSimulationLevel));
     priceturEnergySimulationMachineByte.textContent = formatNumber(PriceofBuyturEnergySimulationMachineByte(BuySimulationMachineByte.turEnergy));
     priceturEnergyOriginSimulationMachineByte.textContent = formatNumber(PriceofBuyturEnergyOriginSimulationMachineByte(BuySimulationMachineByte.turEnergyOrigin));
+    turEnergyCatalysisCost.textContent = formatNumber(PriceofBuyturEnergyCatalysis(turEnergyCatalysisLevel));
+    OriginCatalysisCost.textContent = formatNumber(PriceofBuyOriginCatalysis(OriginCatalysisLevel));
+    ClickCatalysisCost.textContent = formatNumber(PriceofBuyClickCatalysis(ClickCatalysisLevel));
     priceSimulationDataSimulationMachineByte.textContent = formatNumber(PriceofBuySimulationDataSimulationMachineByte(BuySimulationMachineByte.SimulationData));
     firstSimulationRoomCost.textContent = formatNumber(PriceofBuyfirstSimulationRoom(SimulationRoomLevel.Room1));
+    secondSimulationRoomCost.textContent = formatNumber(PriceofBuysecondSimulationRoom(SimulationRoomLevel.Room2));
     
     // 折叠文本
     if (SimulationMachineFold) {
@@ -210,18 +254,10 @@ function updateUI() {
     if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse4.textContent = "10模拟数据"; else priceSimulationUpgradeselse4.textContent = "被禁用";
 
     // 3. 处理space
-    turEnergyCountBox.classList.add('Locked');
-    turEnergyCountBox.classList.remove('Unlocked');
-    SimulationDataCountBox.classList.add('Locked');
-    SimulationDataCountBox.classList.remove('Unlocked');
     if (space === "inSimulation") {
         document.body.style.backgroundColor = "#a3e590";
-        turEnergyCountBox.classList.add('Unlocked');
-        turEnergyCountBox.classList.remove('Locked');
     } else if (space === "Simulation") {
         document.body.style.backgroundColor = "#9ed9e8";
-        SimulationDataCountBox.classList.add('Unlocked');
-        SimulationDataCountBox.classList.remove('Locked');
     }
 
     // 4. 更新finish-giveup-challenge按钮
@@ -350,16 +386,18 @@ function updateUI() {
         }
     }
 
-    tapState = [0,0,0,0,0,0,0,0,0];
-    setTapItem(0, space === "inSimulation", turEnergyLeveluptap);  // 第一项永远解锁
-    setTapItem(1, (turEnergyTier.gte(3) || AmassOriginTimes.gte(2) || (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5)) && space === "inSimulation", turEnergychallengetap);
-    setTapItem(2, (challengereward.turEnergyOrigin || AmassOriginTimes.gt(0) || (SimulationUpgrades.turEnergyOrigin3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5)) && space === "inSimulation", turEnergyOrigintap);
-    setTapItem(3, AmassOriginTimes.gte(2) && space === "inSimulation", turEnergyOriginMilestonetap);
-    setTapItem(4, space === "Simulation", SimulationUpgradestap);
-    setTapItem(5, space === "Simulation" && ((SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) || experimentfinished.SimulationExperiment1 != 0), SimulationExperimenttap);
-    setTapItem(6, space === "Simulation" && experimentreward.SimulationExperiment1, SimulationMachinetap);
-    setTapItem(7, space === "Simulation" && SimulationMachine.λb1, SimulationRoomtap);
-    setTapItem(8, space === "Simulation" && (experimentreward.SimulationExperiment2 || experimentreward.SimulationExperiment3), SimulationAutotap);
+    tapState = [0,0,0,0,0,0,0,0,0,0,0];
+    setTapItem(0, space === "inSimulation" && page === "turEnergy", turEnergyLeveluptap);  // 第一项永远解锁
+    setTapItem(1, space === "inSimulation" && page === "turEnergy" && (turEnergyTier.gte(3) || AmassOriginTimes.gte(2) || (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5)), turEnergychallengetap);
+    setTapItem(2, space === "inSimulation" && page === "turEnergy" && (challengereward.turEnergyOrigin || AmassOriginTimes.gt(0) || (SimulationUpgrades.turEnergyOrigin3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5)), turEnergyOrigintap);
+    setTapItem(3, space === "inSimulation" && page === "turEnergy" && AmassOriginTimes.gte(2), turEnergyOriginMilestonetap);
+    setTapItem(4, space === "inSimulation" && page === "BasicEnergy", EnergyMachinetap);
+    setTapItem(5, space === "inSimulation" && page === "BasicEnergy", SolarEnergytap);
+    setTapItem(6, space === "Simulation" && page === "Simulation", SimulationUpgradestap);
+    setTapItem(7, space === "Simulation" && page === "Simulation" && ((SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) || experimentfinished.SimulationExperiment1 != 0), SimulationExperimenttap);
+    setTapItem(8, space === "Simulation" && page === "Simulation" && experimentreward.SimulationExperiment1, SimulationMachinetap);
+    setTapItem(9, space === "Simulation" && page === "Simulation" && SimulationMachine.λb1, SimulationRoomtap);
+    setTapItem(10, space === "Simulation" && page === "Simulation" && (experimentreward.SimulationExperiment2 || experimentreward.SimulationExperiment3), SimulationAutotap);
 
     let tapAmount = 0;
     for (let i=0; i<tapState.length; i++) tapAmount += tapState[i];
@@ -373,11 +411,13 @@ function updateUI() {
                 if (j===1) turEnergychallengetap.style.left = posX + '%';
                 if (j===2) turEnergyOrigintap.style.left = posX + '%';
                 if (j===3) turEnergyOriginMilestonetap.style.left = posX + '%';
-                if (j===4) SimulationUpgradestap.style.left = posX + '%';
-                if (j===5) SimulationExperimenttap.style.left = posX + '%';
-                if (j===6) SimulationMachinetap.style.left = posX + '%';
-                if (j===7) SimulationRoomtap.style.left = posX + '%';
-                if (j===8) SimulationAutotap.style.left = posX + '%';
+                if (j===4) EnergyMachinetap.style.left = posX + '%';
+                if (j===5) SolarEnergytap.style.left = posX + '%';
+                if (j===6) SimulationUpgradestap.style.left = posX + '%';
+                if (j===7) SimulationExperimenttap.style.left = posX + '%';
+                if (j===8) SimulationMachinetap.style.left = posX + '%';
+                if (j===9) SimulationRoomtap.style.left = posX + '%';
+                if (j===10) SimulationAutotap.style.left = posX + '%';
                 tapPoint = j+1;
                 break;
             }
@@ -824,10 +864,10 @@ function updateUI() {
 
     if (challengeParts.length === 0) {
         if (turEnergy.lt("1.80e308") && simulatedTimes.eq(0)) WhereYouAre.innerHTML = "你就在这里";
-        else if (turEnergy.lt("1.80e308") && space === "inSimulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>内`;
-        else if (space === "inSimulation") WhereYouAre.innerHTML = "你或许马上就不在这里了";
-        else if (space === "Simulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>外`;
-        if (experimentreward.SimulationExperiment5 && space === "inSimulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>内`;
+        else if (turEnergy.lt("1.80e308") && state === "inSimulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>内`;
+        else if (state === "inSimulation") WhereYouAre.innerHTML = "你或许马上就不在这里了";
+        else if (state === "Simulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>外`;
+        if (experimentreward.SimulationExperiment5 && state === "inSimulation") WhereYouAre.innerHTML = `你在<span class="simulation">模拟</span>内`;
     } else {
         WhereYouAre.innerHTML = `你在${challengeParts.join("-")}里`;
     }
@@ -879,10 +919,16 @@ function updateUI() {
     if (state === "inSimulation") {SimulationMachineResetBtn.disabled = true; SimulationMachineResetBtn.innerHTML = `已在<span class="simulation">模拟</span>中`;}
     else {SimulationMachineResetBtn.disabled = false; SimulationMachineResetBtn.innerHTML = `重置<span class="simulation">模拟机</span>Byte分配`;}
     disablebtn(simulationData.gte(PriceofBuyfirstSimulationRoom(SimulationRoomLevel.Room1)), firstSimulationRoomBtn);
+    disablebtn(simulationData.gte(PriceofBuysecondSimulationRoom(SimulationRoomLevel.Room2)), secondSimulationRoomBtn);
     disablebtn(!experimentbuffs.SimulationExperiment5, SimulationMachineαmainbtn);
     disablebtn(turEnergy.gte("1.8e308"), completeSimulation2);
-    if (turEnergy.gte("1.8e308")) completeSimulation2Text.innerHTML = `可获得${formatNumber((effectincreamentalSimulation.div(2).mul(new Decimal(2).pow(turEnergy.log10().div(308)))).floor())}<span class="simulation">模拟数据</span>`;
+    if (turEnergy.gte("1.8e308")) completeSimulation2Text.innerHTML = `${formatNumber((effectincreamentalSimulation.div(2).mul(new Decimal(2).pow(turEnergy.log10().div(308)))).floor())}<span class="simulation">模拟数据</span>`;
     else completeSimulation2Text.innerHTML = `需要1.80e308<span class="turEnergy">龟能</span>`;
+    disablebtn((new Decimal(2).pow((turEnergy.log10().div(1000)).sub(1))).gte(1), BasicEnergyChangebtn);
+    disablebtn(BasicEnergy.gte(PriceofBuyEnergyMachineA(EnergyMachineALevel)), EnergyMachineABtn);
+    disablebtn(SolarEnergy.gte(PriceofBuyturEnergyCatalysis(turEnergyCatalysisLevel)), turEnergyCatalysisBtn);
+    disablebtn(SolarEnergy.gte(PriceofBuyOriginCatalysis(OriginCatalysisLevel)), OriginCatalysisBtn);
+    disablebtn(SolarEnergy.gte(PriceofBuyClickCatalysis(ClickCatalysisLevel)), ClickCatalysisBtn);
 
     // 解锁升级（和挑战）
     function UnlockUpgrades(condition, elements) {
@@ -908,9 +954,14 @@ function updateUI() {
     UnlockUpgrades(AmassOriginTimes.gt(0), ClickOriginEl);
     UnlockUpgrades(AmassOriginTimes.gt(0), TierOriginEl);
     UnlockUpgrades(AmassOriginTimes.gte(2000), OriginEnhanceEl);
+    UnlockUpgrades(true, EnergyMachineAEl);
     UnlockUpgrades(((AmassOriginTimes.gt(0) || SimulationUpgrades.turEnergyOrigin3.if) && challengereward.turEnergyOrigin) || challengedoing.Origin != "" || challengefinished.turEnergyOriginChallenge1 != 0 || challengefinished.turEnergyOriginChallenge2 != 0 || challengefinished.turEnergyOriginChallenge3 != 0 || challengefinished.turEnergyOriginChallenge4 != 0 || challengefinished.turEnergyOriginChallenge5 != 0 || challengefinished.turEnergyOriginChallenge6 != 0, turEnergyOriginChallengeEl);
     UnlockUpgrades(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if, increamentalSimulationEl);
     UnlockUpgrades(SimulationMachine.λb1, firstSimulationRoomEl);
+    UnlockUpgrades(SimulationMachine.λb2, secondSimulationRoomEl);
+    UnlockUpgrades(true, turEnergyCatalysisEl);
+    UnlockUpgrades(true, OriginCatalysisEl);
+    UnlockUpgrades(true, ClickCatalysisEl);
 
     function UnlockUpgrade (condition, element) {
         if (condition) {
@@ -968,6 +1019,7 @@ function updateUI() {
     SimulationMachineβa2btn.disabled = SimulationMachine.βa2;
     SimulationMachineβb2btn.disabled = SimulationMachine.βb2;
     SimulationMachineβa3btn.disabled = SimulationMachine.βa3;
+    SimulationMachineβa4btn.disabled = SimulationMachine.βa4;
     
     if (turEnergy.gte("1.80e308") && experimentdoing.Simulation === "" && space === "inSimulation" && !experimentreward.SimulationExperiment5) {
         completeSimulationBtn.classList.add('Unlocked');
