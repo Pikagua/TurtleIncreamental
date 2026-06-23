@@ -139,7 +139,7 @@ function defualtSet() {
     TierCatalysisLevel = new Decimal(0);
     ReactionCatalysisLevel = new Decimal(0);
     PrimaryBatteryLevel = new Decimal(0);
-    ElectricEnergy = new Deceimal(0);
+    ElectricEnergy = new Decimal(0);
     BoostVoltageLevel = new Decimal(0);
     ElectrolysisLevel = new Decimal(0);
     LonizationLevel = new Decimal(0);
@@ -179,7 +179,7 @@ function defualtSet() {
     BuySimulationMachineByte = {
         turEnergy:new Decimal(0),
         turEnergyOrigin:new Decimal(0),
-        SimulationData:new Decimal(0)
+        SimulationData:new Decimal(0),
     }
     SimulationMachine = {
         λa1:false,
