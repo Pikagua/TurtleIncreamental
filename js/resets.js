@@ -114,22 +114,31 @@ function SimulationReset() {
     ElectrolysisLevel = new Decimal(0);
     LonizationLevel = new Decimal(0);
     MotorLevel = new Decimal(0);
+    MechanicalEnergy = new Decimal(0);
+    KineticEnergyLevel = new Decimal(0);
+    ElasticPotentialEnergyLevel = new Decimal(0);
+    GravitationalPotentialEnergyLevel = new Decimal(0);
+    FrictionLevel = new Decimal(0);
     challengedoing = {
         Tier:"",
-        Origin:""
+        Origin:"",
+        BasicEnergy:"",
     };
     challengeGoal = {
         Tier:new Decimal(0),
-        Origin:new Decimal(0)
+        Origin:new Decimal(0),
+        BasicEnergy:new Decimal(0),
     };
     challengeGoaltype = {
         Tier:false,
-        Origin:false
+        Origin:false,
+        BasicEnergy:false,
     };
     challengePercent = new Decimal(0);
     challengeprogress = {
         Tier:"",
-        Origin:""
+        Origin:"",
+        BasicEnergy:"",
     };
     if (SimulationUpgrades.else4.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) {
         challengefinished.turEnergyOriginChallenge1 = 2;
@@ -147,6 +156,12 @@ function SimulationReset() {
         challengefinished.turEnergyOriginChallenge5 = 0;
         challengefinished.turEnergyOriginChallenge6 = 0;
     }
+    challengefinished.BasicEnergyChallenge1 = 0;
+    challengefinished.BasicEnergyChallenge2 = 0;
+    challengefinished.BasicEnergyChallenge3 = 0;
+    challengefinished.BasicEnergyChallenge4 = 0;
+    challengefinished.BasicEnergyChallenge5 = 0;
+    challengefinished.BasicEnergyChallenge6 = 0;
     turEnergyOriginReset();
 }
 
