@@ -56,7 +56,7 @@ function completeSimulation() {
         }
         space = "Simulation";
         state = "Simulation";
-        simulationData = simulationData.plus((effectincreamentalSimulation.div(2).mul(new Decimal(2).pow(turEnergy.log10().div(308)))).floor());
+        simulationData = simulationData.plus((effectincreamentalSimulation.div(2).mul(new Decimal(2).pow(turEnergy.log10().div(308))).mul(effectSimulationMachine.γa4).mul(effectSimulationMachine.γb4).mul(effectSimulationMachine.γc4)).floor());
         SimulationReset();
         changetoSimulationuptap();
         changetoSimulationUpgradestap();

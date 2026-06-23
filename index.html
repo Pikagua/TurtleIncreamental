@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <h1>🐢 乌龟增量 v0.0.3.3 made by 皮卡龟</h1>
+    <h1>🐢 乌龟增量 v0.0.4 made by 皮卡龟</h1>
     <div class="counter" id="turEnergy-count-box">
             你拥有<span class="turEnergy">0</span>点<span class="turEnergy">龟能</span>
     </div>
@@ -50,7 +50,11 @@
 
     <div class="Locked phase2-taps" id="the-phase2-taps">
         <button class="taps btn" id="EnergyMachinetap" onclick="changetoEnergyMachinetap()"><span class="BasicEnergy">能源机器</span></button>
+        <button class="taps btn" id="BasicEnergyChallengetap" onclick="changetoBasicEnergyChallengetap()"><span class="BasicEnergy">基本能</span>挑战</button>
         <button class="taps btn" id="SolarEnergytap" onclick="changetoSolarEnergytap()"><span class="BasicEnergy">光能</span></button>
+        <button class="taps btn" id="ChemicalEnergytap" onclick="changetoChemicalEnergytap()"><span class="BasicEnergy">化学能</span></button>
+        <button class="taps btn" id="ElectricEnergytap" onclick="changetoElectricEnergytap()"><span class="BasicEnergy">电能</span></button>
+        <button class="taps btn" id="MechanicalEnergytap" onclick="changetoMechanicalEnergytap()"><span class="BasicEnergy">机械能</span></button>
     </div>
 
     <div class="Unlocked Simulation-taps" id="the-Simulation-taps">
@@ -163,21 +167,21 @@
                     奖励：延迟<span class="turEnergy">龟能</span>等级的第一次折算：+<span id="reward1-turEnergyTierChallenge3">0</span>→<span id="reward2-turEnergyTierChallenge3">30</span>
                 </div>
                 <div class="challenge turEnergyTierChallenge" id="turEnergyTierChallenge4">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战4（<span id="progress-turEnergyTierChallenge4">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战4（<span id="progress-turEnergyTierChallenge4">0</span>/<span id="max-turEnergyTierChallenge4">1</span>）</span><br>
                     禁用自动点击器升级<br><br>
                     <button class="btn-challenge" id="startturEnergyTierChallenge4btn" onclick="startturEnergyTierChallenge4()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyTierChallenge4">70</span><span class="turEnergy">龟能</span>等级<br>
                     奖励：允许购买最大数量的自动点击器
                 </div>
                 <div class="challenge turEnergyTierChallenge" id="turEnergyTierChallenge5">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战5（<span id="progress-turEnergyTierChallenge5">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战5（<span id="progress-turEnergyTierChallenge5">0</span>/<span id="max-turEnergyTierChallenge5">1</span>）</span><br>
                     <span class="turEnergy">龟能</span>层级失效<br><br>
                     <button class="btn-challenge" id="startturEnergyTierChallenge5btn" onclick="startturEnergyTierChallenge5()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyTierChallenge5">160</span><span class="turEnergy">龟能</span>等级<br>
                     奖励：基于<span class="turEnergy">龟能</span>层级提升高效点击的基数：+<span id="reward1-turEnergyTierChallenge5">0</span>→<span id="reward2-turEnergyTierChallenge5">x/2</span>
                 </div>
                 <div class="challenge turEnergyTierChallenge" id="turEnergyTierChallenge6">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战6（<span id="progress-turEnergyTierChallenge6">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span>层级挑战6（<span id="progress-turEnergyTierChallenge6">0</span>/<span id="max-turEnergyTierChallenge6">1</span>）</span><br>
                     每点击获得<span class="turEnergy">龟能</span>的基数恒为1<br><br>
                     <button class="btn-challenge" id="startturEnergyTierChallenge6btn" onclick="startturEnergyTierChallenge6()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyTierChallenge6">580</span><span class="turEnergy">龟能</span>等级<br>
@@ -186,42 +190,42 @@
 
                 <div class="Unlocked intro" id="intro-turEnergyOriginChallenge"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战<br><span class="secondary-title">这些挑战会在开始后立刻进行一次没有收益的<span class="turEnergy">龟能</span><span class="Origin">本源</span>重置</span></div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge1">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战1（<span id="progress-turEnergyOriginChallenge1">0</span>/2）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战1（<span id="progress-turEnergyOriginChallenge1">0</span>/<span id="max-turEnergyOriginChallenge1">2</span>）</span><br>
                     禁用<span class="turEnergy">龟能</span>层级挑战<span id="debuff-turEnergyOriginChallenge1">1</span><br><br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge1btn" onclick="startturEnergyOriginChallenge1()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge1">12</span><span class="turEnergy">龟能</span>层级<br>
                     奖励：提升<span class="turEnergy">龟能</span>层级挑战1，2，3可以完成的次数：<span id="reward1-turEnergyOriginChallenge1">3</span>→<span id="reward2-turEnergyOriginChallenge1">4</span>
                 </div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge2">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战2（<span id="progress-turEnergyOriginChallenge2">0</span>/2）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战2（<span id="progress-turEnergyOriginChallenge2">0</span>/<span id="max-turEnergyOriginChallenge2">2</span>）</span><br>
                     获得的<span class="turEnergy">龟能</span>^<span id="debuff-turEnergyOriginChallenge2">0.8</span><br><br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge2btn" onclick="startturEnergyOriginChallenge2()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge2">12</span><span class="turEnergy">龟能</span>层级<br>
                     奖励：提升凝聚的<span class="turEnergy">龟能</span><span class="Origin">本源</span>：x<span id="reward1-turEnergyOriginChallenge2">0</span>→<span id="reward2-turEnergyOriginChallenge2">1</span>
                 </div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge3">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战3（<span id="progress-turEnergyOriginChallenge3">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战3（<span id="progress-turEnergyOriginChallenge3">0</span>/<span id="max-turEnergyOriginChallenge3">1</span>）</span><br>
                     同时进行分别第<span id="debuff-turEnergyOriginChallenge3">3，3，3，1，1</span>次的<span class="turEnergy">龟能</span>龟能层级挑战1,2,3,4,6<br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge3btn" onclick="startturEnergyOriginChallenge3()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge3">7</span><span class="turEnergy">龟能</span>层级<br>
                     奖励：允许购买最大数量的<span class="turEnergy">龟能</span>等级和<span class="turEnergy">龟能</span>升级
                 </div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge4">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战4（<span id="progress-turEnergyOriginChallenge4">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战4（<span id="progress-turEnergyOriginChallenge4">0</span>/<span id="max-turEnergyOriginChallenge4">1</span>）</span><br>
                     禁用全部的<span class="turEnergy">龟能</span><span class="Origin">本源</span>升级<br><br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge4btn" onclick="startturEnergyOriginChallenge4()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge4">12</span><span class="turEnergy">龟能</span>层级<br>
                     奖励：高速点击和高效点击会加成<span class="Origin">本源</span>生能，<span class="Origin">本源</span>生能效果的基数x20
                 </div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge5">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战5（<span id="progress-turEnergyOriginChallenge5">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战5（<span id="progress-turEnergyOriginChallenge5">0</span>/<span id="max-turEnergyOriginChallenge5">1</span>）</span><br>
                     禁用全部的<span class="turEnergy">龟能</span><span class="Origin">本源</span>里程碑<br><br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge5btn" onclick="startturEnergyOriginChallenge5()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge5">12</span><span class="turEnergy">龟能</span>层级<br>
                     奖励：层级重置什么都不会重置
                 </div>
                 <div class="challenge turEnergyOriginChallenge" id="turEnergyOriginChallenge6">
-                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战6（<span id="progress-turEnergyOriginChallenge6">0</span>/1）</span><br>
+                    <span class="challengeTitle"><span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战6（<span id="progress-turEnergyOriginChallenge6">0</span>/<span id="max-turEnergyOriginChallenge6">1</span>）</span><br>
                     禁用全部的<span class="turEnergy">龟能</span>升级<br><span class="secondary-title"><span class="turEnergy">龟能</span>层级被允许升级，但会完全失效</span><br>
                     <button class="btn-challenge" id="startturEnergyOriginChallenge6btn" onclick="startturEnergyOriginChallenge6()">开始挑战</button><br><br>
                     目标：<span id="goal-turEnergyOriginChallenge6">12</span><span class="turEnergy">龟能</span>层级<br>
@@ -239,7 +243,7 @@
                 <div class="effectdisplay" id="turEnergyOrigin-display">
                     获得的<span class="turEnergy">龟能</span>x<span id="effect-of-turEnergyOrigin">1</span><br>
                     每个<span class="turEnergy">龟能</span><span class="Origin">本源</span>额外获得<span id="effect-of-perturEnergyOrigin">0.5</span>倍的<span class="turEnergy">龟能</span><br>
-                    拥有<span id="AmassOriginTimes">0</span><span class="turEnergy">龟能</span><span class="Origin">本源</span>次数
+                    拥有<span id="AmassOriginTimes">0</span><span class="turEnergy">龟能</span><span class="Origin">本源</span>次数<span id="AmassOriginTimes-persec"></span>
                 </div>
 
                 <div class="Locked title-of-leveluper OriginAmassFasten"><span class="Origin">本源</span>速凝</div>
@@ -296,7 +300,7 @@
                 效果：<span class="turEnergy">龟能</span><span class="Origin">本源</span>重置时不再重置层级提升</div>
                 <div class="OriginMilestone" id="OriginMilestone9"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑9（<span id="OriginMilestone9progress">未完成</span>）</span>
                 需要100<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数<br><br><br>
-                效果：每次<span class="Origin">本源</span>会获得10<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</div>
+                效果：获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数x10</div>
                 <div class="OriginMilestone" id="OriginMilestone10"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑10（<span id="OriginMilestone10progress">未完成</span>）</span>
                 需要2000<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数<br><br><br>
                 效果：解锁<span class="Origin">本源</span>升级：<span class="Origin">本源</span>增强</div>
@@ -318,8 +322,75 @@
 
                 <div class="Locked title-of-leveluper EnergyMachineA"><span class="BasicEnergy">能源机器</span>-A</div>
                 <div class="Locked level-of-leveluper EnergyMachineA">等级：<span id="level-of-EnergyMachineA">0</span></div>
-                <div class="Locked effectdisplay-of-leveluper EnergyMachineA">每升一级，<span class="BasicEnergy">能源效率</span>+0.2<br>效果：+<span id="effect-of-EnergyMachineA">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper EnergyMachineA">每升一级，<span class="BasicEnergy">能源效率</span>+0.2，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineA">0</span></div>
                 <button class="Locked btn button-of-leveluper EnergyMachineA" id="EnergyMachineA-btn" onclick="BuyEnergyMachineA()">价格：<span class="BasicEnergy" id="EnergyMachineA-cost">5</span><span class="BasicEnergy">基本能</span></button>
+
+                <div class="Locked title-of-leveluper EnergyMachineB"><span class="BasicEnergy">能源机器</span>-B</div>
+                <div class="Locked level-of-leveluper EnergyMachineB">等级：<span id="level-of-EnergyMachineB">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper EnergyMachineB">每升一级，<span class="BasicEnergy">能源效率</span>+0.5，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineB">0</span></div>
+                <button class="Locked btn button-of-leveluper EnergyMachineB" id="EnergyMachineB-btn" onclick="BuyEnergyMachineB()">价格：<span class="BasicEnergy" id="EnergyMachineB-cost">30</span><span class="BasicEnergy">基本能</span></button>
+
+                <div class="Locked title-of-leveluper EnergyMachineC"><span class="BasicEnergy">能源机器</span>-C</div>
+                <div class="Locked level-of-leveluper EnergyMachineC">等级：<span id="level-of-EnergyMachineC">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper EnergyMachineC">每升一级，<span class="BasicEnergy">能源效率</span>+1.2，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineC">0</span></div>
+                <button class="Locked btn button-of-leveluper EnergyMachineC" id="EnergyMachineC-btn" onclick="BuyEnergyMachineC()">价格：<span class="BasicEnergy" id="EnergyMachineC-cost">200</span><span class="BasicEnergy">基本能</span></button>
+
+                <div class="Locked title-of-leveluper EnergyMachineD"><span class="BasicEnergy">能源机器</span>-D</div>
+                <div class="Locked level-of-leveluper EnergyMachineD">等级：<span id="level-of-EnergyMachineD">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper EnergyMachineD">每升一级，<span class="BasicEnergy">能源效率</span>+5，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineD">0</span></div>
+                <button class="Locked btn button-of-leveluper EnergyMachineD" id="EnergyMachineD-btn" onclick="BuyEnergyMachineD()">价格：<span class="BasicEnergy" id="EnergyMachineD-cost">1.50e3</span><span class="BasicEnergy">基本能</span></button>
+            </div>
+
+            <div class="Locked phase2-taps" id="BasicEnergyChallenge-tap">
+                <div class="Unlocked intro" id="intro-BasicEnergyChallenge"><span class="BasicEnergy">基本能</span>挑战<br><span class="secondary-title">这些挑战会在开始后立刻进行一次没有收益的<span class="BasicEnergy">基本能</span>重置</span></div>
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge1">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战1（<span id="progress-BasicEnergyChallenge1">0</span>/3）</span><br>
+                    <span class="turEnergy">龟能</span>层级第二次折算的效果得到提升：x<span id="debuff-BasicEnergyChallenge1">3</span><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge1btn" onclick="startBasicEnergyChallenge1()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge1">1e30800</span><span class="turEnergy">龟能</span><br>
+                    奖励：<span class="turEnergy">龟能</span>层级第二次折算的效果得到削弱：x<span id="reward1-BasicEnergyChallenge1">1</span>→<span id="reward2-BasicEnergyChallenge1">0.9</span>
+                </div>
+
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge2">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战2（<span id="progress-BasicEnergyChallenge2">0</span>/3）</span><br>
+                    禁用层级增强<br><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge2btn" onclick="startBasicEnergyChallenge2()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge2">1e30800</span><span class="turEnergy">龟能</span><br>
+                    奖励：提升<span class="BasicEnergy">反应</span>催化的基数：+<span id="reward1-BasicEnergyChallenge2">0</span>→<span id="reward2-BasicEnergyChallenge2">0.5</span>
+                </div>
+
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge3">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战3（<span id="progress-BasicEnergyChallenge3">0</span>/3）</span><br>
+                    禁用<span class="turEnergy">龟能</span>层级升级<br><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge3btn" onclick="startBasicEnergyChallenge3()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge3">1e3000</span><span class="turEnergy">龟能</span><br>
+                    奖励：基于<span class="BasicEnergy">能源效率</span>提供额外的<span class="turEnergy">龟能</span>层级：+<span id="reward1-BasicEnergyChallenge3">0</span>x→<span id="reward2-BasicEnergyChallenge3">2</span>x
+                    <br><span class="secondary-title" id="BasicEnergyChallenge3-convert">这个效果在100个后的获取数量会^0.7</span>
+                </div>
+
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge4">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战4（<span id="progress-BasicEnergyChallenge4">0</span>/3）</span><br>
+                    获得的<span class="turEnergy">龟能</span>x<span id="debuff-BasicEnergyChallenge4">1e-2,000</span><br><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge4btn" onclick="startBasicEnergyChallenge4()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge4">1e30800</span><span class="turEnergy">龟能</span><br>
+                    奖励：转化<span class="BasicEnergy">基本能</span>的公式变得更好：+<span id="reward1-BasicEnergyChallenge4">2</span>^n→<span id="reward2-BasicEnergyChallenge4">3</span>^n
+                </div>
+
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge5">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战5（<span id="progress-BasicEnergyChallenge5">0</span>/3）</span><br>
+                    <span class="simulation">模拟之力</span>的数量始终为0<br><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge5btn" onclick="startBasicEnergyChallenge5()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge5">1e8000</span><span class="turEnergy">龟能</span><br>
+                    奖励：提升升压和<span class="simulation">模拟</span>催化的效果：x<span id="reward1-BasicEnergyChallenge5">1</span>→<span id="reward2-BasicEnergyChallenge5">2</span>
+                </div>
+
+                <div class="challenge BasicEnergyChallenge" id="BasicEnergyChallenge6">
+                    <span class="challengeTitle"><span class="BasicEnergy">基本能</span>挑战6（<span id="progress-BasicEnergyChallenge6">0</span>/3）</span><br>
+                    禁用<span class="simulation">模拟机</span>-α和<span class="simulation">模拟机</span>-β<br><br>
+                    <button class="btn-challenge" id="startBasicEnergyChallenge6btn" onclick="startBasicEnergyChallenge6()">开始挑战</button><br><br>
+                    目标：<span id="goal-BasicEnergyChallenge6">1e1500</span><span class="turEnergy">龟能</span><br>
+                    奖励：使第<span id="reward-BasicEnergyChallenge6">2</span>级<span class="important">通</span><span class="BasicEnergy">电</span>的价格更合理
+                </div>
             </div>
 
             <div class="Locked phase2-taps" id="SolarEnergy-tap">
@@ -334,13 +405,100 @@
             
                 <div class="Locked title-of-leveluper OriginCatalysis"><span class="Origin">本源</span>催化</div>
                 <div class="Locked level-of-leveluper OriginCatalysis">等级：<span id="level-of-OriginCatalysis">0</span></div>
-                <div class="Locked effectdisplay-of-leveluper OriginCatalysis">每升一级，获得的<span class="Origin">本源</span>x2<br>效果：x<span id="effect-of-OriginCatalysis">1</span></div>
+                <div class="Locked effectdisplay-of-leveluper OriginCatalysis">每升一级，获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x2<br>效果：x<span id="effect-of-OriginCatalysis">1</span></div>
                 <button class="Locked btn button-of-leveluper OriginCatalysis" id="OriginCatalysis-btn" onclick="BuyOriginCatalysis()">价格：<span class="BasicEnergy" id="OriginCatalysis-cost">1</span><span class="BasicEnergy">光能</span></button>
             
                 <div class="Locked title-of-leveluper ClickCatalysis">点击催化</div>
                 <div class="Locked level-of-leveluper ClickCatalysis">等级：<span id="level-of-ClickCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper ClickCatalysis">每升一级，<span class="simulation">模拟机</span>-α-a2的效果上限x1e70<br>效果：x<span id="effect-of-ClickCatalysis">1</span></div>
                 <button class="Locked btn button-of-leveluper ClickCatalysis" id="ClickCatalysis-btn" onclick="BuyClickCatalysis()">价格：<span class="BasicEnergy" id="ClickCatalysis-cost">10</span><span class="BasicEnergy">光能</span></button>
+
+                <div class="Locked title-of-leveluper Photosynthesis"><span class="BasicEnergy">光合作用</span></div>
+                <div class="Locked level-of-leveluper Photosynthesis">等级：<span id="level-of-Photosynthesis">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper Photosynthesis">每升一级，生产<span class="BasicEnergy">化学能</span>的基数+0.05<br>效果：+<span id="effect-of-Photosynthesis">0</span></div>
+                <button class="Locked btn button-of-leveluper Photosynthesis" id="Photosynthesis-btn" onclick="BuyPhotosynthesis()">价格：<span class="BasicEnergy" id="Photosynthesis-cost">300</span><span class="BasicEnergy">光能</span></button>
+            </div>
+
+            <div class="Locked phase2-taps" id="ChemicalEnergy-tap">
+                <div style="margin-top: 20px; color: #333; font-size: 20px; font-weight: bold;">
+                    你拥有<span class="BasicEnergy" id="ChemicalEnergy-display">0</span>点<span class="BasicEnergy">化学能</span> （+<span class="BasicEnergy" id="display-ChemicalEnergy-persec">0</span>/秒）
+                </div>
+
+                <div class="Locked title-of-leveluper SimulationCatalysis"><span class="simulation">模拟</span>催化</div>
+                <div class="Locked level-of-leveluper SimulationCatalysis">等级：<span id="level-of-SimulationCatalysis">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper SimulationCatalysis">每升一级，所有<span class="simulation">模拟室</span>的效率x<span id="baseof-SimulationCatalysis">2</span><br>效果：x<span id="effect-of-SimulationCatalysis">1</span></div>
+                <button class="Locked btn button-of-leveluper SimulationCatalysis" id="SimulationCatalysis-btn" onclick="BuySimulationCatalysis()">价格：<span class="BasicEnergy" id="SimulationCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
+
+                <div class="Locked title-of-leveluper TierCatalysis">层级催化</div>
+                <div class="Locked level-of-leveluper TierCatalysis">等级：<span id="level-of-TierCatalysis">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper TierCatalysis">每升一级，<span class="turEnergy">龟能</span>层级的第二次折算延迟3级<br>效果：+<span id="effect-of-TierCatalysis">0</span></div>
+                <button class="Locked btn button-of-leveluper TierCatalysis" id="TierCatalysis-btn" onclick="BuyTierCatalysis()">价格：<span class="BasicEnergy" id="TierCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
+
+                <div class="Locked title-of-leveluper ReactionCatalysis"><span class="BasicEnergy">反应</span>催化</div>
+                <div class="Locked level-of-leveluper ReactionCatalysis">等级：<span id="level-of-ReactionCatalysis">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper ReactionCatalysis">每升一级，转化的<span class="BasicEnergy">基本能</span>x<span id="baseof-ReactionCatalysis">1.5</span><br>效果：x<span id="effect-of-ReactionCatalysis">1</span></div>
+                <button class="Locked btn button-of-leveluper ReactionCatalysis" id="ReactionCatalysis-btn" onclick="BuyReactionCatalysis()">价格：<span class="BasicEnergy" id="ReactionCatalysis-cost">5</span><span class="BasicEnergy">化学能</span></button>
+
+                <div class="Locked title-of-leveluper PrimaryBattery"><span class="BasicEnergy">原电池</span></div>
+                <div class="Locked level-of-leveluper PrimaryBattery">等级：<span id="level-of-PrimaryBattery">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper PrimaryBattery">每升一级，生产<span class="BasicEnergy">电能</span>的基数+0.0001<br>效果：+<span id="effect-of-PrimaryBattery">0</span></div>
+                <button class="Locked btn button-of-leveluper PrimaryBattery" id="PrimaryBattery-btn" onclick="BuyPrimaryBattery()">价格：<span class="BasicEnergy" id="PrimaryBattery-cost">500</span><span class="BasicEnergy">化学能</span></button>
+            </div>
+            <div class="Locked phase2-taps" id="ElectricEnergy-tap">
+                <div style="margin-top: 20px; color: #333; font-size: 20px; font-weight: bold;">
+                    你拥有<span class="BasicEnergy" id="ElectricEnergy-display">0</span>点<span class="BasicEnergy">电能</span> （+<span class="BasicEnergy" id="display-ElectricEnergy-persec">0</span>/秒）
+                </div>
+
+                <div class="Locked title-of-leveluper BoostVoltage">升压</div>
+                <div class="Locked level-of-leveluper BoostVoltage">等级：<span id="level-of-BoostVoltage">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper BoostVoltage">每升一级，<span class="simulation">模拟</span>催化的基数+1<br>效果：+<span id="effect-of-BoostVoltage">0</span></div>
+                <button class="Locked btn button-of-leveluper BoostVoltage" id="BoostVoltage-btn" onclick="BuyBoostVoltage()">价格：<span class="BasicEnergy" id="BoostVoltage-cost">1</span><span class="BasicEnergy">电能</span></button>
+
+                <div class="Locked title-of-leveluper Electrolysis">电解</div>
+                <div class="Locked level-of-leveluper Electrolysis">等级：<span id="level-of-Electrolysis">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper Electrolysis">每升一级，每秒自动获得当前可凝聚的<span class="turEnergy">龟能</span><span class="Origin">本源</span>的数量+1%<br>效果：x<span id="effect-of-Electrolysis">0</span></div>
+                <button class="Locked btn button-of-leveluper Electrolysis" id="Electrolysis-btn" onclick="BuyElectrolysis()">价格：<span class="BasicEnergy" id="Electrolysis-cost">2</span><span class="BasicEnergy">电能</span></button>
+
+                <div class="Locked title-of-leveluper Lonization">电离</div>
+                <div class="Locked level-of-leveluper Lonization">等级：<span id="level-of-Lonization">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper Lonization">每升一级，获得的<span class="BasicEnergy">化学能</span>的数量x2<br>效果：x<span id="effect-of-Lonization">1</span></div>
+                <button class="Locked btn button-of-leveluper Lonization" id="Lonization-btn" onclick="BuyLonization()">价格：<span class="BasicEnergy" id="Lonization-cost">1</span><span class="BasicEnergy">电能</span></button>
+
+                <div class="Locked title-of-leveluper Motor"><span class="BasicEnergy">马达</span></div>
+                <div class="Locked level-of-leveluper Motor">等级：<span id="level-of-Motor">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper Motor">每升一级，生产<span class="BasicEnergy">机械能</span>的基数+1e-6<br>效果：+<span id="effect-of-Motor">0</span></div>
+                <button class="Locked btn button-of-leveluper Motor" id="Motor-btn" onclick="BuyMotor()">价格：<span class="BasicEnergy" id="Motor-cost">1000</span><span class="BasicEnergy">电能</span></button>
+
+                <div class="Locked title-of-leveluper PowerOn"><span class="important">通</span><span class="BasicEnergy">电</span></div>
+                <div class="Locked level-of-leveluper PowerOn">等级：<span id="level-of-PowerOn">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper PowerOn"><span id="effectdisplay-of-PowerOn">使<span class="simulation">模拟机</span>-λ-a3的价格除以1e4</span><br>这个升级不会被<span class="simulation">模拟</span>重置影响</div>
+                <button class="Locked btn button-of-leveluper PowerOn" id="PowerOn-btn" onclick="BuyPowerOn()">价格：<span class="BasicEnergy" id="PowerOn-cost">5</span><span class="BasicEnergy">电能</span></button>
+            </div>
+
+            <div class="Locked phase2-taps" id="MechanicalEnergy-tap">
+                <div style="margin-top: 20px; color: #333; font-size: 20px; font-weight: bold;">
+                    你拥有<span class="BasicEnergy" id="MechanicalEnergy-display">0</span>点<span class="BasicEnergy">机械能</span> （+<span class="BasicEnergy" id="display-MechanicalEnergy-persec">0</span>/秒）
+                </div>
+
+                <div class="Locked title-of-leveluper KineticEnergy"><span class="BasicEnergy">动能</span></div>
+                <div class="Locked level-of-leveluper KineticEnergy">等级：<span id="level-of-KineticEnergy">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper KineticEnergy">基于<span class="simulation">模拟机</span>Byte的总数提升第一<span class="simulation">模拟室</span>的效率，每升一级，指数+2<br>效果：x^<span id="effect-of-KineticEnergy">0</span></div>
+                <button class="Locked btn button-of-leveluper KineticEnergy" id="KineticEnergy-btn" onclick="BuyKineticEnergy()">价格：<span class="BasicEnergy" id="KineticEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+
+                <div class="Locked title-of-leveluper ElasticPotentialEnergy"><span class="BasicEnergy">弹性势能</span></div>
+                <div class="Locked level-of-leveluper ElasticPotentialEnergy">等级：<span id="level-of-ElasticPotentialEnergy">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper ElasticPotentialEnergy">基于<span class="simulation">模拟机</span>Byte的总数自动获得<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数，每升一级，倍数+10<br>效果：<span id="effect-of-ElasticPotentialEnergy">0</span>x/秒</div>
+                <button class="Locked btn button-of-leveluper ElasticPotentialEnergy" id="ElasticPotentialEnergy-btn" onclick="BuyElasticPotentialEnergy()">价格：<span class="BasicEnergy" id="ElasticPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+
+                <div class="Locked title-of-leveluper GravitationalPotentialEnergy"><span class="BasicEnergy">重力势能</span></div>
+                <div class="Locked level-of-leveluper GravitationalPotentialEnergy">等级：<span id="level-of-GravitationalPotentialEnergy">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper GravitationalPotentialEnergy">提升<span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战6的奖励，每升一级，指数+2<br>效果：x^<span id="effect-of-GravitationalPotentialEnergy">1</span></div>
+                <button class="Locked btn button-of-leveluper GravitationalPotentialEnergy" id="GravitationalPotentialEnergy-btn" onclick="BuyGravitationalPotentialEnergy()">价格：<span class="BasicEnergy" id="GravitationalPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+
+                <div class="Locked title-of-leveluper Friction">摩擦</div>
+                <div class="Locked level-of-leveluper Friction">等级：<span id="level-of-Friction">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper Friction">每升一级，生产<span class="BasicEnergy">内能</span>的基数+4e-9<br>效果：+<span id="effect-of-Friction">0</span></div>
+                <button class="Locked btn button-of-leveluper Friction" id="Friction-btn" onclick="BuyFriction()">价格：<span class="BasicEnergy" id="Friction-cost">1e4</span><span class="BasicEnergy">机械能</span></button>
             </div>
         </div>
 
@@ -444,6 +602,27 @@
                     目标：<span id="goal-SimulationExperiment5">1.80e308</span><span class="turEnergy">龟能</span><br>
                     奖励：<span class="important">扩增</span>数据类型：移除<span class="turEnergy">龟能</span>的上限
                 </div>
+                <div class="challenge SimulationExperiment" id="SimulationExperiment6">
+                    <span class="challengeTitle"><span class="simulation">模拟</span>实验6（<span id="progress-SimulationExperiment6">0</span>/1）</span><br>
+                    <button class="btn-simulation-challenge" onclick="introSimulationExperiment6()">点击查看效果</button><br><br>
+                    <button class="btn-simulation-challenge" id="startSimulationExperiment6btn" onclick="startSimulationExperiment6()">开始实验</button><br><br>
+                    目标：<span id="goal-SimulationExperiment6">1e600</span><span class="turEnergy">龟能</span><br>
+                    奖励：解锁新的<span class="BasicEnergy">光能</span>升级和<span class="BasicEnergy">能源机器</span>-B和C
+                </div>
+                <div class="challenge SimulationExperiment" id="SimulationExperiment7">
+                    <span class="challengeTitle"><span class="simulation">模拟</span>实验7（<span id="progress-SimulationExperiment7">0</span>/1）</span><br>
+                    <span class="turEnergy">龟能</span>层级将永远处于第二次折算<br><br>
+                    <button class="btn-simulation-challenge" id="startSimulationExperiment7btn" onclick="startSimulationExperiment7()">开始实验</button><br><br>
+                    目标：<span id="goal-SimulationExperiment7">1e4200</span><span class="turEnergy">龟能</span><br>
+                    奖励：解锁<span class="BasicEnergy">能源机器</span>升级，<span class="BasicEnergy">光能</span>升级，<span class="BasicEnergy">化学能</span>升级和<span class="BasicEnergy">电能</span>升级自动化和<span class="BasicEnergy">能源机器</span>-D
+                </div>
+                <div class="challenge SimulationExperiment" id="SimulationExperiment8">
+                    <span class="challengeTitle"><span class="simulation">模拟</span>实验8（<span id="progress-SimulationExperiment8">0</span>/1）</span><br>
+                    无法正常获得<span class="turEnergy">龟能</span>层级，但是基于<span class="BasicEnergy">能源效率</span>获得额外的<span class="turEnergy">龟能</span>层级<br>
+                    <button class="btn-simulation-challenge" id="startSimulationExperiment8btn" onclick="startSimulationExperiment8()">开始实验</button><br><br>
+                    目标：<span id="goal-SimulationExperiment8">1e2200</span><span class="turEnergy">龟能</span><br>
+                    奖励：解锁6个<span class="BasicEnergy">基本能</span>挑战
+                </div>
             </div>
 
             <div class="Locked Simulation-taps" id="SimulationMachine-tap">
@@ -485,18 +664,37 @@
                     <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 32%;" id="SimulationMachine-λ-a2" onclick="BuySimulationMachineλa2()">
                         解锁<span class="simulation">模拟</span>实验5<br>价格:1<span class="simulation">模拟机</span>Byte
                     </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 47%;" id="SimulationMachine-λ-a3" onclick="BuySimulationMachineλa3()">
+                        解锁<span class="simulation">模拟</span>实验6<br>价格:5<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 62%;" id="SimulationMachine-λ-a4" onclick="BuySimulationMachineλa4()">
+                        解锁<span class="simulation">模拟</span>实验7和8<br>价格:<span id="price-of-SimulationMachine-λ-a4">1e5</span><span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 77%;" id="SimulationMachine-λ-a5" onclick="BuySimulationMachineλa5()">
+                        解锁<span class="simulation">模拟</span>实验8<br>价格:500<span class="simulation">模拟机</span>Byte<br>需要：共1.00e3<span class="simulation">模拟机</span>Byte
+                    </button>
+
                     <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 17%;" id="SimulationMachine-λ-b1" onclick="BuySimulationMachineλb1()">
                         解锁第一<span class="simulation">模拟室</span><br>价格:1<span class="simulation">模拟机</span>Byte
                     </button>
                     <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 32%;" id="SimulationMachine-λ-b2" onclick="BuySimulationMachineλb2()">
                         解锁第二<span class="simulation">模拟室</span><br>价格:3<span class="simulation">模拟机</span>Byte
                     </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 47%;" id="SimulationMachine-λ-b3" onclick="BuySimulationMachineλb3()">
+                        解锁第三和第四<span class="simulation">模拟室</span><br>价格:<span id="price-of-SimulationMachine-λ-b3">1e6</span><span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 62%;" id="SimulationMachine-λ-b4" onclick="BuySimulationMachineλb4()">
+                        解锁第五和第六<span class="simulation">模拟室</span><br>价格:<span id="price-of-SimulationMachine-λ-b4">5e7</span><span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 77%;" id="SimulationMachine-λ-b5" onclick="BuySimulationMachineλb5()">
+                        解锁第七和第八<span class="simulation">模拟室</span><br>价格:<span id="price-of-SimulationMachine-λ-b5">3e9</span><span class="simulation">模拟机</span>Byte
+                    </button>
                     <div id="SimulationMachine-λ-c">
                         <button class="SimulationMachine btn-simulation-once" style="margin-top: 240px; position: absolute; left: 17%;" id="SimulationMachine-λ-c1" onclick="BuySimulationMachineλc1()">
                             解锁<span class="simulation">模拟机</span>-β<br>价格:0<span class="simulation">模拟机</span>Byte
                         </button>
                         <button class="SimulationMachine btn-simulation-once" style="margin-top: 240px; position: absolute; left: 32%;" id="SimulationMachine-λ-c2" onclick="BuySimulationMachineλc2()">
-                            解锁<span class="simulation">模拟机</span>-γ<br>价格:100000<span class="simulation">模拟机</span>Byte
+                            解锁<span class="simulation">模拟机</span>-γ<br>价格:10<span class="simulation">模拟机</span>Byte
                         </button>
                     </div>
                 </div>
@@ -560,12 +758,44 @@
                         <span class="Origin">本源</span>生能可以得到<span class="turEnergy">龟能</span>层级的加成<br>价格:3<span class="simulation">模拟机</span>Byte
                     </button>
                 </div>
+                <div style="margin-top: 1120px;" id="SimulationMachine-γ">
+                    <button disabled class="SimulationMachine btn-simulation-once" id="SimulationMachine-γ-main" style="margin-top: 120px; position: absolute; left: 2%; font-size: 18px;">
+                        <span class="simulation">模拟机</span>-γ<br><span class="BasicEnergy">基本能</span>机
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 17%;" id="SimulationMachine-γ-a1" onclick="BuySimulationMachineγa1()">
+                        转化的<span class="BasicEnergy">基本能</span>数量x4<br><br>价格:1<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 32%;" id="SimulationMachine-γ-a2" onclick="BuySimulationMachineγa2()">
+                        基于<span class="BasicEnergy">基本能</span>数量提升获得的<span class="BasicEnergy">光能</span><br>当前：x<span id="effect-of-SimulationMachine-γ-a2">1</span><br>价格:5<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 32%;" id="SimulationMachine-γ-b2" onclick="BuySimulationMachineγb2()">
+                        基于<span class="BasicEnergy">基本能</span>数量提升获得的<span class="BasicEnergy">化学能</span><br>当前：x<span id="effect-of-SimulationMachine-γ-b2">1</span><br>价格:8<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 240px; position: absolute; left: 32%;" id="SimulationMachine-γ-c2" onclick="BuySimulationMachineγc2()">
+                        基于<span class="BasicEnergy">基本能</span>数量提升获得的<span class="BasicEnergy">电能</span><br>当前：x<span id="effect-of-SimulationMachine-γ-c2">1</span><br>价格:8<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 47%;" id="SimulationMachine-γ-a3" onclick="BuySimulationMachineγa3()">
+                        转化<span class="BasicEnergy">基本能</span>的公式变得更好：<br>2^(logx/1000)→2^(logx/800)<br>价格:5<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 0px; position: absolute; left: 62%;" id="SimulationMachine-γ-a4" onclick="BuySimulationMachineγa4()">
+                        完成<span class="simulation">模拟</span>的耗时越短，获得的<span class="simulation">模拟数据</span>越多<br>当前：x<span id="effect-of-SimulationMachine-γ-a4">50</span><br>价格:9<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 62%;" id="SimulationMachine-γ-b4" onclick="BuySimulationMachineγb4()">
+                        获得的<span class="simulation">模拟数据</span>x35<br><br>价格:9<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 240px; position: absolute; left: 62%;" id="SimulationMachine-γ-c4" onclick="BuySimulationMachineγc4()">
+                        完成<span class="simulation">模拟</span>的耗时越长，获得的<span class="simulation">模拟数据</span>越多<br>当前：x<span id="effect-of-SimulationMachine-γ-c4">1</span><br>价格:9<span class="simulation">模拟机</span>Byte
+                    </button>
+                    <button class="SimulationMachine btn-simulation-once" style="margin-top: 120px; position: absolute; left: 77%;" id="SimulationMachine-γ-a5" onclick="BuySimulationMachineγa5()">
+                        基于<span class="BasicEnergy">马达</span>的等级提升<span class="simulation">模拟之力</span>效果的指数<br>当前：+<span id="effect-of-SimulationMachine-γ-a5">0</span><br>价格:30<span class="simulation">模拟机</span>Byte
+                    </button>
+                </div>
             </div>
 
             <div id="SimulationRoom-tap">
                 <div class="secondary-title">开始<span class="simulation">模拟</span>后，<span class="simulation">模拟室</span>会同步开始运行</div>
                 <div style="margin-top: 20px; color: #333; font-size: 20px; font-weight: bold;">
-                    你拥有<span class="simulation" id="SimumlationPower-count">0</span>点<span class="simulation">模拟之力</span><br>
+                    你拥有<span class="simulation" id="SimumlationPower-count">0</span>点<span class="simulation">模拟之力</span>（+<span class="simulation" id="display-SimulationPower-persec">0</span>/秒）<br>
                     <span class="simulation">模拟之力</span>会^<span class="simulation" id="degree-of-SimumlationPower">7</span>提升你获得的<span class="turEnergy">龟能</span><span id="effect-of-SimumlationPower">1</span>倍
                 </div>
                 <div class="Locked title-of-leveluper firstSimulationRoom">第一<span class="simulation">模拟室</span></div>
@@ -579,6 +809,42 @@
                 <div class="Locked Amount-of-leveluper secondSimulationRoom">数量：<span id="Amount-of-secondSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper secondSimulationRoom">生成第一<span class="simulation">模拟室</span>，每升一级，第二<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-secondSimulationRoom">2</span>/个/秒</div>
                 <button class="Locked btn-simulation button-of-leveluper secondSimulationRoom" id="secondSimulationRoom-btn" onclick="BuysecondSimulationRoom()">价格：<span class="simulation" id="secondSimulationRoom-cost">10</span><span class="simulation">模拟数据</span></button>
+            
+                <div class="Locked title-of-leveluper thirdSimulationRoom">第三<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper thirdSimulationRoom">等级：<span id="level-of-thirdSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper thirdSimulationRoom">数量：<span id="Amount-of-thirdSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper thirdSimulationRoom">生成第二<span class="simulation">模拟室</span>，每升一级，第三<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-thirdSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper thirdSimulationRoom" id="thirdSimulationRoom-btn" onclick="BuythirdSimulationRoom()">价格：<span class="simulation" id="thirdSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
+
+                <div class="Locked title-of-leveluper fourthSimulationRoom">第四<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper fourthSimulationRoom">等级：<span id="level-of-fourthSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper fourthSimulationRoom">数量：<span id="Amount-of-fourthSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper fourthSimulationRoom">生成第三<span class="simulation">模拟室</span>，每升一级，第四<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-fourthSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper fourthSimulationRoom" id="fourthSimulationRoom-btn" onclick="BuyfourthSimulationRoom()">价格：<span class="simulation" id="fourthSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
+
+                <div class="Locked title-of-leveluper fifthSimulationRoom">第五<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper fifthSimulationRoom">等级：<span id="level-of-fifthSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper fifthSimulationRoom">数量：<span id="Amount-of-fifthSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper fifthSimulationRoom">生成第四<span class="simulation">模拟室</span>，每升一级，第五<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-fifthSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper fifthSimulationRoom" id="fifthSimulationRoom-btn" onclick="BuyfifthSimulationRoom()">价格：<span class="simulation" id="fifthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
+
+                <div class="Locked title-of-leveluper sixthSimulationRoom">第六<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper sixthSimulationRoom">等级：<span id="level-of-sixthSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper sixthSimulationRoom">数量：<span id="Amount-of-sixthSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper sixthSimulationRoom">生成第五<span class="simulation">模拟室</span>，每升一级，第六<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-sixthSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper sixthSimulationRoom" id="sixthSimulationRoom-btn" onclick="BuysixthSimulationRoom()">价格：<span class="simulation" id="sixthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
+
+                <div class="Locked title-of-leveluper seventhSimulationRoom">第七<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper seventhSimulationRoom">等级：<span id="level-of-seventhSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper seventhSimulationRoom">数量：<span id="Amount-of-seventhSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper seventhSimulationRoom">生成第六<span class="simulation">模拟室</span>，每升一级，第七<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-seventhSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper seventhSimulationRoom" id="seventhSimulationRoom-btn" onclick="BuyseventhSimulationRoom()">价格：<span class="simulation" id="seventhSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
+
+                <div class="Locked title-of-leveluper eighthSimulationRoom">第八<span class="simulation">模拟室</span></div>
+                <div class="Locked level-of-leveluper eighthSimulationRoom">等级：<span id="level-of-eighthSimulationRoom">0</span></div>
+                <div class="Locked Amount-of-leveluper eighthSimulationRoom">数量：<span id="Amount-of-eighthSimulationRoom">0</span></div>
+                <div class="Locked effectdisplay-of-leveluper eighthSimulationRoom">生成第七<span class="simulation">模拟室</span>，每升一级，第八<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-eighthSimulationRoom">2</span>/个/秒</div>
+                <button class="Locked btn-simulation button-of-leveluper eighthSimulationRoom" id="eighthSimulationRoom-btn" onclick="BuyeighthSimulationRoom()">价格：<span class="simulation" id="eighthSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
             </div>
 
             <div id="SimulationAuto-tap">
@@ -590,6 +856,22 @@
                 <button class="btn-simulation" id="turEnergyOriginAuto" onclick="setturEnergyOriginAuto()">
                     自动升级<span class="turEnergy">龟能</span><span class="Origin">本源</span>升级：<br><br>
                     <span id="state-turEnergyOriginAuto">禁用</span>
+                </button>
+                <button class="btn-simulation" id="EnergyMachineAuto" onclick="setEnergyMachineAuto()">
+                    自动升级<span class="BasicEnergy">能源机器</span>升级：<br><br>
+                    <span id="state-EnergyMachineAuto">禁用</span>
+                </button>
+                <button class="btn-simulation" id="SolarEnergyAuto" onclick="setSolarEnergyAuto()">
+                    自动升级<span class="BasicEnergy">光能</span>升级：<br><br>
+                    <span id="state-SolarEnergyAuto">禁用</span>
+                </button>
+                <button class="btn-simulation" id="ChemicalEnergyAuto" onclick="setChemicalEnergyAuto()">
+                    自动升级<span class="BasicEnergy">化学能</span>升级：<br><br>
+                    <span id="state-ChemicalEnergyAuto">禁用</span>
+                </button>
+                <button class="btn-simulation" id="ElectricEnergyAuto" onclick="setElectricEnergyAuto()">
+                    自动升级<span class="BasicEnergy">电能</span>升级：<br><br>
+                    <span id="state-ElectricEnergyAuto">禁用</span>
                 </button>
             </div>
         </div>

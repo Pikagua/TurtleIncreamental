@@ -148,7 +148,7 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase17";
-        } else {
+        } else if (experimentfinished.SimulationExperiment6 === 0) {
             const options = [
                 `乌龟？！`,
                 `完成<span class="simulation">模拟</span>时获得的模拟数据与你模拟内的进度正相关`,
@@ -162,6 +162,35 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase18";
+        } else if (PowerOnLevel.eq(0)) {
+            const options = [
+                `乌龟？！`,
+                `不再是只有一种<span class="BasicEnergy">基本能</span>了`,
+                `记得多去看看<span class="simulation">模拟</span>外！`,
+                `你可以一口气往后推到第四种<span class="BasicEnergy">基本能</span>！好吧这不大现实`,
+                `不论你有没有解锁<span class="BasicEnergy">电能</span>，你都应该知道那获取的很慢`,
+                `即使你现在在<span class="simulation">模拟内</span>，我也要告诉你选择合适的<span class="simulation">模拟机</span>，那太重要了`,
+                `在接下来一段时间内，你都不用再去关心<span class="simulation">模拟</span>实验了，你距离下一个实验还有一点距离`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase19";
+        } else if (!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) {
+            const options = [
+                `<span class="important">通</span><span class="BasicEnergy">电</span>？那是什么意思？`,
+                `自己准备了点小玩意？你还真没让我失望`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase20";
+        } else {
+            const options = [
+                `嘻嘻`,
+                `🐢`,
+                `每次模拟都会重置<span class="BasicEnergy">基本能</span>挑战的进度，所以为了更多的推进<span class="BasicEnergy">基本能</span>挑战，你可以尝试那些“更弱的”<span class="simulation">模拟机</span>`,
+                `层级<span class="Origin">本源</span>会在60级折算`,
+                `所有<span class="BasicEnergy">能源机器</span>都会在100级得到一次效果夸张的折算`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase20";
         }
     } else if (space === "Simulation") {
         if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if)) {
@@ -199,16 +228,31 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase4-sti";
-        } else {
+        } else if (PowerOnLevel.eq(0)){
             const options = [
                 `哇哦，不错，现在回到<span class="simulation">模拟</span>里吧！`,
                 `你又回来了？`,
                 `仔细考虑<span class="simulation">模拟机</span>的选择啊`,
                 `解锁<span class="simulation">模拟室</span>的Byte可回不来哦`,
-                `你好`
+                `你好`,
+                `离线收益？你在说什么……？`,
+                `<span class="simulation">模拟机</span>-λ-a4很贵，这导致你永远也无法继续实验`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase5-sti";
+        } else if (!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) {
+            const options = [
+                `<span class="simulation">模拟机</span>-λ-a4很贵……吗？它突然很便宜……这不可思议……`,
+                `你或许可以去做实验7和8了`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase6-sti";
+        } else {
+            const options = [
+                `1`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase7-sti";
         }
     }
     return currentTip;

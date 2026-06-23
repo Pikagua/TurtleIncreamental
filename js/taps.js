@@ -6,7 +6,11 @@ function switchTap(activeElement, activeElements) {
         { element: turEnergyOrigintap, elements: turEnergyOrigintaps },
         { element: turEnergyOriginMilestonetap, elements: turEnergyOriginMilestonetaps },
         { element: EnergyMachinetap, elements: EnergyMachinetaps},
+        { element: BasicEnergyChallengetap, elements: BasicEnergyChallengetaps},
         { element: SolarEnergytap, elements: SolarEnergytaps},
+        { element: ChemicalEnergytap, elements: ChemicalEnergytaps},
+        { element: ElectricEnergytap, elements: ElectricEnergytaps},
+        { element: MechanicalEnergytap, elements: MechanicalEnergytaps},
         { element: SimulationUpgradestap, elements: SimulationUpgradestaps },
         { element: SimulationExperimenttap, elements: SimulationExperimenttaps},
         { element: SimulationMachinetap, elements: SimulationMachinetaps},
@@ -33,7 +37,11 @@ function changetoturEnergyChallengetap() {switchTap(turEnergychallengetap, turEn
 function changetoturEnergyOrigintap() {switchTap(turEnergyOrigintap, turEnergyOrigintaps); }     // 代替 changetoturEnergyOrigintap
 function changetoturEnergyOriginMilestonetap() {switchTap(turEnergyOriginMilestonetap, turEnergyOriginMilestonetaps); }
 function changetoEnergyMachinetap() {switchTap(EnergyMachinetap, EnergyMachinetaps); }
+function changetoBasicEnergyChallengetap() {switchTap(BasicEnergyChallengetap, BasicEnergyChallengetaps); }
 function changetoSolarEnergytap() {switchTap(SolarEnergytap, SolarEnergytaps); }
+function changetoChemicalEnergytap() {switchTap(ChemicalEnergytap, ChemicalEnergytaps); }
+function changetoElectricEnergytap() {switchTap(ElectricEnergytap, ElectricEnergytaps); }
+function changetoMechanicalEnergytap() {switchTap(MechanicalEnergytap, MechanicalEnergytaps); }
 function changetoSimulationUpgradestap() {switchTap(SimulationUpgradestap, SimulationUpgradestaps); }
 function changetoSimulationExperimenttap() {switchTap(SimulationExperimenttap, SimulationExperimenttaps); }
 function changetoSimulationMachinetap() {switchTap(SimulationMachinetap, SimulationMachinetaps); }

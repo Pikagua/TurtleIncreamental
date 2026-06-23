@@ -21,6 +21,9 @@
 .SimulationExperiment {
     border: 8px solid #1b6c80;
 }
+.BasicEnergyChallenge {
+    border: 8px solid #8a6f1e;
+}
 
 #finish-giveup-challenge {
     font-size: 16px;
@@ -108,6 +111,46 @@
 #SimulationExperiment5 {
     left: 60%;
     top: 330px;
+}
+#SimulationExperiment6 {
+    left: 80%;
+    top: 330px;
+}
+#SimulationExperiment7 {
+    left: 40%;
+    top: 610px;
+}
+#SimulationExperiment8 {
+    left: 60%;
+    top: 610px;
+}
+#SimulationExperiment9 {
+    left: 80%;
+    top: 610px;
+}
+#BasicEnergyChallenge1 {
+    left: 40%;
+    top: 10px;
+}
+#BasicEnergyChallenge2 {
+    left: 60%;
+    top: 10px;
+}
+#BasicEnergyChallenge3 {
+    left: 80%;
+    top: 10px;
+}
+#BasicEnergyChallenge4 {
+    left: 40%;
+    top: 290px;
+}
+#BasicEnergyChallenge5 {
+    left: 60%;
+    top: 290px;
+}
+#BasicEnergyChallenge6 {
+    left: 80%;
+    top: 290px;
 }
 
 /* 进度条容器 */

@@ -2,6 +2,7 @@ function saveGame() {
     gameData.space = space;
     gameData.state = state;
     gameData.setAuto = setAuto;
+    gameData.timerSimulation = timerSimulation.toString();
     gameData.turEnergy = turEnergy.toString();
     gameData.turEnergyLevel = turEnergyLevel.toString();
     gameData.TotalClicks = TotalClicks.toString();
@@ -32,6 +33,23 @@ function saveGame() {
     gameData.turEnergyCatalysisLevel = turEnergyCatalysisLevel.toString();
     gameData.OriginCatalysisLevel = OriginCatalysisLevel.toString();
     gameData.ClickCatalysisLevel = ClickCatalysisLevel.toString();
+    gameData.PhotosynthesisLevel = PhotosynthesisLevel.toString();
+    gameData.ChemicalEnergy = ChemicalEnergy.toString();
+    gameData.SimulationCatalysisLevel = SimulationCatalysisLevel.toString();
+    gameData.TierCatalysisLevel = TierCatalysisLevel.toString();
+    gameData.ReactionCatalysisLevel = ReactionCatalysisLevel.toString();
+    gameData.PrimaryBatteryLevel = PrimaryBatteryLevel.toString();
+    gameData.ElectricEnergy = ElectricEnergy.toString();
+    gameData.BoostVoltageLevel = BoostVoltageLevel.toString();
+    gameData.ElectrolysisLevel = ElectrolysisLevel.toString();
+    gameData.LonizationLevel = LonizationLevel.toString();
+    gameData.MotorLevel = MotorLevel.toString();
+    gameData.PowerOnLevel = PowerOnLevel.toString();
+    gameData.MechanicalEnergy = MechanicalEnergy.toString();
+    gameData.KineticEnergyLevel = KineticEnergyLevel.toString();
+    gameData.ElasticPotentialEnergyLevel = ElasticPotentialEnergyLevel.toString();
+    gameData.GravitationalPotentialEnergyLevel = GravitationalPotentialEnergyLevel.toString();
+    gameData.FrictionLevel = FrictionLevel.toString();
     gameData.simulationData = simulationData.toString();
     gameData.simulatedTimes = simulatedTimes.toString();
     gameData.SimulationMachineFold = SimulationMachineFold.toString();
@@ -39,6 +57,7 @@ function saveGame() {
     gameData.SimulationMachineBtyeUsed = SimulationMachineBtyeUsed.toString();
     gameData.SimulationPower = SimulationPower.toString();
     gameData.timerSimulationExperiment5 = timerSimulationExperiment5.toString();
+    gameData.effectSimulationExperiment6 = effectSimulationExperiment6.toString();
     gameData.SimulationRoomLevel = SimulationRoomLevel;
     gameData.SimulationRoomAmount = SimulationRoomAmount;
     gameData.BuySimulationMachineByte = BuySimulationMachineByte;
@@ -66,7 +85,13 @@ function defualtSet() {
     setAuto = {
         turEnergyAuto:false,
         turEnergyOriginAuto:false,
+        EnergyMachineAuto:false,
+        SolarEnergyAuto:false,
+        ChemicalEnergyAuto:false,
+        ElectricEnergyAuto:false,
     }
+    timerAdding = null;
+    timerSimulation = new Decimal(0);
     turEnergy = new Decimal(0);
     turEnergyLevel = new Decimal(1);
     TotalClicks = new Decimal(0);
@@ -108,6 +133,23 @@ function defualtSet() {
     turEnergyCatalysisLevel = new Decimal(0);
     OriginCatalysisLevel = new Decimal(0);
     ClickCatalysisLevel = new Decimal(0);
+    PhotosynthesisLevel = new Decimal(0);
+    ChemicalEnergy = new Decimal(0);
+    SimulationCatalysisLevel = new Decimal(0);
+    TierCatalysisLevel = new Decimal(0);
+    ReactionCatalysisLevel = new Decimal(0);
+    PrimaryBatteryLevel = new Decimal(0);
+    ElectricEnergy = new Deceimal(0);
+    BoostVoltageLevel = new Decimal(0);
+    ElectrolysisLevel = new Decimal(0);
+    LonizationLevel = new Decimal(0);
+    MotorLevel = new Decimal(0);
+    PowerOnLevel = new Decimal(0);
+    MechanicalEnergy = new Decimal(0);
+    KineticEnergyLevel = new Decimal(0);
+    ElasticPotentialEnergyLevel = new Decimal(0);
+    GravitationalPotentialEnergyLevel = new Decimal(0);
+    FrictionLevel = new Decimal(0);
     simulationData = new Decimal(0);
     simulatedTimes = new Decimal(0);
     SimulationMachineFold = false;
@@ -142,8 +184,14 @@ function defualtSet() {
     SimulationMachine = {
         λa1:false,
         λa2:false,
+        λa3:false,
+        λa4:false,
+        λa5:false,
         λb1:false,
         λb2:false,
+        λb3:false,
+        λb4:false,
+        λb5:false,
         λc1:false,
         λc2:false,
         αa1:false,
@@ -159,24 +207,36 @@ function defualtSet() {
         βb2:false,
         βa3:false,
         βa4:false,
+        γa1:false,
+        γa2:false,
+        γb2:false,
+        γc2:false,
+        γa3:false,
+        γa4:false,
+        γb4:false,
+        γc4:false,
+        γa5:false,
     }
     challengedoing = {
         Tier:"",
-        Origin:""
+        Origin:"",
+        BasicEnergy:"",
     };
     experimentdoing = {
         Simulation:""
     };
     challengeGoal = {
         Tier:new Decimal(0),
-        Origin:new Decimal(0)
+        Origin:new Decimal(0),
+        BasicEnergy:new Decimal(0),
     };
     experimentGoal = {
         Simulation:new Decimal(0)
     };
     challengeGoaltype = {
         Tier:false,
-        Origin:false
+        Origin:false,
+        BasicEnergy:false,
     };
     experimentGoaltype = {
         Simulation:false
@@ -185,7 +245,8 @@ function defualtSet() {
     experimentPercent = new Decimal(0);
     challengeprogress = {
         Tier:"",
-        Origin:""
+        Origin:"",
+        BasicEnergy:"",
     };
     experimentprogress = {
         Simulation:""
@@ -203,10 +264,24 @@ function defualtSet() {
         disabledOriginLevelup:true,
         disabledOriginMilestone:true,
         disabledturEnergyLevelup:true,
+        BasicEnergyChallenge1:new Decimal(1),
+        BasicEnergyChallenge2:true,
+        BasicEnergyChallenge3:true,
+        BasicEnergyChallenge4:new Decimal(1),
+        BasicEnergyChallenge5:true,
+        BasicEnergyChallenge6:true,
     };
     experimentbuffs = {
         SimulationUpgrades:true,
+        SimulationExperiment2:true,
+        SimulationExperiment3:true,
+        SimulationExperiment4:true,
+        SimulationExperiment5:true,
+        SimulationExperiment6:true,
+        SimulationExperiment7:true,
+        SimulationExperiment8:true,
     }
+    effectSimulationExperiment6 = new Decimal(1);
     SimulationUpgrades = {
         turEnergy1:{if:false, num:new Decimal(1)},
         turEnergy2:{if:false, num:new Decimal(1)},
@@ -233,7 +308,13 @@ function defualtSet() {
         turEnergyOriginChallenge3:0,
         turEnergyOriginChallenge4:0,
         turEnergyOriginChallenge5:0,
-        turEnergyOriginChallenge6:0
+        turEnergyOriginChallenge6:0,
+        BasicEnergyChallenge1:0,
+        BasicEnergyChallenge2:0,
+        BasicEnergyChallenge3:0,
+        BasicEnergyChallenge4:0,
+        BasicEnergyChallenge5:0,
+        BasicEnergyChallenge6:0,
     };
     experimentfinished = {
         SimulationExperiment1:0,
@@ -241,10 +322,14 @@ function defualtSet() {
         SimulationExperiment3:0,
         SimulationExperiment4:0,
         SimulationExperiment5:0,
+        SimulationExperiment6:0,
+        SimulationExperiment7:0,
+        SimulationExperiment8:0,
     }
 }
 
 function loadGame() {
+    experimentbuffs.SimulationExperiment6 = false;
     let saved = localStorage.getItem("TurtleIncreamental");
     if (saved) {
         let Data = JSON.parse(saved);
@@ -253,6 +338,11 @@ function loadGame() {
         Data.setAuto = Data.setAuto ?? {};
         setAuto.turEnergyAuto = Data.setAuto.turEnergyAuto ?? false;
         setAuto.turEnergyOriginAuto = Data.setAuto.turEnergyOriginAuto ?? false;
+        setAuto.EnergyMachineAuto = Data.setAuto.EnergyMachineAuto ?? false;
+        setAuto.SolarEnergyAuto = Data.setAuto.SolarEnergyAuto ?? false;
+        setAuto.ChemicalEnergyAuto = Data.setAuto.ChemicalEnergyAuto ?? false;
+        setAuto.ElectricEnergyAuto = Data.setAuto.ElectricEnergyAuto ?? false;
+        timerSimulation = new Decimal(Data.timerSimulation) ?? new Decimal(0);
         turEnergy = new Decimal(Data.turEnergy) ?? new Decimal(0);
         turEnergyLevel = new Decimal(Data.turEnergyLevel) ?? new Decimal(1);
         TotalClicks = new Decimal(Data.TotalClicks) ?? new Decimal(0);
@@ -285,6 +375,23 @@ function loadGame() {
         turEnergyCatalysisLevel = new Decimal(Data.turEnergyCatalysisLevel) ?? new Decimal(0);
         OriginCatalysisLevel = new Decimal(Data.OriginCatalysisLevel) ?? new Decimal(0);
         ClickCatalysisLevel = new Decimal(Data.ClickCatalysisLevel) ?? new Decimal(0);
+        PhotosynthesisLevel = new Decimal(Data.PhotosynthesisLevel) ?? new Decimal(0);
+        ChemicalEnergy = new Decimal(Data.ChemicalEnergy) ?? new Decimal(0);
+        SimulationCatalysisLevel = new Decimal(Data.SimulationCatalysisLevel) ?? new Decimal(0);
+        TierCatalysisLevel = new Decimal(Data.TierCatalysisLevel) ?? new Decimal(0);
+        ReactionCatalysisLevel = new Decimal(Data.ReactionCatalysisLevel) ?? new Decimal(0);
+        PrimaryBatteryLevel = new Decimal(Data.PrimaryBatteryLevel) ?? new Decimal(0);
+        ElectricEnergy = new Decimal(Data.ElectricEnergy) ?? new Decimal(0);
+        BoostVoltageLevel = new Decimal(Data.BoostVoltageLevel) ?? new Decimal(0);
+        ElectrolysisLevel = new Decimal(Data.ElectrolysisLevel) ?? new Decimal(0);
+        LonizationLevel = new Decimal(Data.LonizationLevel) ?? new Decimal(0);
+        MotorLevel = new Decimal(Data.MotorLevel) ?? new Decimal(0);
+        KineticEnergyLevel = new Decimal(Data.KineticEnergyLevel) ?? new Decimal(0);
+        ElasticPotentialEnergyLevel = new Decimal(Data.ElasticPotentialEnergyLevel) ?? new Decimal(0);
+        GravitationalPotentialEnergyLevel = new Decimal(Data.GravitationalPotentialEnergyLevel) ?? new Decimal(0);
+        FrictionLevel = new Decimal(Data.FrictionLevel) ?? new Decimal(0);
+        PowerOnLevel = new Decimal(Data.PowerOnLevel) ?? new Decimal(0);
+        MechanicalEnergy = new Decimal(Data.MechanicalEnergy) ?? new Decimal(0);
         simulationData = new Decimal(Data.simulationData) ?? new Decimal(0);
         simulatedTimes = new Decimal(Data.simulatedTimes) ?? new Decimal(0);
         SimulationMachineFold = Data.SimulationMachineFold ?? false;
@@ -298,6 +405,7 @@ function loadGame() {
         BuySimulationMachineByte.SimulationData = new Decimal(Data.BuySimulationMachineByte.SimulationData) ?? new Decimal(0);
         SimulationPower = new Decimal(Data.SimulationPower) ?? new Decimal(0);
         timerSimulationExperiment5 = new Decimal(Data.timerSimulationExperiment5) ?? new Decimal(0);
+        effectSimulationExperiment6 = new Decimal(Data.effectSimulationExperiment6) ?? new Decimal(1);
         Data.SimulationRoomLevel = Data.SimulationRoomLevel ?? {};
         SimulationRoomLevel.Room1 = new Decimal(Data.SimulationRoomLevel.Room1) ?? new Decimal(0);
         SimulationRoomLevel.Room2 = new Decimal(Data.SimulationRoomLevel.Room2) ?? new Decimal(0);
@@ -319,8 +427,14 @@ function loadGame() {
         Data.SimulationMachine = Data.SimulationMachine ?? {};
         SimulationMachine.λa1 = Data.SimulationMachine.λa1 ?? false;
         SimulationMachine.λa2 = Data.SimulationMachine.λa2 ?? false;
+        SimulationMachine.λa3 = Data.SimulationMachine.λa3 ?? false;
+        SimulationMachine.λa4 = Data.SimulationMachine.λa4 ?? false;
+        SimulationMachine.λa5 = Data.SimulationMachine.λa5 ?? false;
         SimulationMachine.λb1 = Data.SimulationMachine.λb1 ?? false;
         SimulationMachine.λb2 = Data.SimulationMachine.λb2 ?? false;
+        SimulationMachine.λb3 = Data.SimulationMachine.λb3 ?? false;
+        SimulationMachine.λb4 = Data.SimulationMachine.λb4 ?? false;
+        SimulationMachine.λb5 = Data.SimulationMachine.λb5 ?? false;
         SimulationMachine.λc1 = Data.SimulationMachine.λc1 ?? false;
         SimulationMachine.λc2 = Data.SimulationMachine.λc2 ?? false;
         SimulationMachine.αa1 = Data.SimulationMachine.αa1 ?? false;
@@ -336,19 +450,31 @@ function loadGame() {
         SimulationMachine.βb2 = Data.SimulationMachine.βb2 ?? false;
         SimulationMachine.βa3 = Data.SimulationMachine.βa3 ?? false;
         SimulationMachine.βa4 = Data.SimulationMachine.βa4 ?? false;
+        SimulationMachine.γa1 = Data.SimulationMachine.γa1 ?? false;
+        SimulationMachine.γa2 = Data.SimulationMachine.γa2 ?? false;
+        SimulationMachine.γb2 = Data.SimulationMachine.γb2 ?? false;
+        SimulationMachine.γc2 = Data.SimulationMachine.γc2 ?? false;
+        SimulationMachine.γa3 = Data.SimulationMachine.γa3 ?? false;
+        SimulationMachine.γa4 = Data.SimulationMachine.γa4 ?? false;
+        SimulationMachine.γb4 = Data.SimulationMachine.γb4 ?? false;
+        SimulationMachine.γc4 = Data.SimulationMachine.γc4 ?? false;
+        SimulationMachine.γa5 = Data.SimulationMachine.γa5 ?? false;
         Data.challengedoing = Data.challengedoing ?? {};
         challengedoing.Tier = Data.challengedoing.Tier ?? "";
         challengedoing.Origin = Data.challengedoing.Origin ?? "";
+        challengedoing.BasicEnergy = Data.challengedoing.BasicEnergy ?? "";
         Data.experimentdoing = Data.experimentdoing ?? {};
         experimentdoing.Simulation = Data.experimentdoing.Simulation ?? "";
         Data.challengeGoal = Data.challengeGoal ?? {};
         challengeGoal.Tier = new Decimal(Data.challengeGoal.Tier) ?? new Decimal(0);
         challengeGoal.Origin = new Decimal(Data.challengeGoal.Origin) ?? new Decimal(0);
+        challengeGoal.BasicEnergy = new Decimal(Data.challengeGoal.BasicEnergy) ?? new Decimal(0);
         Data.experimentGoal = Data.experimentGoal ?? {};
         experimentGoal.Simulation = new Decimal(Data.experimentGoal.Simulation) ?? new Decimal(0);
         Data.challengeGoaltype = Data.challengeGoaltype ?? {};
         challengeGoaltype.Tier = Data.challengeGoaltype.Tier ?? false;
         challengeGoaltype.Origin = Data.challengeGoaltype.Origin ?? false;
+        challengeGoaltype.BasicEnergy = Data.challengeGoaltype.BasicEnergy ?? false;
         Data.experimentGoaltype = Data.experimentGoaltype ?? {};
         experimentGoaltype.Simulation = Data.experimentGoal.Simulation ?? false;
         Data.SimulationUpgrades = Data.SimulationUpgrades ?? {};
@@ -395,15 +521,31 @@ function loadGame() {
         challengefinished.turEnergyOriginChallenge4 = Data.challengefinished.turEnergyOriginChallenge4 ?? 0;
         challengefinished.turEnergyOriginChallenge5 = Data.challengefinished.turEnergyOriginChallenge5 ?? 0;
         challengefinished.turEnergyOriginChallenge6 = Data.challengefinished.turEnergyOriginChallenge6 ?? 0;
+        challengefinished.BasicEnergyChallenge1 = Data.challengefinished.BasicEnergyChallenge1 ?? 0;
+        challengefinished.BasicEnergyChallenge2 = Data.challengefinished.BasicEnergyChallenge2 ?? 0;
+        challengefinished.BasicEnergyChallenge3 = Data.challengefinished.BasicEnergyChallenge3 ?? 0;
+        challengefinished.BasicEnergyChallenge4 = Data.challengefinished.BasicEnergyChallenge4 ?? 0;
+        challengefinished.BasicEnergyChallenge5 = Data.challengefinished.BasicEnergyChallenge5 ?? 0;
+        challengefinished.BasicEnergyChallenge6 = Data.challengefinished.BasicEnergyChallenge6 ?? 0;
         Data.experimentfinished = Data.experimentfinished ?? {};
         experimentfinished.SimulationExperiment1 = Data.experimentfinished.SimulationExperiment1 ?? 0;
         experimentfinished.SimulationExperiment2 = Data.experimentfinished.SimulationExperiment2 ?? 0;
         experimentfinished.SimulationExperiment3 = Data.experimentfinished.SimulationExperiment3 ?? 0;
         experimentfinished.SimulationExperiment4 = Data.experimentfinished.SimulationExperiment4 ?? 0;
         experimentfinished.SimulationExperiment5 = Data.experimentfinished.SimulationExperiment5 ?? 0;
+        experimentfinished.SimulationExperiment6 = Data.experimentfinished.SimulationExperiment6 ?? 0;
+        experimentfinished.SimulationExperiment7 = Data.experimentfinished.SimulationExperiment7 ?? 0;
+        experimentfinished.SimulationExperiment8 = Data.experimentfinished.SimulationExperiment8 ?? 0;
     } else {
         defualtSet();
     }
+    experimentbuffs.SimulationExperiment6 = true;
+    restartAutoClicker();
+    restartOriginProduce();
+    restartAutoBuy();
+    restartBasicEnergyProduce();
+    if (space === "inSimulation") {changetoturEnergyuptap(); changetoturEnergyLeveluptap();}
+    else if (space === "Simulation") {changetoSimulationuptap(); changetoSimulationUpgradestap();}
 }
 
 // 删除存档 输入:delete
@@ -448,6 +590,7 @@ document.addEventListener('keydown', function(event) {
         
         // 完全匹配成功
         if (savecurrentIndex === saveCode.length) {
+            saveGame();
             const saveData = localStorage.getItem("TurtleIncreamental");
             navigator.clipboard.writeText(saveData);
             alert(`存档已导出到剪贴板`);
@@ -469,9 +612,9 @@ document.addEventListener('keydown', function(event) {
             const saveText = prompt("你输入了load，请粘贴存档内容：");
             if (saveText) {
                 localStorage.setItem("TurtleIncreamental", saveText);
-                loadGame();
                 alert("存档导入成功");
-                location.reload();
+                load();
+                loadGame();
             }
             
             // 重置索引，允许再次触发

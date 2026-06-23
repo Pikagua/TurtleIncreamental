@@ -51,17 +51,20 @@ const maxturEnergyTierChallenge3 = document.getElementById('max-turEnergyTierCha
 const startturEnergyTierChallenge4btn = document.getElementById('startturEnergyTierChallenge4btn');
 const progressturEnergyTierChallenge4 = document.getElementById('progress-turEnergyTierChallenge4');
 const goalturEnergyTierChallenge4 = document.getElementById('goal-turEnergyTierChallenge4');
+const maxturEnergyTierChallenge4 = document.getElementById('max-turEnergyTierChallenge4');
 
 const startturEnergyTierChallenge5btn = document.getElementById('startturEnergyTierChallenge5btn');
 const progressturEnergyTierChallenge5 = document.getElementById('progress-turEnergyTierChallenge5');
 const goalturEnergyTierChallenge5 = document.getElementById('goal-turEnergyTierChallenge5');
 const reward1turEnergyTierChallenge5 = document.getElementById('reward1-turEnergyTierChallenge5');
 const reward2turEnergyTierChallenge5 = document.getElementById('reward2-turEnergyTierChallenge5');
+const maxturEnergyTierChallenge5 = document.getElementById('max-turEnergyTierChallenge5');
 
 const startturEnergyTierChallenge6btn = document.getElementById('startturEnergyTierChallenge6btn');
 const progressturEnergyTierChallenge6 = document.getElementById('progress-turEnergyTierChallenge6');
 const goalturEnergyTierChallenge6 = document.getElementById('goal-turEnergyTierChallenge6');
 const rewardturEnergyTierChallenge6 = document.getElementById('reward1-turEnergyTierChallenge6');
+const maxturEnergyTierChallenge6 = document.getElementById('max-turEnergyTierChallenge6');
 
 const startturEnergyOriginChallenge1btn = document.getElementById('startturEnergyOriginChallenge1btn');
 const progressturEnergyOriginChallenge1 = document.getElementById('progress-turEnergyOriginChallenge1');
@@ -69,6 +72,7 @@ const debuffturEnergyOriginChallenge1 = document.getElementById('debuff-turEnerg
 const goalturEnergyOriginChallenge1 = document.getElementById('goal-turEnergyOriginChallenge1');
 const reward1turEnergyOriginChallenge1 = document.getElementById('reward1-turEnergyOriginChallenge1');
 const reward2turEnergyOriginChallenge1 = document.getElementById('reward2-turEnergyOriginChallenge1');
+const maxturEnergyOriginChallenge1 = document.getElementById('max-turEnergyOriginChallenge1');
 
 const startturEnergyOriginChallenge2btn = document.getElementById('startturEnergyOriginChallenge2btn');
 const progressturEnergyOriginChallenge2 = document.getElementById('progress-turEnergyOriginChallenge2');
@@ -76,25 +80,68 @@ const debuffturEnergyOriginChallenge2 = document.getElementById('debuff-turEnerg
 const goalturEnergyOriginChallenge2 = document.getElementById('goal-turEnergyOriginChallenge2');
 const reward1turEnergyOriginChallenge2 = document.getElementById('reward1-turEnergyOriginChallenge2');
 const reward2turEnergyOriginChallenge2 = document.getElementById('reward2-turEnergyOriginChallenge2');
+const maxturEnergyOriginChallenge2 = document.getElementById('max-turEnergyOriginChallenge2');
 
 const startturEnergyOriginChallenge3btn = document.getElementById('startturEnergyOriginChallenge3btn');
 const progressturEnergyOriginChallenge3 = document.getElementById('progress-turEnergyOriginChallenge3');
 const debuffturEnergyOriginChallenge3 = document.getElementById('debuff-turEnergyOriginChallenge3');
 const goalturEnergyOriginChallenge3 = document.getElementById('goal-turEnergyOriginChallenge3');
+const maxturEnergyOriginChallenge3 = document.getElementById('max-turEnergyOriginChallenge3');
 
 const startturEnergyOriginChallenge4btn = document.getElementById('startturEnergyOriginChallenge4btn');
 const progressturEnergyOriginChallenge4 = document.getElementById('progress-turEnergyOriginChallenge4');
 const goalturEnergyOriginChallenge4 = document.getElementById('goal-turEnergyOriginChallenge4');
+const maxturEnergyOriginChallenge4 = document.getElementById('max-turEnergyOriginChallenge4');
 
 const startturEnergyOriginChallenge5btn = document.getElementById('startturEnergyOriginChallenge5btn');
 const progressturEnergyOriginChallenge5 = document.getElementById('progress-turEnergyOriginChallenge5');
 const goalturEnergyOriginChallenge5 = document.getElementById('goal-turEnergyOriginChallenge5');
+const maxturEnergyOriginChallenge5 = document.getElementById('max-turEnergyOriginChallenge5');
 
 const startturEnergyOriginChallenge6btn = document.getElementById('startturEnergyOriginChallenge6btn');
 const progressturEnergyOriginChallenge6 = document.getElementById('progress-turEnergyOriginChallenge6');
 const goalturEnergyOriginChallenge6 = document.getElementById('goal-turEnergyOriginChallenge6');
 const reward1turEnergyOriginChallenge6 = document.getElementById('reward1-turEnergyOriginChallenge6');
 const reward2turEnergyOriginChallenge6 = document.getElementById('reward2-turEnergyOriginChallenge6');
+const maxturEnergyOriginChallenge6 = document.getElementById('max-turEnergyOriginChallenge6');
+
+const startBasicEnergyChallenge1btn = document.getElementById('startBasicEnergyChallenge1btn');
+const progressBasicEnergyChallenge1 = document.getElementById('progress-BasicEnergyChallenge1');
+const debuffBasicEnergyChallenge1 = document.getElementById('debuff-BasicEnergyChallenge1');
+const goalBasicEnergyChallenge1 = document.getElementById('goal-BasicEnergyChallenge1');
+const reward1BasicEnergyChallenge1 = document.getElementById('reward1-BasicEnergyChallenge1');
+const reward2BasicEnergyChallenge1 = document.getElementById('reward2-BasicEnergyChallenge1');
+
+const startBasicEnergyChallenge2btn = document.getElementById('startBasicEnergyChallenge2btn');
+const progressBasicEnergyChallenge2 = document.getElementById('progress-BasicEnergyChallenge2');
+const goalBasicEnergyChallenge2 = document.getElementById('goal-BasicEnergyChallenge2');
+const reward1BasicEnergyChallenge2 = document.getElementById('reward1-BasicEnergyChallenge2');
+const reward2BasicEnergyChallenge2 = document.getElementById('reward2-BasicEnergyChallenge2');
+
+const startBasicEnergyChallenge3btn = document.getElementById('startBasicEnergyChallenge3btn');
+const progressBasicEnergyChallenge3 = document.getElementById('progress-BasicEnergyChallenge3');
+const goalBasicEnergyChallenge3 = document.getElementById('goal-BasicEnergyChallenge3');
+const reward1BasicEnergyChallenge3 = document.getElementById('reward1-BasicEnergyChallenge3');
+const reward2BasicEnergyChallenge3 = document.getElementById('reward2-BasicEnergyChallenge3');
+const BasicEnergyChallenge3convert = document.getElementById('BasicEnergyChallenge3-convert');
+
+const startBasicEnergyChallenge4btn = document.getElementById('startBasicEnergyChallenge4btn');
+const progressBasicEnergyChallenge4 = document.getElementById('progress-BasicEnergyChallenge4');
+const debuffBasicEnergyChallenge4 = document.getElementById('debuff-BasicEnergyChallenge4');
+const goalBasicEnergyChallenge4 = document.getElementById('goal-BasicEnergyChallenge4');
+const reward1BasicEnergyChallenge4 = document.getElementById('reward1-BasicEnergyChallenge4');
+const reward2BasicEnergyChallenge4 = document.getElementById('reward2-BasicEnergyChallenge4');
+
+const startBasicEnergyChallenge5btn = document.getElementById('startBasicEnergyChallenge5btn');
+const progressBasicEnergyChallenge5 = document.getElementById('progress-BasicEnergyChallenge5');
+const goalBasicEnergyChallenge5 = document.getElementById('goal-BasicEnergyChallenge5');
+const reward1BasicEnergyChallenge5 = document.getElementById('reward1-BasicEnergyChallenge5');
+const reward2BasicEnergyChallenge5 = document.getElementById('reward2-BasicEnergyChallenge5');
+
+const startBasicEnergyChallenge6btn = document.getElementById('startBasicEnergyChallenge6btn');
+const progressBasicEnergyChallenge6 = document.getElementById('progress-BasicEnergyChallenge6');
+const goalBasicEnergyChallenge6 = document.getElementById('goal-BasicEnergyChallenge6');
+const rewardBasicEnergyChallenge6 = document.getElementById('reward-BasicEnergyChallenge6');
 
 // 获取实验相关
 const ExperimentProgressContainer = document.getElementById('experiment-Progress-container');
@@ -123,6 +170,21 @@ const SimulationExperiment5 = document.getElementById('SimulationExperiment5');
 const startSimulationExperiment5btn = document.getElementById('startSimulationExperiment5btn');
 const progressSimulationExperiment5 = document.getElementById('progress-SimulationExperiment5');
 const goalSimulationExperiment5 = document.getElementById('goal-SimulationExperiment5');
+
+const SimulationExperiment6 = document.getElementById('SimulationExperiment6');
+const startSimulationExperiment6btn = document.getElementById('startSimulationExperiment6btn');
+const progressSimulationExperiment6 = document.getElementById('progress-SimulationExperiment6');
+const goalSimulationExperiment6 = document.getElementById('goal-SimulationExperiment6');
+
+const SimulationExperiment7 = document.getElementById('SimulationExperiment7');
+const startSimulationExperiment7btn = document.getElementById('startSimulationExperiment7btn');
+const progressSimulationExperiment7 = document.getElementById('progress-SimulationExperiment7');
+const goalSimulationExperiment7 = document.getElementById('goal-SimulationExperiment7');
+
+const SimulationExperiment8 = document.getElementById('SimulationExperiment8');
+const startSimulationExperiment8btn = document.getElementById('startSimulationExperiment8btn');
+const progressSimulationExperiment8 = document.getElementById('progress-SimulationExperiment8');
+const goalSimulationExperiment8 = document.getElementById('goal-SimulationExperiment8');
 
 // 获取里程碑相关
 const OriginMilestone1 = document.getElementById('OriginMilestone1');
@@ -173,8 +235,16 @@ const Simulationuptap = document.getElementById('Simulationuptap');
 const Simulationuptaps = document.getElementById('Simulation-uptap');
 const EnergyMachinetap = document.getElementById('EnergyMachinetap');
 const EnergyMachinetaps = document.getElementById('EnergyMachine-tap');
+const BasicEnergyChallengetap = document.getElementById('BasicEnergyChallengetap');
+const BasicEnergyChallengetaps = document.getElementById('BasicEnergyChallenge-tap');
 const SolarEnergytap = document.getElementById('SolarEnergytap');
 const SolarEnergytaps = document.getElementById('SolarEnergy-tap');
+const ChemicalEnergytap = document.getElementById('ChemicalEnergytap');
+const ChemicalEnergytaps = document.getElementById('ChemicalEnergy-tap');
+const ElectricEnergytap = document.getElementById('ElectricEnergytap');
+const ElectricEnergytaps = document.getElementById('ElectricEnergy-tap');
+const MechanicalEnergytap = document.getElementById('MechanicalEnergytap');
+const MechanicalEnergytaps = document.getElementById('MechanicalEnergy-tap');
 
 // 获取challenge
 const turEnergyOriginChallengeEl = document.querySelectorAll('.turEnergyOriginChallenge');
@@ -234,6 +304,7 @@ const turEnergyOriginAmassAmount = document.getElementById('turEnergyOriginAmass
 const effectofturEnergyOrigin = document.getElementById('effect-of-turEnergyOrigin');
 const effectofperturEnergyOrigin = document.getElementById('effect-of-perturEnergyOrigin');
 const AmassOrigintimes = document.getElementById('AmassOriginTimes');
+const AmassOriginTimespersec = document.getElementById('AmassOriginTimes-persec');
 const turEnergyOriginAmassbtn = document.getElementById('turEnergyOrigin-Amass-btn');
 
 const OriginAmassFastenEl = document.querySelectorAll('.OriginAmassFasten');
@@ -275,12 +346,36 @@ const BasicEnergyChangeAmount = document.getElementById('BasicEnergyChange-amoun
 const EnergyEffectiondisplay = document.getElementById('EnergyEffection-display');
 const SolarEnergydisplay = document.getElementById('SolarEnergy-display');
 const displaySolarEnergypersec = document.getElementById('display-SolarEnergy-persec');
+const ChemicalEnergydisplay = document.getElementById('ChemicalEnergy-display');
+const displayChemicalEnergypersec = document.getElementById('display-ChemicalEnergy-persec');
+const ElectricEnergydisplay = document.getElementById('ElectricEnergy-display');
+const displayElectricEnergypersec = document.getElementById('display-ElectricEnergy-persec');
+const MechanicalEnergydisplay = document.getElementById('MechanicalEnergy-display');
+const displayMechanicalEnergypersec = document.getElementById('display-MechanicalEnergy-persec');
 
 const EnergyMachineAEl = document.querySelectorAll('.EnergyMachineA');
 const levelofEnergyMachineA = document.getElementById('level-of-EnergyMachineA');
 const effectofEnergyMachineA = document.getElementById('effect-of-EnergyMachineA');
 const EnergyMachineACost = document.getElementById('EnergyMachineA-cost');
 const EnergyMachineABtn = document.getElementById('EnergyMachineA-btn');
+
+const EnergyMachineBEl = document.querySelectorAll('.EnergyMachineB');
+const levelofEnergyMachineB = document.getElementById('level-of-EnergyMachineB');
+const effectofEnergyMachineB = document.getElementById('effect-of-EnergyMachineB');
+const EnergyMachineBCost = document.getElementById('EnergyMachineB-cost');
+const EnergyMachineBBtn = document.getElementById('EnergyMachineB-btn');
+
+const EnergyMachineCEl = document.querySelectorAll('.EnergyMachineC');
+const levelofEnergyMachineC = document.getElementById('level-of-EnergyMachineC');
+const effectofEnergyMachineC = document.getElementById('effect-of-EnergyMachineC');
+const EnergyMachineCCost = document.getElementById('EnergyMachineC-cost');
+const EnergyMachineCBtn = document.getElementById('EnergyMachineC-btn');
+
+const EnergyMachineDEl = document.querySelectorAll('.EnergyMachineD');
+const levelofEnergyMachineD = document.getElementById('level-of-EnergyMachineD');
+const effectofEnergyMachineD = document.getElementById('effect-of-EnergyMachineD');
+const EnergyMachineDCost = document.getElementById('EnergyMachineD-cost');
+const EnergyMachineDBtn = document.getElementById('EnergyMachineD-btn');
 
 const turEnergyCatalysisEl = document.querySelectorAll('.turEnergyCatalysis');
 const levelofturEnergyCatalysis = document.getElementById('level-of-turEnergyCatalysis');
@@ -299,6 +394,92 @@ const levelofClickCatalysis = document.getElementById('level-of-ClickCatalysis')
 const effectofClickCatalysis = document.getElementById('effect-of-ClickCatalysis');
 const ClickCatalysisCost = document.getElementById('ClickCatalysis-cost');
 const ClickCatalysisBtn = document.getElementById('ClickCatalysis-btn');
+
+const PhotosynthesisEl = document.querySelectorAll('.Photosynthesis');
+const levelofPhotosynthesis = document.getElementById('level-of-Photosynthesis');
+const effectofPhotosynthesis = document.getElementById('effect-of-Photosynthesis');
+const PhotosynthesisCost = document.getElementById('Photosynthesis-cost');
+const PhotosynthesisBtn = document.getElementById('Photosynthesis-btn');
+
+const SimulationCatalysisEl = document.querySelectorAll('.SimulationCatalysis');
+const levelofSimulationCatalysis = document.getElementById('level-of-SimulationCatalysis');
+const baseofSimulationCatalysis = document.getElementById('baseof-SimulationCatalysis');
+const effectofSimulationCatalysis = document.getElementById('effect-of-SimulationCatalysis');
+const SimulationCatalysisCost = document.getElementById('SimulationCatalysis-cost');
+const SimulationCatalysisBtn = document.getElementById('SimulationCatalysis-btn');
+
+const TierCatalysisEl = document.querySelectorAll('.TierCatalysis');
+const levelofTierCatalysis = document.getElementById('level-of-TierCatalysis');
+const effectofTierCatalysis = document.getElementById('effect-of-TierCatalysis');
+const TierCatalysisCost = document.getElementById('TierCatalysis-cost');
+const TierCatalysisBtn = document.getElementById('TierCatalysis-btn');
+
+const ReactionCatalysisEl = document.querySelectorAll('.ReactionCatalysis');
+const levelofReactionCatalysis = document.getElementById('level-of-ReactionCatalysis');
+const baseofReactionCatalysis = document.getElementById('baseof-ReactionCatalysis');
+const effectofReactionCatalysis = document.getElementById('effect-of-ReactionCatalysis');
+const ReactionCatalysisCost = document.getElementById('ReactionCatalysis-cost');
+const ReactionCatalysisBtn = document.getElementById('ReactionCatalysis-btn');
+
+const PrimaryBatteryEl = document.querySelectorAll('.PrimaryBattery');
+const levelofPrimaryBattery = document.getElementById('level-of-PrimaryBattery');
+const effectofPrimaryBattery = document.getElementById('effect-of-PrimaryBattery');
+const PrimaryBatteryCost = document.getElementById('PrimaryBattery-cost');
+const PrimaryBatteryBtn = document.getElementById('PrimaryBattery-btn');
+
+const BoostVoltageEl = document.querySelectorAll('.BoostVoltage');
+const levelofBoostVoltage = document.getElementById('level-of-BoostVoltage');
+const effectofBoostVoltage = document.getElementById('effect-of-BoostVoltage');
+const BoostVoltageCost = document.getElementById('BoostVoltage-cost');
+const BoostVoltageBtn = document.getElementById('BoostVoltage-btn');
+
+const ElectrolysisEl = document.querySelectorAll('.Electrolysis');
+const levelofElectrolysis = document.getElementById('level-of-Electrolysis');
+const effectofElectrolysis = document.getElementById('effect-of-Electrolysis');
+const ElectrolysisCost = document.getElementById('Electrolysis-cost');
+const ElectrolysisBtn = document.getElementById('Electrolysis-btn');
+
+const LonizationEl = document.querySelectorAll('.Lonization');
+const levelofLonization = document.getElementById('level-of-Lonization');
+const effectofLonization = document.getElementById('effect-of-Lonization');
+const LonizationCost = document.getElementById('Lonization-cost');
+const LonizationBtn = document.getElementById('Lonization-btn');
+
+const MotorEl = document.querySelectorAll('.Motor');
+const levelofMotor = document.getElementById('level-of-Motor');
+const effectofMotor = document.getElementById('effect-of-Motor');
+const MotorCost = document.getElementById('Motor-cost');
+const MotorBtn = document.getElementById('Motor-btn');
+
+const PowerOnEl = document.querySelectorAll('.PowerOn');
+const levelofPowerOn = document.getElementById('level-of-PowerOn');
+const effectdisplayofPowerOn = document.getElementById('effectdisplay-of-PowerOn');
+const PowerOnCost = document.getElementById('PowerOn-cost');
+const PowerOnBtn = document.getElementById('PowerOn-btn');
+
+const KineticEnergyEl = document.querySelectorAll('.KineticEnergy');
+const levelofKineticEnergy = document.getElementById('level-of-KineticEnergy');
+const effectofKineticEnergy = document.getElementById('effect-of-KineticEnergy');
+const KineticEnergyCost = document.getElementById('KineticEnergy-cost');
+const KineticEnergyBtn = document.getElementById('KineticEnergy-btn');
+
+const ElasticPotentialEnergyEl = document.querySelectorAll('.ElasticPotentialEnergy');
+const levelofElasticPotentialEnergy = document.getElementById('level-of-ElasticPotentialEnergy');
+const effectofElasticPotentialEnergy = document.getElementById('effect-of-ElasticPotentialEnergy');
+const ElasticPotentialEnergyCost = document.getElementById('ElasticPotentialEnergy-cost');
+const ElasticPotentialEnergyBtn = document.getElementById('ElasticPotentialEnergy-btn');
+
+const GravitationalPotentialEnergyEl = document.querySelectorAll('.GravitationalPotentialEnergy');
+const levelofGravitationalPotentialEnergy = document.getElementById('level-of-GravitationalPotentialEnergy');
+const effectofGravitationalPotentialEnergy = document.getElementById('effect-of-GravitationalPotentialEnergy');
+const GravitationalPotentialEnergyCost = document.getElementById('GravitationalPotentialEnergy-cost');
+const GravitationalPotentialEnergyBtn = document.getElementById('GravitationalPotentialEnergy-btn');
+
+const FrictionEl = document.querySelectorAll('.Friction');
+const levelofFriction = document.getElementById('level-of-Friction');
+const effectofFriction = document.getElementById('effect-of-Friction');
+const FrictionCost = document.getElementById('Friction-cost');
+const FrictionBtn = document.getElementById('Friction-btn');
 
 const increamentalSimulationEl = document.querySelectorAll('.increamentalSimulation');
 const levelofincreamentalSimulation = document.getElementById('level-of-increamentalSimulation');
@@ -338,8 +519,18 @@ const SimulationMachineλc = document.getElementById('SimulationMachine-λ-c');
 const SimulationMachineβ = document.getElementById('SimulationMachine-β');
 const SimulationMachineλa1btn = document.getElementById('SimulationMachine-λ-a1');
 const SimulationMachineλa2btn = document.getElementById('SimulationMachine-λ-a2');
+const SimulationMachineλa3btn = document.getElementById('SimulationMachine-λ-a3');
+const SimulationMachineλa4btn = document.getElementById('SimulationMachine-λ-a4');
+const priceSimulationMachineλa4 = document.getElementById('price-of-SimulationMachine-λ-a4');
+const SimulationMachineλa5btn = document.getElementById('SimulationMachine-λ-a5');
 const SimulationMachineλb1btn = document.getElementById('SimulationMachine-λ-b1');
 const SimulationMachineλb2btn = document.getElementById('SimulationMachine-λ-b2');
+const SimulationMachineλb3btn = document.getElementById('SimulationMachine-λ-b3');
+const priceSimulationMachineλb3 = document.getElementById('price-of-SimulationMachine-λ-b3');
+const SimulationMachineλb4btn = document.getElementById('SimulationMachine-λ-b4');
+const priceSimulationMachineλb4 = document.getElementById('price-of-SimulationMachine-λ-b4');
+const SimulationMachineλb5btn = document.getElementById('SimulationMachine-λ-b5');
+const priceSimulationMachineλb5 = document.getElementById('price-of-SimulationMachine-λ-b5');
 const SimulationMachineλc1btn = document.getElementById('SimulationMachine-λ-c1');
 const SimulationMachineλc2btn = document.getElementById('SimulationMachine-λ-c2');
 const SimulationMachineαmainbtn = document.getElementById('SimulationMachine-α-main'); 
@@ -350,12 +541,22 @@ const SimulationMachineαb3btn = document.getElementById('SimulationMachine-α-b
 const SimulationMachineαa4btn = document.getElementById('SimulationMachine-α-a4');
 const SimulationMachineαb4btn = document.getElementById('SimulationMachine-α-b4');
 const SimulationMachineαa5btn = document.getElementById('SimulationMachine-α-a5');
+const SimulationMachineβmainbtn = document.getElementById('SimulationMachine-β-main'); 
 const SimulationMachineβa1btn = document.getElementById('SimulationMachine-β-a1');
 const SimulationMachineβb1btn = document.getElementById('SimulationMachine-β-b1');
 const SimulationMachineβa2btn = document.getElementById('SimulationMachine-β-a2');
 const SimulationMachineβb2btn = document.getElementById('SimulationMachine-β-b2');
 const SimulationMachineβa3btn = document.getElementById('SimulationMachine-β-a3');
 const SimulationMachineβa4btn = document.getElementById('SimulationMachine-β-a4');
+const SimulationMachineγa1btn = document.getElementById('SimulationMachine-γ-a1');
+const SimulationMachineγa2btn = document.getElementById('SimulationMachine-γ-a2');
+const SimulationMachineγb2btn = document.getElementById('SimulationMachine-γ-b2');
+const SimulationMachineγc2btn = document.getElementById('SimulationMachine-γ-c2');
+const SimulationMachineγa3btn = document.getElementById('SimulationMachine-γ-a3');
+const SimulationMachineγa4btn = document.getElementById('SimulationMachine-γ-a4');
+const SimulationMachineγb4btn = document.getElementById('SimulationMachine-γ-b4');
+const SimulationMachineγc4btn = document.getElementById('SimulationMachine-γ-c4');
+const SimulationMachineγa5btn = document.getElementById('SimulationMachine-γ-a5');
 const effectofSimulationMachineαa2 = document.getElementById('effect-of-SimulationMachine-α-a2');
 const effectofSimulationMachineαa3 = document.getElementById('effect-of-SimulationMachine-α-a3');
 const effectofSimulationMachineαb3 = document.getElementById('effect-of-SimulationMachine-α-b3');
@@ -363,8 +564,15 @@ const effectofSimulationMachineαa4 = document.getElementById('effect-of-Simulat
 const effectofSimulationMachineαb4 = document.getElementById('effect-of-SimulationMachine-α-b4');
 const effectofSimulationMachineβa1 = document.getElementById('effect-of-SimulationMachine-β-a1');
 const effectofSimulationMachineβa2 = document.getElementById('effect-of-SimulationMachine-β-a2');
+const effectofSimulationMachineγa2 = document.getElementById('effect-of-SimulationMachine-γ-a2');
+const effectofSimulationMachineγb2 = document.getElementById('effect-of-SimulationMachine-γ-b2');
+const effectofSimulationMachineγc2 = document.getElementById('effect-of-SimulationMachine-γ-c2');
+const effectofSimulationMachineγa4 = document.getElementById('effect-of-SimulationMachine-γ-a4');
+const effectofSimulationMachineγc4 = document.getElementById('effect-of-SimulationMachine-γ-c4');
+const effectofSimulationMachineγa5 = document.getElementById('effect-of-SimulationMachine-γ-a5');
 
 const SimumlationPowerCount =  document.getElementById('SimumlationPower-count');
+const displaySimulationPowerpersec = document.getElementById('display-SimulationPower-persec');
 const degreeofSimumlationPower = document.getElementById('degree-of-SimumlationPower');
 const effectofSimumlationPower = document.getElementById('effect-of-SimumlationPower');
 
@@ -382,7 +590,57 @@ const effectofsecondSimulationRoom = document.getElementById('effect-of-secondSi
 const secondSimulationRoomCost = document.getElementById('secondSimulationRoom-cost');
 const secondSimulationRoomBtn = document.getElementById('secondSimulationRoom-btn');
 
+const thirdSimulationRoomEl = document.querySelectorAll('.thirdSimulationRoom');
+const levelofthirdSimulationRoom = document.getElementById('level-of-thirdSimulationRoom');
+const AmountofthirdSimulationRoom = document.getElementById('Amount-of-thirdSimulationRoom');
+const effectofthirdSimulationRoom = document.getElementById('effect-of-thirdSimulationRoom');
+const thirdSimulationRoomCost = document.getElementById('thirdSimulationRoom-cost');
+const thirdSimulationRoomBtn = document.getElementById('thirdSimulationRoom-btn');
+
+const fourthSimulationRoomEl = document.querySelectorAll('.fourthSimulationRoom');
+const leveloffourthSimulationRoom = document.getElementById('level-of-fourthSimulationRoom');
+const AmountoffourthSimulationRoom = document.getElementById('Amount-of-fourthSimulationRoom');
+const effectoffourthSimulationRoom = document.getElementById('effect-of-fourthSimulationRoom');
+const fourthSimulationRoomCost = document.getElementById('fourthSimulationRoom-cost');
+const fourthSimulationRoomBtn = document.getElementById('fourthSimulationRoom-btn');
+
+const fifthSimulationRoomEl = document.querySelectorAll('.fifthSimulationRoom');
+const leveloffifthSimulationRoom = document.getElementById('level-of-fifthSimulationRoom');
+const AmountoffifthSimulationRoom = document.getElementById('Amount-of-fifthSimulationRoom');
+const effectoffifthSimulationRoom = document.getElementById('effect-of-fifthSimulationRoom');
+const fifthSimulationRoomCost = document.getElementById('fifthSimulationRoom-cost');
+const fifthSimulationRoomBtn = document.getElementById('fifthSimulationRoom-btn');
+
+const sixthSimulationRoomEl = document.querySelectorAll('.sixthSimulationRoom');
+const levelofsixthSimulationRoom = document.getElementById('level-of-sixthSimulationRoom');
+const AmountofsixthSimulationRoom = document.getElementById('Amount-of-sixthSimulationRoom');
+const effectofsixthSimulationRoom = document.getElementById('effect-of-sixthSimulationRoom');
+const sixthSimulationRoomCost = document.getElementById('sixthSimulationRoom-cost');
+const sixthSimulationRoomBtn = document.getElementById('sixthSimulationRoom-btn');
+
+const seventhSimulationRoomEl = document.querySelectorAll('.seventhSimulationRoom');
+const levelofseventhSimulationRoom = document.getElementById('level-of-seventhSimulationRoom');
+const AmountofseventhSimulationRoom = document.getElementById('Amount-of-seventhSimulationRoom');
+const effectofseventhSimulationRoom = document.getElementById('effect-of-seventhSimulationRoom');
+const seventhSimulationRoomCost = document.getElementById('seventhSimulationRoom-cost');
+const seventhSimulationRoomBtn = document.getElementById('seventhSimulationRoom-btn');
+
+const eighthSimulationRoomEl = document.querySelectorAll('.eighthSimulationRoom');
+const levelofeighthSimulationRoom = document.getElementById('level-of-eighthSimulationRoom');
+const AmountofeighthSimulationRoom = document.getElementById('Amount-of-eighthSimulationRoom');
+const effectofeighthSimulationRoom = document.getElementById('effect-of-eighthSimulationRoom');
+const eighthSimulationRoomCost = document.getElementById('eighthSimulationRoom-cost');
+const eighthSimulationRoomBtn = document.getElementById('eighthSimulationRoom-btn');
+
 const turEnergyAuto = document.getElementById('turEnergyAuto');
 const stateturEnergyAuto = document.getElementById('state-turEnergyAuto');
 const turEnergyOriginAuto = document.getElementById('turEnergyOriginAuto');
 const stateturEnergyOriginAuto = document.getElementById('state-turEnergyOriginAuto');
+const EnergyMachineAuto = document.getElementById('EnergyMachineAuto');
+const stateEnergyMachineAuto = document.getElementById('state-EnergyMachineAuto');
+const SolarEnergyAuto = document.getElementById('SolarEnergyAuto');
+const stateSolarEnergyAuto = document.getElementById('state-SolarEnergyAuto');
+const ChemicalEnergyAuto = document.getElementById('ChemicalEnergyAuto');
+const stateChemicalEnergyAuto = document.getElementById('state-ChemicalEnergyAuto');
+const ElectricEnergyAuto = document.getElementById('ElectricEnergyAuto');
+const stateElectricEnergyAuto = document.getElementById('state-ElectricEnergyAuto');

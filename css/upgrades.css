@@ -59,6 +59,26 @@
     top: 210px;
 }
 
+.EnergyMachineB {
+    position: absolute;
+    top: 290px;
+}
+
+.EnergyMachineC {
+    position: absolute;
+    top: 370px;
+}
+
+.EnergyMachineD {
+    position: absolute;
+    top: 450px;
+}
+
+.EnergyMachineE {
+    position: absolute;
+    top: 530px;
+}
+
 .turEnergyCatalysis {
     position: absolute;
     top: 80px;
@@ -74,6 +94,76 @@
     top: 240px;
 }
 
+.Photosynthesis {
+    position: absolute;
+    top: 320px;
+}
+
+.SimulationCatalysis {
+    position: absolute;
+    top: 80px;
+}
+
+.TierCatalysis {
+    position: absolute;
+    top: 160px;
+}
+
+.ReactionCatalysis {
+    position: absolute;
+    top: 240px;
+}
+
+.PrimaryBattery {
+    position: absolute;
+    top: 320px;
+}
+
+.BoostVoltage {
+    position: absolute;
+    top: 80px;
+}
+
+.Electrolysis {
+    position: absolute;
+    top: 160px;
+}
+
+.Lonization {
+    position: absolute;
+    top: 240px;
+}
+
+.Motor {
+    position: absolute;
+    top: 320px;
+}
+
+.PowerOn {
+    position: absolute;
+    top: 400px;
+}
+
+.KineticEnergy {
+    position: absolute;
+    top: 80px;
+}
+
+.ElasticPotentialEnergy {
+    position: absolute;
+    top: 160px;
+}
+
+.GravitationalPotentialEnergy {
+    position: absolute;
+    top: 240px;
+}
+
+.Friction {
+    position: absolute;
+    top: 320px;
+}
+
 .increamentalSimulation {
     position: absolute;
     top: 760px;
@@ -87,6 +177,36 @@
 .secondSimulationRoom {
     position: absolute;
     top: 200px;
+}
+
+.thirdSimulationRoom {
+    position: absolute;
+    top: 280px;
+}
+
+.fourthSimulationRoom {
+    position: absolute;
+    top: 360px;
+}
+
+.fifthSimulationRoom {
+    position: absolute;
+    top: 440px;
+}
+
+.sixthSimulationRoom {
+    position: absolute;
+    top: 520px;
+}
+
+.seventhSimulationRoom {
+    position: absolute;
+    top: 600px;
+}
+
+.eighthSimulationRoom {
+    position: absolute;
+    top: 680px;
 }
 
 .title-of-leveluper {
@@ -184,7 +304,7 @@
 
 .SimulationMachine {
     font-size: 14px;
-    width: 180px;
+    width: 190px;
     height: 90px;
 }
 

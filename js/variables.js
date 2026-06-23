@@ -13,7 +13,13 @@ let page = "turEnergy";
 let setAuto = {
     turEnergyAuto:false,
     turEnergyOriginAuto:false,
+    EnergyMachineAuto:false,
+    SolarEnergyAuto:false,
+    ChemicalEnergyAuto:false,
+    ElectricEnergyAuto:false,
 }
+let timerAdding = null;
+let timerSimulation = new Decimal(0);
 let turEnergy = new Decimal(0);
 let turEnergyLevel = new Decimal(1);
 let TotalClicks = new Decimal(0);
@@ -31,6 +37,7 @@ let AutoBuyInterval = null;
 let turEnergyOrigin = new Decimal(0);
 let effectturEnergyOrigin = new Decimal(0.5);
 let effectOriginMilestone7 = new Decimal(1);
+let effectOriginMilestone9 = new Decimal(1);
 let effectOriginEnhance = new Decimal(0);
 let effectturEnergyOriginChallenge6 = new Decimal(1);
 let effectturEnergyTier = new Decimal(1);
@@ -63,11 +70,41 @@ let EnergyEffection = new Decimal(0);
 let turEnergyCatalysisLevel = new Decimal(0);
 let OriginCatalysisLevel = new Decimal(0);
 let ClickCatalysisLevel = new Decimal(0);
+let PhotosynthesisLevel = new Decimal(0);
 let effectturEnergyCatalysis = new Decimal(1);
 let effectOriginCatalysis = new Decimal(1);
 let effectClickCatalysis = new Decimal(1);
+let effectPhotosynthesis = new Decimal(0);
+let ChemicalEnergy = new Decimal(0);
+let SimulationCatalysisLevel = new Decimal(0);
+let TierCatalysisLevel = new Decimal(0);
+let ReactionCatalysisLevel = new Decimal(0);
+let PrimaryBatteryLevel = new Decimal(0);
+let effectSimulationCatalysis = new Decimal(1);
+let effectTierCatalysis = new Decimal(0);
+let effectRecationCatalysis = new Decimal(1);
+let effectPrimaryBattery = new Decimal(0);
+let ElectricEnergy = new Decimal(0);
+let BoostVoltageLevel = new Decimal(0);
+let ElectrolysisLevel = new Decimal(0);
+let LonizationLevel = new Decimal(0);
+let MotorLevel = new Decimal(0);
+let PowerOnLevel = new Decimal(0);
+let effectBoostVoltage = new Decimal(0);
+let effectElectrolysis = new Decimal(1);
+let effectLonization = new Decimal(0);
+let effectMotor = new Decimal(0);
+let MechanicalEnergy = new Decimal(0);
+let KineticEnergyLevel = new Decimal(0);
+let ElasticPotentialEnergyLevel = new Decimal(0);
+let GravitationalPotentialEnergyLevel = new Decimal(0);
+let FrictionLevel = new Decimal(0);
+let effectKineticEnergy = new Decimal(0);
+let effectElasticPotentialEnergy = new Decimal(0);
+let effectGravitationalPotentialEnergy = new Decimal(0);
+let effectFriction = new Decimal(0);
 let SolarEnergy = new Decimal(0);
-let simulationData = new Decimal(0);
+let simulationData = new Decimal(1);
 let simulatedTimes = new Decimal(0);
 let SimulationMachineBtye = new Decimal(0);
 let SimulationMachineBtyeUsed = new Decimal(0);
@@ -112,8 +149,14 @@ let BuySimulationMachineByte = {
 let SimulationMachine = {
     λa1:false,
     λa2:false,
+    λa3:false,
+    λa4:false,
+    λa5:false,
     λb1:false,
     λb2:false,
+    λb3:false,
+    λb4:false,
+    λb5:false,
     λc1:false,
     λc2:false,
     αa1:false,
@@ -129,6 +172,15 @@ let SimulationMachine = {
     βb2:false,
     βa3:false,
     βa4:false,
+    γa1:false,
+    γa2:false,
+    γb2:false,
+    γc2:false,
+    γa3:false,
+    γa4:false,
+    γb4:false,
+    γc4:false,
+    γa5:false,
 }
 let effectSimulationMachine = {
     αa1:new Decimal(1),
@@ -144,6 +196,15 @@ let effectSimulationMachine = {
     βb2:new Decimal(0),
     βa3:new Decimal(1),
     βa4:new Decimal(1),
+    γa1:new Decimal(1),
+    γa2:new Decimal(1),
+    γb2:new Decimal(1),
+    γc2:new Decimal(1),
+    γa3:new Decimal(1000),
+    γa4:new Decimal(1),
+    γb4:new Decimal(1),
+    γc4:new Decimal(1),
+    γa5:new Decimal(1),
 }
 let effectSimulationUpgradesturEnergy3 = new Decimal(1);
 let effectSimulationUpgradesturEnergy4 = new Decimal(1);
@@ -156,24 +217,29 @@ let effect1SimulationExperiment5 = new Decimal(1);
 let effect2SimulationExperiment5 = new Decimal(1);
 let timerSimulationExperiment5 = new Decimal(0);
 let timerSimulationExperiment5Interval = null;
+let effectSimulationExperiment6 = new Decimal(1);
+let effectSimulationExperiment8 = new Decimal(1);
 let SimulationMachineFold = false;
 let challengedoing = {
     Tier:"",
-    Origin:""
+    Origin:"",
+    BasicEnergy:""
 };
 let experimentdoing = {
     Simulation:""
 };
 let challengeGoal = {
     Tier:new Decimal(0),
-    Origin:new Decimal(0)
+    Origin:new Decimal(0),
+    BasicEnergy:new Decimal(0),
 };
 let experimentGoal = {
     Simulation:new Decimal(0)
 };
 let challengeGoaltype = {
     Tier:false,
-    Origin:false
+    Origin:false,
+    BasicEnergy:false,
 };
 let experimentGoaltype = {
     Simulation:false
@@ -183,6 +249,7 @@ let experimentPercent = new Decimal(0);
 let challengeprogress = {
     Tier:"",
     Origin:"",
+    BasicEnergy:"",
 };
 let experimentprogress = {
     Simulation:""
@@ -199,7 +266,13 @@ let challengefinished = {
     turEnergyOriginChallenge3:0,
     turEnergyOriginChallenge4:0,
     turEnergyOriginChallenge5:0,
-    turEnergyOriginChallenge6:0
+    turEnergyOriginChallenge6:0,
+    BasicEnergyChallenge1:0,
+    BasicEnergyChallenge2:0,
+    BasicEnergyChallenge3:0,
+    BasicEnergyChallenge4:0,
+    BasicEnergyChallenge5:0,
+    BasicEnergyChallenge6:0,
 };
 let experimentfinished = {
     SimulationExperiment1:0,
@@ -207,6 +280,9 @@ let experimentfinished = {
     SimulationExperiment3:0,
     SimulationExperiment4:0,
     SimulationExperiment5:0,
+    SimulationExperiment6:0,
+    SimulationExperiment7:0,
+    SimulationExperiment8:0,
 }
 let challengebuffs = {
     turEnergy:1,
@@ -221,6 +297,12 @@ let challengebuffs = {
     disabledOriginLevelup:true,
     disabledOriginMilestone:true,
     disabledturEnergyLevelup:true,
+    BasicEnergyChallenge1:new Decimal(1),
+    BasicEnergyChallenge2:true,
+    BasicEnergyChallenge3:true,
+    BasicEnergyChallenge4:new Decimal(1),
+    BasicEnergyChallenge5:true,
+    BasicEnergyChallenge6:true,
 };
 let experimentbuffs = {
     SimulationUpgrades:true,
@@ -228,6 +310,9 @@ let experimentbuffs = {
     SimulationExperiment3:true,
     SimulationExperiment4:true,
     SimulationExperiment5:true,
+    SimulationExperiment6:true,
+    SimulationExperiment7:true,
+    SimulationExperiment8:true,
 }
 let challengereward = {
     turEnergy:1,
@@ -242,6 +327,12 @@ let challengereward = {
     EfficientOriginProduce:false,
     TierresetNothing:false,
     AmassTimesAffectturEnergy:false,
+    BasicEnergyChallenge1:new Decimal(0),
+    BasicEnergyChallenge2:new Decimal(0),
+    BasicEnergyChallenge3:new Decimal(0),
+    BasicEnergyChallenge4:new Decimal(2),
+    BasicEnergyChallenge5:new Decimal(1),
+    BasicEnergyChallenge6:new Decimal(0),
 };
 let experimentreward = {
     SimulationExperiment1:false,
@@ -249,6 +340,9 @@ let experimentreward = {
     SimulationExperiment3:false,
     SimulationExperiment4:false,
     SimulationExperiment5:false,
+    SimulationExperiment6:false,
+    SimulationExperiment7:false,
+    SimulationExperiment8:false,
 }
 let SimulationUpgrades = {
     turEnergy1:{if:false, num:new Decimal(1)},

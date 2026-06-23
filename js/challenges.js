@@ -26,6 +26,22 @@ function giveupChallengeOrigin() {
     restartOriginProduce();
 }
 
+function giveupChallengeBasicEnergy() {
+    giveupChallengeOrigin();
+    challengedoing.BasicEnergy = "";
+    challengeGoal.BasicEnergy = new Decimal(0);
+    challengeGoaltype.BasicEnergy = false;
+    challengebuffs.BasicEnergyChallenge1 = new Decimal(1);
+    challengebuffs.BasicEnergyChallenge2 = true;
+    challengebuffs.BasicEnergyChallenge3 = true;
+    challengebuffs.BasicEnergyChallenge4 = new Decimal(1);
+    challengebuffs.BasicEnergyChallenge5 = true;
+    challengebuffs.BasicEnergyChallenge6 = true;
+    restartAutoClicker();
+    restartOriginProduce();
+    restartSimulationRoomProduce();
+}
+
 function giveupexperimentSimulation() {
     giveupChallengeOrigin();
     experimentdoing.Simulation = "";
@@ -36,6 +52,9 @@ function giveupexperimentSimulation() {
     experimentbuffs.SimulationExperiment3 = true;
     experimentbuffs.SimulationExperiment4 = true;
     experimentbuffs.SimulationExperiment5 = true;
+    experimentbuffs.SimulationExperiment6 = true;
+    experimentbuffs.SimulationExperiment7 = true;
+    experimentbuffs.SimulationExperiment8 = true;
     timerSimulationExperiment5 = new Decimal(0);
     clearInterval(timerSimulationExperiment5Interval);
     restartAutoClicker();
@@ -243,6 +262,108 @@ function startturEnergyOriginChallenge6() {
     }
 }
 
+function startBasicEnergyChallenge1() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge1") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge1++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge1 === 0) challengeGoal.BasicEnergy = new Decimal("1e8500");
+        if (challengefinished.BasicEnergyChallenge1 === 1) challengeGoal.BasicEnergy = new Decimal("1e13000");
+        if (challengefinished.BasicEnergyChallenge1 === 2) challengeGoal.BasicEnergy = new Decimal("1e14000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge1";
+    }
+}
+
+function startBasicEnergyChallenge2() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge2") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge2++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge2 === 0) challengeGoal.BasicEnergy = new Decimal("1e3500");
+        if (challengefinished.BasicEnergyChallenge2 === 1) challengeGoal.BasicEnergy = new Decimal("1e15000");
+        if (challengefinished.BasicEnergyChallenge2 === 2) challengeGoal.BasicEnergy = new Decimal("1e25000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge2";
+    }
+}
+
+function startBasicEnergyChallenge3() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge3") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge3++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge3 === 0) challengeGoal.BasicEnergy = new Decimal("1e3000");
+        if (challengefinished.BasicEnergyChallenge3 === 1) challengeGoal.BasicEnergy = new Decimal("1e7600");
+        if (challengefinished.BasicEnergyChallenge3 === 2) challengeGoal.BasicEnergy = new Decimal("1e30000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge3";
+    }
+}
+
+function startBasicEnergyChallenge4() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge4") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge4++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge4 === 0) challengeGoal.BasicEnergy = new Decimal("1e15000");
+        if (challengefinished.BasicEnergyChallenge4 === 1) challengeGoal.BasicEnergy = new Decimal("1e46000");
+        if (challengefinished.BasicEnergyChallenge4 === 2) challengeGoal.BasicEnergy = new Decimal("1e85000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge4";
+    }
+}
+
+function startBasicEnergyChallenge5() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge5") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge5++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge5 === 0) challengeGoal.BasicEnergy = new Decimal("1e8000");
+        if (challengefinished.BasicEnergyChallenge5 === 1) challengeGoal.BasicEnergy = new Decimal("1e12000");
+        if (challengefinished.BasicEnergyChallenge5 === 2) challengeGoal.BasicEnergy = new Decimal("1e36000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge5";
+    }
+}
+
+function startBasicEnergyChallenge6() {
+    if (challengedoing.BasicEnergy === "BasicEnergyChallenge6") {
+        if (challengeprogress.BasicEnergy === "finished") challengefinished.BasicEnergyChallenge6++;
+        giveupChallengeBasicEnergy();
+        return;
+    }
+    if (confirm(`你能走到这里，你应该明白挑战的意义，你确定吗？`)) {
+        giveupChallengeBasicEnergy();
+        challengeGoaltype.BasicEnergy = true;
+        if (challengefinished.BasicEnergyChallenge6 === 0) challengeGoal.BasicEnergy = new Decimal("1e1500");
+        if (challengefinished.BasicEnergyChallenge6 === 1) challengeGoal.BasicEnergy = new Decimal("1e6700");
+        if (challengefinished.BasicEnergyChallenge6 === 2) challengeGoal.BasicEnergy = new Decimal("1e32000");
+        BasicEnergyReset();
+        challengedoing.BasicEnergy = "BasicEnergyChallenge6";
+    }
+}
+
 function giveupSimulationExperiment() {
     fadeToBlack(() => {
         space = "Simulation";
@@ -346,16 +467,71 @@ function startSimulationExperiment5() {
         if (experimentfinished.SimulationExperiment5 === 0) experimentGoal.Simulation = new Decimal("1.80e308");
         startSimulationExperiment("SimulationExperiment5");
         timerSimulationExperiment5 = new Decimal(0);
-        timerSimulationExperiment5Interval = setInterval(() => {
-            timerSimulationExperiment5 = timerSimulationExperiment5.plus(1);
+    }
+}
+
+function startSimulationExperiment6() {
+    if (experimentdoing.Simulation === "SimulationExperiment6") {
+        if (experimentprogress.Simulation === "finished") experimentfinished.SimulationExperiment6++;
+        else {if (!confirm(`这时候放弃会强制结束这次模拟并且没有任何奖励，你确定吗？`)) return; }
+        giveupSimulationExperiment();
+        return;
+    }
+    if (confirm(`有些设置在进行模拟的时候无法修改，并且放弃实验会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
+        experimentGoaltype.Simulation = true;
+        experimentbuffs.SimulationExperiment6 = false;
+        if (experimentfinished.SimulationExperiment6 === 0) experimentGoal.Simulation = new Decimal("1e600");
+        startSimulationExperiment("SimulationExperiment6");
+        timerSimulationExperiment6 = new Decimal(0);
+        timerSimulationExperiment6Interval = setInterval(() => {
+            timerSimulationExperiment6 = timerSimulationExperiment6.plus(1);
         }, 1000);
     }
 }
 
+function startSimulationExperiment7() {
+    if (experimentdoing.Simulation === "SimulationExperiment7") {
+        if (experimentprogress.Simulation === "finished") experimentfinished.SimulationExperiment7++;
+        else {if (!confirm(`这时候放弃会强制结束这次模拟并且没有任何奖励，你确定吗？`)) return; }
+        giveupSimulationExperiment();
+        return;
+    }
+    if (confirm(`有些设置在进行模拟的时候无法修改，并且放弃实验会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
+        experimentGoaltype.Simulation = true;
+        experimentbuffs.SimulationExperiment7 = false;
+        if (experimentfinished.SimulationExperiment7 === 0) experimentGoal.Simulation = new Decimal("1e4200");
+        startSimulationExperiment("SimulationExperiment7");
+        timerSimulationExperiment7 = new Decimal(0);
+        timerSimulationExperiment7Interval = setInterval(() => {
+            timerSimulationExperiment7 = timerSimulationExperiment7.plus(1);
+        }, 1000);
+    }
+}
+
+function startSimulationExperiment8() {
+    if (experimentdoing.Simulation === "SimulationExperiment8") {
+        if (experimentprogress.Simulation === "finished") experimentfinished.SimulationExperiment8++;
+        else {if (!confirm(`这时候放弃会强制结束这次模拟并且没有任何奖励，你确定吗？`)) return; }
+        giveupSimulationExperiment();
+        return;
+    }
+    if (confirm(`有些设置在进行模拟的时候无法修改，并且放弃实验会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
+        experimentGoaltype.Simulation = true;
+        experimentbuffs.SimulationExperiment8 = false;
+        if (experimentfinished.SimulationExperiment8 === 0) experimentGoal.Simulation = new Decimal("1e2200");
+        startSimulationExperiment("SimulationExperiment8");
+        timerSimulationExperiment8 = new Decimal(0);
+        timerSimulationExperiment8Interval = setInterval(() => {
+            timerSimulationExperiment8 = timerSimulationExperiment8.plus(1);
+        }, 1000);
+    }
+}
+
+let intro = "";
 function introSimulationExperiment4() {
     textbox.classList.add('Unlocked');
     textbox.classList.remove('Locked');
-    textboxtext.innerHTML = `你获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x0，禁用<span class="simulation">模拟</span>升级c2，<span class="turEnergy">龟能</span>层级与层级增强的等级的和不超过42（如超过42，则价格变为9e99999）`;
+    intro = "introSimulationExperiment4";
 }
 function introSimulationExperiment5() {
     /*Dear mark,
@@ -364,10 +540,13 @@ function introSimulationExperiment5() {
     3.14159*/
     textbox.classList.add('Unlocked');
     textbox.classList.remove('Locked');
-    textboxtext.innerHTML = `禁用<span class="simulation">模拟机</span>-α，禁用<span class="simulation">模拟</span>升级c2，d2，a3，b3，c3，d3，<span class="turEnergy">龟能</span>层级的效果^0.5，禁用高效点击，禁用<span class="turEnergy">龟能</span>层级挑战2，3，禁用<span class="turEnergy">龟能</span><span class="Origin">本源</span>里程碑7，但你会随在<span class="simulation">模拟</span>内的时间获得一个提升获得<span class="Origin">本源</span>的加成，效果：x${formatNumber(effect2SimulationExperiment5)}（这个数字并不是实时的，而是你打开这个界面那一刻的）`;
+    intro = "introSimulationExperiment5";
 }
-
-
+function introSimulationExperiment6() {
+    textbox.classList.add('Unlocked');
+    textbox.classList.remove('Locked');
+    intro = "introSimulationExperiment6";
+}
 
 function FinishGiveupChallenge() {
     if (challengeprogress.Tier === "finished") {
@@ -384,9 +563,17 @@ function FinishGiveupChallenge() {
         if (challengedoing.Origin === "turEnergyOriginChallenge4") challengefinished.turEnergyOriginChallenge4++;
         if (challengedoing.Origin === "turEnergyOriginChallenge5") challengefinished.turEnergyOriginChallenge5++;
         if (challengedoing.Origin === "turEnergyOriginChallenge6") challengefinished.turEnergyOriginChallenge6++;
+    } else if (challengedoing.Tier === "" && challengeprogress.Origin === "" && challengeprogress.BasicEnergy === "finished") {
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge1") challengefinished.BasicEnergyChallenge1++;
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge2") challengefinished.BasicEnergyChallenge2++;
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge3") challengefinished.BasicEnergyChallenge3++;
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge4") challengefinished.BasicEnergyChallenge4++;
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge5") challengefinished.BasicEnergyChallenge5++;
+        if (challengedoing.BasicEnergy === "BasicEnergyChallenge6") challengefinished.BasicEnergyChallenge6++;
     }
     if (challengedoing.Tier != "") giveupChallenge();
     else if (challengedoing.Origin != "") giveupChallengeOrigin();
+    else if (challengedoing.BasicEnergy != "") giveupChallengeBasicEnergy();
 }
 
 function FinishGiveupExperiment() {
@@ -396,6 +583,9 @@ function FinishGiveupExperiment() {
         if (experimentdoing.Simulation === "SimulationExperiment3") experimentfinished.SimulationExperiment3++;
         if (experimentdoing.Simulation === "SimulationExperiment4") experimentfinished.SimulationExperiment4++;
         if (experimentdoing.Simulation === "SimulationExperiment5") experimentfinished.SimulationExperiment5++;
+        if (experimentdoing.Simulation === "SimulationExperiment6") experimentfinished.SimulationExperiment6++;
+        if (experimentdoing.Simulation === "SimulationExperiment7") experimentfinished.SimulationExperiment7++;
+        if (experimentdoing.Simulation === "SimulationExperiment8") experimentfinished.SimulationExperiment8++;
         fadeToBlack(() => {
             space = "Simulation";
             state = "Simulation";
