@@ -35,7 +35,7 @@ function tips() {
             newTipType = "phase5";
         } else if (turEnergyTier.lt(3) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)){
             const options = [
-                `接着努力吧，你会在<span class="turEnergy">龟能</span>层级3时解锁新的<span class="simulation">模拟机</span>制`,
+                `接着努力吧，你会在<span class="turEnergy">龟能</span>层级3时解锁新的<span class="simulation">模拟</span>机制`,
                 `<span class="turEnergy">龟能</span>等级100时会有新的升级，这个效果足够强力！（但也足够贵……）`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];

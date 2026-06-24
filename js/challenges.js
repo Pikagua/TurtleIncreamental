@@ -1,4 +1,8 @@
 function giveupChallenge() {
+    challengePercent = new Decimal(0);
+    challengeprogress.Tier = "";
+    challengeprogress.Origin = "";
+    challengeprogress.BasicEnergy = "";
     challengedoing.Tier = "";
     challengeGoal.Tier = new Decimal(0);
     challengeGoaltype.Tier = false;
@@ -46,6 +50,8 @@ function giveupexperimentSimulation() {
     giveupChallengeOrigin();
     experimentdoing.Simulation = "";
     experimentGoal.Simulation = new Decimal(0);
+    experimentPercent = new Decimal(0);
+    experimentprogress.Simulation = "";
     experimentGoaltype.Simulation = false;
     experimentbuffs.SimulationUpgrades = true;
     experimentbuffs.SimulationExperiment2 = true;
