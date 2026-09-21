@@ -26,6 +26,13 @@
     transform: translate(-50%,-50%);
 }
 
+#IteratedTimes-display-text {
+    font-size: 16px;
+    position: absolute;
+    top: 5%;
+    transform: translate(-50%,-50%);
+}
+
 .OriginMilestoneTitle {
     display: block;
     text-align: left;
@@ -87,4 +94,108 @@
 #OriginMilestone10 {
     left: 50%;
     top: 410px;
+}
+
+.IterationMilestoneTitle {
+    display: block;
+    text-align: left;
+}
+
+.IterationMilestone {
+    box-sizing: border-box;
+    border: 8px solid #1b0733;  /* 简写属性，一次性设置 */
+    border-radius: 5px;
+    width: 260px;
+    height: 180px;
+    position: absolute;
+    transform: translate(-50%, 0);
+    font-size: 16px;
+}
+.IterationMilestone:not(.done) {
+    background-color: #7118a9;
+}
+.IterationMilestone.done {
+    background-color: #9b48e8;
+}
+
+#IterationMilestone1 {
+    left: 50%;
+    top: 50px;
+    width: 540px;
+    height: 220px;
+}
+
+#IterationMilestone2 {
+    left: 10%;
+    top: 300px;
+}
+
+#IterationMilestone3 {
+    left: 30%;
+    top: 300px;
+}
+
+#IterationMilestone4 {
+    left: 50%;
+    top: 300px;
+}
+
+#IterationMilestone5 {
+    left: 70%;
+    top: 300px;
+}
+
+#IterationMilestone6 {
+    left: 90%;
+    top: 300px;
+}
+
+#IterationMilestone7 {
+    left: 10%;
+    top: 500px;
+}
+
+#IterationMilestone8 {
+    left: 30%;
+    top: 500px;
+}
+
+#IterationMilestone9 {
+    left: 50%;
+    top: 500px;
+}
+
+#IterationMilestone10 {
+    left: 70%;
+    top: 500px;
+}
+
+#IterationMilestone11 {
+    left: 90%;
+    top: 500px;
+}
+
+#IterationMilestone12 {
+    left: 10%;
+    top: 700px;
+}
+
+#IterationMilestone13 {
+    left: 30%;
+    top: 700px;
+}
+
+#IterationMilestone14 {
+    left: 50%;
+    top: 700px;
+}
+
+#IterationMilestone15 {
+    left: 70%;
+    top: 700px;
+}
+
+#IterationMilestone16 {
+    left: 90%;
+    top: 700px;
 }

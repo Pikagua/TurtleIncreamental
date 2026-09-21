@@ -64,6 +64,17 @@ h1 {
         0 0 20px #215d6c;
 }
 
+.Iteration {
+    color: #9b48e8;
+    font-weight: bold;
+    text-shadow: 
+        -1px -1px 0 #4a148c,
+        1px -1px 0 #4a148c,
+        -1px 1px 0 #4a148c,
+        1px 1px 0 #4a148c,
+        0 0 20px #4a148c;
+}
+
 .important {
     color: #ff3838;
     text-shadow: 

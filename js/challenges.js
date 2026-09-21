@@ -13,7 +13,6 @@ function giveupChallenge() {
     challengebuffs.turEnergyTier = true;
     challengebuffs.clickPower = true;
     restartAutoClicker();
-    restartOriginProduce();
 }
 
 function giveupChallengeOrigin() {
@@ -27,7 +26,6 @@ function giveupChallengeOrigin() {
     challengebuffs.disabledOriginMilestone = true;
     challengebuffs.disabledturEnergyLevelup = true;
     restartAutoClicker();
-    restartOriginProduce();
 }
 
 function giveupChallengeBasicEnergy() {
@@ -42,8 +40,6 @@ function giveupChallengeBasicEnergy() {
     challengebuffs.BasicEnergyChallenge5 = true;
     challengebuffs.BasicEnergyChallenge6 = true;
     restartAutoClicker();
-    restartOriginProduce();
-    restartSimulationRoomProduce();
 }
 
 function giveupexperimentSimulation() {
@@ -61,10 +57,10 @@ function giveupexperimentSimulation() {
     experimentbuffs.SimulationExperiment6 = true;
     experimentbuffs.SimulationExperiment7 = true;
     experimentbuffs.SimulationExperiment8 = true;
+    experimentbuffs.SimulationExperiment9 = true;
     timerSimulationExperiment5 = new Decimal(0);
     clearInterval(timerSimulationExperiment5Interval);
     restartAutoClicker();
-    restartOriginProduce();
 }
 
 function startturEnergyTierChallenge1() {
@@ -371,7 +367,18 @@ function startBasicEnergyChallenge6() {
 }
 
 function giveupSimulationExperiment() {
-    fadeToBlack(() => {
+    if (IteratedTimes.eq(0)) {
+        fadeToBlack(() => {
+            space = "Simulation";
+            state = "Simulation";
+            giveupexperimentSimulation();
+            SimulationReset();
+            changetoSimulationuptap();
+            changetoSimulationUpgradestap();
+            Changetips();
+            fadeFromBlack();
+        });
+    } else {
         space = "Simulation";
         state = "Simulation";
         giveupexperimentSimulation();
@@ -379,25 +386,35 @@ function giveupSimulationExperiment() {
         changetoSimulationuptap();
         changetoSimulationUpgradestap();
         Changetips();
-        fadeFromBlack();
-    });
+    }
 }
 
 function startSimulationExperiment(experiment) {
     turEnergyOriginReset();
-    fadeToBlack(() => {
+    if (IteratedTimes.eq(0)) {
+        fadeToBlack(() => {
+            space = "inSimulation";
+            state = "inSimulation";
+            SimulationReset();
+            changetoturEnergyuptap();
+            changetoturEnergyLeveluptap();
+            completeSimulationBtn.disabled = false;
+            experimentdoing.Simulation = experiment;
+            Tellingtext.classList.remove('active');
+            Changetips();
+            fadeFromBlack();
+        });
+    } else {
         space = "inSimulation";
         state = "inSimulation";
         SimulationReset();
         changetoturEnergyuptap();
         changetoturEnergyLeveluptap();
-        restartSimulationRoomProduce();
         completeSimulationBtn.disabled = false;
         experimentdoing.Simulation = experiment;
         Tellingtext.classList.remove('active');
         Changetips();
-        fadeFromBlack();
-    });
+    }
 }
 
 function startSimulationExperiment1() {
@@ -488,10 +505,6 @@ function startSimulationExperiment6() {
         experimentbuffs.SimulationExperiment6 = false;
         if (experimentfinished.SimulationExperiment6 === 0) experimentGoal.Simulation = new Decimal("1e600");
         startSimulationExperiment("SimulationExperiment6");
-        timerSimulationExperiment6 = new Decimal(0);
-        timerSimulationExperiment6Interval = setInterval(() => {
-            timerSimulationExperiment6 = timerSimulationExperiment6.plus(1);
-        }, 1000);
     }
 }
 
@@ -507,10 +520,6 @@ function startSimulationExperiment7() {
         experimentbuffs.SimulationExperiment7 = false;
         if (experimentfinished.SimulationExperiment7 === 0) experimentGoal.Simulation = new Decimal("1e4200");
         startSimulationExperiment("SimulationExperiment7");
-        timerSimulationExperiment7 = new Decimal(0);
-        timerSimulationExperiment7Interval = setInterval(() => {
-            timerSimulationExperiment7 = timerSimulationExperiment7.plus(1);
-        }, 1000);
     }
 }
 
@@ -526,10 +535,22 @@ function startSimulationExperiment8() {
         experimentbuffs.SimulationExperiment8 = false;
         if (experimentfinished.SimulationExperiment8 === 0) experimentGoal.Simulation = new Decimal("1e2200");
         startSimulationExperiment("SimulationExperiment8");
-        timerSimulationExperiment8 = new Decimal(0);
-        timerSimulationExperiment8Interval = setInterval(() => {
-            timerSimulationExperiment8 = timerSimulationExperiment8.plus(1);
-        }, 1000);
+    }
+}
+
+function startSimulationExperiment9() {
+    if (experimentdoing.Simulation === "SimulationExperiment9") {
+        if (experimentprogress.Simulation === "finished") experimentfinished.SimulationExperiment9++;
+        else {if (!confirm(`这时候放弃会强制结束这次模拟并且没有任何奖励，你确定吗？`)) return; }
+        giveupSimulationExperiment();
+        return;
+    }
+    if (confirm(`有些设置在进行模拟的时候无法修改，并且放弃实验会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
+        experimentGoaltype.Simulation = true;
+        experimentbuffs.SimulationExperiment9 = false;
+        if (experimentfinished.SimulationExperiment9 === 0) experimentGoal.Simulation = new Decimal("1e135000");
+        startSimulationExperiment("SimulationExperiment9");
+        timerSimulationExperiment9 = new Decimal(0);
     }
 }
 
@@ -592,15 +613,25 @@ function FinishGiveupExperiment() {
         if (experimentdoing.Simulation === "SimulationExperiment6") experimentfinished.SimulationExperiment6++;
         if (experimentdoing.Simulation === "SimulationExperiment7") experimentfinished.SimulationExperiment7++;
         if (experimentdoing.Simulation === "SimulationExperiment8") experimentfinished.SimulationExperiment8++;
-        fadeToBlack(() => {
+        if (experimentdoing.Simulation === "SimulationExperiment9") experimentfinished.SimulationExperiment9++;
+        if (IteratedTimes.eq(0)) {
+            fadeToBlack(() => {
+                space = "Simulation";
+                state = "Simulation";
+                giveupexperimentSimulation();
+                changetoSimulationuptap();
+                changetoSimulationUpgradestap();
+                SimulationReset();
+                fadeFromBlack();
+            });
+        } else {
             space = "Simulation";
             state = "Simulation";
             giveupexperimentSimulation();
             changetoSimulationuptap();
             changetoSimulationUpgradestap();
             SimulationReset();
-            fadeFromBlack();
-        });
+        }
     } else {
         if (confirm(`这时候放弃会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
             space = "Simulation";

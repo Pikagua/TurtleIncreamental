@@ -1,46 +1,46 @@
 function tips() {
     if (space === "inSimulation") {
-        if (turEnergyLevel.eq(1) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        if (turEnergyLevel.eq(1) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `在<span class="simulation">模拟</span>中，点击任意位置均可获得一定量的<span class="turEnergy">龟能</span>!`,
                 `增量游戏的开端总是点击……`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase1";
-        } else if (turEnergyLevel.lt(6) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        } else if (turEnergyLevel.lt(6) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `保持提升<span class="turEnergy">龟能</span>等级！到第6级你就可以获得自动点击器了`,
                 `手很累？别担心，自动点击就在不远处`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase2";
-        } else if (turEnergyLevel.lt(8) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        } else if (turEnergyLevel.lt(8) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `等到<span class="turEnergy">龟能</span>8级，你会解锁新的<span class="turEnergy">龟能</span>升级`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase3";
-        } else if (turEnergyLevel.lt(12) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        } else if (turEnergyLevel.lt(12) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `下一个<span class="turEnergy">龟能</span>升级，要到<span class="turEnergy">龟能</span>12级`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase4";
-        } else if (turEnergyLevel.lt(60) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        } else if (turEnergyLevel.lt(60) && turEnergyTier.eq(0) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `高速点击的效果很强力，但现实并没有那么美好，它会在等级5迎来第一次价格折算`,
                 `下一个<span class="turEnergy">龟能</span>升级需要<span class="turEnergy">龟能</span>60级，你可能需要花点时间了`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase5";
-        } else if (turEnergyTier.lt(3) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)){
+        } else if (turEnergyTier.lt(3) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)){
             const options = [
                 `接着努力吧，你会在<span class="turEnergy">龟能</span>层级3时解锁新的<span class="simulation">模拟</span>机制`,
                 `<span class="turEnergy">龟能</span>等级100时会有新的升级，这个效果足够强力！（但也足够贵……）`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase6";
-        } else if (turEnergyTier.lt(6) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0)) {
+        } else if (turEnergyTier.lt(6) && turEnergyOrigin.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `试着去做点挑战！这很难，但是它们的效果值得你去花时间`,
                 `挑战进行不下去了？提升<span class="turEnergy">龟能</span>层级和层级增强的等级吧，它们不会在<span class="turEnergy">龟能</span>层级挑战中被重置`,
@@ -53,7 +53,7 @@ function tips() {
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase7";
-        } else if (!challengereward.turEnergyOrigin && AmassOriginTimes.eq(0) && simulatedTimes.eq(0)) {
+        } else if (!challengereward.turEnergyOrigin && AmassOriginTimes.eq(0) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `我有没有告诉过你<span class="turEnergy">龟能</span>等级300之后会有一次极其恐怖的价格折算？（在你还没有享受到挑战的奖励的情况下）`,
                 `为了防止游戏卡顿，超过10000级的升级会有估算，这个估算将永远利于玩家`,
@@ -62,14 +62,14 @@ function tips() {
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase8";
-        } else if (AmassOriginTimes.lt(2) && simulatedTimes.eq(0)) {
+        } else if (AmassOriginTimes.lt(2) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `不要担心<span class="Origin">本源</span>重置，<span class="turEnergy">龟能</span><span class="Origin">本源</span>可以为你提供增益，这应该会对你重新来过有不小的帮助`,
                 `努力进行<span class="Origin">本源</span>重置！当你重置第二次之后会开启里程碑`
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase9";
-        } else if (AmassOriginTimes.lt(100) && simulatedTimes.eq(0)) {
+        } else if (AmassOriginTimes.lt(100) && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `<span class="Origin">本源</span>里程碑会大大加速你在<span class="Origin">本源</span>之前的进度`,
                 `你可以升级<span class="Origin">本源</span>升级，它们对你的上限更有帮助！`,
@@ -81,7 +81,7 @@ function tips() {
             ];
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase10";
-        } else if (challengefinished.turEnergyOriginChallenge6 === 0 && simulatedTimes.eq(0)) {
+        } else if (challengefinished.turEnergyOriginChallenge6 === 0 && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `因为最大升级数量的限制，自动点击器的效果会逐渐被<span class="Origin">本源</span>生能超越`,
                 `你知道吗？后三项</span><span class="Origin">本源</span>升级曾被重做过一次，因为它们原来的效果实在是太低了！`,
@@ -92,7 +92,7 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase11";
-        } else if (turEnergy.lt("1.80e308") && simulatedTimes.eq(0)) {
+        } else if (turEnergy.lt("1.80e308") && simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `高速点击会在150级的时候迎来第二次折算`,
                 `折算越来越多！<span class="turEnergy">龟能</span>层级在40级迎来第一次折算`,
@@ -101,13 +101,13 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase12";
-        } else if (simulatedTimes.eq(0)) {
+        } else if (simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `你获得了无限的<span class="turEnergy">龟能</span>，这很不可思议，但是，准备好结束这次<span class="simulation">模拟</span>了吗？`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase13";
-        } else if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if)) {
+        } else if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) && IteratedTimes.eq(0)) {
             const options = [
                 `欢迎回家`,
                 `重新来过总是很无趣，对吗？`,
@@ -120,7 +120,7 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase14";
-        } else if (experimentdoing.Simulation === "" && experimentfinished.SimulationExperiment5 === 0) {
+        } else if (experimentdoing.Simulation === "" && experimentfinished.SimulationExperiment5 === 0 && IteratedTimes.eq(0)) {
             const options = [
                 `时间要开始加速喽！`,
                 `现在完成一次<span class="simulation">模拟</span>几乎不消耗一点时间了！`,
@@ -129,7 +129,7 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase15";
-        } else if (experimentfinished.SimulationExperiment5 === 0) {
+        } else if (experimentfinished.SimulationExperiment5 === 0 && IteratedTimes.eq(0)) {
             const options = [
                 `你在实验里面吗？`,
                 `祝你好运`,
@@ -142,13 +142,13 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase16";
-        } else if (!everBasicEnergyChange) {
+        } else if (!everBasicEnergyChange && IteratedTimes.eq(0)) {
             const options = [
                 `<span class="turEnergy">龟能</span>达到1e1000的时候会有新的选项卡解锁`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase17";
-        } else if (experimentfinished.SimulationExperiment6 === 0) {
+        } else if (experimentfinished.SimulationExperiment6 === 0 && IteratedTimes.eq(0)) {
             const options = [
                 `乌龟？！`,
                 `完成<span class="simulation">模拟</span>时获得的模拟数据与你模拟内的进度正相关`,
@@ -162,7 +162,7 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase18";
-        } else if (PowerOnLevel.eq(0)) {
+        } else if (PowerOnLevel.eq(0) && IteratedTimes.eq(0)) {
             const options = [
                 `乌龟？！`,
                 `不再是只有一种<span class="BasicEnergy">基本能</span>了`,
@@ -174,14 +174,14 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase19";
-        } else if (!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) {
+        } else if ((!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) && IteratedTimes.eq(0)) {
             const options = [
                 `<span class="important">通</span><span class="BasicEnergy">电</span>？那是什么意思？`,
                 `自己准备了点小玩意？你还真没让我失望`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase20";
-        } else {
+        } else if (IteratedTimes.eq(0)) {
             const options = [
                 `嘻嘻`,
                 `🐢`,
@@ -191,9 +191,15 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase20";
+        } else {
+            const options = [
+                `waiting……`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase21";
         }
     } else if (space === "Simulation") {
-        if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if)) {
+        if (!(SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) && IteratedTimes.eq(0)) {
             const options = [
                 `<span class="simulation">模拟</span>升级可以提供很显然的加成`,
                 `深思熟虑之后再开始你的<span class="simulation">模拟</span>!`,
@@ -202,13 +208,13 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase1-sti";
-        } else if (experimentfinished.SimulationExperiment1 === 0) {
+        } else if (experimentfinished.SimulationExperiment1 === 0 && IteratedTimes.eq(0)) {
             const options = [
                 `从不缺乏重头<span class="important">再来</span>的勇气`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase2-sti";
-        } else if (!SimulationMachine.λa2) {
+        } else if (!SimulationMachine.λa2 && IteratedTimes.eq(0)) {
             const options = [
                 `实验需要深思熟虑……吗？事实上，对你现在来说，进入一次模拟的成本很低，你大抵可以放心试试`,
                 `希望你还能记得挑战的经验……`,
@@ -221,14 +227,14 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase3-sti";
-        } else if (experimentfinished.SimulationExperiment5 === 0) {
+        } else if (experimentfinished.SimulationExperiment5 === 0 && IteratedTimes.eq(0)) {
             const options = [
                 `终于……<span class="simulation">模拟</span>实验5，<span class="important">解决它</span>`,
                 `我忍这个数据类型很久了……快点，<span class="important">清算</span><span class="simulation">模拟</span>实验5`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase4-sti";
-        } else if (PowerOnLevel.eq(0)){
+        } else if (PowerOnLevel.eq(0) && IteratedTimes.eq(0)){
             const options = [
                 `哇哦，不错，现在回到<span class="simulation">模拟</span>里吧！`,
                 `你又回来了？`,
@@ -240,19 +246,31 @@ function tips() {
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase5-sti";
-        } else if (!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) {
+        } else if ((!experimentreward.SimulationExperiment7 || !experimentreward.SimulationExperiment8) && IteratedTimes.eq(0)) {
             const options = [
                 `<span class="simulation">模拟机</span>-λ-a4很贵……吗？它突然很便宜……这不可思议……`,
                 `你或许可以去做实验7和8了`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase6-sti";
-        } else {
+        } else if (simulationData.lt("1.80e308") && IteratedTimes.eq(0)) {
             const options = [
                 `1`
             ]
             currentTip = options[Math.floor(Math.random() * options.length)];
             newTipType = "phase7-sti";
+        } else if (IteratedTimes.eq(0)) {
+            const options = [
+                `什么什么什么？？？我们的模拟好像顶不住<span class="important">无限</span>的<span class="simulation">模拟数据</span>！！！`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase8-sti";
+        } else {
+            const options = [
+                `hi`
+            ]
+            currentTip = options[Math.floor(Math.random() * options.length)];
+            newTipType = "phase8-sti";
         }
     }
     return currentTip;

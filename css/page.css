@@ -1,30 +1,30 @@
 #beginSimulation {
     font-size: 16px;
     position: absolute;
-    left: 6%;
+    left: 8%;
     top: 10%;
     transform: translate(-50%, -50%);
-    width: 150px;
+    width: 180px;
     height: 60px;
 }
 
 #checkSimulation {
     font-size: 16px;
     position: absolute;
-    left: 6%;
+    left: 8%;
     top: 10%;
     transform: translate(-50%, -50%);
-    width: 150px;
+    width: 180px;
     height: 60px;
 }
 
 #backSimulation {
     font-size: 16px;
     position: absolute;
-    left: 6%;
+    left: 8%;
     top: 10%;
     transform: translate(-50%, -50%);
-    width: 150px;
+    width: 180px;
     height: 60px;
 }
 
@@ -40,9 +40,9 @@
 #complete-Simulation2 {
     font-size: 16px;
     position: absolute;
-    left: 18%;
+    left: 22%;
     top: 10%;
     transform: translate(-50%, -50%);
-    width: 150px;
+    width: 180px;
     height: 60px;
 }

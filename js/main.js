@@ -12,6 +12,8 @@ if (!experimentbuffs.SimulationExperiment5) {
         timerSimulationExperiment5 = timerSimulationExperiment5.plus(1);
     }, 1000);
 }
+restartSimulationRoomProduce();
+restartIterationRoomProduce();
 function load() {
     challengebuffs.turEnergy = 1;
     challengebuffs.baseofHighspeedclicking = 0;
@@ -37,6 +39,7 @@ function load() {
     experimentbuffs.SimulationExperiment6 = true;
     experimentbuffs.SimulationExperiment7 = true;
     experimentbuffs.SimulationExperiment8 = true;
+    experimentbuffs.SimulationExperiment9 = true;
     if (challengedoing.Tier === "turEnergyTierChallenge1") {
         if (challengefinished.turEnergyTierChallenge1 === 0) challengebuffs.turEnergy = 0.25;
         else if (challengefinished.turEnergyTierChallenge1 === 1) challengebuffs.turEnergy = 0.01;
@@ -154,6 +157,54 @@ function load() {
     }
     if (experimentreward.SimulationExperiment5) maxturEnergy = new Decimal("9e99999999");
     else maxturEnergy = new Decimal("1.80e308");
+    maxSimulationData = new Decimal("1.80e308");
 }
 load();
 updateUI();
+if (Iterated.eq(1) && IteratedTimes.eq(0)) {
+    const overlay = document.getElementById('blackOverlay');
+    overlay.style.transition = 'opacity 0s ease';
+    const Tellingtext = document.getElementById('Tellingtext');
+    Tellingtext.classList.add('active');
+    Tellingtext.innerHTML = `……`;
+    fadeToBlack(async() => {
+        overlay.style.transition = 'opacity 1s ease';
+        await wait(2000);
+        Tellingtext.innerHTML = `不好意思，我们的<span class="simulation">模拟</span>顶不住压力了`;
+        await wait(3000);
+        Tellingtext.innerHTML = `欢迎回来`;
+        await wait(3000);
+        Tellingtext.innerHTML = `你比我想得强大……`;
+        await wait(3000);
+        Tellingtext.innerHTML = `在你离开的时候，我为我们的模拟完成了一次<span class="Iteration">迭代</span>`;
+        await wait(3000);
+        Tellingtext.innerHTML = `现在<span class="simulation">模拟数据</span>达到无限的时候也不会崩溃了`;
+        await wait(3000);
+        Tellingtext.innerHTML = `但是还不能突破无限……所以这听着没什么用就是了……`;
+        await wait(3000);
+        Tellingtext.innerHTML = `为了突破这个无限，你还需要收集更多<span class="Iteration">数据</span>`;
+        await wait(3000);
+        Tellingtext.innerHTML = `好了，你可以用<span class="Iteration">迭代数据</span>去获得一定提升了`;
+        await wait(3000);
+        Tellingtext.innerHTML = `尽快回来吧……再见`;
+        await wait(2000);
+        Tellingtext.innerHTML = `尽快回来吧……<span class="Iteration">再见</span>`;
+        IteratedTimes = IteratedTimes.plus(1);
+        IterationData = IterationData.plus(1);
+        Tellingtext.classList.remove('active');
+        fadeFromBlack();
+    });
+}
+updateBasicEnergyChangeAuto();
+updateSimulationCompleteAuto();
+//BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="${formatNumber(setAuto.BasicEnergyChangeAutoAmount)}" onchange="saveBasicEnergyChangeAuto()"></span>`;
+/*
+龟能标签页下的所有选项卡和升级在一开始就解锁了
+即使没有扩增数据类型，模拟也不会在龟能达到无限之后中断
+移除所有的切屏特效
+保留龟能等级和龟能升级的最大购买器
+允许你购买最大数量的模拟机Byte
+获得的龟能本源x4
+获得的龟能本源次数x4
+获得的模拟数据x4
+*/

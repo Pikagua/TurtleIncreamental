@@ -32,6 +32,17 @@
     cursor: pointer;
 }
 
+#CompleteIteration-btn {
+    font-size: 14px;
+    width: 240px;
+    padding: 12px 36px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
 .btn {
     background-color: #76c75f; /* 绿色 - 可购买 */
     border-color: #2e4510;
@@ -87,6 +98,40 @@
     /*opacity: 0.7;透明度，我认为不必*/
 }
 
+.btn-simulation-ThisStyleonlyforResetSimulationMachine {
+    background-color: #30565f;
+    border-color: #124957;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-simulation-ThisStyleonlyforResetSimulationMachine:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing):not(.on) {
+    background-color: #1b6c80 !important;
+}
+.btn-simulation-ThisStyleonlyforResetSimulationMachine.on {
+    background-color: #6ca5b3 !important;
+}
+.btn-simulation-ThisStyleonlyforResetSimulationMachine.on:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing) {
+    background-color: #11515f !important;
+}
+
+.btn-Iteration-once {
+    background-color: #471d61;
+    border-color: #1b0733;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-Iteration-once:hover:not(:disabled):not(.tap-be-chosen):not(.btn-challenge-doing) {
+    background-color: #7118a9 !important;
+    /*transform: scale(1.05);我认为不需要的部分*/
+}
+.btn-Iteration-once:disabled {
+    background-color: #9b48e8 !important;
+    cursor: not-allowed !important;
+    /*opacity: 0.7;透明度，我认为不必*/
+}
+
 .btn-reset {
     background-color: #a1c75f;
     border-color: #ff4740;
@@ -99,6 +144,21 @@
 }
 .btn-reset:disabled {
     background-color: #50642f !important;
+    color: #ff4740 !important;
+    cursor: not-allowed !important;
+}
+.btn-simulation-reset {
+    background-color: #6cb38d;
+    border-color: #ff4740;
+    color: #ffffff;
+    border-width: 2px;
+    border-radius: 5px;
+}
+.btn-simulation-reset:hover:not(:disabled):not(.tap-be-chosen) {
+    background-color: #479a7e !important;
+}
+.btn-simulation-reset:disabled {
+    background-color: #305f4d !important;
     color: #ff4740 !important;
     cursor: not-allowed !important;
 }

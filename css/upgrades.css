@@ -129,7 +129,7 @@
     top: 160px;
 }
 
-.Lonization {
+.Ionization {
     position: absolute;
     top: 240px;
 }
@@ -205,6 +205,61 @@
 }
 
 .eighthSimulationRoom {
+    position: absolute;
+    top: 680px;
+}
+
+.increamentalIteration {
+    position: absolute;
+    top: 140px;
+}
+
+.OriginIteration {
+    position: absolute;
+    top: 220px;
+}
+
+.EnergyExpansion {
+    position: absolute;
+    top: 300px;
+}
+
+.firstIterationRoom {
+    position: absolute;
+    top: 120px;
+}
+
+.secondIterationRoom {
+    position: absolute;
+    top: 200px;
+}
+
+.thirdIterationRoom {
+    position: absolute;
+    top: 280px;
+}
+
+.fourthIterationRoom {
+    position: absolute;
+    top: 360px;
+}
+
+.fifthIterationRoom {
+    position: absolute;
+    top: 440px;
+}
+
+.sixthIterationRoom {
+    position: absolute;
+    top: 520px;
+}
+
+.seventhIterationRoom {
+    position: absolute;
+    top: 600px;
+}
+
+.eighthIterationRoom {
     position: absolute;
     top: 680px;
 }
@@ -315,3 +370,27 @@
     position: absolute;
     transform: translate(-50%,-50%);
 }
+
+.IterationStrengthen {
+    font-size: 16px;
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    transform: translateX(-50%);
+}
+
+.IterationStrengthen-Produce {left: 35%;}
+.IterationStrengthen-Reset {left: 50%;}
+.IterationStrengthen-Auto {left: 65%;}
+#IterationStrengthen-Produce1 {top:15%;}
+#IterationStrengthen-Reset1 {top:15%;}
+#IterationStrengthen-Auto1 {top:15%;}
+#IterationStrengthen-Produce2 {top:60%;}
+#IterationStrengthen-Reset2 {top:60%;}
+#IterationStrengthen-Auto2 {top:60%;}
+#IterationStrengthen-Produce3 {top:105%;}
+#IterationStrengthen-Reset3 {top:105%;}
+#IterationStrengthen-Auto3 {top:105%;}
+#IterationStrengthen-Produce4 {top:150%;}
+#IterationStrengthen-Reset4 {top:150%;}
+#IterationStrengthen-Auto4 {top:150%;}

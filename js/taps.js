@@ -11,11 +11,16 @@ function switchTap(activeElement, activeElements) {
         { element: ChemicalEnergytap, elements: ChemicalEnergytaps},
         { element: ElectricEnergytap, elements: ElectricEnergytaps},
         { element: MechanicalEnergytap, elements: MechanicalEnergytaps},
+        { element: InternalEnergytap, elements: InternalEnergytaps},
         { element: SimulationUpgradestap, elements: SimulationUpgradestaps },
         { element: SimulationExperimenttap, elements: SimulationExperimenttaps},
         { element: SimulationMachinetap, elements: SimulationMachinetaps},
         { element: SimulationRoomtap, elements: SimulationRoomtaps},
         { element: SimulationAutotap, elements: SimulationAutotaps},
+        { element: IterationUpgradestap, elements: IterationUpgradestaps},
+        { element: IterationStrengthentap, elements: IterationStrengthentaps},
+        { element: IterationRoomtap, elements: IterationRoomtaps},
+        { element: IterationMileStonetap, elements: IterationMileStonetaps},
     ];
     
     // 全部锁定
@@ -42,17 +47,23 @@ function changetoSolarEnergytap() {switchTap(SolarEnergytap, SolarEnergytaps); }
 function changetoChemicalEnergytap() {switchTap(ChemicalEnergytap, ChemicalEnergytaps); }
 function changetoElectricEnergytap() {switchTap(ElectricEnergytap, ElectricEnergytaps); }
 function changetoMechanicalEnergytap() {switchTap(MechanicalEnergytap, MechanicalEnergytaps); }
+function changetoInternalEnergytap() {switchTap(InternalEnergytap, InternalEnergytaps); }
 function changetoSimulationUpgradestap() {switchTap(SimulationUpgradestap, SimulationUpgradestaps); }
 function changetoSimulationExperimenttap() {switchTap(SimulationExperimenttap, SimulationExperimenttaps); }
 function changetoSimulationMachinetap() {switchTap(SimulationMachinetap, SimulationMachinetaps); }
 function changetoSimulationRoomtap() {switchTap(SimulationRoomtap, SimulationRoomtaps); }
 function changetoSimulationAutotap() {switchTap(SimulationAutotap, SimulationAutotaps); }
+function changetoIterationUpgradestap() {switchTap(IterationUpgradestap, IterationUpgradestaps); }
+function changetoIterationStrengthentap() {switchTap(IterationStrengthentap, IterationStrengthentaps); }
+function changetoIterationRoomtap() {switchTap(IterationRoomtap, IterationRoomtaps); }
+function changetoIterationMileStonetap() {switchTap(IterationMileStonetap, IterationMileStonetaps); }
 
 function switchupTap(activeElement, activeElements, activetaps) {
     const allupTaps = [
         {element:turEnergyuptap, elements:turEnergyuptaps, taps:thePhase1taps},
         {element:BasicEnergyuptap, elements:BasicEnergyuptaps, taps:thePhase2taps},
         {element:Simulationuptap, elements:Simulationuptaps, taps:theSimulationtaps},
+        {element:Iterationuptap, elements:Iterationuptaps, taps:theIterationtaps},
     ];
 
     allupTaps.forEach(tap => {
@@ -72,4 +83,5 @@ function switchupTap(activeElement, activeElements, activetaps) {
 
 function changetoturEnergyuptap() {switchupTap(turEnergyuptap, turEnergyuptaps, thePhase1taps); changetoturEnergyLeveluptap(); page="turEnergy"; }
 function changetoBasicEnergyuptap() {switchupTap(BasicEnergyuptap, BasicEnergyuptaps, thePhase2taps); changetoEnergyMachinetap(); page="BasicEnergy"; }
-function changetoSimulationuptap() {switchupTap(Simulationuptap, Simulationuptaps, theSimulationtaps); page="Simulation"; }
+function changetoSimulationuptap() {switchupTap(Simulationuptap, Simulationuptaps, theSimulationtaps); changetoSimulationUpgradestap(); page="Simulation"; }
+function changetoIterationuptap() {switchupTap(Iterationuptap, Iterationuptaps, theIterationtaps); changetoIterationUpgradestap(); page="Iteration"; }

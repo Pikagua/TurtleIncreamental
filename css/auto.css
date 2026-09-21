@@ -16,6 +16,15 @@
     top: 25%;
     transform: translate(-50%,-50%);
 }
+#BasicEnergyChangeAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 75%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+}
 #EnergyMachineAuto {
     font-size: 16px;
     width: 200px;
@@ -50,5 +59,59 @@
     position: absolute;
     left: 25%;
     top: 105%;
+    transform: translate(-50%,-50%);
+}
+#MechanicalEnergyAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 50%;
+    top: 105%;
+    transform: translate(-50%,-50%);
+}
+#SimulationCompleteAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 75%;
+    top: 105%;
+    transform: translate(-50%,-50%);
+}
+#SimulationStartAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 90%;
+    top: 105%;
+    transform: translate(-50%,-50%);
+}
+#increamentalSimulationAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 25%;
+    top: 145%;
+    transform: translate(-50%,-50%);
+}
+#SimulationRoomAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 50%;
+    top: 145%;
+    transform: translate(-50%,-50%);
+}
+#SimulationByteAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 75%;
+    top: 145%;
     transform: translate(-50%,-50%);
 }

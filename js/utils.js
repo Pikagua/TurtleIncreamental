@@ -39,6 +39,16 @@ function formatNumber(num) {
     }
 }
 
+function addIfClose(a, b) {
+    if (a.eq(0)) return b;
+    if (b.eq(0)) return a;
+    const diff = a.log10().minus(b.log10()).abs();
+    if (diff.gt(15)) {
+        return a.gt(b) ? a : b;
+    }
+    return a.plus(b);
+}
+
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -77,4 +87,83 @@ function cancelTextBox() {
     textbox.classList.add('Locked');
     textbox.classList.remove('Unlocked');
     TextBoxReturn = false;
+}
+
+function saveBasicEnergyChangeAuto() {
+    if (setAuto.BasicEnergyChangeAuto.eq(1)) {
+        setAuto.BasicEnergyChangeAutoAmount = new Decimal(document.getElementById('BasicEnergyChangeAutoInputNum').value);
+    }
+    if (setAuto.BasicEnergyChangeAuto.eq(2)) {
+        setAuto.BasicEnergyChangeAutoTime = new Decimal(document.getElementById('BasicEnergyChangeAutoInputNum').value);
+    }
+    if (setAuto.BasicEnergyChangeAuto.eq(3)) {
+        setAuto.BasicEnergyChangeAutoMutiple = new Decimal(document.getElementById('BasicEnergyChangeAutoInputNum').value);
+    }
+} 
+
+function updateBasicEnergyChangeAuto() {
+    if (setAuto.BasicEnergyChangeAuto.eq(1)) {
+        if (formatNumber(setAuto.BasicEnergyChangeAutoAmount) == 0) {
+            BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="${formatNumber(setAuto.BasicEnergyChangeAutoAmount)}" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.BasicEnergyChangeAuto.eq(2)) {
+        if (formatNumber(setAuto.BasicEnergyChangeAutoTime) == 0) {
+            BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="${formatNumber(setAuto.BasicEnergyChangeAutoTime)}" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.BasicEnergyChangeAuto.eq(3)) {
+        if (formatNumber(setAuto.BasicEnergyChangeAutoMutiple) == 0) {
+            BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="${formatNumber(setAuto.BasicEnergyChangeAutoMutiple)}" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.BasicEnergyChangeAuto.eq(0)) {
+        BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="请切换模式以启用此输入框" onchange="saveBasicEnergyChangeAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+}
+
+
+function saveSimulationCompleteAuto() {
+    if (setAuto.SimulationCompleteAuto.eq(1)) {
+        setAuto.SimulationCompleteAutoAmount = new Decimal(document.getElementById('SimulationCompleteAutoInputNum').value);
+    }
+    if (setAuto.SimulationCompleteAuto.eq(2)) {
+        setAuto.SimulationCompleteAutoTime = new Decimal(document.getElementById('SimulationCompleteAutoInputNum').value);
+    }
+    if (setAuto.SimulationCompleteAuto.eq(3)) {
+        setAuto.SimulationCompleteAutoMutiple = new Decimal(document.getElementById('SimulationCompleteAutoInputNum').value);
+    }
+} 
+
+function updateSimulationCompleteAuto() {
+    if (setAuto.SimulationCompleteAuto.eq(1)) {
+        if (formatNumber(setAuto.SimulationCompleteAutoAmount) == 0) {
+            SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.SimulationCompleteAutoAmount)}" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.SimulationCompleteAuto.eq(2)) {
+        if (formatNumber(setAuto.SimulationCompleteAutoTime) == 0) {
+            SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.SimulationCompleteAutoTime)}" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.SimulationCompleteAuto.eq(3)) {
+        if (formatNumber(setAuto.SimulationCompleteAutoMutiple) == 0) {
+            SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.SimulationCompleteAutoMutiple)}" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.SimulationCompleteAuto.eq(0)) {
+        SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="请切换模式以启用此输入框" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
 }

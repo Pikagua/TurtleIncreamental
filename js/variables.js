@@ -13,14 +13,33 @@ let page = "turEnergy";
 let setAuto = {
     turEnergyAuto:false,
     turEnergyOriginAuto:false,
+    BasicEnergyChangeAuto:new Decimal(0),
+    BasicEnergyChangeAutoAmount:new Decimal(0),
+    BasicEnergyChangeAutoTime:new Decimal(0),
+    BasicEnergyChangeAutoMutiple:new Decimal(0),
+    BasicEnergyChangeAutoLast:new Decimal(0),
     EnergyMachineAuto:false,
     SolarEnergyAuto:false,
     ChemicalEnergyAuto:false,
     ElectricEnergyAuto:false,
+    MechanicalEnergyAuto:false,
+    SimulationCompleteAuto:new Decimal(0),
+    SimulationCompleteAutoAmount:new Decimal(0),
+    SimulationCompleteAutoTime:new Decimal(0),
+    SimulationCompleteAutoMutiple:new Decimal(0),
+    SimulationCompleteAutoLast:new Decimal(0),
+    SimulationStartAuto:false,
+    increamentalSimulationAuto:false,
+    SimulationRoomAuto:false,
+    SimulationByteAuto:false,
 }
 let timerAdding = null;
+let timerBasicEnergyChangeAutoTime = new Decimal(0);
+let timerSimulationCompleteAutoTime = new Decimal(0);
 let timerSimulation = new Decimal(0);
 let turEnergy = new Decimal(0);
+let maxturEnergyinsimulation = new Decimal(0);
+let maxsimulationDatainIteration = new Decimal(0);
 let turEnergyLevel = new Decimal(1);
 let TotalClicks = new Decimal(0);
 let EfficientClickLevel = new Decimal(0);
@@ -54,6 +73,7 @@ let OriginEnhanceLevel = new Decimal(0);
 let increamentalSimulationLevel = new Decimal(0);
 let maxLevelup = new Decimal(20000000);
 let maxturEnergy = new Decimal("1.80e308");
+let maxSimulationData = new Decimal("1.80e308");
 let everBasicEnergyChange = false;
 let BasicEnergy = new Decimal(0);
 let EnergyMachineALevel = new Decimal(0);
@@ -66,6 +86,7 @@ let effectEnergyMachineB = new Decimal(0);
 let effectEnergyMachineC = new Decimal(0);
 let effectEnergyMachineD = new Decimal(0);
 let effectEnergyMachineE = new Decimal(0);
+let EnergyEffectionBase = new Decimal(0);
 let EnergyEffection = new Decimal(0);
 let turEnergyCatalysisLevel = new Decimal(0);
 let OriginCatalysisLevel = new Decimal(0);
@@ -87,12 +108,12 @@ let effectPrimaryBattery = new Decimal(0);
 let ElectricEnergy = new Decimal(0);
 let BoostVoltageLevel = new Decimal(0);
 let ElectrolysisLevel = new Decimal(0);
-let LonizationLevel = new Decimal(0);
+let IonizationLevel = new Decimal(0);
 let MotorLevel = new Decimal(0);
 let PowerOnLevel = new Decimal(0);
 let effectBoostVoltage = new Decimal(0);
 let effectElectrolysis = new Decimal(1);
-let effectLonization = new Decimal(0);
+let effectIonization = new Decimal(0);
 let effectMotor = new Decimal(0);
 let MechanicalEnergy = new Decimal(0);
 let KineticEnergyLevel = new Decimal(0);
@@ -104,13 +125,27 @@ let effectElasticPotentialEnergy = new Decimal(0);
 let effectGravitationalPotentialEnergy = new Decimal(0);
 let effectFriction = new Decimal(0);
 let SolarEnergy = new Decimal(0);
-let simulationData = new Decimal(1);
+let simulationData = new Decimal(0);
 let simulatedTimes = new Decimal(0);
 let SimulationMachineBtye = new Decimal(0);
 let SimulationMachineBtyeUsed = new Decimal(0);
+let SimulationMachineResetBtnIf = new Decimal(0);// 理论上这个变量用布尔值更好，但是我懒，0表false，1表true
 let SimulationPower = new Decimal(0);
 let degreeSimulationPower = new Decimal(7);
 let effectSimulationPower = new Decimal(0);
+let IterationData = new Decimal(0);
+let IteratedTimes = new Decimal(0);
+let Iterated = new Decimal(0);
+let effectIterationMileStone1 = new Decimal(1);
+let increamentalIterationLevel = new Decimal(0);
+let OriginIterationLevel = new Decimal(0);
+let EnergyExpansionLevel = new Decimal(0);
+let effectincreamentalIteration = new Decimal(0);
+let effectOriginIteration = new Decimal(0);
+let effectEnergyExpansion = new Decimal(0);
+let IterationInformation = new Decimal(0);
+let degreeIterationInformation = new Decimal(7);
+let effectIterationInformation = new Decimal(0);
 let SimulationRoomLevel = {
     Room1:new Decimal(0),
     Room2:new Decimal(0),
@@ -132,6 +167,36 @@ let SimulationRoomAmount = {
     Room8:new Decimal(0),
 }
 let effectSimulationRoom = {
+    Room1:new Decimal(1),
+    Room2:new Decimal(1),
+    Room3:new Decimal(1),
+    Room4:new Decimal(1),
+    Room5:new Decimal(1),
+    Room6:new Decimal(1),
+    Room7:new Decimal(1),
+    Room8:new Decimal(1),
+}
+let IterationRoomLevel = {
+    Room1:new Decimal(0),
+    Room2:new Decimal(0),
+    Room3:new Decimal(0),
+    Room4:new Decimal(0),
+    Room5:new Decimal(0),
+    Room6:new Decimal(0),
+    Room7:new Decimal(0),
+    Room8:new Decimal(0),
+}
+let IterationRoomAmount = {
+    Room1:new Decimal(0),
+    Room2:new Decimal(0),
+    Room3:new Decimal(0),
+    Room4:new Decimal(0),
+    Room5:new Decimal(0),
+    Room6:new Decimal(0),
+    Room7:new Decimal(0),
+    Room8:new Decimal(0),
+}
+let effectIterationRoom = {
     Room1:new Decimal(1),
     Room2:new Decimal(1),
     Room3:new Decimal(1),
@@ -219,6 +284,7 @@ let timerSimulationExperiment5 = new Decimal(0);
 let timerSimulationExperiment5Interval = null;
 let effectSimulationExperiment6 = new Decimal(1);
 let effectSimulationExperiment8 = new Decimal(1);
+let timerSimulationExperiment9 = new Decimal(0);
 let SimulationMachineFold = false;
 let challengedoing = {
     Tier:"",
@@ -283,6 +349,7 @@ let experimentfinished = {
     SimulationExperiment6:0,
     SimulationExperiment7:0,
     SimulationExperiment8:0,
+    SimulationExperiment9:0,
 }
 let challengebuffs = {
     turEnergy:1,
@@ -313,6 +380,7 @@ let experimentbuffs = {
     SimulationExperiment6:true,
     SimulationExperiment7:true,
     SimulationExperiment8:true,
+    SimulationExperiment9:true,
 }
 let challengereward = {
     turEnergy:1,
@@ -343,6 +411,7 @@ let experimentreward = {
     SimulationExperiment6:false,
     SimulationExperiment7:false,
     SimulationExperiment8:false,
+    SimulationExperiment9:false,
 }
 let SimulationUpgrades = {
     turEnergy1:{if:false, num:new Decimal(1)},
@@ -357,5 +426,19 @@ let SimulationUpgrades = {
     else2:{if:false},
     else3:{if:false},
     else4:{if:false},
+};
+let IterationStrengthen = {
+    Produce1:{if:false, num:new Decimal(1)},
+    Produce2:{if:false, num:new Decimal(3)},
+    Produce3:{if:false, num:new Decimal(1)},
+    Produce4:{if:false, num:new Decimal(1)},
+    Reset1:{if:false},
+    Reset2:{if:false},
+    Reset3:{if:false},
+    Reset4:{if:false},
+    Auto1:{if:false},
+    Auto2:{if:false},
+    Auto3:{if:false},
+    Auto4:{if:false},
 };
 let gameData = { };
