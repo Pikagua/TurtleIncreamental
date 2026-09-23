@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <h1>🐢 乌龟增量 v0.0.5 made by 皮卡龟</h1>
+    <h1>🐢 乌龟增量 v0.0.5.1 made by 皮卡龟</h1>
     <div class="counter" id="turEnergy-count-box">
             你拥有<span class="turEnergy">0</span>点<span class="turEnergy">龟能</span>
     </div>
@@ -108,7 +108,7 @@
     <div class="upgrades-scroll-box">
         <div class="Unlocked" id="turEnergy-uptap">
             <div class="Unlocked phase1-taps" id="turEnergyLevelup-tap">
-                <button class="btn" id="turEnergy-LevelUp-btn" onclick="turEnergyLevelup()">
+                <button class="btn" id="turEnergy-LevelUp-btn" onclick="turEnergyLevelup()" data-longpress="turEnergyLevelup">
                     提升<span class="turEnergy">龟能</span>等级<br>
                     当前：<span id="turEnergy-LevelUp-level">1</span><br>
                     价格：<span class="turEnergy" id="turEnergy-LevelUp-cost">10</span><span class="turEnergy">龟能</span>
@@ -124,31 +124,31 @@
                 <div class="Locked title-of-leveluper autoClicker">自动点击器</div>
                 <div class="Locked level-of-leveluper autoClicker">等级：<span id="level-of-autoClicker">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper autoClicker">每升一级，每秒自动获得一次点击获得的<span class="turEnergy">龟能</span><br>效果：+<span id="effect-of-autoClicker">0</span>次/秒</div>
-                <button class="Locked btn button-of-leveluper autoClicker" id="autoClicker-btn" onclick="BuyautoClicker()">价格：<span class="turEnergy" id="autoClicker-cost">60</span><span class="turEnergy">龟能</span></button>
+                <button class="Locked btn button-of-leveluper autoClicker" id="autoClicker-btn" onclick="BuyautoClicker()" data-longpress="BuyautoClicker">价格：<span class="turEnergy" id="autoClicker-cost">60</span><span class="turEnergy">龟能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper autoClicker" id="autoClicker-BuyMaxbtn" onclick="BuyMaxautoClicker()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper EfficientClick">高效点击</div>
                 <div class="Locked level-of-leveluper EfficientClick">等级：<span id="level-of-EfficientClick">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EfficientClick">每升一级，点击获得的<span class="turEnergy">龟能</span>倍数+<span id="baseof-EfficientClick">1</span><br>效果：x<span id="effect-of-EfficientClick">1</span></div>
-                <button class="Locked btn button-of-leveluper EfficientClick" id="EfficientClick-btn" onclick="BuyEfficientClick()">价格：<span class="turEnergy" id="EfficientClick-cost">500</span><span class="turEnergy">龟能</span></button>
+                <button class="Locked btn button-of-leveluper EfficientClick" id="EfficientClick-btn" onclick="BuyEfficientClick()" data-longpress="BuyEfficientClick">价格：<span class="turEnergy" id="EfficientClick-cost">500</span><span class="turEnergy">龟能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EfficientClick" id="EfficientClick-BuyMaxbtn" onclick="BuyMaxEfficientClick()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper HighspeedClicking">高速点击</div>
                 <div class="Locked level-of-leveluper HighspeedClicking">等级：<span id="level-of-HighspeedClicking">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper HighspeedClicking">每升一级，自动点击器的点击速度x<span id="baseof-HighspeedClicking">2</span><br>效果：x<span id="effect-of-HighspeedClicking">1</span></div>
-                <button class="Locked btn button-of-leveluper HighspeedClicking" id="HighspeedClicking-btn" onclick="BuyHighspeedClicking()">价格：<span class="turEnergy" id="HighspeedClicking-cost">2000</span><span class="turEnergy">龟能</span></button>
+                <button class="Locked btn button-of-leveluper HighspeedClicking" id="HighspeedClicking-btn" onclick="BuyHighspeedClicking()" data-longpress="BuyHighspeedClicking">价格：<span class="turEnergy" id="HighspeedClicking-cost">2000</span><span class="turEnergy">龟能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper HighspeedClicking" id="HighspeedClicking-BuyMaxbtn" onclick="BuyMaxHighspeedClicking()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper turEnergyTier"><span class="turEnergy">龟能</span>层级</div>
                 <div class="Locked level-of-leveluper turEnergyTier">等级：<span id="level-of-turEnergyTier">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper turEnergyTier">每升一级，重置<span class="turEnergy">龟能</span>和前三项<span class="turEnergy">龟能</span>升级，使点击获得的<span class="turEnergy">龟能</span>x<span id="baseof-turEnergyTier">3</span><br>效果：x<span id="effect-of-turEnergyTier">1</span></div>
-                <button class="Locked btn-reset button-of-leveluper turEnergyTier" id="turEnergyTier-btn" onclick="turEnergyTierup()">价格：<span class="level" id="turEnergyTier-cost">60</span><span class="turEnergy">龟能</span>等级</button>
+                <button class="Locked btn-reset button-of-leveluper turEnergyTier" id="turEnergyTier-btn" onclick="turEnergyTierup()" data-longpress="turEnergyTierup">价格：<span class="level" id="turEnergyTier-cost">60</span><span class="turEnergy">龟能</span>等级</button>
                 <button class="Locked btn button-of-BuyMax-leveluper turEnergyTier" id="turEnergyTier-BuyMaxbtn" onclick="BuyMaxturEnergyTier()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper TierEnhance">层级增强</div>
                 <div class="Locked level-of-leveluper TierEnhance">等级：<span id="level-of-TierEnhance">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper TierEnhance">每升一级，<span class="turEnergy">龟能</span>层级效果的基数+<span id="baseof-TierEnhance">1</span><br>效果：+<span id="effect-of-TierEnhance">3</span></div>
-                <button class="Locked btn button-of-leveluper TierEnhance" id="TierEnhance-btn" onclick="BuyTierEnhance()">价格：<span class="turEnergy" id="TierEnhance-cost">1e11</span><span class="turEnergy">龟能</span></button>
+                <button class="Locked btn button-of-leveluper TierEnhance" id="TierEnhance-btn" onclick="BuyTierEnhance()" data-longpress="BuyTierEnhance">价格：<span class="turEnergy" id="TierEnhance-cost">1e11</span><span class="turEnergy">龟能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper TierEnhance" id="TierEnhance-BuyMaxbtn" onclick="BuyMaxTierEnhance()">购买最<br>大数量</button>
             </div>
                 
@@ -258,31 +258,31 @@
                 <div class="Locked title-of-leveluper OriginAmassFasten"><span class="Origin">本源</span>速凝</div>
                 <div class="Locked level-of-leveluper OriginAmassFasten">等级：<span id="level-of-OriginAmassFasten">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper OriginAmassFasten">每升一级，凝聚的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x2<br>效果：x<span id="effect-of-OriginAmassFasten">1</span></div>
-                <button class="Locked btn button-of-leveluper OriginAmassFasten" id="OriginAmassFasten-btn" onclick="BuyOriginAmassFasten()">价格：<span class="Origin" id="OriginAmassFasten-cost">10</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
+                <button class="Locked btn button-of-leveluper OriginAmassFasten" id="OriginAmassFasten-btn" onclick="BuyOriginAmassFasten()" data-longpress="BuyOriginAmassFasten">价格：<span class="Origin" id="OriginAmassFasten-cost">10</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper OriginAmassFasten" id="OriginAmassFasten-BuyMaxbtn" onclick="BuyMaxOriginAmassFasten()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper OriginProduceEnergy"><span class="Origin">本源</span>生能</div>
                 <div class="Locked level-of-leveluper OriginProduceEnergy">等级：<span id="level-of-OriginProduceEnergy">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper OriginProduceEnergy">每升一级，每个<span class="turEnergy">龟能</span><span class="Origin">本源</span>每秒生成的<span class="turEnergy">龟能</span>x<span id="baseof-OriginProduceEnergy">100</span>，0级时：效果视为为1e16/秒<br>效果：x<span id="effect-of-OriginProduceEnergy">0</span>/秒</div>
-                <button class="Locked btn button-of-leveluper OriginProduceEnergy" id="OriginProduceEnergy-btn" onclick="BuyOriginProduceEnergy()">价格：<span class="Origin" id="OriginProduceEnergy-cost">1</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
+                <button class="Locked btn button-of-leveluper OriginProduceEnergy" id="OriginProduceEnergy-btn" onclick="BuyOriginProduceEnergy()" data-longpress="BuyOriginProduceEnergy">价格：<span class="Origin" id="OriginProduceEnergy-cost">1</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper OriginProduceEnergy" id="OriginProduceEnergy-BuyMaxbtn" onclick="BuyMaxOriginProduceEnergy()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper ClickOrigin">点击<span class="Origin">本源</span></div>
                 <div class="Locked level-of-leveluper ClickOrigin">等级：<span id="level-of-ClickOrigin">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper ClickOrigin">每升一级，点击获得的<span class="turEnergy">龟能</span>x10<br>效果：x<span id="effect-of-ClickOrigin">0</span></div>
-                <button class="Locked btn button-of-leveluper ClickOrigin" id="ClickOrigin-btn" onclick="BuyClickOrigin()">价格：<span class="Origin" id="ClickOrigin-cost">5</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
+                <button class="Locked btn button-of-leveluper ClickOrigin" id="ClickOrigin-btn" onclick="BuyClickOrigin()" data-longpress="BuyClickOrigin">价格：<span class="Origin" id="ClickOrigin-cost">5</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper ClickOrigin" id="ClickOrigin-BuyMaxbtn" onclick="BuyMaxClickOrigin()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper TierOrigin">层级<span class="Origin">本源</span></div>
                 <div class="Locked level-of-leveluper TierOrigin">等级：<span id="level-of-TierOrigin">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper TierOrigin">每升一级，<span class="turEnergy">龟能</span>层级的效果对获得的<span class="turEnergy">龟能</span>有额外的效果，该效果的指数+<span id="base-of-TierOrigin">0.03</span><br>效果：x<span class="turEnergy">龟能</span>层级效果^<span id="effect-of-TierOrigin">0</span></div>
-                <button class="Locked btn button-of-leveluper TierOrigin" id="TierOrigin-btn" onclick="BuyTierOrigin()">价格：<span class="Origin" id="TierOrigin-cost">5</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
+                <button class="Locked btn button-of-leveluper TierOrigin" id="TierOrigin-btn" onclick="BuyTierOrigin()" data-longpress="BuyTierOrigin">价格：<span class="Origin" id="TierOrigin-cost">5</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper TierOrigin" id="TierOrigin-BuyMaxbtn" onclick="BuyMaxTierOrigin()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper OriginEnhance"><span class="Origin">本源</span>增强</div>
                 <div class="Locked level-of-leveluper OriginEnhance">等级：<span id="level-of-OriginEnhance">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper OriginEnhance">每升一级，<span class="turEnergy">龟能</span><span class="Origin">本源</span>的效果的基数x10<br>效果：x<span id="effect-of-OriginEnhance">1</span></div>
-                <button class="Locked btn button-of-leveluper OriginEnhance" id="OriginEnhance-btn" onclick="BuyOriginEnhance()">价格：<span class="Origin" id="OriginEnhance-cost">100</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
+                <button class="Locked btn button-of-leveluper OriginEnhance" id="OriginEnhance-btn" onclick="BuyOriginEnhance()" data-longpress="BuyOriginEnhance">价格：<span class="Origin" id="OriginEnhance-cost">100</span><span class="turEnergy">龟能</span><span class="Origin">本源</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper OriginEnhance" id="OriginEnhance-BuyMaxbtn" onclick="BuyMaxOriginEnhance()">购买最<br>大数量</button>
             </div>
 
@@ -346,31 +346,31 @@
                 <div class="Locked title-of-leveluper EnergyMachineA"><span class="BasicEnergy">能源机器</span>-A</div>
                 <div class="Locked level-of-leveluper EnergyMachineA">等级：<span id="level-of-EnergyMachineA">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyMachineA">每升一级，<span class="BasicEnergy">能源效率</span>+0.2，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineA">0</span></div>
-                <button class="Locked btn button-of-leveluper EnergyMachineA" id="EnergyMachineA-btn" onclick="BuyEnergyMachineA()">价格：<span class="BasicEnergy" id="EnergyMachineA-cost">5</span><span class="BasicEnergy">基本能</span></button>
+                <button class="Locked btn button-of-leveluper EnergyMachineA" id="EnergyMachineA-btn" onclick="BuyEnergyMachineA()" data-longpress="BuyEnergyMachineA">价格：<span class="BasicEnergy" id="EnergyMachineA-cost">5</span><span class="BasicEnergy">基本能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EnergyMachineA" id="EnergyMachineA-BuyMaxbtn" onclick="BuyMaxEnergyMachineA()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper EnergyMachineB"><span class="BasicEnergy">能源机器</span>-B</div>
                 <div class="Locked level-of-leveluper EnergyMachineB">等级：<span id="level-of-EnergyMachineB">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyMachineB">每升一级，<span class="BasicEnergy">能源效率</span>+0.5，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineB">0</span></div>
-                <button class="Locked btn button-of-leveluper EnergyMachineB" id="EnergyMachineB-btn" onclick="BuyEnergyMachineB()">价格：<span class="BasicEnergy" id="EnergyMachineB-cost">30</span><span class="BasicEnergy">基本能</span></button>
+                <button class="Locked btn button-of-leveluper EnergyMachineB" id="EnergyMachineB-btn" onclick="BuyEnergyMachineB()" data-longpress="BuyEnergyMachineB">价格：<span class="BasicEnergy" id="EnergyMachineB-cost">30</span><span class="BasicEnergy">基本能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EnergyMachineB" id="EnergyMachineB-BuyMaxbtn" onclick="BuyMaxEnergyMachineB()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper EnergyMachineC"><span class="BasicEnergy">能源机器</span>-C</div>
                 <div class="Locked level-of-leveluper EnergyMachineC">等级：<span id="level-of-EnergyMachineC">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyMachineC">每升一级，<span class="BasicEnergy">能源效率</span>+1.2，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineC">0</span></div>
-                <button class="Locked btn button-of-leveluper EnergyMachineC" id="EnergyMachineC-btn" onclick="BuyEnergyMachineC()">价格：<span class="BasicEnergy" id="EnergyMachineC-cost">200</span><span class="BasicEnergy">基本能</span></button>
+                <button class="Locked btn button-of-leveluper EnergyMachineC" id="EnergyMachineC-btn" onclick="BuyEnergyMachineC()" data-longpress="BuyEnergyMachineC">价格：<span class="BasicEnergy" id="EnergyMachineC-cost">200</span><span class="BasicEnergy">基本能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EnergyMachineC" id="EnergyMachineC-BuyMaxbtn" onclick="BuyMaxEnergyMachineC()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper EnergyMachineD"><span class="BasicEnergy">能源机器</span>-D</div>
                 <div class="Locked level-of-leveluper EnergyMachineD">等级：<span id="level-of-EnergyMachineD">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyMachineD">每升一级，<span class="BasicEnergy">能源效率</span>+5，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineD">0</span></div>
-                <button class="Locked btn button-of-leveluper EnergyMachineD" id="EnergyMachineD-btn" onclick="BuyEnergyMachineD()">价格：<span class="BasicEnergy" id="EnergyMachineD-cost">1.50e3</span><span class="BasicEnergy">基本能</span></button>
+                <button class="Locked btn button-of-leveluper EnergyMachineD" id="EnergyMachineD-btn" onclick="BuyEnergyMachineD()" data-longpress="BuyEnergyMachineD">价格：<span class="BasicEnergy" id="EnergyMachineD-cost">1.50e3</span><span class="BasicEnergy">基本能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EnergyMachineD" id="EnergyMachineD-BuyMaxbtn" onclick="BuyMaxEnergyMachineD()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper EnergyMachineE"><span class="BasicEnergy">能源机器</span>-E</div>
                 <div class="Locked level-of-leveluper EnergyMachineE">等级：<span id="level-of-EnergyMachineE">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyMachineE">每升一级，<span class="BasicEnergy">能源效率</span>+1e6，每升10级，该效果x2<br>效果：+<span id="effect-of-EnergyMachineE">0</span></div>
-                <button class="Locked btn button-of-leveluper EnergyMachineE" id="EnergyMachineE-btn" onclick="BuyEnergyMachineE()">价格：<span class="BasicEnergy" id="EnergyMachineE-cost">1e100</span><span class="BasicEnergy">基本能</span></button>
+                <button class="Locked btn button-of-leveluper EnergyMachineE" id="EnergyMachineE-btn" onclick="BuyEnergyMachineE()" data-longpress="BuyEnergyMachineE">价格：<span class="BasicEnergy" id="EnergyMachineE-cost">1e100</span><span class="BasicEnergy">基本能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper EnergyMachineE" id="EnergyMachineE-BuyMaxbtn" onclick="BuyMaxEnergyMachineE()">购买最<br>大数量</button>
             </div>
 
@@ -434,25 +434,25 @@
                 <div class="Locked title-of-leveluper turEnergyCatalysis"><span class="turEnergy">龟能</span>催化</div>
                 <div class="Locked level-of-leveluper turEnergyCatalysis">等级：<span id="level-of-turEnergyCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper turEnergyCatalysis">每升一级，获得的<span class="turEnergy">龟能</span>x1e4<br>效果：x<span id="effect-of-turEnergyCatalysis">1</span></div>
-                <button class="Locked btn button-of-leveluper turEnergyCatalysis" id="turEnergyCatalysis-btn" onclick="BuyturEnergyCatalysis()">价格：<span class="BasicEnergy" id="turEnergyCatalysis-cost">1</span><span class="BasicEnergy">光能</span></button>
+                <button class="Locked btn button-of-leveluper turEnergyCatalysis" id="turEnergyCatalysis-btn" onclick="BuyturEnergyCatalysis()" data-longpress="BuyturEnergyCatalysis">价格：<span class="BasicEnergy" id="turEnergyCatalysis-cost">1</span><span class="BasicEnergy">光能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper turEnergyCatalysis" id="turEnergyCatalysis-BuyMaxbtn" onclick="BuyMaxturEnergyCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper OriginCatalysis"><span class="Origin">本源</span>催化</div>
                 <div class="Locked level-of-leveluper OriginCatalysis">等级：<span id="level-of-OriginCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper OriginCatalysis">每升一级，获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x2<br>效果：x<span id="effect-of-OriginCatalysis">1</span></div>
-                <button class="Locked btn button-of-leveluper OriginCatalysis" id="OriginCatalysis-btn" onclick="BuyOriginCatalysis()">价格：<span class="BasicEnergy" id="OriginCatalysis-cost">1</span><span class="BasicEnergy">光能</span></button>
+                <button class="Locked btn button-of-leveluper OriginCatalysis" id="OriginCatalysis-btn" onclick="BuyOriginCatalysis()" data-longpress="BuyOriginCatalysis">价格：<span class="BasicEnergy" id="OriginCatalysis-cost">1</span><span class="BasicEnergy">光能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper OriginCatalysis" id="OriginCatalysis-BuyMaxbtn" onclick="BuyMaxOriginCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper ClickCatalysis">点击催化</div>
                 <div class="Locked level-of-leveluper ClickCatalysis">等级：<span id="level-of-ClickCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper ClickCatalysis">每升一级，<span class="simulation">模拟机</span>-α-a2的效果上限x1e70<br>效果：x<span id="effect-of-ClickCatalysis">1</span></div>
-                <button class="Locked btn button-of-leveluper ClickCatalysis" id="ClickCatalysis-btn" onclick="BuyClickCatalysis()">价格：<span class="BasicEnergy" id="ClickCatalysis-cost">10</span><span class="BasicEnergy">光能</span></button>
+                <button class="Locked btn button-of-leveluper ClickCatalysis" id="ClickCatalysis-btn" onclick="BuyClickCatalysis()" data-longpress="BuyClickCatalysis">价格：<span class="BasicEnergy" id="ClickCatalysis-cost">10</span><span class="BasicEnergy">光能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper ClickCatalysis" id="ClickCatalysis-BuyMaxbtn" onclick="BuyMaxClickCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper Photosynthesis"><span class="BasicEnergy">光合作用</span></div>
                 <div class="Locked level-of-leveluper Photosynthesis">等级：<span id="level-of-Photosynthesis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper Photosynthesis">每升一级，生产<span class="BasicEnergy">化学能</span>的基数+0.05<br>效果：+<span id="effect-of-Photosynthesis">0</span></div>
-                <button class="Locked btn button-of-leveluper Photosynthesis" id="Photosynthesis-btn" onclick="BuyPhotosynthesis()">价格：<span class="BasicEnergy" id="Photosynthesis-cost">300</span><span class="BasicEnergy">光能</span></button>
+                <button class="Locked btn button-of-leveluper Photosynthesis" id="Photosynthesis-btn" onclick="BuyPhotosynthesis()" data-longpress="BuyPhotosynthesis">价格：<span class="BasicEnergy" id="Photosynthesis-cost">300</span><span class="BasicEnergy">光能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper Photosynthesis" id="Photosynthesis-BuyMaxbtn" onclick="BuyMaxPhotosynthesis()">购买最<br>大数量</button>
             </div>
 
@@ -464,25 +464,25 @@
                 <div class="Locked title-of-leveluper SimulationCatalysis"><span class="simulation">模拟</span>催化</div>
                 <div class="Locked level-of-leveluper SimulationCatalysis">等级：<span id="level-of-SimulationCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper SimulationCatalysis">每升一级，所有<span class="simulation">模拟室</span>的效率x<span id="baseof-SimulationCatalysis">2</span><br>效果：x<span id="effect-of-SimulationCatalysis">1</span></div>
-                <button class="Locked btn button-of-leveluper SimulationCatalysis" id="SimulationCatalysis-btn" onclick="BuySimulationCatalysis()">价格：<span class="BasicEnergy" id="SimulationCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
+                <button class="Locked btn button-of-leveluper SimulationCatalysis" id="SimulationCatalysis-btn" onclick="BuySimulationCatalysis()" data-longpress="BuySimulationCatalysis">价格：<span class="BasicEnergy" id="SimulationCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper SimulationCatalysis" id="SimulationCatalysis-BuyMaxbtn" onclick="BuyMaxSimulationCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper TierCatalysis">层级催化</div>
                 <div class="Locked level-of-leveluper TierCatalysis">等级：<span id="level-of-TierCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper TierCatalysis">每升一级，<span class="turEnergy">龟能</span>层级的第二次折算延迟3级<br>效果：+<span id="effect-of-TierCatalysis">0</span></div>
-                <button class="Locked btn button-of-leveluper TierCatalysis" id="TierCatalysis-btn" onclick="BuyTierCatalysis()">价格：<span class="BasicEnergy" id="TierCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
+                <button class="Locked btn button-of-leveluper TierCatalysis" id="TierCatalysis-btn" onclick="BuyTierCatalysis()" data-longpress="BuyTierCatalysis">价格：<span class="BasicEnergy" id="TierCatalysis-cost">1</span><span class="BasicEnergy">化学能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper TierCatalysis" id="TierCatalysis-BuyMaxbtn" onclick="BuyMaxTierCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper ReactionCatalysis"><span class="BasicEnergy">反应</span>催化</div>
                 <div class="Locked level-of-leveluper ReactionCatalysis">等级：<span id="level-of-ReactionCatalysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper ReactionCatalysis">每升一级，转化的<span class="BasicEnergy">基本能</span>x<span id="baseof-ReactionCatalysis">1.5</span><br>效果：x<span id="effect-of-ReactionCatalysis">1</span></div>
-                <button class="Locked btn button-of-leveluper ReactionCatalysis" id="ReactionCatalysis-btn" onclick="BuyReactionCatalysis()">价格：<span class="BasicEnergy" id="ReactionCatalysis-cost">5</span><span class="BasicEnergy">化学能</span></button>
+                <button class="Locked btn button-of-leveluper ReactionCatalysis" id="ReactionCatalysis-btn" onclick="BuyReactionCatalysis()" data-longpress="BuyReactionCatalysis">价格：<span class="BasicEnergy" id="ReactionCatalysis-cost">5</span><span class="BasicEnergy">化学能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper ReactionCatalysis" id="ReactionCatalysis-BuyMaxbtn" onclick="BuyMaxReactionCatalysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper PrimaryBattery"><span class="BasicEnergy">原电池</span></div>
                 <div class="Locked level-of-leveluper PrimaryBattery">等级：<span id="level-of-PrimaryBattery">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper PrimaryBattery">每升一级，生产<span class="BasicEnergy">电能</span>的基数+0.0001<br>效果：+<span id="effect-of-PrimaryBattery">0</span></div>
-                <button class="Locked btn button-of-leveluper PrimaryBattery" id="PrimaryBattery-btn" onclick="BuyPrimaryBattery()">价格：<span class="BasicEnergy" id="PrimaryBattery-cost">500</span><span class="BasicEnergy">化学能</span></button>
+                <button class="Locked btn button-of-leveluper PrimaryBattery" id="PrimaryBattery-btn" onclick="BuyPrimaryBattery()" data-longpress="BuyPrimaryBattery">价格：<span class="BasicEnergy" id="PrimaryBattery-cost">500</span><span class="BasicEnergy">化学能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper PrimaryBattery" id="PrimaryBattery-BuyMaxbtn" onclick="BuyMaxPrimaryBattery()">购买最<br>大数量</button>
             </div>
 
@@ -494,31 +494,31 @@
                 <div class="Locked title-of-leveluper BoostVoltage">升压</div>
                 <div class="Locked level-of-leveluper BoostVoltage">等级：<span id="level-of-BoostVoltage">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper BoostVoltage">每升一级，<span class="simulation">模拟</span>催化的基数+1<br>效果：+<span id="effect-of-BoostVoltage">0</span></div>
-                <button class="Locked btn button-of-leveluper BoostVoltage" id="BoostVoltage-btn" onclick="BuyBoostVoltage()">价格：<span class="BasicEnergy" id="BoostVoltage-cost">1</span><span class="BasicEnergy">电能</span></button>
+                <button class="Locked btn button-of-leveluper BoostVoltage" id="BoostVoltage-btn" onclick="BuyBoostVoltage()" data-longpress="BuyBoostVoltage">价格：<span class="BasicEnergy" id="BoostVoltage-cost">1</span><span class="BasicEnergy">电能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper BoostVoltage" id="BoostVoltage-BuyMaxbtn" onclick="BuyMaxBoostVoltage()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper Electrolysis">电解</div>
                 <div class="Locked level-of-leveluper Electrolysis">等级：<span id="level-of-Electrolysis">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper Electrolysis">每升一级，每秒自动获得当前可凝聚的<span class="turEnergy">龟能</span><span class="Origin">本源</span>的数量+1%<br>效果：x<span id="effect-of-Electrolysis">0</span></div>
-                <button class="Locked btn button-of-leveluper Electrolysis" id="Electrolysis-btn" onclick="BuyElectrolysis()">价格：<span class="BasicEnergy" id="Electrolysis-cost">2</span><span class="BasicEnergy">电能</span></button>
+                <button class="Locked btn button-of-leveluper Electrolysis" id="Electrolysis-btn" onclick="BuyElectrolysis()" data-longpress="BuyElectrolysis">价格：<span class="BasicEnergy" id="Electrolysis-cost">2</span><span class="BasicEnergy">电能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper Electrolysis" id="Electrolysis-BuyMaxbtn" onclick="BuyMaxElectrolysis()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper Ionization">电离</div>
                 <div class="Locked level-of-leveluper Ionization">等级：<span id="level-of-Ionization">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper Ionization">每升一级，获得的<span class="BasicEnergy">化学能</span>的数量x2<br>效果：x<span id="effect-of-Ionization">1</span></div>
-                <button class="Locked btn button-of-leveluper Ionization" id="Ionization-btn" onclick="BuyIonization()">价格：<span class="BasicEnergy" id="Ionization-cost">1</span><span class="BasicEnergy">电能</span></button>
+                <button class="Locked btn button-of-leveluper Ionization" id="Ionization-btn" onclick="BuyIonization()" data-longpress="BuyIonization">价格：<span class="BasicEnergy" id="Ionization-cost">1</span><span class="BasicEnergy">电能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper Ionization" id="Ionization-BuyMaxbtn" onclick="BuyMaxIonization()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper Motor"><span class="BasicEnergy">马达</span></div>
                 <div class="Locked level-of-leveluper Motor">等级：<span id="level-of-Motor">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper Motor">每升一级，生产<span class="BasicEnergy">机械能</span>的基数+1e-6<br>效果：+<span id="effect-of-Motor">0</span></div>
-                <button class="Locked btn button-of-leveluper Motor" id="Motor-btn" onclick="BuyMotor()">价格：<span class="BasicEnergy" id="Motor-cost">1000</span><span class="BasicEnergy">电能</span></button>
+                <button class="Locked btn button-of-leveluper Motor" id="Motor-btn" onclick="BuyMotor()" data-longpress="BuyMotor">价格：<span class="BasicEnergy" id="Motor-cost">1000</span><span class="BasicEnergy">电能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper Motor" id="Motor-BuyMaxbtn" onclick="BuyMaxMotor()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper PowerOn"><span class="important">通</span><span class="BasicEnergy">电</span></div>
                 <div class="Locked level-of-leveluper PowerOn">等级：<span id="level-of-PowerOn">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper PowerOn"><span id="effectdisplay-of-PowerOn">使<span class="simulation">模拟机</span>-λ-a3的价格除以1e4</span><br>这个升级不会被<span class="simulation">模拟</span>重置影响</div>
-                <button class="Locked btn button-of-leveluper PowerOn" id="PowerOn-btn" onclick="BuyPowerOn()">价格：<span class="BasicEnergy" id="PowerOn-cost">5</span><span class="BasicEnergy">电能</span></button>
+                <button class="Locked btn button-of-leveluper PowerOn" id="PowerOn-btn" onclick="BuyPowerOn()" data-longpress="BuyPowerOn">价格：<span class="BasicEnergy" id="PowerOn-cost">5</span><span class="BasicEnergy">电能</span></button>
             </div>
 
             <div class="Locked phase2-taps" id="MechanicalEnergy-tap">
@@ -529,25 +529,25 @@
                 <div class="Locked title-of-leveluper KineticEnergy"><span class="BasicEnergy">动能</span></div>
                 <div class="Locked level-of-leveluper KineticEnergy">等级：<span id="level-of-KineticEnergy">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper KineticEnergy">基于<span class="simulation">模拟机</span>Byte的总数提升第一<span class="simulation">模拟室</span>的效率，每升一级，指数+4<br>效果：x^<span id="effect-of-KineticEnergy">0</span></div>
-                <button class="Locked btn button-of-leveluper KineticEnergy" id="KineticEnergy-btn" onclick="BuyKineticEnergy()">价格：<span class="BasicEnergy" id="KineticEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+                <button class="Locked btn button-of-leveluper KineticEnergy" id="KineticEnergy-btn" onclick="BuyKineticEnergy()" data-longpress="BuyKineticEnergy">价格：<span class="BasicEnergy" id="KineticEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper KineticEnergy" id="KineticEnergy-BuyMaxbtn" onclick="BuyMaxKineticEnergy()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper ElasticPotentialEnergy"><span class="BasicEnergy">弹性势能</span></div>
                 <div class="Locked level-of-leveluper ElasticPotentialEnergy">等级：<span id="level-of-ElasticPotentialEnergy">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper ElasticPotentialEnergy">基于<span class="simulation">模拟机</span>Byte的总数自动获得<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数，每升一级，倍数+10<br>效果：<span id="effect-of-ElasticPotentialEnergy">0</span>x/秒</div>
-                <button class="Locked btn button-of-leveluper ElasticPotentialEnergy" id="ElasticPotentialEnergy-btn" onclick="BuyElasticPotentialEnergy()">价格：<span class="BasicEnergy" id="ElasticPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+                <button class="Locked btn button-of-leveluper ElasticPotentialEnergy" id="ElasticPotentialEnergy-btn" onclick="BuyElasticPotentialEnergy()" data-longpress="BuyElasticPotentialEnergy">价格：<span class="BasicEnergy" id="ElasticPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper ElasticPotentialEnergy" id="ElasticPotentialEnergy-BuyMaxbtn" onclick="BuyMaxElasticPotentialEnergy()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper GravitationalPotentialEnergy"><span class="BasicEnergy">重力势能</span></div>
                 <div class="Locked level-of-leveluper GravitationalPotentialEnergy">等级：<span id="level-of-GravitationalPotentialEnergy">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper GravitationalPotentialEnergy">提升<span class="turEnergy">龟能</span><span class="Origin">本源</span>挑战6的奖励，每升一级，指数+2<br>效果：x^<span id="effect-of-GravitationalPotentialEnergy">1</span></div>
-                <button class="Locked btn button-of-leveluper GravitationalPotentialEnergy" id="GravitationalPotentialEnergy-btn" onclick="BuyGravitationalPotentialEnergy()">价格：<span class="BasicEnergy" id="GravitationalPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
+                <button class="Locked btn button-of-leveluper GravitationalPotentialEnergy" id="GravitationalPotentialEnergy-btn" onclick="BuyGravitationalPotentialEnergy()" data-longpress="BuyGravitationalPotentialEnergy">价格：<span class="BasicEnergy" id="GravitationalPotentialEnergy-cost">1</span><span class="BasicEnergy">机械能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper GravitationalPotentialEnergy" id="GravitationalPotentialEnergy-BuyMaxbtn" onclick="GravitationalPotentialEnergy()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper Friction">摩擦</div>
                 <div class="Locked level-of-leveluper Friction">等级：<span id="level-of-Friction">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper Friction">每升一级，生产<span class="BasicEnergy">内能</span>的基数+4e-9<br>效果：+<span id="effect-of-Friction">0</span></div>
-                <button class="Locked btn button-of-leveluper Friction" id="Friction-btn" onclick="BuyFriction()">价格：<span class="BasicEnergy" id="Friction-cost">1e4</span><span class="BasicEnergy">机械能</span></button>
+                <button class="Locked btn button-of-leveluper Friction" id="Friction-btn" onclick="BuyFriction()" data-longpress="BuyFriction">价格：<span class="BasicEnergy" id="Friction-cost">1e4</span><span class="BasicEnergy">机械能</span></button>
                 <button class="Locked btn button-of-BuyMax-leveluper Friction" id="Friction-BuyMaxbtn" onclick="GravitationalPotentialEnergy()">购买最<br>大数量</button>
             </div>
 
@@ -613,7 +613,7 @@
                 <div class="Locked title-of-leveluper increamentalSimulation">增量<span class="simulation">模拟</span></div>
                 <div class="Locked level-of-leveluper increamentalSimulation">等级：<span id="level-of-increamentalSimulation">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper increamentalSimulation">每升一级，获得的<span class="simulation">模拟数据</span>x2<br>效果：x<span id="effect-of-increamentalSimulation">1</span></div>
-                <button class="Locked btn-simulation button-of-leveluper increamentalSimulation" id="increamentalSimulation-btn" onclick="BuyincreamentalSimulation()">价格：<span class="simulation" id="increamentalSimulation-cost">10</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper increamentalSimulation" id="increamentalSimulation-btn" onclick="BuyincreamentalSimulation()" data-longpress="BuyincreamentalSimulation">价格：<span class="simulation" id="increamentalSimulation-cost">10</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper increamentalSimulation" id="increamentalSimulation-BuyMaxbtn" onclick="BuyMaxincreamentalSimulation()">购买最<br>大数量</button>
             </div>
 
@@ -687,7 +687,7 @@
                 </div>
                 <div class="challenge SimulationExperiment" id="SimulationExperiment10">
                     <span class="challengeTitle"><span class="simulation">模拟</span>实验10（<span id="progress-SimulationExperiment10">0</span>/1）</span><br>
-                    获得的<span class="turEnergy">龟能</span>^0.1，但是你可以向<span class="important">神</span>献祭自己的灵魂获得极大的增益<br>
+                    获得的<span class="turEnergy">龟能</span>^0.01，但是你可以向<span class="important">神</span>献祭自己的灵魂获得极大的增益<br>
                     <button class="btn-simulation-challenge" id="startSimulationExperiment10btn" onclick="startSimulationExperiment10()">开始实验</button><br><br>
                     目标：<span id="goal-SimulationExperiment10">6e666666</span><span class="turEnergy">龟能</span><br>
                     奖励：允许@%?##&!
@@ -874,56 +874,56 @@
                 <div class="Locked level-of-leveluper firstSimulationRoom">等级：<span id="level-of-firstSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper firstSimulationRoom">数量：<span id="Amount-of-firstSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper firstSimulationRoom">生成<span class="simulation">模拟</span>之力，每升一级，第一<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-firstSimulationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper firstSimulationRoom" id="firstSimulationRoom-btn" onclick="BuyfirstSimulationRoom()">价格：<span class="simulation" id="firstSimulationRoom-cost">10</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper firstSimulationRoom" id="firstSimulationRoom-btn" onclick="BuyfirstSimulationRoom()" data-longpress="BuyfirstSimulationRoom">价格：<span class="simulation" id="firstSimulationRoom-cost">10</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper firstSimulationRoom" id="firstSimulationRoom-BuyMaxbtn" onclick="BuyMaxfirstSimulationRoom()">购买最<br>大数量</button>
 
                 <div class="Locked title-of-leveluper secondSimulationRoom">第二<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper secondSimulationRoom">等级：<span id="level-of-secondSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper secondSimulationRoom">数量：<span id="Amount-of-secondSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper secondSimulationRoom">生成第一<span class="simulation">模拟室</span>，每升一级，第二<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-secondSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper secondSimulationRoom" id="secondSimulationRoom-btn" onclick="BuysecondSimulationRoom()">价格：<span class="simulation" id="secondSimulationRoom-cost">10</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper secondSimulationRoom" id="secondSimulationRoom-btn" onclick="BuysecondSimulationRoom()" data-longpress="BuysecondSimulationRoom">价格：<span class="simulation" id="secondSimulationRoom-cost">10</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper secondSimulationRoom" id="secondSimulationRoom-BuyMaxbtn" onclick="BuyMaxsecondSimulationRoom()">购买最<br>大数量</button>
             
                 <div class="Locked title-of-leveluper thirdSimulationRoom">第三<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper thirdSimulationRoom">等级：<span id="level-of-thirdSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper thirdSimulationRoom">数量：<span id="Amount-of-thirdSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper thirdSimulationRoom">生成第二<span class="simulation">模拟室</span>，每升一级，第三<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-thirdSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper thirdSimulationRoom" id="thirdSimulationRoom-btn" onclick="BuythirdSimulationRoom()">价格：<span class="simulation" id="thirdSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper thirdSimulationRoom" id="thirdSimulationRoom-btn" onclick="BuythirdSimulationRoom()" data-longpress="BuythirdSimulationRoom">价格：<span class="simulation" id="thirdSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper thirdSimulationRoom" id="thirdSimulationRoom-BuyMaxbtn" onclick="BuyMaxthirdSimulationRoom()">购买最<br>大数量</button>
                 
                 <div class="Locked title-of-leveluper fourthSimulationRoom">第四<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper fourthSimulationRoom">等级：<span id="level-of-fourthSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper fourthSimulationRoom">数量：<span id="Amount-of-fourthSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper fourthSimulationRoom">生成第三<span class="simulation">模拟室</span>，每升一级，第四<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-fourthSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper fourthSimulationRoom" id="fourthSimulationRoom-btn" onclick="BuyfourthSimulationRoom()">价格：<span class="simulation" id="fourthSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper fourthSimulationRoom" id="fourthSimulationRoom-btn" onclick="BuyfourthSimulationRoom()" data-longpress="BuyfourthSimulationRoom">价格：<span class="simulation" id="fourthSimulationRoom-cost">100</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper fourthSimulationRoom" id="fourthSimulationRoom-BuyMaxbtn" onclick="BuyMaxfourthSimulationRoom()">购买最<br>大数量</button>
                 
                 <div class="Locked title-of-leveluper fifthSimulationRoom">第五<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper fifthSimulationRoom">等级：<span id="level-of-fifthSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper fifthSimulationRoom">数量：<span id="Amount-of-fifthSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper fifthSimulationRoom">生成第四<span class="simulation">模拟室</span>，每升一级，第五<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-fifthSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper fifthSimulationRoom" id="fifthSimulationRoom-btn" onclick="BuyfifthSimulationRoom()">价格：<span class="simulation" id="fifthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper fifthSimulationRoom" id="fifthSimulationRoom-btn" onclick="BuyfifthSimulationRoom()" data-longpress="BuyfifthSimulationRoom">价格：<span class="simulation" id="fifthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper fifthSimulationRoom" id="fifthSimulationRoom-BuyMaxbtn" onclick="BuyMaxfifthSimulationRoom()">购买最<br>大数量</button>
                 
                 <div class="Locked title-of-leveluper sixthSimulationRoom">第六<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper sixthSimulationRoom">等级：<span id="level-of-sixthSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper sixthSimulationRoom">数量：<span id="Amount-of-sixthSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper sixthSimulationRoom">生成第五<span class="simulation">模拟室</span>，每升一级，第六<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-sixthSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper sixthSimulationRoom" id="sixthSimulationRoom-btn" onclick="BuysixthSimulationRoom()">价格：<span class="simulation" id="sixthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper sixthSimulationRoom" id="sixthSimulationRoom-btn" onclick="BuysixthSimulationRoom()" data-longpress="BuysixthSimulationRoom">价格：<span class="simulation" id="sixthSimulationRoom-cost">1e3</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper sixthSimulationRoom" id="sixthSimulationRoom-BuyMaxbtn" onclick="BuyMaxsixthSimulationRoom()">购买最<br>大数量</button>
                 
                 <div class="Locked title-of-leveluper seventhSimulationRoom">第七<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper seventhSimulationRoom">等级：<span id="level-of-seventhSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper seventhSimulationRoom">数量：<span id="Amount-of-seventhSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper seventhSimulationRoom">生成第六<span class="simulation">模拟室</span>，每升一级，第七<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-seventhSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper seventhSimulationRoom" id="seventhSimulationRoom-btn" onclick="BuyseventhSimulationRoom()">价格：<span class="simulation" id="seventhSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper seventhSimulationRoom" id="seventhSimulationRoom-btn" onclick="BuyseventhSimulationRoom()" data-longpress="BuyseventhSimulationRoom">价格：<span class="simulation" id="seventhSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper seventhSimulationRoom" id="seventhSimulationRoom-BuyMaxbtn" onclick="BuyMaxseventhSimulationRoom()">购买最<br>大数量</button>
                 
                 <div class="Locked title-of-leveluper eighthSimulationRoom">第八<span class="simulation">模拟室</span></div>
                 <div class="Locked level-of-leveluper eighthSimulationRoom">等级：<span id="level-of-eighthSimulationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper eighthSimulationRoom">数量：<span id="Amount-of-eighthSimulationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper eighthSimulationRoom">生成第七<span class="simulation">模拟室</span>，每升一级，第八<span class="simulation">模拟室</span>的效率x2<br>效果：x<span id="effect-of-eighthSimulationRoom">2</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper eighthSimulationRoom" id="eighthSimulationRoom-btn" onclick="BuyeighthSimulationRoom()">价格：<span class="simulation" id="eighthSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper eighthSimulationRoom" id="eighthSimulationRoom-btn" onclick="BuyeighthSimulationRoom()" data-longpress="BuyeighthSimulationRoom">价格：<span class="simulation" id="eighthSimulationRoom-cost">1e4</span><span class="simulation">模拟数据</span></button>
                 <button class="Locked btn-simulation button-of-BuyMax-leveluper eighthSimulationRoom" id="eighthSimulationRoom-BuyMaxbtn" onclick="BuyMaxeighthSimulationRoom()">购买最<br>大数量</button>
             </div>
 
@@ -1000,17 +1000,17 @@
                 <div class="Locked title-of-leveluper increamentalIteration">增量<span class="Iteration">迭代</span></div>
                 <div class="Locked level-of-leveluper increamentalIteration">等级：<span id="level-of-increamentalIteration">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper increamentalIteration">每升一级，获得的<span class="Iteration">迭代数据</span>x5<br>效果：x<span id="effect-of-increamentalIteration">1</span></div>
-                <button class="Locked btn-simulation button-of-leveluper increamentalIteration" id="increamentalIteration-btn" onclick="BuyincreamentalIteration()">价格：<span class="Iteration" id="increamentalIteration-cost">500</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper increamentalIteration" id="increamentalIteration-btn" onclick="BuyincreamentalIteration()" data-longpress="BuyincreamentalIteration">价格：<span class="Iteration" id="increamentalIteration-cost">500</span><span class="Iteration">迭代数据</span></button>
             
                 <div class="Locked title-of-leveluper OriginIteration"><span class="Origin">本源</span><span class="Iteration">迭代</span></div>
                 <div class="Locked level-of-leveluper OriginIteration">等级：<span id="level-of-OriginIteration">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper OriginIteration">每升一级，获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x10<br>效果：x<span id="effect-of-OriginIteration">1</span></div>
-                <button class="Locked btn-simulation button-of-leveluper OriginIteration" id="OriginIteration-btn" onclick="BuyOriginIteration()">价格：<span class="Iteration" id="OriginIteration-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper OriginIteration" id="OriginIteration-btn" onclick="BuyOriginIteration()" data-longpress="BuyOriginIteration">价格：<span class="Iteration" id="OriginIteration-cost">1</span><span class="Iteration">迭代数据</span></button>
             
                 <div class="Locked title-of-leveluper EnergyExpansion"><span class="BasicEnergy">能源</span>膨胀</div>
                 <div class="Locked level-of-leveluper EnergyExpansion">等级：<span id="level-of-EnergyExpansion">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper EnergyExpansion">每升一级，<span class="BasicEnergy">能源效率</span>的指数+0.05（如果算上该指数<span class="BasicEnergy">能源效率</span>更低，则不会生效）<br>效果：+<span id="effect-of-EnergyExpansion">0</span></div>
-                <button class="Locked btn-simulation button-of-leveluper EnergyExpansion" id="EnergyExpansion-btn" onclick="BuyEnergyExpansion()">价格：<span class="Iteration" id="EnergyExpansion-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper EnergyExpansion" id="EnergyExpansion-btn" onclick="BuyEnergyExpansion()" data-longpress="BuyEnergyExpansion">价格：<span class="Iteration" id="EnergyExpansion-cost">1</span><span class="Iteration">迭代数据</span></button>
             </div>
 
             <div class="Iteration-taps" id="IterationStrengthen-tap">
@@ -1076,49 +1076,49 @@
                 <div class="Locked level-of-leveluper firstIterationRoom">等级：<span id="level-of-firstIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper firstIterationRoom">数量：<span id="Amount-of-firstIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper firstIterationRoom">生成<span class="Iteration">迭代</span>之力，每升一级，第一<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-firstIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper firstIterationRoom" id="firstIterationRoom-btn" onclick="BuyfirstIterationRoom()">价格：<span class="Iteration" id="firstIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper firstIterationRoom" id="firstIterationRoom-btn" onclick="BuyfirstIterationRoom()" data-longpress="BuyfirstIterationRoom">价格：<span class="Iteration" id="firstIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper secondIterationRoom">第二<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper secondIterationRoom">等级：<span id="level-of-secondIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper secondIterationRoom">数量：<span id="Amount-of-secondIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper secondIterationRoom">生成第一<span class="Iteration">迭代室</span>，每升一级，第二<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-secondIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper secondIterationRoom" id="secondIterationRoom-btn" onclick="BuysecondIterationRoom()">价格：<span class="Iteration" id="secondIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper secondIterationRoom" id="secondIterationRoom-btn" onclick="BuysecondIterationRoom()" data-longpress="BuysecondIterationRoom">价格：<span class="Iteration" id="secondIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper thirdIterationRoom">第三<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper thirdIterationRoom">等级：<span id="level-of-thirdIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper thirdIterationRoom">数量：<span id="Amount-of-thirdIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper thirdIterationRoom">生成第二<span class="Iteration">迭代室</span>，每升一级，第三<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-thirdIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper thirdIterationRoom" id="thirdIterationRoom-btn" onclick="BuythirdIterationRoom()">价格：<span class="Iteration" id="thirdIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper thirdIterationRoom" id="thirdIterationRoom-btn" onclick="BuythirdIterationRoom()" data-longpress="BuythirdIterationRoom">价格：<span class="Iteration" id="thirdIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper fourthIterationRoom">第四<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper fourthIterationRoom">等级：<span id="level-of-fourthIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper fourthIterationRoom">数量：<span id="Amount-of-fourthIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper fourthIterationRoom">生成第三<span class="Iteration">迭代室</span>，每升一级，第四<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-fourthIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper fourthIterationRoom" id="fourthIterationRoom-btn" onclick="BuyfourthIterationRoom()">价格：<span class="Iteration" id="fourthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper fourthIterationRoom" id="fourthIterationRoom-btn" onclick="BuyfourthIterationRoom()" data-longpress="BuyfourthIterationRoom">价格：<span class="Iteration" id="fourthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper fifthIterationRoom">第五<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper fifthIterationRoom">等级：<span id="level-of-fifthIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper fifthIterationRoom">数量：<span id="Amount-of-fifthIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper fifthIterationRoom">生成第四<span class="Iteration">迭代室</span>，每升一级，第五<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-fifthIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper fifthIterationRoom" id="fifthIterationRoom-btn" onclick="BuyfifthIterationRoom()">价格：<span class="Iteration" id="fifthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper fifthIterationRoom" id="fifthIterationRoom-btn" onclick="BuyfifthIterationRoom()" data-longpress="BuyfifthIterationRoom">价格：<span class="Iteration" id="fifthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper sixthIterationRoom">第六<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper sixthIterationRoom">等级：<span id="level-of-sixthIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper sixthIterationRoom">数量：<span id="Amount-of-sixthIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper sixthIterationRoom">生成第五<span class="Iteration">迭代室</span>，每升一级，第六<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-sixthIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper sixthIterationRoom" id="sixthIterationRoom-btn" onclick="BuysixthIterationRoom()">价格：<span class="Iteration" id="sixthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper sixthIterationRoom" id="sixthIterationRoom-btn" onclick="BuysixthIterationRoom()" data-longpress="BuysixthIterationRoom">价格：<span class="Iteration" id="sixthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper seventhIterationRoom">第七<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper seventhIterationRoom">等级：<span id="level-of-seventhIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper seventhIterationRoom">数量：<span id="Amount-of-seventhIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper seventhIterationRoom">生成第六<span class="Iteration">迭代室</span>，每升一级，第七<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-seventhIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper seventhIterationRoom" id="seventhIterationRoom-btn" onclick="BuyseventhIterationRoom()">价格：<span class="Iteration" id="seventhIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper seventhIterationRoom" id="seventhIterationRoom-btn" onclick="BuyseventhIterationRoom()" data-longpress="BuyseventhIterationRoom">价格：<span class="Iteration" id="seventhIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
 
                 <div class="Locked title-of-leveluper eighthIterationRoom">第八<span class="Iteration">迭代室</span></div>
                 <div class="Locked level-of-leveluper eighthIterationRoom">等级：<span id="level-of-eighthIterationRoom">0</span></div>
                 <div class="Locked Amount-of-leveluper eighthIterationRoom">数量：<span id="Amount-of-eighthIterationRoom">0</span></div>
                 <div class="Locked effectdisplay-of-leveluper eighthIterationRoom">生成第七<span class="Iteration">迭代室</span>，每升一级，第八<span class="Iteration">迭代室</span>的效率x2<br>效果：x<span id="effect-of-eighthIterationRoom">1</span>/个/秒</div>
-                <button class="Locked btn-simulation button-of-leveluper eighthIterationRoom" id="eighthIterationRoom-btn" onclick="BuyeighthIterationRoom()">价格：<span class="Iteration" id="eighthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
+                <button class="Locked btn-simulation button-of-leveluper eighthIterationRoom" id="eighthIterationRoom-btn" onclick="BuyeighthIterationRoom()" data-longpress="BuyeighthIterationRoom">价格：<span class="Iteration" id="eighthIterationRoom-cost">1</span><span class="Iteration">迭代数据</span></button>
             </div>
             
             <div class="Iteration-taps" id="IterationMileStone-tap">
@@ -1207,6 +1207,7 @@
     <span id="Tellingtext">测试文本。</span>
         
     <script src="js/break_eternity.js"></script>
+    <script src="js/Auto.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/dom.js"></script>
     <script src="js/utils.js"></script>
