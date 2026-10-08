@@ -435,7 +435,7 @@ function loadGame() {
         setAuto.SimulationCompleteAutoAmount = new Decimal(Data.setAuto.SimulationCompleteAutoAmount) ?? new Decimal(0);
         setAuto.SimulationCompleteAutoTime = new Decimal(Data.setAuto.SimulationCompleteAutoTime) ?? new Decimal(0);
         setAuto.SimulationCompleteAutoMutiple = new Decimal(Data.setAuto.SimulationCompleteAutoMutiple) ?? new Decimal(0);
-        setAuto.SimulationCompleteAutoLast = new Decimal(Data.setAuto.SimulationCompleteAutolast) ?? new Decimal(0);
+        setAuto.SimulationCompleteAutoLast = new Decimal(Data.setAuto.SimulationCompleteAutoLast) ?? new Decimal(0);
         setAuto.SimulationStartAuto = Data.setAuto.SimulationStartAuto ?? false;
         setAuto.increamentalSimulationAuto = Data.setAuto.increamentalSimulationAuto ?? false;
         setAuto.SimulationRoomAuto = Data.setAuto.SimulationRoomAuto ?? false;
@@ -703,10 +703,6 @@ function loadGame() {
         defualtSet();
     }
     experimentbuffs.SimulationExperiment6 = true;
-    restartAutoClicker();
-    restartOriginProduce();
-    restartAutoBuy();
-    restartBasicEnergyProduce();
     if (space === "inSimulation") {changetoturEnergyuptap(); changetoturEnergyLeveluptap();}
     else if (space === "Simulation") {changetoSimulationuptap(); changetoSimulationUpgradestap();}
 }
@@ -777,6 +773,11 @@ document.addEventListener('keydown', function(event) {
                 localStorage.setItem("TurtleIncreamental", saveText);
                 load();
                 loadGame();
+                restartAutoClicker();
+                restartOriginProduce();
+                restartTimer();
+                restartAutoBuy();
+                restartBasicEnergyProduce();
                 alert("存档导入成功");
             }
             

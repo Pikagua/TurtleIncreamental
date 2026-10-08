@@ -1,20 +1,15 @@
 loadGame();
-restartAutoClicker();
-restartOriginProduce();
-restartTimer();
-if (space === "inSimulation") {changetoturEnergyuptap(); changetoturEnergyLeveluptap();}
-else if (space === "Simulation") {changetoSimulationuptap(); changetoSimulationUpgradestap();}
-if (state === "inSimulation") restartSimulationRoomProduce();
-restartAutoBuy();
-restartBasicEnergyProduce();
-if (!experimentbuffs.SimulationExperiment5) {
-    timerSimulationExperiment5Interval = setInterval(() => {
-        timerSimulationExperiment5 = timerSimulationExperiment5.plus(1);
-    }, 1000);
-}
-restartSimulationRoomProduce();
-restartIterationRoomProduce();
 function load() {
+    if (space === "inSimulation") {changetoturEnergyuptap(); changetoturEnergyLeveluptap();}
+    else if (space === "Simulation") {changetoSimulationuptap(); changetoSimulationUpgradestap();}
+    if (state === "inSimulation") restartSimulationRoomProduce();
+    if (!experimentbuffs.SimulationExperiment5) {
+        timerSimulationExperiment5Interval = setInterval(() => {
+            timerSimulationExperiment5 = timerSimulationExperiment5.plus(1);
+        }, 1000);
+    }
+    restartSimulationRoomProduce();
+    restartIterationRoomProduce();
     challengebuffs.turEnergy = 1;
     challengebuffs.baseofHighspeedclicking = 0;
     challengebuffs.turEnergyTierChallenge3Price = 1;
@@ -161,6 +156,11 @@ function load() {
 }
 load();
 updateUI();
+restartAutoClicker();
+restartOriginProduce();
+restartTimer();
+restartAutoBuy();
+restartBasicEnergyProduce();
 if (Iterated.eq(1) && IteratedTimes.eq(0)) {
     const overlay = document.getElementById('blackOverlay');
     overlay.style.transition = 'opacity 0s ease';
@@ -197,14 +197,3 @@ if (Iterated.eq(1) && IteratedTimes.eq(0)) {
 }
 updateBasicEnergyChangeAuto();
 updateSimulationCompleteAuto();
-//BasicEnergyChangeAutoInput.innerHTML = `<input type="text" id="BasicEnergyChangeAutoInputNum" placeholder="${formatNumber(setAuto.BasicEnergyChangeAutoAmount)}" onchange="saveBasicEnergyChangeAuto()"></span>`;
-/*
-龟能标签页下的所有选项卡和升级在一开始就解锁了
-即使没有扩增数据类型，模拟也不会在龟能达到无限之后中断
-移除所有的切屏特效
-保留龟能等级和龟能升级的最大购买器
-允许你购买最大数量的模拟机Byte
-获得的龟能本源x4
-获得的龟能本源次数x4
-获得的模拟数据x4
-*/

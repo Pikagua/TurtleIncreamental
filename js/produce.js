@@ -21,7 +21,7 @@ document.addEventListener('click', function(event) {
     
     if (space === "Simulation") return;
     // 只有点击非按钮区域才增加龟能
-    turEnergy = turEnergy.plus((clickPower.mul(EfficientClickLevel.mul(1 + challengereward.baseofEfficientClick).plus(1)).mul(effectturEnergyTier).mul(challengebuffs.turEnergy).mul(challengereward.turEnergy).mul(effectOriginEnhance.mul(turEnergyOrigin).plus(1)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βa2).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2));
+    turEnergy = turEnergy.plus(ClickTurEnergy);
     TotalClicks = TotalClicks.plus(1);
     if (turEnergy.gte(maxturEnergy)) turEnergy = maxturEnergy;
 });
@@ -91,9 +91,9 @@ function restartAutoClicker() {
 
     // 创建新的定时器
     autoClickerInterval = setInterval(() => {
-        turEnergy = turEnergy.plus((autoClickers.mul(clickPower.mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1))).mul(Decimal.max(1,(((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel)).div(60))).mul(effectturEnergyTier).mul(challengebuffs.turEnergy).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βa2).mul(effectSimulationMachine.αa4).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2));
+        turEnergy = turEnergy.plus(AutoClickerTurEnergyPersec.mul(Decimal.max(new Decimal(1).div(effectHighspeedClicking),0.016)));
         if (turEnergy.gte(maxturEnergy)) turEnergy = maxturEnergy;
-    }, Decimal.max(new Decimal(1000).div((((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel))),16) );
+    }, Decimal.max(new Decimal(1000).div(effectHighspeedClicking),16) );
 }
 
 const autotipsChange = setInterval(() => {
@@ -107,8 +107,7 @@ function restartOriginProduce() {
 
     OriginProducingInterval = setInterval(() => {
         if (OriginProduceEnergyLevel.gt(0) && challengebuffs.disabledOriginLevelup) {
-            if (challengereward.EfficientOriginProduce) turEnergy = turEnergy.plus((turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).div(60).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1)).mul((((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking)))).pow(HighspeedClickingLevel)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2));
-            else turEnergy = turEnergy.plus((turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).div(60).mul(challengereward.turEnergy).mul(new Decimal(1).plus(effectOriginEnhance.mul(turEnergyOrigin))).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2));
+            turEnergy = turEnergy.plus(OriginProduceTurEnergyPersec.div(60));
             if (turEnergy.gte(maxturEnergy)) turEnergy = maxturEnergy;
         }
     }, 16);

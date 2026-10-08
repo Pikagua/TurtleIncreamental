@@ -51,6 +51,7 @@ function backSimulation() {
 
 function completeSimulation() {
     const Tellingtext = document.getElementById('Tellingtext');
+    setAuto.SimulationCompleteAutoLast = simulationDataCal();
     if (SimulationMachineResetBtnIf.eq(1)) {
         SimulationMachineReset();
         SimulationMachineResetBtnIf = new Decimal(0);
@@ -215,8 +216,8 @@ function completeIteration() {
                     }
                 }
                 IterationData = IterationData.plus(IterationDataCal());
-                IterationReset();
                 IteratedTimes = IteratedTimes.plus(1);
+                IterationReset();
                 completeSimulationBtn.disabled = false;
                 Tellingtext.classList.remove('active');
                 fadeFromBlack();

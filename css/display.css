@@ -95,6 +95,23 @@
     left: 50%;
     top: 410px;
 }
+#OriginMilestone11 {
+    left: 70%;
+    top: 410px;
+}
+#OriginMilestone12 {
+    left: 90%;
+    top: 410px;
+}
+#OriginMilestone13 {
+    left: 30%;
+    top: 610px;
+}
+#OriginMilestone14 {
+    left: 50%;
+    top: 610px;
+}
+
 
 .IterationMilestoneTitle {
     display: block;

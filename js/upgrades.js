@@ -203,16 +203,16 @@ function turEnergyOriginAmassFormula() {
 
 function BuyOriginAmassFasten() {
     if (turEnergyOrigin.gte(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel));
         OriginAmassFastenLevel = OriginAmassFastenLevel.plus(1);
     }
 }
 function PriceofBuyOriginAmassFasten(num) {
-    return (ten.mul(ten.pow(OriginAmassFastenLevel)).mul(SimulationUpgrades.turEnergyOrigin2.num)).floor();
+    return (ten.mul(effectOriginMilestone12.pow(OriginAmassFastenLevel)).mul(SimulationUpgrades.turEnergyOrigin2.num)).floor();
 }
 function BuyMaxOriginAmassFasten() {
     for (let i=OriginAmassFastenLevel; PriceofBuyOriginAmassFasten(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(i));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(i));
         OriginAmassFastenLevel = OriginAmassFastenLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -221,7 +221,7 @@ function BuyMaxOriginAmassFasten() {
 
 function BuyOriginProduceEnergy() {
     if (turEnergyOrigin.gte(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel));
         OriginProduceEnergyLevel = OriginProduceEnergyLevel.plus(1);
     }
 }
@@ -230,7 +230,7 @@ function PriceofBuyOriginProduceEnergy(num) {
 }
 function BuyMaxOriginProduceEnergy() {
     for (let i=OriginProduceEnergyLevel; PriceofBuyOriginProduceEnergy(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(i));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(i));
         OriginProduceEnergyLevel = OriginProduceEnergyLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -239,7 +239,7 @@ function BuyMaxOriginProduceEnergy() {
 
 function BuyClickOrigin() {
     if (turEnergyOrigin.gte(PriceofBuyClickOrigin(ClickOriginLevel))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(ClickOriginLevel));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(ClickOriginLevel));
         ClickOriginLevel = ClickOriginLevel.plus(1);
     }
 }
@@ -248,7 +248,7 @@ function PriceofBuyClickOrigin(num) {
 }
 function BuyMaxClickOrigin() {
     for (let i=ClickOriginLevel; PriceofBuyClickOrigin(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(i));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(i));
         ClickOriginLevel = ClickOriginLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -257,17 +257,17 @@ function BuyMaxClickOrigin() {
 
 function BuyTierOrigin() {
     if (turEnergyOrigin.gte(PriceofBuyTierOrigin(TierOriginLevel))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(TierOriginLevel));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(TierOriginLevel));
         TierOriginLevel = TierOriginLevel.plus(1);
     }
 }
 function PriceofBuyTierOrigin(num) {
-    if (num.lt(60)) return (new Decimal(5).mul(new Decimal(2).pow(TierOriginLevel))).floor();
-    else return (new Decimal(5).mul(new Decimal(2).pow(60)).mul(ten.pow(num.sub(60)))).floor();
+    if (num.lt(new Decimal(60).plus(effectOriginMilestone11))) return (new Decimal(5).mul(new Decimal(2).pow(TierOriginLevel))).floor();
+    else return (new Decimal(5).mul(new Decimal(2).pow(new Decimal(60).plus(effectOriginMilestone11))).mul(ten.pow(num.sub(new Decimal(60).plus(effectOriginMilestone11))))).floor();
 }
 function BuyMaxTierOrigin() {
     for (let i=TierOriginLevel; PriceofBuyTierOrigin(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(i));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(i));
         TierOriginLevel = TierOriginLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -276,7 +276,7 @@ function BuyMaxTierOrigin() {
 
 function BuyOriginEnhance() {
     if (turEnergyOrigin.gte(PriceofBuyOriginEnhance(OriginEnhanceLevel))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(OriginEnhanceLevel));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(OriginEnhanceLevel));
         OriginEnhanceLevel = OriginEnhanceLevel.plus(1);
     }
 }
@@ -285,7 +285,7 @@ function PriceofBuyOriginEnhance(num) {
 }
 function BuyMaxOriginEnhance() {
     for (let i=OriginEnhanceLevel; PriceofBuyOriginEnhance(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(i));
+        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(i));
         OriginEnhanceLevel = OriginEnhanceLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -300,7 +300,6 @@ function BasicEnergyChange() {
     }
 }
 function BasicEnergyChangeFormula() {
-    console.log(everBasicEnergyChange);
     BasicEnergy = BasicEnergy.plus(FormulaOnlyBasicEnergy());
     setAuto.BasicEnergyChangeAutoLast = FormulaOnlyBasicEnergy();
 }
@@ -717,6 +716,7 @@ function PriceofBuyincreamentalSimulation(num) {
     return (ten.mul(ten.pow(num))).floor();
 }
 function BuyMaxincreamentalSimulation() {
+    if (simulationData.eq(0)) return;
     if (Decimal.log10(simulationData).floor().gte(increamentalSimulationLevel)) {
         increamentalSimulationLevel = Decimal.log10(simulationData).floor();
         simulationData = simulationData.sub(ten.pow(Decimal.log10(simulationData).floor()));
@@ -726,7 +726,7 @@ function BuyMaxincreamentalSimulation() {
 
 function BuyturEnergySimulationMachineByte() {
     if (turEnergy.gte(PriceofBuyturEnergySimulationMachineByte(BuySimulationMachineByte.turEnergy))) {
-        turEnergy = turEnergy.sub(PriceofBuyturEnergySimulationMachineByte(BuySimulationMachineByte.turEnergy));
+        if (IteratedTimes.gte(15)) turEnergy = turEnergy.sub(PriceofBuyturEnergySimulationMachineByte(BuySimulationMachineByte.turEnergy));
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         BuySimulationMachineByte.turEnergy = BuySimulationMachineByte.turEnergy.plus(1);
     }
@@ -738,7 +738,7 @@ function PriceofBuyturEnergySimulationMachineByte(num) {
 
 function BuyturEnergyOriginSimulationMachineByte() {
     if (turEnergyOrigin.gte(PriceofBuyturEnergyOriginSimulationMachineByte(BuySimulationMachineByte.turEnergyOrigin))) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyturEnergyOriginSimulationMachineByte(BuySimulationMachineByte.turEnergyOrigin));
+        if (IteratedTimes.gte(15)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyturEnergyOriginSimulationMachineByte(BuySimulationMachineByte.turEnergyOrigin));
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         BuySimulationMachineByte.turEnergyOrigin = BuySimulationMachineByte.turEnergyOrigin.plus(1);
     }
@@ -750,7 +750,7 @@ function PriceofBuyturEnergyOriginSimulationMachineByte(num) {
 
 function BuySimulationDataSimulationMachineByte() {
     if (simulationData.gte(PriceofBuySimulationDataSimulationMachineByte(BuySimulationMachineByte.SimulationData))) {
-        simulationData = simulationData.sub(PriceofBuySimulationDataSimulationMachineByte(BuySimulationMachineByte.SimulationData));
+        if (IteratedTimes.gte(15)) simulationData = simulationData.sub(PriceofBuySimulationDataSimulationMachineByte(BuySimulationMachineByte.SimulationData));
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         BuySimulationMachineByte.SimulationData = BuySimulationMachineByte.SimulationData.plus(1);
     }
@@ -762,19 +762,19 @@ function PriceofBuySimulationDataSimulationMachineByte(num) {
 
 function BuyMaxSimulationMachineByte() {
     for (let i=BuySimulationMachineByte.turEnergy; PriceofBuyturEnergySimulationMachineByte(i).lte(turEnergy); i = i.plus(1)) {
-        turEnergy = turEnergy.sub(PriceofBuyturEnergySimulationMachineByte(i));
+        if (IteratedTimes.gte(15)) turEnergy = turEnergy.sub(PriceofBuyturEnergySimulationMachineByte(i));
         BuySimulationMachineByte.turEnergy = BuySimulationMachineByte.turEnergy.plus(1);
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         if (i.gte(maxLevelup)) break;
     }
     for (let i=BuySimulationMachineByte.turEnergyOrigin; PriceofBuyturEnergyOriginSimulationMachineByte(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyturEnergyOriginSimulationMachineByte(i));
+        if (IteratedTimes.gte(15)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyturEnergyOriginSimulationMachineByte(i));
         BuySimulationMachineByte.turEnergyOrigin = BuySimulationMachineByte.turEnergyOrigin.plus(1);
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         if (i.gte(maxLevelup)) break;
     }
     for (let i=BuySimulationMachineByte.SimulationData; PriceofBuySimulationDataSimulationMachineByte(i).lte(simulationData); i = i.plus(1)) {
-        simulationData = simulationData.sub(PriceofBuySimulationDataSimulationMachineByte(i));
+        if (IteratedTimes.gte(15)) simulationData = simulationData.sub(PriceofBuySimulationDataSimulationMachineByte(i));
         BuySimulationMachineByte.SimulationData = BuySimulationMachineByte.SimulationData.plus(1);
         SimulationMachineBtye = SimulationMachineBtye.plus(1);
         if (i.gte(maxLevelup)) break;
@@ -1199,8 +1199,8 @@ function IterationStrengthenAuto2() {
     }
 }
 function IterationStrengthenProduce3() {
-    if (IterationData.gte(1) && IterationStrengthen.Produce2.if) {
-        IterationData = IterationData.sub(1);
+    if (IterationData.gte(2) && IterationStrengthen.Produce2.if) {
+        IterationData = IterationData.sub(2);
         IterationStrengthen.Produce3.if = true;
     }
 }
@@ -1217,8 +1217,8 @@ function IterationStrengthenAuto3() {
     }
 }
 function IterationStrengthenProduce4() {
-    if (IterationData.gte(1) && IterationStrengthen.Produce3.if) {
-        IterationData = IterationData.sub(1);
+    if (IterationData.gte(3) && IterationStrengthen.Produce3.if) {
+        IterationData = IterationData.sub(3);
         IterationStrengthen.Produce4.if = true;
     }
 }
@@ -1244,7 +1244,7 @@ function BuyfirstIterationRoom() {
     }
 }
 function PriceofBuyfirstIterationRoom(num) {
-    return ((new Decimal(3).pow(num))).floor();
+    return ((ten.pow(num))).floor();
 }
 
 
@@ -1256,7 +1256,7 @@ function BuysecondIterationRoom() {
     }
 }
 function PriceofBuysecondIterationRoom(num) {
-    return (new Decimal(5).mul(new Decimal(5).pow(num))).floor();
+    return (new Decimal(100).mul(new Decimal(100).pow(num.plus))).floor();
 }
 
 
@@ -1268,7 +1268,7 @@ function BuythirdIterationRoom() {
     }
 }
 function PriceofBuythirdIterationRoom(num) {
-    return (ten.mul(ten.pow(num))).floor();
+    return (new Decimal(1e3).mul(new Decimal(1e3).pow(num.plus))).floor();
 }
 
 
@@ -1280,7 +1280,7 @@ function BuyfourthIterationRoom() {
     }
 }
 function PriceofBuyfourthIterationRoom(num) {
-    return (new Decimal(1000).mul(new Decimal(30).pow(num))).floor();
+    return (new Decimal(1e4).mul(new Decimal(1e4).pow(num.plus))).floor();
 }
 
 
@@ -1292,7 +1292,7 @@ function BuyfifthIterationRoom() {
     }
 }
 function PriceofBuyfifthIterationRoom(num) {
-    return new Decimal("1.80e308");
+    return (new Decimal(1e40).mul(new Decimal(1e5).pow(num.plus))).floor();
 }
 
 
@@ -1304,7 +1304,7 @@ function BuysixthIterationRoom() {
     }
 }
 function PriceofBuysixthIterationRoom(num) {
-    return new Decimal("1.80e308");
+    return (new Decimal(1e60).mul(new Decimal(1e10).pow(num.plus))).floor();
 }
 
 
@@ -1316,7 +1316,7 @@ function BuyseventhIterationRoom() {
     }
 }
 function PriceofBuyseventhIterationRoom(num) {
-    return new Decimal("1.80e308");
+    return (new Decimal(1e90).mul(new Decimal(1e15).pow(num.plus))).floor();
 }
 
 
@@ -1328,5 +1328,5 @@ function BuyeighthIterationRoom() {
     }
 }
 function PriceofBuyeighthIterationRoom(num) {
-    return new Decimal("1.80e308");
+    return (new Decimal(1e140).mul(new Decimal(1e20).pow(num.plus))).floor();
 }

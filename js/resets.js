@@ -176,7 +176,7 @@ function SimulationReset() {
         challengefinished.BasicEnergyChallenge5 = 0;
         challengefinished.BasicEnergyChallenge6 = 0;
     }
-    if (IterationStrengthen.Reset2.if && experimentreward.SimulationExperiment5) {
+    if (IterationStrengthen.Reset1.if && experimentreward.SimulationExperiment8) {
         challengefinished.BasicEnergyChallenge1 = 3;
         challengefinished.BasicEnergyChallenge2 = 3;
         challengefinished.BasicEnergyChallenge3 = 3;
@@ -198,8 +198,9 @@ function IterationReset() {
         challengefinished.BasicEnergyChallenge6 = 0;
     }
 
+    setAuto.SimulationCompleteAutoLast = new Decimal(0);
     maxsimulationDatainIteration = new Decimal(0);
-    PowerOnLevel = new Decimal(0);
+    if (IterationStrengthen.Reset4.if) PowerOnLevel = new Decimal(0);
     increamentalSimulationLevel = new Decimal(0);
     simulationData = new Decimal(0);
     simulatedTimes = new Decimal(0);
@@ -295,7 +296,7 @@ function IterationReset() {
         }
     }
 
-    if (!IterationStrengthen.Reset4.if) {
+    if (!IterationStrengthen.Reset2.if) {
         experimentfinished = {
             SimulationExperiment1:0,
             SimulationExperiment2:0,

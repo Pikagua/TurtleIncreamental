@@ -327,6 +327,23 @@
                 <div class="OriginMilestone" id="OriginMilestone10"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑10（<span id="OriginMilestone10progress">未完成</span>）</span>
                 <span id="OriginMilestone10Need">需要2000<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</span><br><br><br>
                 效果：解锁<span class="Origin">本源</span>升级：<span class="Origin">本源</span>增强</div>
+
+                <div class="OriginMilestone" id="OriginMilestone11"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑11（<span id="OriginMilestone11progress">未完成</span>）</span>
+                <span id="OriginMilestone11Need">需要1e4<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</span><br><br><br>
+                效果：层级<span class="Origin">本源</span>的折算延迟2级</div>
+
+                <div class="OriginMilestone" id="OriginMilestone12"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑12（<span id="OriginMilestone12progress">未完成</span>）</span>
+                <span id="OriginMilestone12Need">需要1e6<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</span><br><br><br>
+                效果：降低<span class="Origin">本源</span>速凝的价格的增长率<br>10→8</div>
+
+                <div class="OriginMilestone" id="OriginMilestone13"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑13（<span id="OriginMilestone13progress">未完成</span>）</span>
+                <span id="OriginMilestone13Need">需要1e8<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</span><br><br><br>
+                效果：高速点击的基数+0.2</div>
+
+                <div class="OriginMilestone" id="OriginMilestone14"><span class="OriginMilestoneTitle"><span class="Origin">本源</span>里程碑14（<span id="OriginMilestone14progress">未完成</span>）</span>
+                <span id="OriginMilestone14Need">需要1e10<span class="turEnergy">龟能</span><span class="Origin">本源</span>次数</span><br><br><br>
+                效果：每升一级高效点击，获得的<span class="turEnergy">龟能</span>x1.01<br>
+                当前：x<span id="OriginMilestone14Effect">1</span></div>
             </div>
         </div>
 
@@ -1021,7 +1038,7 @@
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Reset" id="IterationStrengthen-Reset1" onclick="IterationStrengthenReset1()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Reset1">1迭代数据</span><br><br>
-                    效果：完成<span class="simulation">模拟</span>不再重置<span class="BasicEnergy">基本能</span>挑战的进度
+                    效果：默认完成所有<span class="BasicEnergy">基本能</span>挑战
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Auto" id="IterationStrengthen-Auto1" onclick="IterationStrengthenAuto1()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Auto1">1迭代数据</span><br><br>
@@ -1033,31 +1050,31 @@
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Reset" id="IterationStrengthen-Reset2" onclick="IterationStrengthenReset2()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Reset2">1迭代数据</span><br><br>
-                    效果：默认完成所有<span class="BasicEnergy">基本能</span>挑战
+                    效果：<span class="Iteration">迭代</span>不再重置<span class="simulation">模拟</span>实验的进度
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Auto" id="IterationStrengthen-Auto2" onclick="IterationStrengthenAuto2()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Auto2">1迭代数据</span><br><br>
                     效果：解锁增量<span class="simulation">模拟</span>升级，<span class="simulation">模拟室</span>升级和<span class="simulation">模拟机</span>Byte的自动化
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Produce" id="IterationStrengthen-Produce3" onclick="IterationStrengthenProduce3()">
-                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Produce3">1迭代数据</span><br><br>
+                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Produce3">2迭代数据</span><br><br>
                     效果：提升购买获得的<span class="turEnergy">层级</span>强度10%
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Reset" id="IterationStrengthen-Reset3" onclick="IterationStrengthenReset3()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Reset3">1迭代数据</span><br><br>
-                    效果：<span class="simulation">模拟</span>的所有选项卡在一开始就解锁了<br><span class="simulation">模拟机</span>和<span class="important">通</span><span class="BasicEnergy">电</span>不会再被<span class="Iteration">迭代</span>重置
+                    效果：<span class="simulation">模拟机</span>不会再被<span class="Iteration">迭代</span>重置
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Auto" id="IterationStrengthen-Auto3" onclick="IterationStrengthenAuto3()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Auto3">1迭代数据</span><br><br>
                     效果：解锁<span class="BasicEnergy">机械能</span>升级的自动化
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Produce" id="IterationStrengthen-Produce4" onclick="IterationStrengthenProduce4()">
-                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Produce4">1迭代数据</span><br><br>
+                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Produce4">3迭代数据</span><br><br>
                     效果：<span class="simulation">模拟室</span>的效率^1.1
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Reset" id="IterationStrengthen-Reset4" onclick="IterationStrengthenReset4()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Reset4">1迭代数据</span><br><br>
-                    效果：<span class="Iteration">迭代</span>不再重置<span class="simulation">模拟</span>实验的进度
+                    效果：<span class="important">通</span><span class="BasicEnergy">电</span>不会再被<span class="Iteration">迭代</span>重置
                 </button>
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Auto" id="IterationStrengthen-Auto4" onclick="IterationStrengthenAuto4()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Auto4">1迭代数据</span><br><br>
@@ -1166,16 +1183,16 @@
 
                 <div class="IterationMilestone" id="IterationMilestone8"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑8（<span id="IterationMilestone8progress">未完成</span>）</span>
                 需要8<span class="Iteration">迭代</span>次数<br><br><br>
-                效果：根据你解锁<span class="Iteration">迭代</span>里程碑的数量添加更多的<span class="Origin">本源</span>里程碑<br>
-                当前：<span id="IterationMilestone7-effect">0</span>个（当前版本无效）</div>
+                效果：<span class="BasicEnergy">基本能</span>和<span class="simulation">模拟</span>的所有选项卡在一开始就解锁了<br>获得额外一级电解</div>
 
                 <div class="IterationMilestone" id="IterationMilestone9"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑9（<span id="IterationMilestone9progress">未完成</span>）</span>
                 需要9<span class="Iteration">迭代</span>次数<br><br><br>
-                效果：<span class="BasicEnergy">基本能</span>和<span class="simulation">模拟</span>的所有选项卡在一开始就解锁了</div>
+                效果：根据你解锁<span class="Iteration">迭代</span>里程碑的数量添加更多的<span class="Origin">本源</span>里程碑<br>
+                当前：<span id="IterationMilestone7-effect">0</span>个</div>
 
                 <div class="IterationMilestone" id="IterationMilestone10"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑10（<span id="IterationMilestone10progress">未完成</span>）</span>
                 需要10<span class="Iteration">迭代</span>次数<br><br><br>
-                效果：获得额外一级电解</div>
+                效果：购买<span class="turEnergy">龟能</span><span class="Origin">本源</span>升级不再消耗任何东西</div>
 
                 <div class="IterationMilestone" id="IterationMilestone11"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑11（<span id="IterationMilestone11progress">未完成</span>）</span>
                 需要15<span class="Iteration">迭代</span>次数<br><br><br>
@@ -1183,23 +1200,23 @@
 
                 <div class="IterationMilestone" id="IterationMilestone12"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑12（<span id="IterationMilestone12progress">未完成</span>）</span>
                 需要20<span class="Iteration">迭代</span>次数<br><br><br>
-                效果：购买<span class="turEnergy">龟能</span><span class="Origin">本源</span>升级不再消耗任何东西</div>
-
-                <div class="IterationMilestone" id="IterationMilestone13"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑13（<span id="IterationMilestone13progress">未完成</span>）</span>
-                需要25<span class="Iteration">迭代</span>次数<br><br><br>
                 效果：这个里程碑的效果被<span class="important">禁用</span>了</div>
 
+                <div class="IterationMilestone" id="IterationMilestone13"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑13（<span id="IterationMilestone13progress">未完成</span>）</span>
+                需要100<span class="Iteration">迭代</span>次数<br><br><br>
+                效果：<span class="BasicEnergy">基本能</span>的所有升级在一开始就解锁了</div>
+
                 <div class="IterationMilestone" id="IterationMilestone14"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑14（<span id="IterationMilestone14progress">未完成</span>）</span>
-                需要30<span class="Iteration">迭代</span>次数<br><br><br>
+                需要1e3<span class="Iteration">迭代</span>次数<br><br><br>
                 效果：这个里程碑的效果被<span class="important">禁用</span>了</div>
 
                 <div class="IterationMilestone" id="IterationMilestone15"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑15（<span id="IterationMilestone15progress">未完成</span>）</span>
-                需要35<span class="Iteration">迭代</span>次数<br><br><br>
+                需要1e4<span class="Iteration">迭代</span>次数<br><br><br>
                 效果：这个里程碑的效果被<span class="important">禁用</span>了</div>
 
                 <div class="IterationMilestone" id="IterationMilestone16"><span class="IterationMilestoneTitle"><span class="Iteration">迭代</span>里程碑16（<span id="IterationMilestone16progress">未完成</span>）</span>
-                需要40<span class="Iteration">迭代</span>次数<br><br><br>
-                效果：<span class="BasicEnergy">基本能</span>的所有升级在一开始就解锁了</div>
+                需要1e5<span class="Iteration">迭代</span>次数<br><br><br>
+                效果：这个里程碑的效果被<span class="important">禁用</span>了</div>
             </div>
         </div>
     </div>

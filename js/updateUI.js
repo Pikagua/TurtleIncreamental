@@ -1,4 +1,5 @@
 function updateUI() {
+    //console.log(setAuto.SimulationCompleteAutoLast);
     // 结束模拟室等在模拟外不运作的东西
     if (state === "Simulation") {
         clearInterval(SimulationRoomProduceInterval);
@@ -39,10 +40,37 @@ function updateUI() {
 
     if (challengebuffs.clickPower) clickPower = turEnergyLevel;
     else clickPower = new Decimal(1);
+
+
+    // 这段很重要，是龟能的计算公式
+    baseHighspeedclicking = new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking).plus(effectOriginMilestone13);
+    effectHighspeedClicking = baseHighspeedclicking.pow(HighspeedClickingLevel);
+    baseEfficientClick = new Decimal(1 + challengereward.baseofEfficientClick);
+    effectEfficientClick = EfficientClickLevel.mul(baseEfficientClick).plus(1);
+    if (challengereward.EfficientOriginProduce) effectEfficientOriginProduce = effectEfficientClick.mul(effectHighspeedClicking);
+    else effectEfficientOriginProduce = new Decimal(1);
+    // 我这里把buff仅对点击，buff仅对本源生能和buff for both分开写了，然后指数另算
+    buffsForOnlyClick = clickPower.mul(effectEfficientClick).mul(effectturEnergyTier).mul(effectClickOrigin).mul(effectSimulationMachine.βa2);
+    buffsForOnlyOriginProduce = turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).mul(effectEfficientOriginProduce).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4);
+    buffsForBothClickAndOriginProduce = new Decimal(challengereward.turEnergy).mul(effectOriginEnhance.mul(turEnergyOrigin).plus(1)).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4).mul(effectOriginMilestone14);
+    PowersForBoth = new Decimal(challengebuffs.turEnergy2).mul(effect1SimulationExperiment2);
+    ClickTurEnergy = (buffsForOnlyClick.mul(buffsForBothClickAndOriginProduce)).pow(PowersForBoth);
+    AutoClickerTurEnergyPersec = ClickTurEnergy.mul(autoClickers).mul(effectHighspeedClicking);
+    OriginProduceTurEnergyPersec = (buffsForOnlyOriginProduce.mul(buffsForBothClickAndOriginProduce)).pow(PowersForBoth);
+    
+    
     if ((AmassOriginTimes.lt(20) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone || !experimentbuffs.SimulationExperiment5) effectOriginMilestone7 = new Decimal(1);
     else effectOriginMilestone7 = new Decimal(10);
     if ((AmassOriginTimes.lt(100) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) effectOriginMilestone9 = new Decimal(1);
     else effectOriginMilestone9 = new Decimal(10);
+    if (AmassOriginTimes.lt(1e4) && IteratedTimes.gte(9)) effectOriginMilestone11 = new Decimal(0);
+    else effectOriginMilestone11 = new Decimal(2);
+    if (AmassOriginTimes.lt(1e6) && IteratedTimes.gte(10)) effectOriginMilestone12 = new Decimal(10);
+    else effectOriginMilestone12 = new Decimal(8);
+    if (AmassOriginTimes.lt(1e8) && IteratedTimes.gte(15)) effectOriginMilestone13 = new Decimal(0);
+    else effectOriginMilestone13 = new Decimal(0.2);
+    if (AmassOriginTimes.lt(1e10) && IteratedTimes.gte(20)) effectOriginMilestone14 = new Decimal(1);
+    else effectOriginMilestone14 = new Decimal(1.01).pow(EfficientClickLevel);
     if (challengebuffs.disabledOriginLevelup || challengebuffs.disabledOriginMilestone) effectClickOrigin = ((ten.pow(ClickOriginLevel)).pow(effectSimulationMachine.βa1));
     else effectClickOrigin = new Decimal(1);
     if (challengebuffs.disabledOriginLevelup) effectTierOrigin = ((new Decimal(0.03).plus(effectSimulationMachine.βb2)).mul(TierOriginLevel));
@@ -73,8 +101,9 @@ function updateUI() {
     effectReactionCatalysis = (new Decimal(1.5).plus(challengereward.BasicEnergyChallenge2)).pow(ReactionCatalysisLevel);
     effectPrimaryBattery = new Decimal(0.0001).mul(PrimaryBatteryLevel);
     effectBoostVoltage = new Decimal(1).mul(BoostVoltageLevel).mul(challengereward.BasicEnergyChallenge5);
-    effectElectrolysis = new Decimal(0.01).mul(ElectrolysisLevel);
-    effectIonization = new Decimal(2).pow(IonizationLevel);
+    if (IteratedTimes.gte(8)) effectElectrolysis = new Decimal(0.01).mul(ElectrolysisLevel.plus(1));
+    else effectElectrolysis = new Decimal(0.01).mul(ElectrolysisLevel);
+    effectIonization = new Decimal(2).pow(IonizationLevel)
     effectMotor = new Decimal(1e-6).mul(MotorLevel);
     effectKineticEnergy = new Decimal(4).mul(KineticEnergyLevel);
     effectElasticPotentialEnergy = new Decimal(10).mul(ElasticPotentialEnergyLevel);
@@ -168,11 +197,11 @@ function updateUI() {
     levelofAutoClicker.textContent = formatNumber(autoClickers);
     effectofAutoClicker.textContent = formatNumber(autoClickers);
     levelofEfficientClick.textContent = formatNumber(EfficientClickLevel);
-    effectofEfficientClick.textContent = formatNumber(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1));
-    baseofEfficientClick.textContent = formatNumber(new Decimal(challengereward.baseofEfficientClick).plus(1));
+    effectofEfficientClick.textContent = formatNumber(effectEfficientClick);
+    baseofEfficientClick.textContent = formatNumber(baseEfficientClick);
     levelofHighspeedClicking.textContent = formatNumber(HighspeedClickingLevel);
-    effectofHighspeedClicking.textContent = formatNumber(((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel));
-    baseofHighspeedclicking.textContent = formatNumber(new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking));
+    effectofHighspeedClicking.textContent = formatNumber(effectHighspeedClicking);
+    baseofHighspeedclicking.textContent = formatNumber(baseHighspeedclicking);
     if (experimentbuffs.SimulationExperiment8 && !challengereward.BasicEnergyChallenge3) levelofturEnergyTier.textContent = formatNumber(turEnergyTier);
     else levelofturEnergyTier.textContent = formatNumber(turEnergyTier) + "+" + formatNumber(bounceTier);
     if (challengebuffs.turEnergyTier && challengebuffs.disabledturEnergyLevelup) effectofturEnergyTier.textContent = formatNumber(effectturEnergyTier);
@@ -229,10 +258,10 @@ function updateUI() {
     effectofPrimaryBattery.textContent = formatNumber(effectPrimaryBattery);
     levelofBoostVoltage.textContent = formatNumber(BoostVoltageLevel);
     effectofBoostVoltage.textContent = formatNumber(effectBoostVoltage);
-    levelofElectrolysis.textContent = formatNumber(ElectrolysisLevel);
+    if (IteratedTimes.gte(8)) levelofElectrolysis.textContent = formatNumber(ElectrolysisLevel) + "+1";
+    else levelofElectrolysis.textContent = formatNumber(ElectrolysisLevel);
     effectofElectrolysis.textContent = formatNumber(effectElectrolysis);
     levelofIonization.textContent = formatNumber(IonizationLevel);
-    effectofIonization.textContent = formatNumber(effectIonization);
     levelofMotor.textContent = formatNumber(MotorLevel);
     effectofMotor.textContent = formatNumber(effectMotor);
     levelofPowerOn.textContent = formatNumber(PowerOnLevel);
@@ -754,17 +783,17 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     setTapItem(2, space === "inSimulation" && page === "turEnergy" && (challengereward.turEnergyOrigin || AmassOriginTimes.gt(0) || (SimulationUpgrades.turEnergyOrigin3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) || IteratedTimes.gt(0)), turEnergyOrigintap);
     setTapItem(3, space === "inSimulation" && page === "turEnergy" && (AmassOriginTimes.gte(2) || IteratedTimes.gt(0)), turEnergyOriginMilestonetap);
     setTapItem(4, space === "inSimulation" && page === "BasicEnergy", EnergyMachinetap);
-    setTapItem(5, space === "inSimulation" && page === "BasicEnergy" && (experimentreward.SimulationExperiment8 || IteratedTimes.gte(9)), BasicEnergyChallengetap);
+    setTapItem(5, space === "inSimulation" && page === "BasicEnergy" && (experimentreward.SimulationExperiment8 || IteratedTimes.gte(8)), BasicEnergyChallengetap);
     setTapItem(6, space === "inSimulation" && page === "BasicEnergy", SolarEnergytap);
-    setTapItem(7, space === "inSimulation" && page === "BasicEnergy" && (PhotosynthesisLevel.gt(0) || IteratedTimes.gte(9)), ChemicalEnergytap);
-    setTapItem(8, space === "inSimulation" && page === "BasicEnergy" && (PrimaryBatteryLevel.gt(0) || IteratedTimes.gte(9)), ElectricEnergytap);
-    setTapItem(9, space === "inSimulation" && page === "BasicEnergy" && (MotorLevel.gt(0) || IteratedTimes.gte(9)), MechanicalEnergytap);
-    setTapItem(10, space === "inSimulation" && page === "BasicEnergy" && IteratedTimes.gte(9), InternalEnergytap);
+    setTapItem(7, space === "inSimulation" && page === "BasicEnergy" && (PhotosynthesisLevel.gt(0) || IteratedTimes.gte(8)), ChemicalEnergytap);
+    setTapItem(8, space === "inSimulation" && page === "BasicEnergy" && (PrimaryBatteryLevel.gt(0) || IteratedTimes.gte(8)), ElectricEnergytap);
+    setTapItem(9, space === "inSimulation" && page === "BasicEnergy" && (MotorLevel.gt(0) || IteratedTimes.gte(8)), MechanicalEnergytap);
+    setTapItem(10, space === "inSimulation" && page === "BasicEnergy" && IteratedTimes.gte(8), InternalEnergytap);
     setTapItem(11, space === "Simulation" && page === "Simulation", SimulationUpgradestap);
-    setTapItem(12, space === "Simulation" && page === "Simulation" && (((SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) || experimentfinished.SimulationExperiment1 != 0) || IterationStrengthen.Reset3.if || IteratedTimes.gte(9)), SimulationExperimenttap);
-    setTapItem(13, space === "Simulation" && page === "Simulation" && (experimentreward.SimulationExperiment1 || IterationStrengthen.Reset3.if || IteratedTimes.gte(9)), SimulationMachinetap);
-    setTapItem(14, space === "Simulation" && page === "Simulation" && (SimulationMachine.λb1 || IterationStrengthen.Reset3.if || IteratedTimes.gte(9)), SimulationRoomtap);
-    setTapItem(15, space === "Simulation" && page === "Simulation" && ((experimentreward.SimulationExperiment2 || experimentreward.SimulationExperiment3) || IterationStrengthen.Reset3.if || IteratedTimes.gte(9)), SimulationAutotap);
+    setTapItem(12, space === "Simulation" && page === "Simulation" && (((SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) || experimentfinished.SimulationExperiment1 != 0) || IteratedTimes.gte(9)), SimulationExperimenttap);
+    setTapItem(13, space === "Simulation" && page === "Simulation" && (experimentreward.SimulationExperiment1 || IteratedTimes.gte(8)), SimulationMachinetap);
+    setTapItem(14, space === "Simulation" && page === "Simulation" && (SimulationMachine.λb1 || IteratedTimes.gte(8)), SimulationRoomtap);
+    setTapItem(15, space === "Simulation" && page === "Simulation" && ((experimentreward.SimulationExperiment2 || experimentreward.SimulationExperiment3) || IteratedTimes.gte(8)), SimulationAutotap);
     setTapItem(16, space === "Simulation" && page === "Iteration", IterationUpgradestap);
     setTapItem(17, space === "Simulation" && page === "Iteration" && IteratedTimes.gte(4), IterationStrengthentap);
     setTapItem(18, space === "Simulation" && page === "Iteration", IterationRoomtap);
@@ -1587,6 +1616,11 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
         OriginMilestone(100,OriginMilestone9,OriginMilestone9progress,true);
         OriginMilestone(2000,OriginMilestone10,OriginMilestone10progress,true);
     }
+    OriginMilestone(1e4,OriginMilestone11,OriginMilestone11progress,true);
+    OriginMilestone(1e6,OriginMilestone12,OriginMilestone12progress,true);
+    OriginMilestone(1e8,OriginMilestone13,OriginMilestone13progress,true);
+    OriginMilestone(1e10,OriginMilestone14,OriginMilestone14progress,true);
+    OriginMilestone14Effect.textContent = formatNumber(new Decimal(1.01).pow(EfficientClickLevel));
 
     function IterationMilestone(goal, Milestone, Milestoneprogress, extra) {
         if (IteratedTimes.lt(goal)) {
@@ -1612,10 +1646,10 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     IterationMilestone(10,IterationMilestone10,IterationMilestone10progress,true);
     IterationMilestone(15,IterationMilestone11,IterationMilestone11progress,true);
     IterationMilestone(20,IterationMilestone12,IterationMilestone12progress,true);
-    IterationMilestone(25,IterationMilestone13,IterationMilestone13progress,true);
-    IterationMilestone(30,IterationMilestone14,IterationMilestone14progress,true);
-    IterationMilestone(35,IterationMilestone15,IterationMilestone15progress,true);
-    IterationMilestone(40,IterationMilestone16,IterationMilestone16progress,true);
+    IterationMilestone(100,IterationMilestone13,IterationMilestone13progress,true);
+    IterationMilestone(1e3,IterationMilestone14,IterationMilestone14progress,true);
+    IterationMilestone(1e4,IterationMilestone15,IterationMilestone15progress,true);
+    IterationMilestone(1e5,IterationMilestone16,IterationMilestone16progress,true);
 
     function disablebtn(condition, theBtn) {
         if (condition) theBtn.disabled = false;
@@ -1734,19 +1768,19 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     UnlockUpgrades(true, OriginCatalysisEl);
     UnlockUpgrades(true, ClickCatalysisEl);
     UnlockUpgrades(experimentreward.SimulationExperiment6, PhotosynthesisEl);
-    UnlockUpgrades(PhotosynthesisLevel.gt(0), SimulationCatalysisEl);
-    UnlockUpgrades(PhotosynthesisLevel.gt(0), TierCatalysisEl);
-    UnlockUpgrades(PhotosynthesisLevel.gt(0), ReactionCatalysisEl);
-    UnlockUpgrades(PhotosynthesisLevel.gt(0), PrimaryBatteryEl);
-    UnlockUpgrades(PrimaryBatteryLevel.gt(0), BoostVoltageEl);
-    UnlockUpgrades(PrimaryBatteryLevel.gt(0), ElectrolysisEl);
-    UnlockUpgrades(PrimaryBatteryLevel.gt(0), IonizationEl);
-    UnlockUpgrades(PrimaryBatteryLevel.gt(0), MotorEl);
-    UnlockUpgrades(PrimaryBatteryLevel.gt(0), PowerOnEl);
-    UnlockUpgrades(MotorLevel.gt(0), KineticEnergyEl);
-    UnlockUpgrades(MotorLevel.gt(0), ElasticPotentialEnergyEl);
-    UnlockUpgrades(MotorLevel.gt(0), GravitationalPotentialEnergyEl);
-    UnlockUpgrades(MotorLevel.gt(0) && false, FrictionEl);
+    UnlockUpgrades(true, SimulationCatalysisEl);
+    UnlockUpgrades(true, TierCatalysisEl);
+    UnlockUpgrades(true, ReactionCatalysisEl);
+    UnlockUpgrades(true, PrimaryBatteryEl);
+    UnlockUpgrades(true, BoostVoltageEl);
+    UnlockUpgrades(true, ElectrolysisEl);
+    UnlockUpgrades(true, IonizationEl);
+    UnlockUpgrades(true, MotorEl);
+    UnlockUpgrades(true, PowerOnEl);
+    UnlockUpgrades(true, KineticEnergyEl);
+    UnlockUpgrades(true, ElasticPotentialEnergyEl);
+    UnlockUpgrades(true, GravitationalPotentialEnergyEl);
+    UnlockUpgrades(false, FrictionEl);
     UnlockUpgrades(true, increamentalIterationEl);
     UnlockUpgrades(true, OriginIterationEl);
     UnlockUpgrades(true, EnergyExpansionEl);
@@ -1794,16 +1828,16 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     UnlockUpgrade(IterationStrengthen.Auto2.if, increamentalSimulationAuto);
     UnlockUpgrade(IterationStrengthen.Auto2.if, SimulationRoomAuto);
     UnlockUpgrade(IterationStrengthen.Auto2.if, SimulationByteAuto);
-    UnlockUpgrade(SimulationMachine.λa1, SimulationExperiment4);
+    UnlockUpgrade(SimulationMachine.λa1 || experimentfinished.SimulationExperiment4, SimulationExperiment4);
     UnlockUpgrade(experimentreward.SimulationExperiment4, SimulationMachineλc);
-    UnlockUpgrade(SimulationMachine.λa2, SimulationExperiment5);
-    UnlockUpgrade(SimulationMachine.λa3, SimulationExperiment6);
-    UnlockUpgrade(SimulationMachine.λa4, SimulationExperiment7);
-    UnlockUpgrade(SimulationMachine.λa4, SimulationExperiment8);
-    UnlockUpgrade(SimulationMachine.λa5, SimulationExperiment9);
-    UnlockUpgrade(SimulationMachine.λa5 && false, SimulationExperiment10);
-    UnlockUpgrade(SimulationMachine.λc1, SimulationMachineβ);
-    UnlockUpgrade(SimulationMachine.λc2, SimulationMachineγ);
+    UnlockUpgrade(SimulationMachine.λa2 || experimentfinished.SimulationExperiment5, SimulationExperiment5);
+    UnlockUpgrade(SimulationMachine.λa3 || experimentfinished.SimulationExperiment6, SimulationExperiment6);
+    UnlockUpgrade(SimulationMachine.λa4 || experimentfinished.SimulationExperiment7, SimulationExperiment7);
+    UnlockUpgrade(SimulationMachine.λa4 || experimentfinished.SimulationExperiment8, SimulationExperiment8);
+    UnlockUpgrade(SimulationMachine.λa5 || experimentfinished.SimulationExperiment9, SimulationExperiment9);
+    UnlockUpgrade((SimulationMachine.λa5 || experimentfinished.SimulationExperiment10) && false, SimulationExperiment10);
+    UnlockUpgrade(SimulationMachine.λc1 || IterationStrengthen.Reset3.if, SimulationMachineβ);
+    UnlockUpgrade(SimulationMachine.λc2 || IterationStrengthen.Reset3.if, SimulationMachineγ);
     UnlockUpgrade(state === "inSimulation" && (experimentreward.SimulationExperiment5 || IteratedTimes.gt(0)), completeSimulation2);
     UnlockUpgrade((SimulationUpgrades.turEnergy4.if && SimulationUpgrades.turEnergyOrigin4.if && SimulationUpgrades.else4.if) && IteratedTimes.gte(1), increamentalSimulationBuyMaxBtn);
     UnlockUpgrade(IteratedTimes.gte(1), buyMaxSimulationMachineBytebtn);
@@ -1840,6 +1874,15 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     UnlockUpgrade(IterationStrengthen.Auto4.if, KineticEnergyBuyMaxbtn);
     UnlockUpgrade(IterationStrengthen.Auto4.if, ElasticPotentialEnergyBuyMaxbtn);
     UnlockUpgrade(IterationStrengthen.Auto4.if, GravitationalPotentialEnergyBuyMaxbtn);
+    UnlockUpgrade(IteratedTimes.gte(9), OriginMilestone11);
+    UnlockUpgrade(IteratedTimes.gte(10), OriginMilestone12);
+    UnlockUpgrade(IteratedTimes.gte(15), OriginMilestone13);
+    UnlockUpgrade(IteratedTimes.gte(20), OriginMilestone14);
+    if (IteratedTimes.gte(9)) IterationMilestone7effect.textContent = "1";
+    if (IteratedTimes.gte(10)) IterationMilestone7effect.textContent = "2";
+    if (IteratedTimes.gte(15)) IterationMilestone7effect.textContent = "3";
+    if (IteratedTimes.gte(20)) IterationMilestone7effect.textContent = "4";
+    if (IteratedTimes.lt(9)) IterationMilestone7effect.textContent = "0";
 
     SimulationUpgradesturEnergy1btn.disabled = SimulationUpgrades.turEnergy1.if;
     SimulationUpgradesturEnergy2btn.disabled = SimulationUpgrades.turEnergy2.if;
