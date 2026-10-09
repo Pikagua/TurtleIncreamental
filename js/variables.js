@@ -32,11 +32,23 @@ let setAuto = {
     increamentalSimulationAuto:false,
     SimulationRoomAuto:false,
     SimulationByteAuto:false,
+    IterationCompleteAuto:new Decimal(0),
+    IterationCompleteAutoAmount:new Decimal(0),
+    IterationCompleteAutoTime:new Decimal(0),
+    IterationCompleteAutoMutiple:new Decimal(0),
+    IterationCompleteAutoLast:new Decimal(0),
 }
 let timerAdding = null;
 let timerBasicEnergyChangeAutoTime = new Decimal(0);
 let timerSimulationCompleteAutoTime = new Decimal(0);
+let timerIterationCompleteAutoTime = new Decimal(0);
 let timerSimulation = new Decimal(0);
+let timerIteration = new Decimal(0);
+let IterationDataPermin = new Decimal(0);
+let maxIterationDataPermin = new Decimal(0);
+let maxIterationDataPerminPoint = new Decimal(0);
+let maxIterationDataPerminLast = new Decimal(0);
+let maxIterationDataPerminPointLast = new Decimal(0);
 let turEnergy = new Decimal(0);
 let effectEfficientOriginProduce = new Decimal(1);
 let buffsForOnlyClick = new Decimal(1);
@@ -456,5 +468,9 @@ let IterationStrengthen = {
     Auto2:{if:false},
     Auto3:{if:false},
     Auto4:{if:false},
+
+    Extra1:{if:false},
+    Extra2:{if:false},
+    Extra3:{if:false},
 };
 let gameData = { };

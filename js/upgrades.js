@@ -1235,6 +1235,27 @@ function IterationStrengthenAuto4() {
     }
 }
 
+function IterationStrengthenExtra1() {
+    if (IterationData.gte(5) && IterationStrengthen.Produce4.if && IterationStrengthen.Reset4.if && IterationStrengthen.Auto4.if) {
+        IterationData = IterationData.sub(5);
+        IterationStrengthen.Extra1.if = true;
+    }
+}
+
+function IterationStrengthenExtra2() {
+    if (IterationData.gte(10) && IterationStrengthen.Extra1.if) {
+        IterationData = IterationData.sub(10);
+        IterationStrengthen.Extra2.if = true;
+    }
+}
+
+function IterationStrengthenExtra3() {
+    if (IterationData.gte(100) && IterationStrengthen.Extra2.if) {
+        IterationData = IterationData.sub(100);
+        IterationStrengthen.Extra3.if = true;
+    }
+}
+
 
 function BuyfirstIterationRoom() {
     if (IterationData.gte(PriceofBuyfirstIterationRoom(IterationRoomLevel.Room1))) {

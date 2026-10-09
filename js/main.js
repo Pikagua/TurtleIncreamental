@@ -197,3 +197,4 @@ if (Iterated.eq(1) && IteratedTimes.eq(0)) {
 }
 updateBasicEnergyChangeAuto();
 updateSimulationCompleteAuto();
+updateIterationCompleteAuto();

@@ -167,3 +167,43 @@ function updateSimulationCompleteAuto() {
         SimulationCompleteAutoInput.innerHTML = `<input type="text" id="SimulationCompleteAutoInputNum" placeholder="请切换模式以启用此输入框" onchange="saveSimulationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
     }
 }
+
+
+function saveIterationCompleteAuto() {
+    if (setAuto.IterationCompleteAuto.eq(1)) {
+        setAuto.IterationCompleteAutoAmount = new Decimal(document.getElementById('IterationCompleteAutoInputNum').value);
+    }
+    if (setAuto.IterationCompleteAuto.eq(2)) {
+        setAuto.IterationCompleteAutoTime = new Decimal(document.getElementById('IterationCompleteAutoInputNum').value);
+    }
+    if (setAuto.IterationCompleteAuto.eq(3)) {
+        setAuto.IterationCompleteAutoMutiple = new Decimal(document.getElementById('IterationCompleteAutoInputNum').value);
+    }
+} 
+
+function updateIterationCompleteAuto() {
+    if (setAuto.IterationCompleteAuto.eq(1)) {
+        if (formatNumber(setAuto.IterationCompleteAutoAmount) == 0) {
+            IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.IterationCompleteAutoAmount)}" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.IterationCompleteAuto.eq(2)) {
+        if (formatNumber(setAuto.IterationCompleteAutoTime) == 0) {
+            IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.IterationCompleteAutoTime)}" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.IterationCompleteAuto.eq(3)) {
+        if (formatNumber(setAuto.IterationCompleteAutoMutiple) == 0) {
+            IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+            return 0;
+        }
+        IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="${formatNumber(setAuto.IterationCompleteAutoMutiple)}" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+    if (setAuto.IterationCompleteAuto.eq(0)) {
+        IterationCompleteAutoInput.innerHTML = `<input type="text" id="IterationCompleteAutoInputNum" placeholder="请切换模式以启用此输入框" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span>`;
+    }
+}

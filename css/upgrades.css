@@ -394,3 +394,15 @@
 #IterationStrengthen-Produce4 {top:150%;}
 #IterationStrengthen-Reset4 {top:150%;}
 #IterationStrengthen-Auto4 {top:150%;}
+
+.IterationStrengthen-Extra {
+    font-size: 16px;
+    position: absolute;
+    width: 650px;
+    height: 150px;
+    transform: translateX(-50%);
+}
+.IterationStrengthen-Extra {left: 50%;}
+#IterationStrengthen-Extra1 {top: 195%;}
+#IterationStrengthen-Extra2 {top: 240%;}
+#IterationStrengthen-Extra3 {top: 285%;}

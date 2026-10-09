@@ -82,6 +82,12 @@ function setSimulationByteAuto() {
     if (setAuto.SimulationByteAuto) setAuto.SimulationByteAuto = false;
     else setAuto.SimulationByteAuto = true;
 }
+function setIterationCompleteAuto() {
+    if (setAuto.IterationCompleteAuto.eq(0)) {setAuto.IterationCompleteAuto = new Decimal(1); updateIterationCompleteAuto(); return 0;};
+    if (setAuto.IterationCompleteAuto.eq(1)) {setAuto.IterationCompleteAuto = new Decimal(2); updateIterationCompleteAuto(); return 0;};
+    if (setAuto.IterationCompleteAuto.eq(2)) {setAuto.IterationCompleteAuto = new Decimal(3); updateIterationCompleteAuto(); return 0;};
+    if (setAuto.IterationCompleteAuto.eq(3)) {setAuto.IterationCompleteAuto = new Decimal(0); updateIterationCompleteAuto(); return 0;};
+}
 
 function restartAutoClicker() {
     // 清除旧的定时器
@@ -259,6 +265,22 @@ function restartAutoBuy() {
                     BuySimulationDataSimulationMachineByte();
                 }
             }
+            if (IterationStrengthen.Extra2.if) {
+                if (setAuto.IterationCompleteAuto.eq(1)) {
+                    if (IterationDataCal().gte(setAuto.IterationCompleteAutoAmount) && IterationDataCal().gt(0)) {
+                        completeIteration();
+                    }
+                } else if (setAuto.IterationCompleteAuto.eq(2)) {
+                    if (timerIterationCompleteAutoTime.gte(setAuto.IterationCompleteAutoTime) && IterationDataCal().gt(0)) {
+                        timerIterationCompleteAutoTime = new Decimal(0);
+                        completeIteration();
+                    }
+                } else if (setAuto.IterationCompleteAuto.eq(3)) {
+                    if (IterationDataCal().gte(setAuto.IterationCompleteAutoLast.mul(setAuto.IterationCompleteAutoMutiple)) && IterationDataCal().gt(0)) {
+                        completeIteration();
+                    }
+                }
+            }
         }
     }, 16);
 }
@@ -292,7 +314,9 @@ function restartTimer() {
             }
         }
         if (state === "inSimulation") timerSimulation = timerSimulation.plus(0.05);
+        timerIteration = timerIteration.plus(0.05);
         timerBasicEnergyChangeAutoTime = timerBasicEnergyChangeAutoTime.plus(0.05);
         timerSimulationCompleteAutoTime = timerSimulationCompleteAutoTime.plus(0.05);
+        timerIterationCompleteAutoTime = timerIterationCompleteAutoTime.plus(0.05);
     }, 50);
 }

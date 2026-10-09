@@ -3,8 +3,15 @@ function saveGame() {
     gameData.state = state;
     gameData.setAuto = setAuto;
     gameData.timerSimulation = timerSimulation.toString();
+    gameData.timerIteration = timerIteration.toString();
     gameData.timerBasicEnergyChangeAutoTime = timerBasicEnergyChangeAutoTime.toString();
     gameData.timerSimulationCompleteAutoTime = timerSimulationCompleteAutoTime.toString();
+    gameData.timerIterationCompleteAutoTime = timerIterationCompleteAutoTime.toString();
+    gameData.IterationDataPermin = IterationDataPermin.toString();
+    gameData.maxIterationDataPermin = maxIterationDataPermin.toString();
+    gameData.maxIterationDataPerminPoint = maxIterationDataPerminPoint.toString();
+    gameData.maxIterationDataPerminLast = maxIterationDataPerminLast.toString();
+    gameData.maxIterationDataPerminPointLast = maxIterationDataPerminPointLast.toString();
     gameData.turEnergy = turEnergy.toString();
     gameData.maxturEnergyinsimulation = maxturEnergyinsimulation.toString();
     gameData.maxsimulationDatainIteration = maxsimulationDatainIteration.toString();
@@ -121,11 +128,23 @@ function defualtSet() {
         increamentalSimulationAuto:false,
         SimulationRoomAuto:false,
         SimulationByteAuto:false,
+        IterationCompleteAuto:new Decimal(0),
+        IterationCompleteAutoAmount:new Decimal(0),
+        IterationCompleteAutoTime:new Decimal(0),
+        IterationCompleteAutoMutiple:new Decimal(0),
+        IterationCompleteAutoLast:new Decimal(0),
     }
     timerAdding = null;
     timerSimulation = new Decimal(0);
+    timerIteration = new Decimal(0);
     timerBasicEnergyChangeAutoTime = new Decimal(0);
     timerSimulationCompleteAutoTime = new Decimal(0);
+    timerIterationCompleteAutoTime = new Decimal(0);
+    IterationDataPermin = new Decimal(0);
+    maxIterationDataPermin = new Decimal(0);
+    maxIterationDataPerminPoint = new Decimal(0);
+    maxIterationDataPerminLast = new Decimal(0);
+    maxIterationDataPerminPointLast = new Decimal(0);
     turEnergy = new Decimal(0);
     maxturEnergyinsimulation = new Decimal(0);
     maxsimulationDatainIteration = new Decimal(0);
@@ -377,6 +396,10 @@ function defualtSet() {
         Auto2:{if:false},
         Auto3:{if:false},
         Auto4:{if:false},
+
+        Extra1:{if:false},
+        Extra2:{if:false},
+        Extra3:{if:false},
     };
     challengefinished = {
         turEnergyTierChallenge1:0,
@@ -440,9 +463,21 @@ function loadGame() {
         setAuto.increamentalSimulationAuto = Data.setAuto.increamentalSimulationAuto ?? false;
         setAuto.SimulationRoomAuto = Data.setAuto.SimulationRoomAuto ?? false;
         setAuto.SimulationByteAuto = Data.setAuto.SimulationByteAuto ?? false;
+        setAuto.IterationCompleteAuto = new Decimal(Data.setAuto.IterationCompleteAuto) ?? new Decimal(0);
+        setAuto.IterationCompleteAutoAmount = new Decimal(Data.setAuto.IterationCompleteAutoAmount) ?? new Decimal(0);
+        setAuto.IterationCompleteAutoTime = new Decimal(Data.setAuto.IterationCompleteAutoTime) ?? new Decimal(0);
+        setAuto.IterationCompleteAutoMutiple = new Decimal(Data.setAuto.IterationCompleteAutoMutiple) ?? new Decimal(0);
+        setAuto.IterationCompleteAutoLast = new Decimal(Data.setAuto.IterationCompleteAutoLast) ?? new Decimal(0);
         timerSimulation = new Decimal(Data.timerSimulation) ?? new Decimal(0);
+        timerIteration = new Decimal(Data.timerIteration) ?? new Decimal(0);
         timerBasicEnergyChangeAutoTime = new Decimal(Data.timerBasicEnergyChangeAutoTime) ?? new Decimal(timerBasicEnergyChangeAutoTime);
         timerSimulationCompleteAutoTime = new Decimal(Data.timerSimulationCompleteAutoTime) ?? new Decimal(timerSimulationCompleteAutoTime);
+        timerIterationCompleteAutoTime = new Decimal(Data.timerIterationCompleteAutoTime) ?? new Decimal(timerIterationCompleteAutoTime);
+        IterationDataPermin = new Decimal(Data.IterationDataPermin) ?? new Decimal(0);
+        maxIterationDataPermin = new Decimal(Data.maxIterationDataPermin) ?? new Decimal(0);
+        maxIterationDataPerminPoint = new Decimal(Data.maxIterationDataPerminPoint) ?? new Decimal(0);
+        maxIterationDataPerminLast = new Decimal(Data.maxIterationDataPerminLast) ?? new Decimal(0);
+        maxIterationDataPerminPointLast = new Decimal(Data.maxIterationDataPerminPointLast) ?? new Decimal(0);
         turEnergy = new Decimal(Data.turEnergy) ?? new Decimal(0);
         maxturEnergyinsimulation = new Decimal(Data.maxturEnergyinsimulation) ?? new Decimal(0);
         maxsimulationDatainIteration = new Decimal(Data.maxsimulationDatainIteration) ?? new Decimal(0);
@@ -670,6 +705,13 @@ function loadGame() {
         Data.IterationStrengthen.Auto4 = Data.IterationStrengthen.Auto4 ?? {};
         IterationStrengthen.Auto4.if = Data.IterationStrengthen.Auto4.if ?? false;
 
+        Data.IterationStrengthen.Extra1 = Data.IterationStrengthen.Extra1 ?? {};
+        IterationStrengthen.Extra1.if = Data.IterationStrengthen.Extra1.if ?? false;
+        Data.IterationStrengthen.Extra2 = Data.IterationStrengthen.Extra2 ?? {};
+        IterationStrengthen.Extra2.if = Data.IterationStrengthen.Extra2.if ?? false;
+        Data.IterationStrengthen.Extra3 = Data.IterationStrengthen.Extra3 ?? {};
+        IterationStrengthen.Extra3.if = Data.IterationStrengthen.Extra3.if ?? false;
+
         Data.challengefinished = Data.challengefinished ?? {};
         challengefinished.turEnergyTierChallenge1 = Data.challengefinished.turEnergyTierChallenge1 ?? 0;
         challengefinished.turEnergyTierChallenge2 = Data.challengefinished.turEnergyTierChallenge2 ?? 0;
@@ -778,6 +820,9 @@ document.addEventListener('keydown', function(event) {
                 restartTimer();
                 restartAutoBuy();
                 restartBasicEnergyProduce();
+                updateBasicEnergyChangeAuto();
+                updateSimulationCompleteAuto();
+                updateIterationCompleteAuto();
                 alert("存档导入成功");
             }
             

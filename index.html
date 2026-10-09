@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <h1>🐢 乌龟增量 v0.0.5.1 made by 皮卡龟</h1>
+    <h1>🐢 乌龟增量 v0.0.5.3 made by 皮卡龟</h1>
     <div class="counter" id="turEnergy-count-box">
             你拥有<span class="turEnergy">0</span>点<span class="turEnergy">龟能</span>
     </div>
@@ -119,7 +119,7 @@
                     每点击获得<span class="turEnergy">龟能</span>的基数为<span id="clickPower">1</span>
                 </div>
 
-                <div class="effectdisplay" id="disaplay-turEnergy-persec">text</div>
+                <div class="effectdisplay" id="display-turEnergy-persec">text</div>
 
                 <div class="Locked title-of-leveluper autoClicker">自动点击器</div>
                 <div class="Locked level-of-leveluper autoClicker">等级：<span id="level-of-autoClicker">0</span></div>
@@ -1003,6 +1003,12 @@
                     自动购买<span class="simulation">模拟机</span>Byte：<br><br>
                     <span id="state-SimulationByteAuto">禁用</span>
                 </button>
+                <button class="btn-simulation" id="IterationCompleteAuto" onclick="setIterationCompleteAuto()">
+                    自动完成<span class="Iteration">迭代</span>：<br>
+                    <span id="IterationCompleteAutoInput"><input type="text" id="IterationCompleteAutoInputNum" placeholder="请输入数字，或保持为0" onchange="saveIterationCompleteAuto()" onclick="event.stopPropagation()"></span><br>
+                    <span id="state-IterationCompleteAuto">禁用</span>
+                    <span id="bugkiller-IterationCompleteAuto" style="font-size: 14px;"></span>
+                </button>
             </div>
         </div>
 
@@ -1013,6 +1019,7 @@
                     完成<span class="Iteration">迭代</span><br><br>
                     可获得：<span class="Iteration" id="CompleteIteration-amount">0</span><span class="Iteration">迭代数据</span>
                 </button>
+                <div class="effectdisplay" id="display-IterationData-Permin">text</div>
 
                 <div class="Locked title-of-leveluper increamentalIteration">增量<span class="Iteration">迭代</span></div>
                 <div class="Locked level-of-leveluper increamentalIteration">等级：<span id="level-of-increamentalIteration">0</span></div>
@@ -1079,6 +1086,19 @@
                 <button class="btn-Iteration-once IterationStrengthen IterationStrengthen-Auto" id="IterationStrengthen-Auto4" onclick="IterationStrengthenAuto4()">
                     需要：<span class="Iteration" id="price-of-IterationStrengthen-Auto4">1迭代数据</span><br><br>
                     效果：允许你购买最大数量的<span class="turEnergy">龟能</span><span class="Origin">本源</span>升级，<span class="BasicEnergy">能源机器</span>升级和<span class="BasicEnergy">基本能</span>升级
+                </button>
+                <button class="btn-Iteration-once IterationStrengthen-Extra" id="IterationStrengthen-Extra1" onclick="IterationStrengthenExtra1()">
+                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Extra1">5迭代数据</span><br><br>
+                    效果：打破<span class="simulation">模拟</span>数据的上限
+                </button>
+                <button class="btn-Iteration-once IterationStrengthen-Extra" id="IterationStrengthen-Extra2" onclick="IterationStrengthenExtra2()">
+                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Extra2">10迭代数据</span><br><br>
+                    效果：解锁完成<span class="Iteration">迭代</span>的自动化，移除完成<span class="Iteration">迭代</span>的确认和黑屏特效<br>
+                    并且在完成<span class="Iteration">迭代</span>的按钮旁会计算获得<span class="Iteration">迭代</span>数据的速度，同时记录峰值
+                </button>
+                <button class="btn-Iteration-once IterationStrengthen-Extra" id="IterationStrengthen-Extra3" onclick="IterationStrengthenExtra3()">
+                    需要：<span class="Iteration" id="price-of-IterationStrengthen-Extra3">100迭代数据</span><br><br>
+                    效果：解锁更多<span class="simulation">模拟机</span>节点，并且购买<span class="simulation">模拟机</span>节点不再消耗<span class="simulation">模拟机</span>Byte
                 </button>
             </div>
 

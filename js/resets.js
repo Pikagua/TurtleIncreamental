@@ -198,6 +198,7 @@ function IterationReset() {
         challengefinished.BasicEnergyChallenge6 = 0;
     }
 
+    timerIteration = new Decimal(0);
     setAuto.SimulationCompleteAutoLast = new Decimal(0);
     maxsimulationDatainIteration = new Decimal(0);
     if (IterationStrengthen.Reset4.if) PowerOnLevel = new Decimal(0);

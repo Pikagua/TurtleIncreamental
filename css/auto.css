@@ -115,3 +115,12 @@
     top: 145%;
     transform: translate(-50%,-50%);
 }
+#IterationCompleteAuto {
+    font-size: 16px;
+    width: 200px;
+    height: 120px;
+    position: absolute;
+    left: 25%;
+    top: 185%;
+    transform: translate(-50%,-50%);
+}

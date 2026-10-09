@@ -290,7 +290,7 @@ const turEnergyOriginChallengeEl = document.querySelectorAll('.turEnergyOriginCh
 const introturEnergyOriginChallenge = document.getElementById('intro-turEnergyOriginChallenge');
 
 // 获取页面元素
-const disaplayturEnergyPersec = document.getElementById('disaplay-turEnergy-persec');
+const displayturEnergyPersec = document.getElementById('display-turEnergy-persec');
 const turEnergyCountBox = document.getElementById('turEnergy-count-box');
 const turEnergyLevelEl = document.getElementById('turEnergy-LevelUp-level');
 const turEnergyLevelUpCost = document.getElementById('turEnergy-LevelUp-cost');
@@ -747,6 +747,12 @@ const SimulationRoomAuto = document.getElementById('SimulationRoomAuto');
 const stateSimulationRoomAuto = document.getElementById('state-SimulationRoomAuto');
 const SimulationByteAuto = document.getElementById('SimulationByteAuto');
 const stateSimulationByteAuto = document.getElementById('state-SimulationByteAuto');
+const IterationCompleteAuto = document.getElementById('IterationCompleteAuto');
+const stateIterationCompleteAuto = document.getElementById('state-IterationCompleteAuto');
+const IterationCompleteAutoInput = document.getElementById('IterationCompleteAutoInput');
+const bugkillerIterationCompleteAuto = document.getElementById('bugkiller-IterationCompleteAuto');
+
+const displayIterationDataPermin = document.getElementById('display-IterationData-Permin');
 
 const IteratedTimesDisplay = document.getElementById('IteratedTimes-display');
 
@@ -780,6 +786,10 @@ const IterationStrengthenAuto3btn = document.getElementById('IterationStrengthen
 const IterationStrengthenProduce4btn = document.getElementById('IterationStrengthen-Produce4');
 const IterationStrengthenReset4btn = document.getElementById('IterationStrengthen-Reset4');
 const IterationStrengthenAuto4btn = document.getElementById('IterationStrengthen-Auto4');
+
+const IterationStrengthenExtra1btn = document.getElementById('IterationStrengthen-Extra1');
+const IterationStrengthenExtra2btn = document.getElementById('IterationStrengthen-Extra2');
+const IterationStrengthenExtra3btn = document.getElementById('IterationStrengthen-Extra3');
 
 const IterationInformationCount =  document.getElementById('IterationInformation-count');
 const displayIterationInformationpersec = document.getElementById('display-IterationInformation-persec');
