@@ -44,6 +44,7 @@ let timerSimulationCompleteAutoTime = new Decimal(0);
 let timerIterationCompleteAutoTime = new Decimal(0);
 let timerSimulation = new Decimal(0);
 let timerIteration = new Decimal(0);
+let timerAutoClicker = new Decimal(0);
 let IterationDataPermin = new Decimal(0);
 let maxIterationDataPermin = new Decimal(0);
 let maxIterationDataPerminPoint = new Decimal(0);
@@ -68,6 +69,7 @@ let effectEfficientClick = new Decimal(1);
 let HighspeedClickingLevel = new Decimal(0);
 let baseHighspeedclicking = new Decimal(2);
 let effectHighspeedClicking = new Decimal(1);
+let changeofHighspeedClicking = new Decimal(1);
 let turEnergyTier = new Decimal(0);
 let TierEnhanceLevel = new Decimal(0);
 let clickPower = new Decimal(0);
@@ -348,6 +350,7 @@ let challengeprogress = {
 let experimentprogress = {
     Simulation:""
 }
+let numchallengefinished = 0;
 let challengefinished = {
     turEnergyTierChallenge1:0,
     turEnergyTierChallenge2:0,
@@ -400,7 +403,8 @@ let challengebuffs = {
     BasicEnergyChallenge6:true,
 };
 let experimentbuffs = {
-    SimulationUpgrades:true,
+    SimulationUpgrades:true,// 该效果在v0.0.5.4版本中因为实验1的重做而被废除
+    SimulationExperiment1:true,
     SimulationExperiment2:true,
     SimulationExperiment3:true,
     SimulationExperiment4:true,
@@ -415,7 +419,7 @@ let challengereward = {
     baseofHighspeedclicking:0,
     delayScalingturEnergyLevelup:0,
     BuyMaxAutoClicker:false,
-    baseofEfficientClick:0,
+    baseofEfficientClick:new Decimal(0),
     turEnergyOrigin:false,
     ChallengeTimes:3,
     turEnergyOriginAmount:1,

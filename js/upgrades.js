@@ -1,9 +1,9 @@
 function turEnergyLevelup() {
     if (turEnergy.gte(PriceofturEnergyLevelup(turEnergyLevel))) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofturEnergyLevelup(turEnergyLevel));
+        if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
         turEnergyLevel = turEnergyLevel.plus(1);   
     }
-    if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
 }
 function PriceofturEnergyLevelup(num) {
     if (num.lt((new Decimal(300).plus(challengereward.delayScalingturEnergyLevelup).plus(effectSimulationMachine.αa5)))) {
@@ -33,9 +33,9 @@ function BuyMaxturEnergyLevelup() {
 function BuyautoClicker() {
     if (turEnergy.gte(PriceofBuyautoClicker(autoClickers)) ) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofBuyautoClicker(autoClickers)) ;
+        if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
         autoClickers = autoClickers.plus(1);
     }
-    if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
 }
 function PriceofBuyautoClicker(num) {
     if (num.lte(0)) return (new Decimal(60).mul(challengebuffs.turEnergyTierChallenge3Price).mul(effectSimulationExperiment6)).pow(effect2SimulationExperiment2);
@@ -64,9 +64,9 @@ function BuyMaxautoClicker() {
 function BuyEfficientClick() {
     if (turEnergy.gte(PriceofBuyEfficientClick(EfficientClickLevel)) ) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofBuyEfficientClick(EfficientClickLevel));
+        if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
         EfficientClickLevel = EfficientClickLevel.plus(1);
     }
-    if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
 }
 function PriceofBuyEfficientClick(num) {
     if (num.lte(0)) return (new Decimal(500).mul(challengebuffs.turEnergyTierChallenge3Price).mul(effectSimulationExperiment6)).pow(effect2SimulationExperiment2);
@@ -91,10 +91,9 @@ function BuyMaxEfficientClick() {
 function BuyHighspeedClicking() {
     if (turEnergy.gte(PriceofBuyHighspeedClicking(HighspeedClickingLevel) )) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofBuyHighspeedClicking(HighspeedClickingLevel));
+        if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
         HighspeedClickingLevel = HighspeedClickingLevel.plus(1);
-        restartAutoClicker();
     }
-    if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
 }
 function PriceofBuyHighspeedClicking(num) {
     if (num.lt(5)) {
@@ -118,7 +117,6 @@ function BuyMaxHighspeedClicking() {
     for (let i=HighspeedClickingLevel; PriceofBuyHighspeedClicking(i).lte(turEnergy); i = i.plus(1)) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofBuyHighspeedClicking(i));
         HighspeedClickingLevel = HighspeedClickingLevel.plus(1);
-        restartAutoClicker();
         if (i.gte(maxLevelup)) break;
     }
 }
@@ -157,9 +155,9 @@ function BuyMaxturEnergyTier() {
 function BuyTierEnhance() {
     if (turEnergy.gte(PriceofBuyTierEnhance(TierEnhanceLevel)) ) {
         if (IteratedTimes.lt(5)) turEnergy = turEnergy.sub(PriceofBuyTierEnhance(TierEnhanceLevel));
+        if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
         TierEnhanceLevel = TierEnhanceLevel.plus(1);
     }
-    if (!experimentbuffs.SimulationExperiment6) effectSimulationExperiment6 = effectSimulationExperiment6.mul(5);
 }
 function PriceofBuyTierEnhance(num) {
     if (num.plus(turEnergyTier).gte(42) && !experimentbuffs.SimulationExperiment4) return new Decimal("1e1e15");
@@ -203,7 +201,7 @@ function turEnergyOriginAmassFormula() {
 
 function BuyOriginAmassFasten() {
     if (turEnergyOrigin.gte(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel))) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(OriginAmassFastenLevel));
         OriginAmassFastenLevel = OriginAmassFastenLevel.plus(1);
     }
 }
@@ -212,7 +210,7 @@ function PriceofBuyOriginAmassFasten(num) {
 }
 function BuyMaxOriginAmassFasten() {
     for (let i=OriginAmassFastenLevel; PriceofBuyOriginAmassFasten(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(i));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginAmassFasten(i));
         OriginAmassFastenLevel = OriginAmassFastenLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -221,7 +219,7 @@ function BuyMaxOriginAmassFasten() {
 
 function BuyOriginProduceEnergy() {
     if (turEnergyOrigin.gte(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel))) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(OriginProduceEnergyLevel));
         OriginProduceEnergyLevel = OriginProduceEnergyLevel.plus(1);
     }
 }
@@ -230,7 +228,7 @@ function PriceofBuyOriginProduceEnergy(num) {
 }
 function BuyMaxOriginProduceEnergy() {
     for (let i=OriginProduceEnergyLevel; PriceofBuyOriginProduceEnergy(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(i));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginProduceEnergy(i));
         OriginProduceEnergyLevel = OriginProduceEnergyLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -239,7 +237,7 @@ function BuyMaxOriginProduceEnergy() {
 
 function BuyClickOrigin() {
     if (turEnergyOrigin.gte(PriceofBuyClickOrigin(ClickOriginLevel))) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(ClickOriginLevel));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(ClickOriginLevel));
         ClickOriginLevel = ClickOriginLevel.plus(1);
     }
 }
@@ -248,7 +246,7 @@ function PriceofBuyClickOrigin(num) {
 }
 function BuyMaxClickOrigin() {
     for (let i=ClickOriginLevel; PriceofBuyClickOrigin(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(i));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyClickOrigin(i));
         ClickOriginLevel = ClickOriginLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -257,7 +255,7 @@ function BuyMaxClickOrigin() {
 
 function BuyTierOrigin() {
     if (turEnergyOrigin.gte(PriceofBuyTierOrigin(TierOriginLevel))) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(TierOriginLevel));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(TierOriginLevel));
         TierOriginLevel = TierOriginLevel.plus(1);
     }
 }
@@ -267,7 +265,7 @@ function PriceofBuyTierOrigin(num) {
 }
 function BuyMaxTierOrigin() {
     for (let i=TierOriginLevel; PriceofBuyTierOrigin(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(i));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyTierOrigin(i));
         TierOriginLevel = TierOriginLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -276,7 +274,7 @@ function BuyMaxTierOrigin() {
 
 function BuyOriginEnhance() {
     if (turEnergyOrigin.gte(PriceofBuyOriginEnhance(OriginEnhanceLevel))) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(OriginEnhanceLevel));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(OriginEnhanceLevel));
         OriginEnhanceLevel = OriginEnhanceLevel.plus(1);
     }
 }
@@ -285,7 +283,7 @@ function PriceofBuyOriginEnhance(num) {
 }
 function BuyMaxOriginEnhance() {
     for (let i=OriginEnhanceLevel; PriceofBuyOriginEnhance(i).lte(turEnergyOrigin); i = i.plus(1)) {
-        if (IteratedTimes.gte(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(i));
+        if (IteratedTimes.lt(10)) turEnergyOrigin = turEnergyOrigin.sub(PriceofBuyOriginEnhance(i));
         OriginEnhanceLevel = OriginEnhanceLevel.plus(1);
         if (i.gte(maxLevelup)) break;
     }
@@ -1065,32 +1063,32 @@ function SimulationUpgradeselse1() {
     }
 }
 function SimulationUpgradesturEnergy2() {
-    if (simulationData.gte(2) && SimulationUpgrades.turEnergy1.if) {
-        simulationData = simulationData.sub(2);
+    if (simulationData.gte(1) && SimulationUpgrades.turEnergy1.if) {
+        simulationData = simulationData.sub(1);
         SimulationUpgrades.turEnergy2.if = true;
     }
 }
 function SimulationUpgradesturEnergyOrigin2() {
-    if (simulationData.gte(2) && SimulationUpgrades.turEnergyOrigin1.if) {
-        simulationData = simulationData.sub(2);
+    if (simulationData.gte(1) && SimulationUpgrades.turEnergyOrigin1.if) {
+        simulationData = simulationData.sub(1);
         SimulationUpgrades.turEnergyOrigin2.if = true;
     }
 }
 function SimulationUpgradeselse2() {
-    if (simulationData.gte(2) && SimulationUpgrades.else1.if) {
-        simulationData = simulationData.sub(2);
+    if (simulationData.gte(1) && SimulationUpgrades.else1.if) {
+        simulationData = simulationData.sub(1);
         SimulationUpgrades.else2.if = true;
     }
 }
 function SimulationUpgradesturEnergy3() {
-    if (simulationData.gte(3) && SimulationUpgrades.turEnergy2.if) {
-        simulationData = simulationData.sub(3);
+    if (simulationData.gte(2) && SimulationUpgrades.turEnergy2.if) {
+        simulationData = simulationData.sub(2);
         SimulationUpgrades.turEnergy3.if = true;
     }
 }
 function SimulationUpgradesturEnergyOrigin3() {
-    if (simulationData.gte(3) && SimulationUpgrades.turEnergyOrigin2.if) {
-        simulationData = simulationData.sub(3);
+    if (simulationData.gte(2) && SimulationUpgrades.turEnergyOrigin2.if) {
+        simulationData = simulationData.sub(2);
         SimulationUpgrades.turEnergyOrigin3.if = true;
     }
 }
@@ -1101,20 +1099,20 @@ function SimulationUpgradeselse3() {
     }
 }
 function SimulationUpgradesturEnergy4() {
-    if (simulationData.gte(5) && SimulationUpgrades.turEnergy3.if) {
-        simulationData = simulationData.sub(5);
+    if (simulationData.gte(3) && SimulationUpgrades.turEnergy3.if) {
+        simulationData = simulationData.sub(3);
         SimulationUpgrades.turEnergy4.if = true;
     }
 }
 function SimulationUpgradesturEnergyOrigin4() {
-    if (simulationData.gte(5) && SimulationUpgrades.turEnergyOrigin3.if) {
-        simulationData = simulationData.sub(5);
+    if (simulationData.gte(3) && SimulationUpgrades.turEnergyOrigin3.if) {
+        simulationData = simulationData.sub(3);
         SimulationUpgrades.turEnergyOrigin4.if = true;
     }
 }
 function SimulationUpgradeselse4() {
-    if (simulationData.gte(10) && SimulationUpgrades.else3.if) {
-        simulationData = simulationData.sub(10);
+    if (simulationData.gte(5) && SimulationUpgrades.else3.if) {
+        simulationData = simulationData.sub(5);
         SimulationUpgrades.else4.if = true;
     }
 }

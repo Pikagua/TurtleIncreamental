@@ -770,10 +770,10 @@ document.addEventListener('keydown', function(event) {
             if (confirm(`你输入了delete，确定要删除存档吗`)) {
                 defualtSet();
                 saveGame();
+                updateUI();
                 changetoturEnergyuptap();
                 changetoturEnergyLeveluptap();
                 giveupChallengeOrigin();
-                restartAutoClicker();
                 restartOriginProduce();
             }
             
@@ -815,7 +815,7 @@ document.addEventListener('keydown', function(event) {
                 localStorage.setItem("TurtleIncreamental", saveText);
                 load();
                 loadGame();
-                restartAutoClicker();
+                updateUI();
                 restartOriginProduce();
                 restartTimer();
                 restartAutoBuy();

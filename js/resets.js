@@ -31,22 +31,22 @@ function turEnergyOriginReset() {
     if (!(AmassOriginTimes.gte(50) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) TierEnhanceLevel = new Decimal(0);
     challengedoing.Tier = "";
     challengedoing.Origin = "";
-    if (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge1 = challengereward.ChallengeTimes;
+    if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge1 = challengereward.ChallengeTimes;
     else if (!(AmassOriginTimes.gte(2) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge1 = 0;
     else challengefinished.turEnergyTierChallenge1 = 3;
-    if (SimulationUpgrades.else2.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge2 = challengereward.ChallengeTimes;
+    if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge2 = challengereward.ChallengeTimes;
     else if (!(AmassOriginTimes.gte(4) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge2 = 0;
     else challengefinished.turEnergyTierChallenge2 = 3;
     if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge3 = challengereward.ChallengeTimes;
     else if (!(AmassOriginTimes.gte(6) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge3 = 0;
     else challengefinished.turEnergyTierChallenge3 = 3;
-    if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge4 = 1;
+    if (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge4 = 1;
     else if (!(AmassOriginTimes.gte(8) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge4 = 0;
     else challengefinished.turEnergyTierChallenge4 = 1;
-    if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge5 = 1;
+    if (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge5 = 1;
     else if (!(AmassOriginTimes.gte(10) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge5 = 0;
     else challengefinished.turEnergyTierChallenge5 = 1;
-    if (SimulationUpgrades.else3.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge6 = 1;
+    if (SimulationUpgrades.else1.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) challengefinished.turEnergyTierChallenge6 = 1;
     else if (!(AmassOriginTimes.gte(12) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) challengefinished.turEnergyTierChallenge6 = 0;
     else challengefinished.turEnergyTierChallenge6 = 1;
     restartAutoClicker();
@@ -152,12 +152,16 @@ function SimulationReset() {
         Origin:"",
         BasicEnergy:"",
     };
+    if (SimulationUpgrades.else2.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) {
+        challengefinished.turEnergyOriginChallenge5 = 1;
+    } else {
+        challengefinished.turEnergyOriginChallenge5 = 0;
+    }
     if (SimulationUpgrades.else4.if && experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) {
         challengefinished.turEnergyOriginChallenge1 = 2;
         challengefinished.turEnergyOriginChallenge2 = 2;
         challengefinished.turEnergyOriginChallenge3 = 1;
         challengefinished.turEnergyOriginChallenge4 = 1;
-        challengefinished.turEnergyOriginChallenge5 = 1;
         challengefinished.turEnergyOriginChallenge6 = 1;
         challengereward.ChallengeTimes = 5;
     } else {
@@ -165,7 +169,6 @@ function SimulationReset() {
         challengefinished.turEnergyOriginChallenge2 = 0;
         challengefinished.turEnergyOriginChallenge3 = 0;
         challengefinished.turEnergyOriginChallenge4 = 0;
-        challengefinished.turEnergyOriginChallenge5 = 0;
         challengefinished.turEnergyOriginChallenge6 = 0;
     }
     if (!IterationStrengthen.Reset1.if) {

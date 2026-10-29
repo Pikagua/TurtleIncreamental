@@ -1,4 +1,9 @@
 function pickWeighted(options) {
+    // if (!options || options.length === 0) return;        // 空/不存在，直接返回
+    // if (options.some(o => o.weight == null)) return;     // 只要有一项没 weight，直接返回
+    // 以上两行保护性代码在调试完成之后已不再需要
+    // console.log(options);
+
     const total = options.reduce((sum, o) => sum + o.weight, 0);
     let rand = Math.random() * total;
     for (const o of options) {
@@ -134,14 +139,14 @@ function tips() {
                 { text: `重新来过总是很无趣，对吗？`, weight: 1 },
                 { text: `高速点击大人……以及层级<span class="Origin">本源</span>大人`, weight: 1 },
                 { text: `需不需要我提醒你去做一些挑战？`, weight: 1 },
-                { text: `你可以去查看模拟外，那里有更值得我提醒的地方`, weight: 1 },
+                { text: `你可以去查看<span class="simulation">模拟</span>外，那里有更值得我提醒的地方`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
             newTipType = "phase15";
         } else if (experimentdoing.Simulation === "SimulationExperiment1" && IteratedTimes.eq(0)) {
             const options = [
-                { text: `你在<span class="simulation">模拟</span>实验1吗？我很抱歉……但是我们确实需要你带着足够的经验再来一遍的数据`, weight: 10000 },
-                { text: `我跟你讲一个故事吧……骗你的我根本不会`, weight: 10000 },
+                { text: `你在<span class="simulation">模拟</span>实验1吗？加速吧！`, weight: 10000 },
+                { text: `我跟你讲一个故事吧……骗你的我根本不会`, weight: 1000 },
                 { text: `<span class="important">乌龟</span>`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
@@ -197,7 +202,7 @@ function tips() {
             currentTip = pickWeighted(options);
             newTipType = "phase21";
         } else if (PowerOnLevel.eq(0) && IteratedTimes.eq(0)) {
-            const options = [,
+            const options = [
                 { text: `我曾经写在这里的tips太烂了，但我暂时想不到更好的`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
@@ -337,20 +342,20 @@ function tips() {
                 { text: `<span class="BasicEnergy">能源</span>膨胀能大大加速<span class="simulation">模拟</span>后期`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
-            newTipType = "phase8-sti";
+            newTipType = "phase9-sti";
         } else if (!(IterationStrengthen.Produce4.if && IterationStrengthen.Reset4.if && IterationStrengthen.Auto4.if)) {
             const options = [
                 { text: `<span class="Iteration">迭代</span>强化没有一个弱的！`, weight: 1 },
                 { text: `这12个<span class="Iteration">迭代</span>强化升级完了之后，你会解锁更多的<span class="Iteration">迭代</span>强化`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
-            newTipType = "phase9-sti";
+            newTipType = "phase10-sti";
         } else {
             const options = [
                 { text: `未完待续……`, weight: 1 },
             ]
             currentTip = pickWeighted(options);
-            newTipType = "phase10-sti";
+            newTipType = "phase11-sti";
         }
     }
     return currentTip;

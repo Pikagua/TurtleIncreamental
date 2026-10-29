@@ -503,7 +503,7 @@ function startSimulationExperiment6() {
     if (confirm(`有些设置在进行模拟的时候无法修改，并且放弃实验会强制结束这次模拟并且没有任何奖励，你确定吗？`)) {
         experimentGoaltype.Simulation = true;
         experimentbuffs.SimulationExperiment6 = false;
-        if (experimentfinished.SimulationExperiment6 === 0) experimentGoal.Simulation = new Decimal("1e600");
+        if (experimentfinished.SimulationExperiment6 === 0) experimentGoal.Simulation = new Decimal("1e200");
         startSimulationExperiment("SimulationExperiment6");
     }
 }

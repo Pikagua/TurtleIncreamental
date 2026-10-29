@@ -1,14 +1,14 @@
 .upgrades-scroll-box {
     position: absolute;
     top: 33.5%; /* 刚好在 taps 下面一点 */
-    max-height: 55%; /* 刚好在 h1 上面一点 */
+    max-height: 550%; /* 刚好在 h1 上面一点 */
     left: 50%;
     transform: translateX(-50%); /* 水平居中 */
 
     /* 核心滚动设置 */
     width: 100%; /* 宽度自适应，留点边距 */
     max-width: 8000px; /* 最大宽度，防止太宽 */
-    height: 60vh; /* 高度设为视窗高度的55%，这样下面还有空间 */
+    height: 55%; /* 高度设为视窗高度的55%，这样下面还有空间 */
     overflow-y: auto; /* 垂直方向超出就显示滚动条 */
     overflow-x: hidden; 
 

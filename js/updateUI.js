@@ -1,4 +1,33 @@
 function updateUI() {
+    //console.log(tips());
+    const DESIGN_W = 1528;
+    const DESIGN_H = 732;
+    const game = document.querySelector('.game');
+
+    function resize() {
+        const vw = document.documentElement.clientWidth;
+        const vh = document.documentElement.clientHeight;
+
+        const scale = Math.min(vw / DESIGN_W, vh / DESIGN_H);
+
+        // 缩放后画布的视觉尺寸
+        const scaledW = DESIGN_W * scale;
+        const scaledH = DESIGN_H * scale;
+
+        // 居中偏移
+        const offsetX = (vw - scaledW) / 2;
+        const offsetY = (vh - scaledH) / 2;
+
+        game.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+
+        const upgradesScrollBox = document.getElementById('upgradesScrollBox');
+        const ScrollBoxHeight = (vh - (vh - scaledH)/2 - (scaledH * 0.335) - 90) / (scaledH / DESIGN_H);
+        upgradesScrollBox.style.height = ScrollBoxHeight + 'px';
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
     // 结束模拟室等在模拟外不运作的东西
     if (state === "Simulation") {
         clearInterval(SimulationRoomProduceInterval);
@@ -44,7 +73,7 @@ function updateUI() {
     // 这段很重要，是龟能的计算公式
     baseHighspeedclicking = new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking).plus(effectOriginMilestone13);
     effectHighspeedClicking = baseHighspeedclicking.pow(HighspeedClickingLevel);
-    baseEfficientClick = new Decimal(1 + challengereward.baseofEfficientClick);
+    baseEfficientClick = new Decimal(challengereward.baseofEfficientClick.plus(1));
     effectEfficientClick = EfficientClickLevel.mul(baseEfficientClick).plus(1);
     if (challengereward.EfficientOriginProduce) effectEfficientOriginProduce = effectEfficientClick.mul(effectHighspeedClicking);
     else effectEfficientOriginProduce = new Decimal(1);
@@ -62,13 +91,13 @@ function updateUI() {
     else effectOriginMilestone7 = new Decimal(10);
     if ((AmassOriginTimes.lt(100) || IteratedTimes.gte(6)) || !challengebuffs.disabledOriginMilestone) effectOriginMilestone9 = new Decimal(1);
     else effectOriginMilestone9 = new Decimal(10);
-    if (AmassOriginTimes.lt(1e4) && IteratedTimes.gte(9)) effectOriginMilestone11 = new Decimal(0);
+    if (AmassOriginTimes.lt(1e4) || IteratedTimes.lt(9)) effectOriginMilestone11 = new Decimal(0);
     else effectOriginMilestone11 = new Decimal(2);
-    if (AmassOriginTimes.lt(1e6) && IteratedTimes.gte(10)) effectOriginMilestone12 = new Decimal(10);
+    if (AmassOriginTimes.lt(1e6) || IteratedTimes.lt(10)) effectOriginMilestone12 = new Decimal(10);
     else effectOriginMilestone12 = new Decimal(8);
-    if (AmassOriginTimes.lt(1e8) && IteratedTimes.gte(15)) effectOriginMilestone13 = new Decimal(0);
+    if (AmassOriginTimes.lt(1e8) || IteratedTimes.lt(15)) effectOriginMilestone13 = new Decimal(0);
     else effectOriginMilestone13 = new Decimal(0.2);
-    if (AmassOriginTimes.lt(1e10) && IteratedTimes.gte(20)) effectOriginMilestone14 = new Decimal(1);
+    if (AmassOriginTimes.lt(1e10) || IteratedTimes.lt(20)) effectOriginMilestone14 = new Decimal(1);
     else effectOriginMilestone14 = new Decimal(1.01).pow(EfficientClickLevel);
     if (challengebuffs.disabledOriginLevelup || challengebuffs.disabledOriginMilestone) effectClickOrigin = ((ten.pow(ClickOriginLevel)).pow(effectSimulationMachine.βa1));
     else effectClickOrigin = new Decimal(1);
@@ -109,8 +138,11 @@ function updateUI() {
     effectGravitationalPotentialEnergy = new Decimal(1).plus(new Decimal(2).mul(GravitationalPotentialEnergyLevel));
     effectFriction = new Decimal(4e-9).mul(FrictionLevel);
     degreeSimulationPower = new Decimal(7).plus(effectSimulationMachine.γa5);
-    effectSimulationUpgradesturEnergy3 = ten.mul(AmassOriginTimes).plus(1);
-    effectSimulationUpgradesturEnergy4 = new Decimal(10000).mul(simulatedTimes).plus(1);
+    numchallengefinished = challengefinished.turEnergyTierChallenge1 + challengefinished.turEnergyTierChallenge2 + challengefinished.turEnergyTierChallenge3 + challengefinished.turEnergyTierChallenge4 + challengefinished.turEnergyTierChallenge5 + challengefinished.turEnergyTierChallenge6
+                        + challengefinished.turEnergyOriginChallenge1 + challengefinished.turEnergyOriginChallenge2 + challengefinished.turEnergyOriginChallenge3 + challengefinished.turEnergyOriginChallenge4 + challengefinished.turEnergyOriginChallenge5 + challengefinished.turEnergyOriginChallenge6
+                        + challengefinished.BasicEnergyChallenge1 + challengefinished.BasicEnergyChallenge2 + challengefinished.BasicEnergyChallenge3 + challengefinished.BasicEnergyChallenge4 + challengefinished.BasicEnergyChallenge5 + challengefinished.BasicEnergyChallenge6;
+    effectSimulationUpgradesturEnergy3 = new Decimal(1.6).pow(numchallengefinished).plus(1);
+    effectSimulationUpgradesturEnergy4 = new Decimal(40000).mul(simulatedTimes).plus(1);
     if (SimulationUpgrades.turEnergy1.if) SimulationUpgrades.turEnergy1.num = new Decimal(250); else SimulationUpgrades.turEnergy1.num = new Decimal(1);
     if (SimulationUpgrades.turEnergy2.if && experimentbuffs.SimulationUpgrades && turEnergy.lt(new Decimal("1.80e308")) && experimentbuffs.SimulationUpgrades) SimulationUpgrades.turEnergy2.num = new Decimal(5e4); else SimulationUpgrades.turEnergy2.num = new Decimal(1);
     if (SimulationUpgrades.turEnergy3.if && experimentbuffs.SimulationUpgrades) SimulationUpgrades.turEnergy3.num = effectSimulationUpgradesturEnergy3; else SimulationUpgrades.turEnergy3.num = new Decimal(1);
@@ -185,12 +217,8 @@ function updateUI() {
     }
 
     // 1. 更新显示的数字
-    let autoClickerPersec = (autoClickers.mul(clickPower.mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1))).mul(Decimal.max(1,(((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking))).pow(HighspeedClickingLevel)))).mul(effectturEnergyTier).mul(challengebuffs.turEnergy).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βa2).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
-    let OriginProducePersec = new Decimal(0);
-    if (OriginProduceEnergyLevel.gt(0) && challengebuffs.disabledOriginLevelup) {
-        if (challengereward.EfficientOriginProduce) OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).mul(challengereward.turEnergy).mul((effectOriginEnhance.mul(turEnergyOrigin)).plus(1)).mul(EfficientClickLevel.mul(new Decimal(challengereward.baseofEfficientClick).plus(1)).plus(1)).mul((((new Decimal(2).sub(challengebuffs.baseofHighspeedclicking).plus(challengereward.baseofHighspeedclicking)))).pow(HighspeedClickingLevel)).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
-        else OriginProducePersec = (turEnergyOrigin.mul(new Decimal(1e16).mul(effectOriginProduce)).div(60).mul(challengereward.turEnergy).mul(new Decimal(1).plus(effectOriginEnhance.mul(turEnergyOrigin))).mul(effectClickOrigin).mul(effectturEnergyTier.pow(effectTierOrigin)).mul(effectOriginMilestone7).mul(effectturEnergyOriginChallenge6).mul(SimulationUpgrades.turEnergy1.num).mul(SimulationUpgrades.turEnergy2.num).mul(SimulationUpgrades.turEnergy3.num).mul(SimulationUpgrades.turEnergy4.num).mul(effectSimulationMachine.αa1).mul(effectSimulationMachine.αa2).mul(effectSimulationPower).mul(effectSimulationMachine.βb1).mul(effectSimulationMachine.βa4).mul(effectSimulationMachine.αa4).mul(effectturEnergyCatalysis).mul(challengebuffs.BasicEnergyChallenge4)).pow(challengebuffs.turEnergy2).pow(effect1SimulationExperiment2);
-    }
+    let autoClickerPersec = AutoClickerTurEnergyPersec;
+    let OriginProducePersec = OriginProduceTurEnergyPersec;
     if (OriginProducePersec.gt(0)) displayturEnergyPersec.innerHTML = `通过自动点击器每秒获得${formatNumber(autoClickerPersec)}<span class="turEnergy">龟能</span><br>通过<span class="Origin">本源</span>生能每秒获得${formatNumber(OriginProducePersec)}<span class="turEnergy">龟能</span>`;
     else if (autoClickerPersec.gt(0)) displayturEnergyPersec.innerHTML = `通过自动点击器每秒获得${formatNumber(autoClickerPersec)}<span class="turEnergy">龟能</span>`;
     else displayturEnergyPersec.innerHTML = ``;
@@ -614,8 +642,8 @@ function updateUI() {
 
     // 文本
     if (intro === "introSimulationExperiment4") textboxtext.innerHTML = `你获得的<span class="turEnergy">龟能</span><span class="Origin">本源</span>x0，禁用<span class="simulation">模拟</span>升级c2，<span class="turEnergy">龟能</span>层级与层级增强的等级的和不超过42（如超过42，则价格变为1e1e15）`;
-if (intro === "introSimulationExperiment5") textboxtext.innerHTML = `禁用<span class="simulation">模拟机</span>-α，禁用<span class="simulation">模拟</span>升级c2，d2，a3，b3，c3，d3，<span class="turEnergy">龟能</span>层级的效果^0.5，禁用高效点击，禁用<span class="turEnergy">龟能</span>层级挑战2，3，禁用<span class="turEnergy">龟能</span><span class="Origin">本源</span>里程碑7，但你会随在<span class="simulation">模拟</span>内的时间获得一个提升获得<span class="Origin">本源</span>的加成，当前效果：x${formatNumber(effect2SimulationExperiment5)}`;
-if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买一级<span class="turEnergy">龟能</span>升级，<span class="turEnergy">龟能</span>升级的价格全部x5（<span class="turEnergy">龟能</span>层级除外，你可以进行一次<span class="turEnergy">龟能</span><span class="Origin">本源</span>以重置这个效果，当前效果：x${formatNumber(effectSimulationExperiment6)}），禁用全部<span class="turEnergy">龟能</span>挑战`;
+    if (intro === "introSimulationExperiment5") textboxtext.innerHTML = `禁用<span class="simulation">模拟机</span>-α，禁用<span class="simulation">模拟</span>升级c2，d2，a3，b3，c3，d3，<span class="turEnergy">龟能</span>层级的效果^0.5，禁用高效点击，禁用<span class="turEnergy">龟能</span>层级挑战2，3，禁用<span class="turEnergy">龟能</span><span class="Origin">本源</span>里程碑7，但你会随在<span class="simulation">模拟</span>内的时间获得一个提升获得<span class="Origin">本源</span>的加成，当前效果：x${formatNumber(effect2SimulationExperiment5)}`;
+    if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买一级<span class="turEnergy">龟能</span>升级，<span class="turEnergy">龟能</span>升级的价格全部x5（<span class="turEnergy">龟能</span>层级除外，你可以进行一次<span class="turEnergy">龟能</span><span class="Origin">本源</span>以重置这个效果，当前效果：x${formatNumber(effectSimulationExperiment6)}），禁用全部<span class="turEnergy">龟能</span>挑战`;
 
     // 更新一个意义不明的失效模拟升级
     const priceSimulationUpgradesturEnergy1 = document.getElementById('price-of-SimulationUpgrades-turEnergy1');
@@ -631,17 +659,17 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     const priceSimulationUpgradeselse3 = document.getElementById('price-of-SimulationUpgrades-else3');
     const priceSimulationUpgradeselse4 = document.getElementById('price-of-SimulationUpgrades-else4');
     priceSimulationUpgradesturEnergy1.textContent = "1模拟数据";
-    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy2.textContent = "2模拟数据"; else priceSimulationUpgradesturEnergy2.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy3.textContent = "3模拟数据"; else priceSimulationUpgradesturEnergy3.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy4.textContent = "5模拟数据"; else priceSimulationUpgradesturEnergy4.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy2.textContent = "1模拟数据"; else priceSimulationUpgradesturEnergy2.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy3.textContent = "2模拟数据"; else priceSimulationUpgradesturEnergy3.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergy4.textContent = "3模拟数据"; else priceSimulationUpgradesturEnergy4.textContent = "被禁用";
     if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergyOrigin1.textContent = "1模拟数据"; else priceSimulationUpgradesturEnergyOrigin1.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergyOrigin2.textContent = "2模拟数据"; else priceSimulationUpgradesturEnergyOrigin2.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment4 && experimentbuffs.SimulationExperiment5) priceSimulationUpgradesturEnergyOrigin3.textContent = "3模拟数据"; else priceSimulationUpgradesturEnergyOrigin3.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradesturEnergyOrigin4.textContent = "5模拟数据"; else priceSimulationUpgradesturEnergyOrigin4.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades) priceSimulationUpgradesturEnergyOrigin2.textContent = "1模拟数据"; else priceSimulationUpgradesturEnergyOrigin2.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment4 && experimentbuffs.SimulationExperiment5) priceSimulationUpgradesturEnergyOrigin3.textContent = "2模拟数据"; else priceSimulationUpgradesturEnergyOrigin3.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradesturEnergyOrigin4.textContent = "3模拟数据"; else priceSimulationUpgradesturEnergyOrigin4.textContent = "被禁用";
     if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse1.textContent = "1模拟数据"; else priceSimulationUpgradeselse1.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse2.textContent = "2模拟数据"; else priceSimulationUpgradeselse2.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse2.textContent = "1模拟数据"; else priceSimulationUpgradeselse2.textContent = "被禁用";
     if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse3.textContent = "3模拟数据"; else priceSimulationUpgradeselse3.textContent = "被禁用";
-    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse4.textContent = "10模拟数据"; else priceSimulationUpgradeselse4.textContent = "被禁用";
+    if (experimentbuffs.SimulationUpgrades && experimentbuffs.SimulationExperiment5) priceSimulationUpgradeselse4.textContent = "5模拟数据"; else priceSimulationUpgradeselse4.textContent = "被禁用";
 
     // 3. 处理space
     if (space === "inSimulation") {
@@ -694,11 +722,22 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     } else challengePercent = new Decimal(0);
     if (!challengeGoaltype.Tier && !challengeGoaltype.Origin && !challengeGoaltype.BasicEnergy) {
         if (experimentGoaltype.Simulation) {
-            experimentPercent = Decimal.max(experimentPercent,Decimal.max(0,Decimal.min(new Decimal((((turEnergy.log10()).div(experimentGoal.Simulation.log10())).mul(100)).toFixed(2)),100)));
-            if (experimentPercent.eq(100) && !experimentGoal.Simulation.eq(0)) {
-                experimentprogress.Simulation = "finished";
+            if (experimentdoing.Simulation == "SimulationExperiment1") {
+                if (experimentPercent >= 100) giveupSimulationExperiment();
+                if (turEnergy.gte("1.8e308") && !experimentGoal.Simulation.eq(0)) {
+                    experimentprogress.Simulation = "finished";
+                }
+                else {
+                    experimentPercent = timerSimulation.div(0.3).toFixed(2);
+                    experimentprogress.Simulation = "";
+                }
+            } else {
+                experimentPercent = Decimal.max(experimentPercent,Decimal.max(0,Decimal.min(new Decimal((((turEnergy.log10()).div(experimentGoal.Simulation.log10())).mul(100)).toFixed(2)),100)));
+                if (experimentPercent.eq(100) && !experimentGoal.Simulation.eq(0)) {
+                    experimentprogress.Simulation = "finished";
+                }
+                else experimentprogress.Simulation = "";
             }
-            else experimentprogress.Simulation = "";
         } else experimentPercent = new Decimal(0);
     }
     if (challengeprogress.Tier === "finished" || (challengedoing.Tier === "" && challengeprogress.Origin === "finished") || (challengedoing.Tier === "" && challengeprogress.Origin === "" && challengeprogress.BasicEnergy === "finished")) {
@@ -996,8 +1035,10 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
         if (challengefinished.BasicEnergyChallenge6 === 1) challengebuffs.BasicEnergyChallenge6 = false;
         if (challengefinished.BasicEnergyChallenge6 === 2) challengebuffs.BasicEnergyChallenge6 = false;
     }
+    if (experimentfinished.SimulationExperiment1 === 0) experimentbuffs.SimulationUpgrades = true;// 防诈尸
     if (experimentdoing.Simulation === "SimulationExperiment1") {
-        if (experimentfinished.SimulationExperiment1 === 0) experimentbuffs.SimulationUpgrades = false;
+        // if (experimentfinished.SimulationExperiment1 === 0) experimentbuffs.SimulationUpgrades = false;已废弃
+        if (experimentfinished.SimulationExperiment1 === 0) experimentbuffs.SimulationExperiment1 = false;
     }
     if (experimentdoing.Simulation === "SimulationExperiment2") {
         if (experimentfinished.SimulationExperiment2 === 0) experimentbuffs.SimulationExperiment2 = false;
@@ -1161,10 +1202,10 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
         reward2turEnergyTierChallenge5.textContent = reward2;
         challengereward.baseofEfficientClick = reward1;
     }
-    if (challengefinished.turEnergyTierChallenge5 === 0) updateturEnergyTierChallenge5(0,160,0,turEnergyTier.div(2));
+    if (challengefinished.turEnergyTierChallenge5 === 0) updateturEnergyTierChallenge5(0,160,new Decimal(0),turEnergyTier.div(2));
     if (challengefinished.turEnergyTierChallenge5 === 1 || !experimentbuffs.SimulationExperiment6) {
         if (experimentbuffs.SimulationExperiment6) updateturEnergyTierChallenge5(challengefinished.turEnergyTierChallenge5,NaN,turEnergyTier.div(2),NaN);
-        else updateturEnergyTierChallenge5(challengefinished.turEnergyTierChallenge5,NaN,0,NaN)
+        else updateturEnergyTierChallenge5(challengefinished.turEnergyTierChallenge5,NaN,new Decimal(0),NaN)
         startturEnergyTierChallenge5btn.textContent = "已完成";
         startturEnergyTierChallenge5btn.disabled = true;
     } else startturEnergyTierChallenge5btn.disabled = false;
@@ -1484,7 +1525,7 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
         startSimulationExperiment6btn.innerHTML = `已在<span class="simulation">模拟</span>中`;
         startSimulationExperiment6btn.disabled = true;
     }
-    if (experimentfinished.SimulationExperiment6 === 0) updateSimulationExperiment6(0,"1e600",false);
+    if (experimentfinished.SimulationExperiment6 === 0) updateSimulationExperiment6(0,"1e200",false);
     if (experimentfinished.SimulationExperiment6 === 1) {
         updateSimulationExperiment6(1,NaN,true);
         startSimulationExperiment6btn.textContent = "已完成";
@@ -1772,10 +1813,10 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
     UnlockUpgrades(turEnergyLevel.gte(12) || everBasicEnergyChange, HighspeedClickingEl);
     UnlockUpgrades(turEnergyLevel.gte(60) || turEnergyTier.gt(0) || everBasicEnergyChange, turEnergyTierEl);
     UnlockUpgrades(turEnergyLevel.gte(100) || TierEnhanceLevel.gt(0) || everBasicEnergyChange, TierEnhanceEl);
-    UnlockUpgrades(AmassOriginTimes.gt(0) || IteratedTimes.gt(0), OriginAmassFastenEl);
-    UnlockUpgrades(AmassOriginTimes.gt(0) || IteratedTimes.gt(0), OriginProduceEnergyEl);
-    UnlockUpgrades(AmassOriginTimes.gt(0) || IteratedTimes.gt(0), ClickOriginEl);
-    UnlockUpgrades(AmassOriginTimes.gt(0) || IteratedTimes.gt(0), TierOriginEl);
+    UnlockUpgrades(true, OriginAmassFastenEl);
+    UnlockUpgrades(true, OriginProduceEnergyEl);
+    UnlockUpgrades(true, ClickOriginEl);
+    UnlockUpgrades(true, TierOriginEl);
     UnlockUpgrades(AmassOriginTimes.gte(2000) || IteratedTimes.gt(0), OriginEnhanceEl);
     UnlockUpgrades(true, EnergyMachineAEl);
     UnlockUpgrades(experimentreward.SimulationExperiment6, EnergyMachineBEl);
@@ -2059,5 +2100,9 @@ if (intro === "introSimulationExperiment6") textboxtext.innerHTML = `每购买�
         Changetips();
         remainTipType = newTipType;
     }
-    requestAnimationFrame(updateUI);
+}
+
+function updateUIs () {
+    updateUI();
+    requestAnimationFrame(updateUIs);
 }

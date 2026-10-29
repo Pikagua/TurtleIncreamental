@@ -166,7 +166,7 @@
 
 .increamentalSimulation {
     position: absolute;
-    top: 760px;
+    top: calc(15% + 700px);
 }
 
 .firstSimulationRoom {
@@ -347,15 +347,15 @@
 #SimulationUpgrades-turEnergy1 {top:15%;}
 #SimulationUpgrades-turEnergyOrigin1 {top:15%;}
 #SimulationUpgrades-else1 {top:15%;}
-#SimulationUpgrades-turEnergy2 {top:60%;}
-#SimulationUpgrades-turEnergyOrigin2 {top:60%;}
-#SimulationUpgrades-else2 {top:60%;}
-#SimulationUpgrades-turEnergy3 {top:105%;}
-#SimulationUpgrades-turEnergyOrigin3 {top:105%;}
-#SimulationUpgrades-else3 {top:105%;}
-#SimulationUpgrades-turEnergy4 {top:150%;}
-#SimulationUpgrades-turEnergyOrigin4 {top:150%;}
-#SimulationUpgrades-else4 {top:150%;}
+#SimulationUpgrades-turEnergy2 {top:calc(15% + 180px);}
+#SimulationUpgrades-turEnergyOrigin2 {top:calc(15% + 180px);}
+#SimulationUpgrades-else2 {top:calc(15% + 180px);}
+#SimulationUpgrades-turEnergy3 {top:calc(15% + 360px);}
+#SimulationUpgrades-turEnergyOrigin3 {top:calc(15% + 360px);}
+#SimulationUpgrades-else3 {top:calc(15% + 360px);}
+#SimulationUpgrades-turEnergy4 {top:calc(15% + 540px);}
+#SimulationUpgrades-turEnergyOrigin4 {top:calc(15% + 540px);}
+#SimulationUpgrades-else4 {top:calc(15% + 540px);}
 
 .SimulationMachine {
     font-size: 14px;
@@ -382,18 +382,18 @@
 .IterationStrengthen-Produce {left: 35%;}
 .IterationStrengthen-Reset {left: 50%;}
 .IterationStrengthen-Auto {left: 65%;}
-#IterationStrengthen-Produce1 {top:15%;}
-#IterationStrengthen-Reset1 {top:15%;}
-#IterationStrengthen-Auto1 {top:15%;}
-#IterationStrengthen-Produce2 {top:60%;}
-#IterationStrengthen-Reset2 {top:60%;}
-#IterationStrengthen-Auto2 {top:60%;}
-#IterationStrengthen-Produce3 {top:105%;}
-#IterationStrengthen-Reset3 {top:105%;}
-#IterationStrengthen-Auto3 {top:105%;}
-#IterationStrengthen-Produce4 {top:150%;}
-#IterationStrengthen-Reset4 {top:150%;}
-#IterationStrengthen-Auto4 {top:150%;}
+#SimulationUpgrades-turEnergy1 {top:15%;}
+#SimulationUpgrades-turEnergyOrigin1 {top:15%;}
+#SimulationUpgrades-else1 {top:15%;}
+#SimulationUpgrades-turEnergy2 {top:calc(15% + 180px);}
+#SimulationUpgrades-turEnergyOrigin2 {top:calc(15% + 180px);}
+#SimulationUpgrades-else2 {top:calc(15% + 180px);}
+#SimulationUpgrades-turEnergy3 {top:calc(15% + 360px);}
+#SimulationUpgrades-turEnergyOrigin3 {top:calc(15% + 360px);}
+#SimulationUpgrades-else3 {top:calc(15% + 360px);}
+#SimulationUpgrades-turEnergy4 {top:calc(15% + 540px);}
+#SimulationUpgrades-turEnergyOrigin4 {top:calc(15% + 540px);}
+#SimulationUpgrades-else4 {top:calc(15% + 540px);}
 
 .IterationStrengthen-Extra {
     font-size: 16px;
@@ -403,6 +403,6 @@
     transform: translateX(-50%);
 }
 .IterationStrengthen-Extra {left: 50%;}
-#IterationStrengthen-Extra1 {top: 195%;}
-#IterationStrengthen-Extra2 {top: 240%;}
-#IterationStrengthen-Extra3 {top: 285%;}
+#IterationStrengthen-Extra1 {top:calc(15% + 720px);}
+#IterationStrengthen-Extra2 {top:calc(15% + 900px);}
+#IterationStrengthen-Extra3 {top:calc(15% + 1080px);}

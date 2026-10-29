@@ -97,9 +97,12 @@ function restartAutoClicker() {
 
     // 创建新的定时器
     autoClickerInterval = setInterval(() => {
-        turEnergy = turEnergy.plus(AutoClickerTurEnergyPersec.mul(Decimal.max(new Decimal(1).div(effectHighspeedClicking),0.016)));
-        if (turEnergy.gte(maxturEnergy)) turEnergy = maxturEnergy;
-    }, Decimal.max(new Decimal(1000).div(effectHighspeedClicking),16) );
+        if (timerAutoClicker.gte(new Decimal(1).div(effectHighspeedClicking))) {
+            turEnergy = turEnergy.plus(AutoClickerTurEnergyPersec.mul(Decimal.max(new Decimal(1).div(effectHighspeedClicking),0.016)));
+            timerAutoClicker = new Decimal(0);
+            if (turEnergy.gte(maxturEnergy)) turEnergy = maxturEnergy;
+        }
+    }, 16 );
 }
 
 const autotipsChange = setInterval(() => {
@@ -313,10 +316,11 @@ function restartTimer() {
                 timerSimulationExperiment9 = new Decimal(0);
             }
         }
-        if (state === "inSimulation") timerSimulation = timerSimulation.plus(0.05);
-        timerIteration = timerIteration.plus(0.05);
-        timerBasicEnergyChangeAutoTime = timerBasicEnergyChangeAutoTime.plus(0.05);
-        timerSimulationCompleteAutoTime = timerSimulationCompleteAutoTime.plus(0.05);
-        timerIterationCompleteAutoTime = timerIterationCompleteAutoTime.plus(0.05);
-    }, 50);
+        if (state === "inSimulation") timerSimulation = timerSimulation.plus(0.016);
+        timerIteration = timerIteration.plus(0.016);
+        timerBasicEnergyChangeAutoTime = timerBasicEnergyChangeAutoTime.plus(0.016);
+        timerSimulationCompleteAutoTime = timerSimulationCompleteAutoTime.plus(0.016);
+        timerIterationCompleteAutoTime = timerIterationCompleteAutoTime.plus(0.016);
+        timerAutoClicker = timerAutoClicker.plus(0.016);
+    }, 16);
 }

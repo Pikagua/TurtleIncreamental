@@ -11,12 +11,33 @@ body {
     text-align: center;
     padding: 20px;
     background-color: #a3e590;
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game {
+    position: absolute;   /* ← 脱离文档流，不受居中影响 */
+    top: 0;
+    left: 0;
+    width: 1528px;
+    height: 732px;
+    transform-origin: 0 0;   /* ← 保证缩放从左上角开始 */
+    overflow: visible;
 }
 
 h1 {
     font-size: 15px;
     position: absolute;
-    top: 88%;
+    top: calc(100% - 87px);
     left: 50%;
     transform: translate(-50%, -50%);
     color: #333;

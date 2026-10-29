@@ -63,7 +63,7 @@ function completeSimulation() {
     if (simulatedTimes.eq(2)) Tellingtext.innerHTML = `……`;
     if (IteratedTimes.eq(0)) {
         fadeToBlack(async() => {
-            if (simulatedTimes.eq(0) && !IteratedTimes.eq(0)) {
+            if (simulatedTimes.eq(0) && IteratedTimes.eq(0)) {
                 await wait(2000);
                 Tellingtext.innerHTML = `好吧，也不是很好，因为<span class="simulation">模拟</span>显然进行不下去了`;
                 await wait(3000);
@@ -74,7 +74,7 @@ function completeSimulation() {
                 Tellingtext.innerHTML = `现在，继续吧`;
                 await wait(2000);
                 Tellingtext.innerHTML = `现在，<span class="simulation">继续</span>吧`;
-            } else if (simulatedTimes.eq(1) && !IteratedTimes.eq(0)) {
+            } else if (simulatedTimes.eq(1) && IteratedTimes.eq(0)) {
                 await wait(2000);
                 Tellingtext.innerHTML = `继续努力`;
             }
@@ -82,10 +82,8 @@ function completeSimulation() {
             state = "Simulation";
             simulationData = simulationData.plus(simulationDataCal());
             SimulationReset();
-            if (!Iterated) {
-                changetoSimulationuptap();
-                changetoSimulationUpgradestap();
-            }
+            changetoSimulationuptap();
+            changetoSimulationUpgradestap();
             simulatedTimes = simulatedTimes.plus(1);
             completeSimulationBtn.disabled = false;
             Tellingtext.classList.remove('active');

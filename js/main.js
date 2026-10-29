@@ -155,7 +155,7 @@ function load() {
     maxSimulationData = new Decimal("1.80e308");
 }
 load();
-updateUI();
+updateUIs();
 restartAutoClicker();
 restartOriginProduce();
 restartTimer();
